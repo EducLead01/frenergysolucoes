@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSun - Soluções em Energia Solar</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (CDN para arquivo único) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração de Cores e Fontes do Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            yellow: '#F5A623', // Amarelo/Laranja Solar
+                            green: '#27AE60',  // Verde Sustentabilidade
+                            dark: '#1C2833',   // Fundo Escuro
+                            light: '#F8F9F9'   // Fundo Claro
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- CSS Customizado para Animações -->
+    <style>
+        /* Classes base para as animações de scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+
+        /* Fundo com paralaxe suave e overlay para o Hero */
+        .hero-bg {
+            background-image: linear-gradient(rgba(28, 40, 51, 0.85), rgba(28, 40, 51, 0.7)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Efeito glassmorphism nos cards de destaque */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-brand-light">
+
+    <!-- ==========================================
+         DOBRA 1: HERO
+    =========================================== -->
+    <header id="hero" class="relative min-h-[90vh] flex items-center justify-center hero-bg text-white px-4 sm:px-6 lg:px-8 py-20">
+        <!-- Navegação Simples (Logo e botão) -->
+        <nav class="absolute top-0 left-0 w-full p-6 flex justify-between items-center max-w-7xl mx-auto right-0">
+            <div class="flex items-center gap-2 text-2xl font-bold text-brand-yellow">
+                <i class="fa-solid fa-solar-panel"></i> EcoSun
+            </div>
+            <a href="#contato" class="hidden md:inline-block border-2 border-brand-yellow text-brand-yellow hover:bg-brand-yellow hover:text-white px-6 py-2 rounded-full font-semibold transition-all duration-300">
+                Falar com Consultor
+            </a>
+        </nav>
+
+        <div class="max-w-5xl mx-auto text-center mt-12 z-10">
+            <div class="inline-block bg-brand-green text-white px-4 py-1 rounded-full text-sm font-semibold mb-6 reveal">
+                <i class="fa-solid fa-leaf mr-2"></i> Sustentabilidade e Economia
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight reveal delay-100">
+                Transforme a Luz do Sol em <span class="text-brand-yellow">Economia Real</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto reveal delay-200 font-light">
+                Liberte-se das altas tarifas da concessionária. Instale energia solar e comece a economizar dinheiro e ajudar o planeta desde o primeiro dia.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal delay-300">
+                <a href="#contato" class="w-full sm:w-auto bg-brand-yellow hover:bg-yellow-500 text-brand-dark px-8 py-4 rounded-full text-lg font-bold shadow-lg shadow-yellow-500/30 transition-all duration-300 transform hover:-translate-y-1">
+                    Solicitar Orçamento Grátis
+                </a>
+                <a href="#como-funciona" class="w-full sm:w-auto flex items-center justify-center gap-2 text-white hover:text-brand-yellow px-8 py-4 font-medium transition-colors">
+                    Entenda como funciona <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+
+            <!-- Destaque Numérico -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-center max-w-4xl mx-auto reveal delay-400">
+                <div class="glass-card p-4 rounded-xl">
+                    <div class="text-3xl font-bold text-brand-yellow mb-1"><span class="counter" data-target="95">0</span>%</div>
+                    <div class="text-sm text-gray-300">De economia na conta</div>
+                </div>
+                <div class="glass-card p-4 rounded-xl">
+                    <div class="text-3xl font-bold text-brand-yellow mb-1">+<span class="counter" data-target="1500">0</span></div>
+                    <div class="text-sm text-gray-300">Projetos instalados</div>
+                </div>
+                <div class="glass-card p-4 rounded-xl">
+                    <div class="text-3xl font-bold text-brand-yellow mb-1"><span class="counter" data-target="25">0</span> Anos</div>
+                    <div class="text-sm text-gray-300">De garantia de eficiência</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         DOBRA 2: PROBLEMA / DOR
+    =========================================== -->
+    <section id="problema" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">Você ainda está pagando caro demais na conta de luz?</h2>
+                <p class="text-gray-600 text-lg">Todos os anos os brasileiros sofrem com os mesmos problemas energéticos. Até quando você vai aceitar isso?</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card Dor 1 -->
+                <div class="bg-brand-light p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow duration-300 reveal delay-100">
+                    <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-money-bill-trend-up"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Conta Alta Todo Mês</h3>
+                    <p class="text-gray-600">Tarifas que não param de subir, pesando no seu orçamento familiar ou engolindo o lucro da sua empresa.</p>
+                </div>
+
+                <!-- Card Dor 2 -->
+                <div class="bg-brand-light p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow duration-300 reveal delay-200">
+                    <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-building-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Dependência da Concessionária</h3>
+                    <p class="text-gray-600">Ficar à mercê de apagões, bandeiras tarifárias vermelhas e taxas abusivas de distribuição.</p>
+                </div>
+
+                <!-- Card Dor 3 -->
+                <div class="bg-brand-light p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow duration-300 reveal delay-300">
+                    <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Inflação Energética</h3>
+                    <p class="text-gray-600">O custo da energia no Brasil sobe muito acima da inflação anual. Seu dinheiro perde valor a cada mês.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 reveal delay-400">
+                <p class="text-xl font-semibold text-brand-green flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-check"></i> Existe um caminho definitivo para acabar com isso.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         DOBRA 3: SOLUÇÃO / SERVIÇOS
+    =========================================== -->
+    <section id="servicos" class="py-20 bg-brand-light border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-brand-green font-bold tracking-wider uppercase text-sm mb-2 block">Nossas Soluções</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">O sistema ideal para cada necessidade</h2>
+                <p class="text-gray-600 text-lg">Projetos personalizados que garantem a máxima eficiência e o menor tempo de retorno do seu investimento.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Serviço 1: Residencial -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 reveal delay-100">
+                    <div class="h-48 bg-gray-300 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=2058&auto=format&fit=crop" alt="Energia Solar Residencial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <i class="fa-solid fa-house-chimney text-3xl mb-2 text-brand-yellow"></i>
+                            <h3 class="text-xl font-bold">Residencial</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Proteja sua família dos aumentos abusivos. Produza sua própria energia, valorize seu imóvel em até 6% e viva com mais conforto ligando o ar-condicionado sem medo.</p>
+                        <ul class="text-sm text-gray-500 space-y-2">
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i>Instalação em até 48h</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i>Financiamento que cabe na parcela da conta</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Serviço 2: Comercial -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 reveal delay-200">
+                    <div class="h-48 bg-gray-300 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?q=80&w=2079&auto=format&fit=crop" alt="Energia Solar Comercial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <i class="fa-solid fa-store text-3xl mb-2 text-brand-yellow"></i>
+                            <h3 class="text-xl font-bold">Comercial</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Aumente a lucratividade e competitividade do seu negócio cortando um dos seus maiores custos fixos. Marketing verde para sua marca.</p>
+                        <ul class="text-sm text-gray-500 space-y-2">
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i>Projetos para comércios e galpões</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i>Payback médio de 3 a 4 anos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Serviço 3: Rural -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 reveal delay-300">
+                    <div class="h-48 bg-gray-300 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=2080&auto=format&fit=crop" alt="Energia Solar Rural e Industrial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <i class="fa-solid fa-tractor text-3xl mb-2 text-brand-yellow"></i>
+                            <h3 class="text-xl font-bold">Rural & Industrial</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Sistemas de alta potência para agronegócio e indústrias. Garanta o funcionamento de maquinários pesados e irrigação com energia limpa.</p>
+                        <ul class="text-sm text-gray-500 space-y-2">
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i>Estruturas robustas e usinas de solo</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i>Linhas de crédito exclusivas (Pronaf)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         DOBRA 4: COMO FUNCIONA
+    =========================================== -->
+    <section id="como-funciona" class="py-20 bg-brand-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Como Funciona: O Caminho para sua Economia</h2>
+                <p class="text-gray-400 text-lg">Um processo simples, transparente e sem dor de cabeça, conduzido de ponta a ponta por nossos especialistas.</p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative">
+                <!-- Linha conectora oculta no mobile -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-700 -translate-y-1/2 z-0"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                    <!-- Passo 1 -->
+                    <div class="bg-gray-800 md:bg-transparent p-6 rounded-xl text-center reveal delay-100">
+                        <div class="w-20 h-20 mx-auto bg-brand-dark border-4 border-brand-yellow rounded-full flex items-center justify-center text-3xl text-brand-yellow font-bold mb-6 shadow-[0_0_15px_rgba(245,166,35,0.5)]">
+                            1
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Diagnóstico</h3>
+                        <p class="text-gray-400 text-sm">Avaliamos sua conta de luz, o espaço disponível no telhado e apresentamos a estimativa de economia.</p>
+                    </div>
+
+                    <!-- Passo 2 -->
+                    <div class="bg-gray-800 md:bg-transparent p-6 rounded-xl text-center reveal delay-200">
+                        <div class="w-20 h-20 mx-auto bg-brand-dark border-4 border-brand-yellow rounded-full flex items-center justify-center text-3xl text-brand-yellow font-bold mb-6 shadow-[0_0_15px_rgba(245,166,35,0.5)]">
+                            2
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Projeto e Aprovação</h3>
+                        <p class="text-gray-400 text-sm">Nossa engenharia desenha o sistema ideal e nós cuidamos de toda a burocracia com a concessionária.</p>
+                    </div>
+
+                    <!-- Passo 3 -->
+                    <div class="bg-gray-800 md:bg-transparent p-6 rounded-xl text-center reveal delay-300">
+                        <div class="w-20 h-20 mx-auto bg-brand-dark border-4 border-brand-yellow rounded-full flex items-center justify-center text-3xl text-brand-yellow font-bold mb-6 shadow-[0_0_15px_rgba(245,166,35,0.5)]">
+                            3
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Instalação Rápida</h3>
+                        <p class="text-gray-400 text-sm">Equipe técnica certificada realiza a instalação de forma segura, limpa e rápida (geralmente em 1 a 2 dias).</p>
+                    </div>
+
+                    <!-- Passo 4 -->
+                    <div class="bg-gray-800 md:bg-transparent p-6 rounded-xl text-center reveal delay-400">
+                        <div class="w-20 h-20 mx-auto bg-brand-green border-4 border-brand-green rounded-full flex items-center justify-center text-3xl text-white font-bold mb-6 shadow-[0_0_15px_rgba(39,174,96,0.5)]">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-brand-green">Economia Imediata</h3>
+                        <p class="text-gray-400 text-sm">Sistema ativado! Você já começa a gerar sua energia e ver o valor da sua conta despencar no próximo mês.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         DOBRA 5: PROVA SOCIAL
+    =========================================== -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">Quem já gera a própria energia comprova</h2>
+                <p class="text-gray-600 text-lg">Veja o que dizem os clientes que escolheram a EcoSun para zerar suas contas.</p>
+            </div>
+
+            <!-- Depoimentos -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Depoimento 1 -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm relative reveal delay-100">
+                    <div class="text-brand-yellow text-4xl absolute top-4 right-6 opacity-20"><i class="fa-solid fa-quote-right"></i></div>
+                    <div class="flex items-center gap-1 text-brand-yellow mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"A melhor decisão que tomei para minha casa. Minha conta baixou de R$ 850 para R$ 60,00 (só a taxa mínima). O atendimento da equipe foi impecável desde o primeiro contato."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="João Silva" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-brand-dark">João Silva</h4>
+                            <p class="text-sm text-brand-green font-semibold">Economizou 93% (Residência)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm relative reveal delay-200">
+                    <div class="text-brand-yellow text-4xl absolute top-4 right-6 opacity-20"><i class="fa-solid fa-quote-right"></i></div>
+                    <div class="flex items-center gap-1 text-brand-yellow mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Como dona de padaria, a conta de luz era o meu maior vilão. O sistema comercial da EcoSun se pagou em 3 anos e agora o que sobra invisto no crescimento da minha empresa."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop" alt="Maria Oliveira" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-brand-dark">Maria Oliveira</h4>
+                            <p class="text-sm text-brand-green font-semibold">Economizou 90% (Comércio)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm relative reveal delay-300">
+                    <div class="text-brand-yellow text-4xl absolute top-4 right-6 opacity-20"><i class="fa-solid fa-quote-right"></i></div>
+                    <div class="flex items-center gap-1 text-brand-yellow mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Instalação extremamente rápida e limpa. Explicaram tudo sobre o aplicativo onde acompanho a geração pelo celular. Recomendo para todo mundo da família."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&auto=format&fit=crop" alt="Carlos Mendes" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-brand-dark">Carlos Mendes</h4>
+                            <p class="text-sm text-brand-green font-semibold">Economizou 95% (Fazenda)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificações e Parceiros (Mockup) -->
+            <div class="border-t border-gray-100 pt-10 text-center reveal">
+                <p class="text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">Equipamentos Homologados e Certificados por:</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="text-2xl font-black text-gray-800">ANEEL<span class="text-brand-yellow text-4xl">.</span></div>
+                    <div class="text-2xl font-black text-gray-800">INMETRO</div>
+                    <div class="text-2xl font-black text-gray-800 border-2 border-gray-800 px-2">ABSOLAR</div>
+                    <div class="text-2xl font-bold italic text-gray-800">WEG Integrador</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         DOBRA 6: CTA FINAL / FORMULÁRIO + FOOTER
+    =========================================== -->
+    <section id="contato" class="relative py-20 bg-brand-yellow overflow-hidden">
+        <!-- Detalhe decorativo de fundo -->
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-white opacity-10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-brand-green opacity-20 rounded-full blur-3xl"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+                
+                <!-- Info CTA -->
+                <div class="w-full md:w-5/12 bg-brand-dark text-white p-10 md:p-12 flex flex-col justify-center reveal">
+                    <h2 class="text-3xl font-bold mb-4 leading-tight">Dê o primeiro passo para sua independência energética!</h2>
+                    <p class="text-gray-300 mb-8">Preencha o formulário e receba um estudo de viabilidade financeiro totalmente <strong>gratuito e sem compromisso</strong>.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-4 text-gray-300">
+                            <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-brand-yellow">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm">Atendimento Rápido</p>
+                                <p class="font-bold text-white">(11) 99999-9999</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 text-gray-300">
+                            <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-brand-yellow">
+                                <i class="fa-solid fa-envelope text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm">Email Comercial</p>
+                                <p class="font-bold text-white">orcamento@ecosun.com.br</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário -->
+                <div class="w-full md:w-7/12 p-10 md:p-12 reveal delay-200">
+                    <h3 class="text-2xl font-bold text-brand-dark mb-6">Solicite seu Orçamento</h3>
+                    
+                    <form id="leadForm" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="nome" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                                <input type="text" id="nome" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-yellow focus:border-brand-yellow outline-none transition-colors" placeholder="Seu nome">
+                            </div>
+                            <div>
+                                <label for="telefone" class="block text-sm font-medium text-gray-700 mb-1">WhatsApp</label>
+                                <input type="tel" id="telefone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-yellow focus:border-brand-yellow outline-none transition-colors" placeholder="(00) 00000-0000">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-yellow focus:border-brand-yellow outline-none transition-colors" placeholder="seu@email.com">
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="tipo_imovel" class="block text-sm font-medium text-gray-700 mb-1">Tipo de Imóvel</label>
+                                <select id="tipo_imovel" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-yellow focus:border-brand-yellow outline-none transition-colors bg-white">
+                                    <option value="">Selecione...</option>
+                                    <option value="residencial">Residencial</option>
+                                    <option value="comercial">Comercial</option>
+                                    <option value="rural">Rural / Industrial</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="valor_conta" class="block text-sm font-medium text-gray-700 mb-1">Valor Médio da Conta</label>
+                                <select id="valor_conta" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-yellow focus:border-brand-yellow outline-none transition-colors bg-white">
+                                    <option value="">Selecione...</option>
+                                    <option value="Ate 300">Até R$ 300</option>
+                                    <option value="301 a 600">R$ 301 a R$ 600</option>
+                                    <option value="601 a 1000">R$ 601 a R$ 1000</option>
+                                    <option value="Mais de 1000">Acima de R$ 1000</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full mt-6 bg-brand-green hover:bg-green-600 text-white font-bold py-4 rounded-lg text-lg transition-colors shadow-lg shadow-green-500/30 flex justify-center items-center gap-2">
+                            Quero meu Estudo Grátis <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                        
+                        <div id="formSuccess" class="hidden mt-4 p-4 bg-green-50 text-green-700 border border-green-200 rounded-lg text-center font-medium">
+                            <i class="fa-solid fa-circle-check mr-2"></i> Solicitação enviada com sucesso! Nossa equipe entrará em contato em breve.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-brand-dark text-gray-400 py-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 text-2xl font-bold text-brand-yellow">
+                <i class="fa-solid fa-solar-panel"></i> EcoSun
+            </div>
+            
+            <div class="text-sm text-center md:text-left">
+                <p>&copy; 2024 EcoSun Energia Solar Ltda. Todos os direitos reservados.</p>
+                <p class="mt-1">CNPJ: 00.000.000/0001-00 | Av. das Energias Renováveis, 1000 - São Paulo/SP</p>
+            </div>
+
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark transition-colors">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark transition-colors">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark transition-colors">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Intersect Observer para Animações Reveal (Fade-up)
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    
+                    // Se for os contadores, inicia a animação de números
+                    if (entry.target.querySelector('.counter')) {
+                        startCounters(entry.target);
+                    }
+                    
+                    observer.unobserve(entry.target);
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => revealOnScroll.observe(el));
+
+            // 2. Lógica de Animação Numérica (Contadores)
+            let countersStarted = false;
+            function startCounters(parentEl) {
+                const counters = parentEl.querySelectorAll('.counter');
+                
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000; // 2 segundos
+                    const increment = target / (duration / 16); // 60fps aprox
+                    
+                    let current = 0;
+                    
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.innerText = Math.ceil(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    
+                    updateCounter();
+                });
+            }
+
+            // 3. Validação Básica e Feedback do Formulário
+            const form = document.getElementById('leadForm');
+            const successMsg = document.getElementById('formSuccess');
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Simula envio e loading state
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+
+                setTimeout(() => {
+                    successMsg.classList.remove('hidden');
+                    form.reset();
+                    
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+                    
+                    // Esconde a mensagem após alguns segundos
+                    setTimeout(() => {
+                        successMsg.classList.add('hidden');
+                    }, 5000);
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
