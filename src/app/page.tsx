@@ -1,9 +1,27 @@
+import { Navbar } from "@/components/Navbar";
+import { HeroSlider } from "@/components/HeroSlider";
+import { ProductsSection } from "@/components/ProductsSection";
+import { NumbersSection } from "@/components/NumbersSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { ClientsSection } from "@/components/ClientsSection";
+import { BCCastSection } from "@/components/BCCastSection";
+import { Footer } from "@/components/Footer";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <p className="text-muted-foreground">
-        Clone target not yet built. Run <code className="font-mono text-foreground">/clone-website</code> to start.
-      </p>
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <HeroSlider />
+        <ProductsSection />
+        <NumbersSection />
+        <TestimonialsSection />
+        <ClientsSection />
+        <BCCastSection />
+      </main>
+      <Footer />
+      <WhatsAppFloat />
+    </>
   );
 }
