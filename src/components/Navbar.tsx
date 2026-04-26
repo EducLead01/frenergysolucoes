@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const navLinks = [
-  { label: "PRODUTOS", href: "/produtos" },
-  { label: "SEGMENTOS", href: "#" },
-  { label: "SOBRE NÓS", href: "#" },
-  { label: "CONTEÚDO", href: "#" },
-  { label: "CONTATO", href: "#" },
+  { label: "SERVIÇOS", href: "#servicos" },
+  { label: "COMO FUNCIONA", href: "#como-funciona" },
+  { label: "CALCULADORA", href: "#calculadora" },
+  { label: "DEPOIMENTOS", href: "#depoimentos" },
+  { label: "CONTATO", href: "#contato" },
 ];
 
 export function Navbar() {
@@ -34,11 +34,11 @@ export function Navbar() {
         {/* Logo */}
         <a href="/">
           <Image
-            src="/Logo-BC-Energia-Vertical-Branco.svg"
-            alt="BC Energia"
-            width={93}
-            height={53}
-            className="w-20 lg:w-[5.8rem]"
+            src="/frenergy-logo.svg"
+            alt="Frenergy Soluções"
+            width={120}
+            height={60}
+            className="w-24 lg:w-32"
             priority
           />
         </a>
