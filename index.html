@@ -6,7 +6,7 @@
     <title>EcoSun - Soluções em Energia Solar</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="Frenergy Logo.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
 
     <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,40 +41,7 @@
     </script>
 
     <!-- CSS Customizado para Animações -->
-    <style>
-        /* Classes base para as animações de scroll */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-        
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .delay-100 { transition-delay: 100ms; }
-        .delay-200 { transition-delay: 200ms; }
-        .delay-300 { transition-delay: 300ms; }
-        .delay-400 { transition-delay: 400ms; }
-
-        /* Fundo com paralaxe suave e overlay para o Hero */
-        .hero-bg {
-            background-image: linear-gradient(rgba(28, 40, 51, 0.85), rgba(28, 40, 51, 0.7)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        /* Efeito glassmorphism nos cards de destaque */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="font-sans text-gray-800 antialiased bg-brand-light">
 
@@ -499,91 +466,6 @@
         </div>
     </footer>
 
-    <!-- ==========================================
-         JAVASCRIPT
-    =========================================== -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // 1. Intersect Observer para Animações Reveal (Fade-up)
-            const revealElements = document.querySelectorAll('.reveal');
-            
-            const revealOptions = {
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px"
-            };
-
-            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('active');
-                    
-                    // Se for os contadores, inicia a animação de números
-                    if (entry.target.querySelector('.counter')) {
-                        startCounters(entry.target);
-                    }
-                    
-                    observer.unobserve(entry.target);
-                });
-            }, revealOptions);
-
-            revealElements.forEach(el => revealOnScroll.observe(el));
-
-            // 2. Lógica de Animação Numérica (Contadores)
-            let countersStarted = false;
-            function startCounters(parentEl) {
-                const counters = parentEl.querySelectorAll('.counter');
-                
-                counters.forEach(counter => {
-                    const target = +counter.getAttribute('data-target');
-                    const duration = 2000; // 2 segundos
-                    const increment = target / (duration / 16); // 60fps aprox
-                    
-                    let current = 0;
-                    
-                    const updateCounter = () => {
-                        current += increment;
-                        if (current < target) {
-                            counter.innerText = Math.ceil(current);
-                            requestAnimationFrame(updateCounter);
-                        } else {
-                            counter.innerText = target;
-                        }
-                    };
-                    
-                    updateCounter();
-                });
-            }
-
-            // 3. Validação Básica e Feedback do Formulário
-            const form = document.getElementById('leadForm');
-            const successMsg = document.getElementById('formSuccess');
-            const submitBtn = form.querySelector('button[type="submit"]');
-
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                // Simula envio e loading state
-                const originalBtnText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
-                submitBtn.disabled = true;
-                submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
-
-                setTimeout(() => {
-                    successMsg.classList.remove('hidden');
-                    form.reset();
-                    
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
-                    
-                    // Esconde a mensagem após alguns segundos
-                    setTimeout(() => {
-                        successMsg.classList.add('hidden');
-                    }, 5000);
-                }, 1500);
-            });
-        });
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
