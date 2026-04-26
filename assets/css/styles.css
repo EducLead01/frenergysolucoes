@@ -27,3 +27,40 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+/* Calculadora: slider customizado */
+.calc-slider {
+    background: linear-gradient(to right, #F5A623 5%, #e5e7eb 5%);
+}
+
+.calc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #F5A623;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 2px 10px rgba(245, 166, 35, 0.6);
+}
+
+.calc-slider::-moz-range-thumb {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #F5A623;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 2px 10px rgba(245, 166, 35, 0.6);
+}
+
+/* Remove spinner do input numérico da calculadora */
+#calc-input::-webkit-outer-spin-button,
+#calc-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#calc-input[type=number] {
+    -moz-appearance: textfield;
+}
