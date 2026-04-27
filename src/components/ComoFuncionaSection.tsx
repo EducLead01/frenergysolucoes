@@ -57,10 +57,6 @@ export function ComoFuncionaSection() {
                 <div className="w-20 h-20 rounded-full bg-teal-800 flex flex-col items-center justify-center mb-5 shadow-lg">
                   <Icon className="w-7 h-7 text-[#F5A623]" />
                 </div>
-                {/* Step number badge */}
-                <span className="text-xs font-bold text-[#F5A623] uppercase tracking-widest mb-1">
-                  Passo {step.num}
-                </span>
                 <h3 className="text-base font-bold text-teal-800 mb-2">{step.title}</h3>
                 <p className="text-gray-500 text-xs leading-relaxed">{step.desc}</p>
               </div>
@@ -78,9 +74,6 @@ export function ComoFuncionaSection() {
                   <Icon className="w-6 h-6 text-[#F5A623]" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-[#F5A623] uppercase tracking-widest">
-                    Passo {step.num}
-                  </span>
                   <h3 className="text-base font-bold text-teal-800 mb-1">{step.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
                 </div>
