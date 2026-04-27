@@ -39,13 +39,9 @@ export function ComoFuncionaSection() {
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-sm uppercase tracking-widest text-teal-800 mb-2">Processo</p>
           <h2 className="text-4xl font-bold text-teal-800 uppercase mb-4">
-            Como Funciona
+            Um processo simples, transparente e sem burocracia
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
-            Um processo simples, transparente e sem burocracia — conduzido de ponta a ponta pelos nossos especialistas.
-          </p>
         </div>
 
         {/* Desktop: horizontal timeline */}
@@ -53,7 +49,7 @@ export function ComoFuncionaSection() {
           {/* Connecting line */}
           <div className="absolute top-10 left-0 right-0 h-0.5 bg-gray-200 z-0" />
 
-          {steps.map((step, i) => {
+          {steps.map((step) => {
             const Icon = step.icon;
             return (
               <div key={step.num} className="relative z-10 flex flex-col items-center text-center w-1/5 px-3">
