@@ -14,7 +14,7 @@ export function CalculadoraSection() {
   const monthly = bill * savingsRate;
   const annual = monthly * 12;
   const pct = ((bill - 100) / (5000 - 100)) * 100;
-  const sliderBg = `linear-gradient(to right, #F5A623 ${pct}%, #e5e7eb ${pct}%)`;
+  const sliderBg = `linear-gradient(to right, #FF5144 ${pct}%, #e5e7eb ${pct}%)`;
 
   return (
     <section id="calculadora" className="py-24 bg-gray-50">

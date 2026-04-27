@@ -123,26 +123,26 @@
 .fr-slider {
   -webkit-appearance: none;
   appearance: none;
-  background: linear-gradient(to right, #F5A623 5%, #e5e7eb 5%);
+  background: linear-gradient(to right, #FF5144 5%, #e5e7eb 5%);
 }
 .fr-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #F5A623;
+  background: #FF5144;
   cursor: pointer;
   border: 3px solid white;
-  box-shadow: 0 2px 10px rgba(245,166,35,0.6);
+  box-shadow: 0 2px 10px rgba(255,81,68,0.6);
 }
 .fr-slider::-moz-range-thumb {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #F5A623;
+  background: #FF5144;
   cursor: pointer;
   border: 3px solid white;
-  box-shadow: 0 2px 10px rgba(245,166,35,0.6);
+  box-shadow: 0 2px 10px rgba(255,81,68,0.6);
 }
 #fr-calc-input::-webkit-outer-spin-button,
 #fr-calc-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
