@@ -100,10 +100,6 @@ export function CalculadoraSection() {
           <p className="text-5xl font-extrabold text-teal-800 mb-2">
             {fmt(annual)}
           </p>
-          <p className="text-sm text-gray-400 mb-2">
-            Economia mensal estimada: <strong className="text-[#F5A623]">{fmt(monthly)}</strong>
-          </p>
-
           {/* Disclaimer */}
           <p className="text-xs text-gray-400 mb-8">
             Simulação baseada em 90% de economia solar. O valor real pode sofrer alterações conforme o projeto.
@@ -112,9 +108,14 @@ export function CalculadoraSection() {
           {/* CTA */}
           <a
             href="#contato"
-            className="inline-flex items-center justify-center gap-2 w-full bg-teal-800 hover:bg-teal-700 text-white font-bold py-4 rounded-xl text-lg transition-colors shadow-md"
+            className="inline-flex flex-col items-center justify-center gap-1 w-full bg-teal-800 hover:bg-teal-700 text-white font-bold py-4 rounded-xl text-lg transition-colors shadow-md"
           >
-            Solicitar orçamento grátis <ArrowRight className="w-5 h-5" />
+            <span className="flex items-center gap-2">
+              Solicitar orçamento grátis <ArrowRight className="w-5 h-5" />
+            </span>
+            <span className="text-xs font-normal text-teal-200">
+              Economia mensal estimada: <strong className="text-white">{fmt(monthly)}</strong>
+            </span>
           </a>
         </div>
       </div>
