@@ -1,69 +1,96 @@
-import { Sun, Cpu, Zap, CreditCard } from "lucide-react";
+import { MessageCircle, ClipboardList, Wrench, Zap, TrendingDown } from "lucide-react";
 
 const steps = [
   {
     num: 1,
-    icon: Sun,
-    title: "Painéis Solares",
-    desc: "Realizam a captação da luz solar e convertem em energia de corrente contínua.",
+    icon: MessageCircle,
+    title: "Atendimento",
+    desc: "Entre em contato por telefone, WhatsApp ou formulário. Nossa equipe responde rapidamente.",
   },
   {
     num: 2,
-    icon: Cpu,
-    title: "Inversor",
-    desc: "Realiza a conversão da corrente contínua para corrente alternada.",
+    icon: ClipboardList,
+    title: "Visita Técnica",
+    desc: "Um especialista visita o local para avaliar o espaço e dimensionar o sistema ideal para você.",
   },
   {
     num: 3,
-    icon: Zap,
-    title: "Abastecimento",
-    desc: "A energia gerada vai para o quadro de luz e é distribuída para ser consumida na residência ou empresa.",
+    icon: Wrench,
+    title: "Projeto e Aprovação",
+    desc: "Desenvolvemos o projeto elétrico e cuidamos de toda a burocracia com a concessionária.",
   },
   {
     num: 4,
-    icon: CreditCard,
-    title: "Gerando Crédito",
-    desc: "O que não for consumido é distribuído na rede da concessionária e convertido em crédito a ser utilizado em até 5 anos.",
+    icon: Zap,
+    title: "Instalação",
+    desc: "Equipe técnica certificada realiza a instalação de forma segura e rápida, geralmente em 1 a 2 dias.",
+  },
+  {
+    num: 5,
+    icon: TrendingDown,
+    title: "Economia Garantida",
+    desc: "Sistema ativado! Você já começa a gerar energia e ver a conta de luz despencar no próximo mês.",
   },
 ];
 
 export function ComoFuncionaSection() {
   return (
     <section id="como-funciona" className="py-20 bg-white">
-      <div className="container mx-auto px-6 max-w-5xl">
-
-        {/* Badge */}
-        <div className="flex justify-start mb-4">
-          <span className="border border-gray-400 text-gray-600 text-xs font-semibold px-4 py-1 rounded-full">
+      <div className="container mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <p className="text-sm uppercase tracking-widest text-teal-800 mb-2">Processo</p>
+          <h2 className="text-4xl font-bold text-teal-800 uppercase mb-4">
             Como Funciona
-          </span>
+          </h2>
+          <p className="text-gray-500 max-w-xl mx-auto">
+            Um processo simples, transparente e sem burocracia — conduzido de ponta a ponta pelos nossos especialistas.
+          </p>
         </div>
 
-        {/* Titles */}
-        <h2 className="text-4xl md:text-5xl font-extrabold text-[#F5A623] mb-3">
-          Gerando Energia
-        </h2>
-        <h3 className="text-xl md:text-2xl font-bold text-teal-800 mb-12">
-          Entenda como sua energia é gerada
-        </h3>
+        {/* Desktop: horizontal timeline */}
+        <div className="hidden lg:flex items-start justify-between relative">
+          {/* Connecting line */}
+          <div className="absolute top-10 left-0 right-0 h-0.5 bg-gray-200 z-0" />
 
-        {/* Grid 2×2 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-          {steps.map(({ num, icon: Icon, title, desc }) => (
-            <div key={num} className="flex gap-5 items-start">
-              {/* Icon box */}
-              <div className="flex-shrink-0 w-14 h-14 bg-teal-800 rounded-lg flex items-center justify-center">
-                <Icon className="w-7 h-7 text-[#F5A623]" />
+          {steps.map((step, i) => {
+            const Icon = step.icon;
+            return (
+              <div key={step.num} className="relative z-10 flex flex-col items-center text-center w-1/5 px-3">
+                {/* Circle */}
+                <div className="w-20 h-20 rounded-full bg-teal-800 flex flex-col items-center justify-center mb-5 shadow-lg">
+                  <Icon className="w-7 h-7 text-[#F5A623]" />
+                </div>
+                {/* Step number badge */}
+                <span className="text-xs font-bold text-[#F5A623] uppercase tracking-widest mb-1">
+                  Passo {step.num}
+                </span>
+                <h3 className="text-base font-bold text-teal-800 mb-2">{step.title}</h3>
+                <p className="text-gray-500 text-xs leading-relaxed">{step.desc}</p>
               </div>
-              {/* Text */}
-              <div>
-                <h4 className="text-lg font-bold text-teal-800 mb-1">
-                  {num}. {title}
-                </h4>
-                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+            );
+          })}
+        </div>
+
+        {/* Mobile: vertical steps */}
+        <div className="flex flex-col gap-8 lg:hidden">
+          {steps.map((step) => {
+            const Icon = step.icon;
+            return (
+              <div key={step.num} className="flex gap-5 items-start">
+                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-teal-800 flex items-center justify-center shadow-md">
+                  <Icon className="w-6 h-6 text-[#F5A623]" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold text-[#F5A623] uppercase tracking-widest">
+                    Passo {step.num}
+                  </span>
+                  <h3 className="text-base font-bold text-teal-800 mb-1">{step.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
