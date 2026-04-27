@@ -78,7 +78,7 @@ export function CalculadoraSection() {
           <div className="border-t border-gray-100 mb-8" />
 
           {/* Result */}
-          <p className="text-lg text-gray-600 mb-2">
+          <p className="text-lg text-teal-800 mb-2">
             No primeiro ano, você vai economizar até
           </p>
           <p className="text-5xl font-extrabold text-[#27AE60] mb-2">
