@@ -54,10 +54,10 @@ export function ProductsSection() {
     <>
       <section className="bg-white px-6 pt-10 pb-24 relative">
         <div className="container mx-auto">
-          <h2 className="text-center text-2xl font-light tracking-widest uppercase text-[#ea592d] mb-4">
+          <h2 className="text-center text-2xl font-light tracking-widest uppercase text-teal-800 mb-4">
             PRODUTOS
           </h2>
-          <h3 className="text-center text-4xl font-bold text-[#ea592d] mb-12 max-w-4xl mx-auto uppercase">
+          <h3 className="text-center text-4xl font-bold text-teal-800 mb-12 max-w-4xl mx-auto uppercase">
             Conheça aqui algumas das soluções que oferecemos para redução na conta de energia
           </h3>
 
