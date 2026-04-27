@@ -27,9 +27,7 @@ export function Navbar() {
       }`}
     >
       <div
-        className={`container flex items-center justify-between rounded-lg px-5 py-3 lg:px-8 lg:py-4 backdrop-blur-lg transition-all duration-700 ease-in-out ${
-          scrolled ? "bg-teal-800/80" : "bg-white/30"
-        }`}
+        className="container flex items-center justify-between rounded-lg px-5 py-3 lg:px-8 lg:py-4 backdrop-blur-lg bg-teal-800/90"
       >
         {/* Logo */}
         <a href="/">
