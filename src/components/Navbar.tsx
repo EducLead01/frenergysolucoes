@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 const navLinks = [
   { label: "SERVIÇOS", href: "#servicos" },
@@ -31,13 +30,10 @@ export function Navbar() {
       >
         {/* Logo */}
         <a href="/">
-          <Image
+          <img
             src="/frenergy-logo-white.svg"
             alt="Frenergy Soluções"
-            width={120}
-            height={60}
             className="w-24 lg:w-32"
-            priority
           />
         </a>
 
