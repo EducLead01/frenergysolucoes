@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Lightbulb } from "lucide-react";
 
 function fmt(n: number) {
   return Math.round(n).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -58,17 +58,33 @@ export function CalculadoraSection() {
             />
           </div>
 
-          {/* Slider */}
-          <input
-            type="range"
-            min={100}
-            max={5000}
-            step={10}
-            value={bill}
-            onChange={(e) => setBill(Number(e.target.value))}
-            className="fr-slider w-full h-3 rounded-full appearance-none cursor-pointer mb-1"
-            style={{ background: sliderBg }}
-          />
+          {/* Slider + floating bulb */}
+          <div className="relative pt-14 mb-1">
+            {/* Floating lightbulb */}
+            <div
+              className="absolute top-0 pointer-events-none flex flex-col items-center"
+              style={{
+                left: `clamp(1.2rem, calc(${pct}% - 1.2rem), calc(100% - 1.2rem))`,
+              }}
+            >
+              <div className="bg-white border border-gray-200 rounded-full p-2 shadow-md">
+                <Lightbulb className="w-6 h-6 text-[#FF5144]" />
+              </div>
+              {/* Triangle pointer */}
+              <div className="w-2.5 h-2.5 bg-white border-b border-r border-gray-200 rotate-45 -mt-1.5" />
+            </div>
+
+            <input
+              type="range"
+              min={100}
+              max={5000}
+              step={10}
+              value={bill}
+              onChange={(e) => setBill(Number(e.target.value))}
+              className="fr-slider w-full h-3 rounded-full appearance-none cursor-pointer"
+              style={{ background: sliderBg }}
+            />
+          </div>
           <div className="flex justify-between text-xs text-gray-400 mb-10">
             <span>R$ 100</span>
             <span>R$ 5.000</span>
