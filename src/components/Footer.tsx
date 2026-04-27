@@ -1,42 +1,29 @@
 const productLinks = [
-  { text: "Mercado livre de energia", href: "/produtos/mercado-livre-de-energia" },
-  { text: "Consórcio BC Energia", href: "/produtos/consorcio-bc-energia" },
-  { text: "Gestão de Energia", href: "/produtos/gestao-de-energia" },
-  { text: "Certificação Renovável - IREC", href: "/produtos/irec" },
-  { text: "Arrendamento de usinas", href: "/produtos/arrendamento-de-usinas" },
-  { text: "Consultoria Jurídica", href: "https://www.bced.com.br/" },
+  { text: "Energia Solar Residencial", href: "#" },
+  { text: "Energia Solar Comercial", href: "#" },
+  { text: "Energia Solar Rural", href: "#" },
+  { text: "Energia Solar Industrial", href: "#" },
+  { text: "Manutenção e Monitoramento", href: "#" },
 ];
 
-const segmentLinks = [
-  { text: "Agronegócio", href: "/segmentos/agronegocio" },
-  { text: "Bares e Restaurantes", href: "/segmentos/bares-e-restaurantes" },
-  { text: "Condomínio", href: "/segmentos/condominio" },
-  { text: "Educacional", href: "/segmentos/educacional" },
-  { text: "Turismo", href: "/segmentos/turismo" },
-  { text: "Lazer", href: "/segmentos/lazer" },
-  { text: "Religioso", href: "/segmentos/religioso" },
-  { text: "Residencial", href: "/segmentos/residencial" },
-  { text: "Saúde", href: "/segmentos/saude" },
-  { text: "Serviço", href: "/segmentos/servico" },
-  { text: "Varejo", href: "/segmentos/varejo" },
+const servicosLinks = [
+  { text: "Instalação", href: "#" },
+  { text: "Consultoria", href: "#" },
+  { text: "Financiamento Solar", href: "#" },
+  { text: "Projeto Elétrico", href: "#" },
 ];
 
 const sobreLinks = [
-  { text: "Quem Somos", href: "/sobre/quem-somos" },
-  { text: "Nossas Usinas", href: "/sobre/nossas-usinas" },
-  { text: "LGPD", href: "/sobre/lgpd" },
-  { text: "Leilão", href: "/sobre/leilao" },
-  { text: "Fator de Alavancagem", href: "/sobre/fator-de-alavancagem" },
-  { text: "Sustentabilidade", href: "/sobre/sustentabilidade" },
-  { text: "Social", href: "/sobre/social" },
-  { text: "Condições Gerais Varejistas", href: "/sobre/condicoes-gerais-varejistas" },
+  { text: "Quem Somos", href: "#" },
+  { text: "Nossa Equipe", href: "#" },
+  { text: "Certificações", href: "#" },
+  { text: "Sustentabilidade", href: "#" },
 ];
 
 const contatoLinks = [
-  { text: "Entre em contato", href: "/contato" },
-  { text: "Quero ser parceiro", href: "https://wa.me/5562981632741" },
-  { text: "Trabalhe conosco", href: "https://grupobcenergia.vagas.solides.com.br/" },
-  { text: "Sou fornecedor/Prestador de Serviços", href: "https://wa.me/5562981590131" },
+  { text: "Entre em contato", href: "#" },
+  { text: "Solicitar orçamento", href: "#" },
+  { text: "Trabalhe conosco", href: "#" },
 ];
 
 function FooterCol({
@@ -68,38 +55,25 @@ function FooterCol({
 export function Footer() {
   return (
     <>
-      <footer
-        className="bg-zinc-900 bg-cover px-8 py-24 relative text-white"
-        style={{ backgroundImage: "url('/img/global/footer-bg.png')" }}
-      >
+      <footer className="bg-zinc-900 px-8 py-24 relative text-white">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-6 gap-10 items-start">
-            {/* Logo + Addresses */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
+            {/* Logo + Address */}
             <div className="lg:col-span-1">
               <img
-                src="/Logo-BC-Energia-Vertical-Branco.svg"
-                alt="BC Energia"
+                src="/frenergy-logo-white.svg"
+                alt="Frenergy Soluções"
                 className="w-40 mb-6"
               />
-              <h2 className="font-bold text-lg text-white mb-2">Endereço em Goiânia:</h2>
+              <h2 className="font-bold text-lg text-white mb-2">Endereço:</h2>
               <p className="text-gray-300 text-sm leading-relaxed">
-                Av. Dep. Jamel Cecílio, c/ rua 56, nº 2929, Salas 2802/2803 - Ed. Brookfield
-                Towers Torre B - Jardim Goiás, Goiânia - GO, 74810-240
-              </p>
-              <h2 className="font-bold text-lg text-white mt-6 mb-2">Endereço em São Paulo:</h2>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                Av. Pres. Juscelino Kubitschek, 360 - 7º andar cj71 - Edifício JK 360 -Vila Nova
-                Conceição, São Paulo - SP, 04543-000
+                {/* Adicionar endereço da Frenergy */}
               </p>
             </div>
 
             <FooterCol title="Produtos" links={productLinks} />
-            <FooterCol title="Segmentos" links={segmentLinks} />
+            <FooterCol title="Serviços" links={servicosLinks} />
             <FooterCol title="Sobre nós" links={sobreLinks} />
-            <FooterCol
-              title="Conteúdo"
-              links={[{ text: "BC Cast", href: "https://www.youtube.com/@grupobcenergia/videos" }]}
-            />
             <FooterCol title="Contato" links={contatoLinks} />
           </div>
 
@@ -107,32 +81,16 @@ export function Footer() {
           <div className="border-t border-zinc-700 mt-8 pt-8 text-center">
             <h5 className="text-2xl font-bold text-white mb-6">SIGA NOSSAS REDES</h5>
             <div className="flex justify-center gap-6">
-              <a
-                href="https://www.instagram.com/grupobcenergia/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 <img src="/img/icons/instagram.svg" alt="Instagram" className="w-8 h-8" />
               </a>
-              <a
-                href="https://www.facebook.com/GrupoBCEnergia"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 <img src="/img/icons/facebook.svg" alt="Facebook" className="w-8 h-8" />
               </a>
-              <a
-                href="https://www.linkedin.com/company/grupobcenergia/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 <img src="/img/icons/linkedin.svg" alt="LinkedIn" className="w-8 h-8" />
               </a>
-              <a
-                href="https://www.youtube.com/@grupobcenergia"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 <img src="/img/icons/youtube.svg" alt="YouTube" className="w-8 h-8" />
               </a>
             </div>
@@ -141,9 +99,9 @@ export function Footer() {
       </footer>
 
       {/* Copyright bar */}
-      <div className="bg-teal-600 py-4 text-center">
+      <div className="bg-teal-800 py-4 text-center">
         <p className="text-white text-sm font-bold uppercase">
-          © GRUPO BC ENERGIA - 2024 | TODOS OS DIREITOS RESERVADOS
+          © FRENERGY SOLUÇÕES - 2025 | TODOS OS DIREITOS RESERVADOS
         </p>
       </div>
     </>
