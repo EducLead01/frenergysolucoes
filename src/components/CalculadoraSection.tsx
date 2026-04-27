@@ -67,11 +67,11 @@ export function CalculadoraSection() {
                 left: `clamp(1.2rem, calc(${pct}% - 1.2rem), calc(100% - 1.2rem))`,
               }}
             >
-              <div className="bg-white border border-gray-200 rounded-full p-2 shadow-md">
-                <Lightbulb className="w-6 h-6 text-[#FF5144]" />
+              <div className="bg-[#FF5144] rounded-full p-2.5 shadow-lg" style={{ boxShadow: "0 4px 16px rgba(255,81,68,0.45)" }}>
+                <Lightbulb className="w-6 h-6 text-white" />
               </div>
               {/* Triangle pointer */}
-              <div className="w-2.5 h-2.5 bg-white border-b border-r border-gray-200 rotate-45 -mt-1.5" />
+              <div className="w-2.5 h-2.5 bg-[#FF5144] rotate-45 -mt-1.5" />
             </div>
 
             <input
