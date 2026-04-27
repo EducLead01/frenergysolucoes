@@ -54,10 +54,10 @@ export function ProductsSection() {
     <>
       <section className="bg-white px-6 pt-10 pb-24 relative">
         <div className="container mx-auto">
-          <h2 className="text-center text-2xl font-light tracking-widest uppercase text-teal-900 mb-4">
+          <h2 className="text-center text-2xl font-light tracking-widest uppercase text-[#ea592d] mb-4">
             PRODUTOS
           </h2>
-          <h3 className="text-center text-4xl font-bold text-teal-900 mb-12 max-w-4xl mx-auto uppercase">
+          <h3 className="text-center text-4xl font-bold text-[#ea592d] mb-12 max-w-4xl mx-auto uppercase">
             Conheça aqui algumas das soluções que oferecemos para redução na conta de energia
           </h3>
 
@@ -65,7 +65,7 @@ export function ProductsSection() {
             {products.map((product) => (
               <div
                 key={product.title}
-                className="group flex flex-col overflow-hidden rounded-lg bg-teal-600/95 text-center"
+                className="group flex flex-col overflow-hidden rounded-lg bg-[#ea592d] text-center"
               >
                 {/* Top image with hover zoom */}
                 <div
@@ -92,7 +92,7 @@ export function ProductsSection() {
                   </p>
                   <a
                     href={product.btnHref}
-                    className="mt-6 bg-amber-400 text-teal-900 font-bold uppercase px-6 py-3 text-sm hover:bg-amber-300 transition-colors"
+                    className="mt-6 bg-white text-[#ea592d] font-bold uppercase px-6 py-3 text-sm hover:bg-gray-100 transition-colors"
                   >
                     SAIBA MAIS
                   </a>
