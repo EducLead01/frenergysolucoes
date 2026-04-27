@@ -81,7 +81,7 @@ export function CalculadoraSection() {
           <p className="text-lg text-teal-800 mb-2">
             No primeiro ano, você vai economizar até
           </p>
-          <p className="text-5xl font-extrabold text-[#27AE60] mb-2">
+          <p className="text-5xl font-extrabold text-teal-800 mb-2">
             {fmt(annual)}
           </p>
           <p className="text-sm text-gray-400 mb-2">
