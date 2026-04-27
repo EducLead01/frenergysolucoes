@@ -15,11 +15,11 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Comercializadora de Energia Solar | Grupo BC Energia",
+  title: "Frenergy Soluções | Energia Solar",
   description:
-    "Grupo BC Energia: sua comercializadora de energia solar. Economize com o Mercado Livre de Energia e soluções de gestão. Fale com um especialista!",
+    "Frenergy Soluções em Energia Solar. Economize até 95% na conta de luz com instalação de painéis solares para residências, comércios e indústrias.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/frenergy-logo.svg",
   },
 };
 

@@ -32,7 +32,7 @@ export function Navbar() {
         {/* Logo */}
         <a href="/">
           <Image
-            src="/frenergy-logo.svg"
+            src="/frenergy-logo-white.svg"
             alt="Frenergy Soluções"
             width={120}
             height={60}
