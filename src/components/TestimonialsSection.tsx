@@ -2,12 +2,6 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-// @ts-expect-error swiper css
-import "swiper/css";
-// @ts-expect-error swiper css
-import "swiper/css/navigation";
-// @ts-expect-error swiper css
-import "swiper/css/pagination";
 
 const videos = [
   { id: 1, label: "Depoimento 1" },

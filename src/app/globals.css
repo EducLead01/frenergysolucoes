@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -48,9 +51,14 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
   /* BC Energia brand colors */
-  --color-bc-teal: oklch(0.35 0.08 178); /* rgb(19,78,74) teal-900 */
-  --color-bc-teal-nav: oklch(0.42 0.09 178); /* rgba(17,94,89,0.8) */
-  --color-bc-accent: oklch(0.83 0.18 85);  /* rgb(251,191,36) amber-400 */
+  --color-bc-teal: oklch(0.35 0.08 178);
+  --color-bc-teal-nav: oklch(0.42 0.09 178);
+  --color-bc-accent: oklch(0.83 0.18 85);
+  /* Frenergy brand colors */
+  --color-fr-yellow: #F5A623;
+  --color-fr-green: #27AE60;
+  --color-fr-dark: #1C2833;
+  --color-fr-light: #F8F9F9;
 }
 
 :root {
@@ -110,6 +118,35 @@
 .swiper-pagination-bullet-active {
   background: rgb(251, 191, 36) !important;
 }
+
+/* Frenergy calculator slider */
+.fr-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to right, #F5A623 5%, #e5e7eb 5%);
+}
+.fr-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #F5A623;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 10px rgba(245,166,35,0.6);
+}
+.fr-slider::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #F5A623;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 10px rgba(245,166,35,0.6);
+}
+#fr-calc-input::-webkit-outer-spin-button,
+#fr-calc-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+#fr-calc-input[type=number] { -moz-appearance: textfield; }
 
 /* Product card image zoom */
 .product-card-img {
