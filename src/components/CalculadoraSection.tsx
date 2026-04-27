@@ -25,7 +25,7 @@ export function CalculadoraSection() {
         <h2 className="text-4xl font-bold text-teal-800 uppercase mb-4">
           Calcule quanto você vai economizar
         </h2>
-        <p className="text-gray-500 mb-12">
+        <p className="text-gray-900 mb-12">
           Deslize a barra ou digite o valor médio da sua conta de luz e veja sua economia em tempo real.
         </p>
 
