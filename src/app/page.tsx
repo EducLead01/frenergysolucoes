@@ -3,6 +3,7 @@ import { HeroSlider } from "@/components/HeroSlider";
 import { ProductsSection } from "@/components/ProductsSection";
 import { AnimacaoSolar } from "@/components/AnimacaoSolar";
 import { ComoFuncionaSection } from "@/components/ComoFuncionaSection";
+import { CalculadoraSection } from "@/components/CalculadoraSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ClientsSection } from "@/components/ClientsSection";
 import { BCCastSection } from "@/components/BCCastSection";
@@ -18,6 +19,7 @@ export default function Home() {
         <ProductsSection />
         <AnimacaoSolar />
         <ComoFuncionaSection />
+        <CalculadoraSection />
         <TestimonialsSection />
         <ClientsSection />
         <BCCastSection />
