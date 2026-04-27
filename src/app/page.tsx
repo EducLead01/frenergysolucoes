@@ -4,6 +4,7 @@ import { ProductsSection } from "@/components/ProductsSection";
 import { AnimacaoSolar } from "@/components/AnimacaoSolar";
 import { ComoFuncionaSection } from "@/components/ComoFuncionaSection";
 import { CalculadoraSection } from "@/components/CalculadoraSection";
+import { AppSection } from "@/components/AppSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ClientsSection } from "@/components/ClientsSection";
 import { BCCastSection } from "@/components/BCCastSection";
@@ -20,6 +21,7 @@ export default function Home() {
         <AnimacaoSolar />
         <ComoFuncionaSection />
         <CalculadoraSection />
+        <AppSection />
         <TestimonialsSection />
         <ClientsSection />
         <BCCastSection />
