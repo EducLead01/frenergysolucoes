@@ -67,7 +67,8 @@ export function Footer() {
               />
               <h2 className="font-bold text-lg text-white mb-2">Endereço:</h2>
               <p className="text-gray-300 text-sm leading-relaxed">
-                {/* Adicionar endereço da Frenergy */}
+                Al. Ricardo Paranhos, 52 — Qd. 224, Lt. 3E, Apto 101A,
+                Setor Marista, Goiânia/GO
               </p>
             </div>
 
