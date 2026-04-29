@@ -3,33 +3,27 @@
 import { useEffect, useState } from "react";
 import {
   ChevronDown,
-  Sprout,
   Utensils,
-  Building2,
+  Fuel,
+  Wheat,
   GraduationCap,
-  MapPin,
-  Gamepad2,
-  Landmark,
-  Home,
-  HeartPulse,
   Wrench,
-  ShoppingBag,
+  Building2,
+  Landmark,
+  Warehouse,
   Menu,
   X,
 } from "lucide-react";
 
 const segments = [
-  { label: "Agronegócio",         icon: Sprout },
-  { label: "Bares E Restaurantes", icon: Utensils },
-  { label: "Condomínio",           icon: Building2 },
-  { label: "Educacional",          icon: GraduationCap },
-  { label: "Turismo",              icon: MapPin },
-  { label: "Lazer",                icon: Gamepad2 },
-  { label: "Religioso",            icon: Landmark },
-  { label: "Residencial",          icon: Home },
-  { label: "Saúde",                icon: HeartPulse },
-  { label: "Serviço",              icon: Wrench },
-  { label: "Varejo",               icon: ShoppingBag },
+  { label: "Bares e Restaurantes",   icon: Utensils },
+  { label: "Postos de Combustíveis", icon: Fuel },
+  { label: "Usinas em Fazendas",     icon: Wheat },
+  { label: "Escolas e Faculdades",   icon: GraduationCap },
+  { label: "Oficinas Mecânicas",     icon: Wrench },
+  { label: "Condomínios",            icon: Building2 },
+  { label: "Templos e Igrejas",      icon: Landmark },
+  { label: "Galpões",                icon: Warehouse },
 ];
 
 const navLinks = [
@@ -91,17 +85,12 @@ export function Navbar() {
               <div className="grid grid-cols-2">
                 {segments.map((seg, i) => {
                   const Icon = seg.icon;
-                  const isLast = i === segments.length - 1;
                   return (
                     <a
                       key={seg.label}
                       href="#segmentos"
                       className={`flex items-center gap-3 px-5 py-3.5 text-white text-[0.78rem] font-medium border-b border-white/10 hover:bg-white/15 transition-colors normal-case tracking-normal ${
-                        isLast
-                          ? "col-span-2 justify-center"
-                          : i % 2 === 0
-                          ? "border-r border-white/10"
-                          : ""
+                        i % 2 === 0 ? "border-r border-white/10" : ""
                       }`}
                     >
                       <Icon className="w-5 h-5 text-amber-400 flex-shrink-0" />
