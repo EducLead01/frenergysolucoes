@@ -58,7 +58,13 @@ function ProductCard({ product }: { product: Product }) {
   const Icon = product.icon;
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-lg bg-[#ea592d] text-center">
+    <div className="group flex flex-col overflow-hidden rounded-lg bg-[#ea592d] text-center relative">
+
+      {/* Top accent line */}
+      <span className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#F5A623] rounded-b-full z-40" />
+
+      {/* Bottom bar — desliza no hover */}
+      <span className="absolute bottom-0 left-0 right-0 h-1 bg-teal-800 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-40" />
 
       {/* Image carousel */}
       <div className="relative h-60 overflow-hidden">
