@@ -10,31 +10,31 @@ const slides = [
   {
     bgImage: "/bg-home.jpg",
     titleHtml:
-      'Invista em energia solar e gere <span class="text-amber-400">renda passiva</span> com alta rentabilidade',
+      '<span class="text-amber-400">Valorização do imóvel</span> e retorno ao investimento com energia solar',
     subtitle:
-      "Seja sócio de usinas solares sem precisar instalar nada. Retorno previsível, contrato seguro e impacto positivo para o planeta.",
-    btnText: "QUERO INVESTIR",
+      "Instale painéis solares e veja seu imóvel valorizar até 8% enquanto economiza até 95% na conta de luz todos os meses.",
+    btnText: "SOLICITAR ORÇAMENTO",
     btnHref: "#contato",
     btnClass: "border border-white bg-white text-teal-900 hover:bg-white/80",
   },
   {
-    bgImage: "/img/pages/banner2.webp",
+    bgImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80",
     titleHtml:
-      'Faça sua adesão sem custos e economize até <span class="text-amber-400">26% na energia</span>',
+      'Mais de <span class="text-amber-400">4.000 projetos entregues</span> em 8 anos de história no segmento solar',
     subtitle:
-      "Por meio do consórcio BC Energia, consumidores com contas de energia a partir de R$250,00 economizam na conta de energia sem precisar fazer investimentos em placas solares.",
-    btnText: "ADESÃO GRATUITA",
-    btnHref: "http://www.appenergia.com.br/Grupo_BC_Energia",
+      "Experiência, confiança e resultado. A Frenergy é referência em energia solar com milhares de clientes satisfeitos em todo o Brasil.",
+    btnText: "CONHEÇA NOSSA HISTÓRIA",
+    btnHref: "#contato",
     btnClass: "bg-amber-400 text-teal-900 hover:bg-amber-300",
   },
   {
-    bgImage: "/img/pages/nossas-usinas2.webp",
+    bgImage: "https://images.unsplash.com/photo-1592833159155-c62df1b65634?w=1600&q=80",
     titleHtml:
-      'Mais de <span class="text-amber-400">R$ 400 milhões de economia</span> aos nossos clientes',
+      'Economize até <span class="text-amber-400">95%</span> na sua Conta de Luz com Energia Solar para seu comércio ou indústria',
     subtitle:
-      "Soluções sustentáveis e inteligentes que reduzem os custos com energia e aumentam a competitividade de mercado.",
-    btnText: "SAIBA MAIS",
-    btnHref: "/sobre/quem-somos",
+      "Reduza seus custos operacionais, aumente a competitividade e aposte em uma fonte de energia limpa e sustentável para o seu negócio.",
+    btnText: "FALAR COM ESPECIALISTA",
+    btnHref: "#contato",
     btnClass: "border border-white bg-white text-teal-900 hover:bg-white/80",
   },
 ];
