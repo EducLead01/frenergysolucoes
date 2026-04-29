@@ -75,16 +75,19 @@ function ProductCard({ product }: { product: Product }) {
           />
         ))}
 
+        {/* Orange gradient overlay */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#ea592d]/50 to-[#ea592d]/80" />
+
         {/* Icon centered on image */}
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-          <Icon className="w-14 h-14 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]" />
+        <div className="absolute inset-0 flex items-center justify-center z-30">
+          <Icon className="w-14 h-14 text-[#F5A623] drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]" />
         </div>
 
         {/* Prev arrow */}
         <button
           onClick={() => setIdx(0)}
           disabled={idx === 0}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center transition-all disabled:opacity-0"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center transition-all disabled:opacity-0"
         >
           <ChevronLeft className="w-4 h-4 text-white" />
         </button>
@@ -93,13 +96,13 @@ function ProductCard({ product }: { product: Product }) {
         <button
           onClick={() => setIdx(1)}
           disabled={idx === 1}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center transition-all disabled:opacity-0"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center transition-all disabled:opacity-0"
         >
           <ChevronRight className="w-4 h-4 text-white" />
         </button>
 
         {/* Dots */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5">
           {product.images.map((_, i) => (
             <button
               key={i}
