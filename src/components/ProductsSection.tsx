@@ -1,103 +1,171 @@
-const products = [
+"use client";
+
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Home, Building2, Factory, Tractor } from "lucide-react";
+
+type Product = {
+  title: string;
+  icon: React.ElementType;
+  description: string;
+  bullets: string[];
+  images: [string, string];
+};
+
+const products: Product[] = [
   {
-    title: "Mercado Livre de Energia",
+    title: "Residencial",
+    icon: Home,
     description:
-      "Para empresas com contas a partir de R$ 10 mil. Solução sem investimento para consumidores conectados em alta tensão e demanda contratada a partir de 30kW negociarem livremente a própria energia.",
-    iconSrc: "/img/icons/icon-mercado-energia.svg",
-    bgImage: "/img/components/products-card/mercado-livre-de-energia-thumb.png",
-    btnHref: "/produtos/mercado-livre-de-energia",
+      "Soluções personalizadas para sua casa, reduzindo até 95% da conta de luz e valorizando seu imóvel.",
+    bullets: ["Economia mensal garantida", "Valorização do imóvel", "Instalação rápida"],
+    images: [
+      "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800&q=80",
+      "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80",
+    ],
   },
   {
-    title: "Consórcio BC Energia",
+    title: "Comercial",
+    icon: Building2,
     description:
-      "Para contas a partir de R$ 300,00. Solução sem investimento para consumidores conectados em baixa tensão terem acesso a energia solar sem a necessidade de construir usina.",
-    iconSrc: "/img/icons/icon-energia-assinatura.svg",
-    bgImage: "/img/components/products-card/energia-por-assinatura-thumb.png",
-    btnHref: "/produtos/consorcio-bc-energia",
+      "Maximize os lucros do seu negócio com energia solar. Reduza custos operacionais e melhore sua competitividade.",
+    bullets: ["ROI acelerado", "Benefícios fiscais", "Imagem sustentável"],
+    images: [
+      "https://images.unsplash.com/photo-1592833159155-c62df1b65634?w=800&q=80",
+      "https://images.unsplash.com/photo-1565118531796-763e5082d113?w=800&q=80",
+    ],
   },
   {
-    title: "Gestão de Energia",
+    title: "Industrial",
+    icon: Factory,
     description:
-      "Performance no Mercado Livre. Fundamental para reduzir os custos com energia elétrica, trazendo sustentabilidade, eficiência e aumento de competitividade para o negócio.",
-    iconSrc: "/img/icons/icon-gestao-de-energia.svg",
-    bgImage: "/img/components/products-card/gestao-de-energia-thumb.png",
-    btnHref: "/produtos/gestao-de-energia",
+      "Grandes projetos para indústrias que buscam eficiência energética e redução significativa de custos.",
+    bullets: ["Alta capacidade", "Projetos sob medida", "Monitoramento 24h"],
+    images: [
+      "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
+      "https://images.unsplash.com/photo-1548336234-065daf7e5b0a?w=800&q=80",
+    ],
   },
   {
-    title: "Certificação Renovável - IREC",
+    title: "Agro",
+    icon: Tractor,
     description:
-      "Comprovação de consumo renovável. Certificação internacional que permite a rastreabilidade do consumo através das fontes renováveis, como solar, eólica, hídrica e biomassa.",
-    iconSrc: "/img/icons/irec.svg",
-    bgImage: "/img/components/products-card/certificacao-renovavel-thumb.png",
-    btnHref: "/produtos/irec",
-  },
-  {
-    title: "Arrendamento de Usinas",
-    description:
-      "Parceria que entrega resultado. Oportunidade para donos de usinas arrendarem seus ativos e, assim, não se preocuparem com conversão e gestão de clientes.",
-    iconSrc: "/img/icons/icon-arrendamento-de-usinas.svg",
-    bgImage: "/img/components/products-card/arrendamento-de-usinas-thumb.png",
-    btnHref: "/produtos/arrendamento-de-usinas",
-  },
-  {
-    title: "Gestão e Consultoria Jurídica",
-    description:
-      "Expertise em Direito Energético e Empresarial. Atuação multidisciplinar para oferecer uma atuação mais estratégica alinhada com os seus objetivos empresariais de forma contenciosa e consultiva.",
-    iconSrc: "/img/icons/icon-consultoria-juridica.svg",
-    bgImage: "/img/components/products-card/consultoria-juridica-thumb.png",
-    btnHref: "https://www.bced.com.br/",
+      "Energia solar para o agronegócio. Irrigação, refrigeração e operações agrícolas com energia limpa.",
+    bullets: ["Bombeamento solar", "Irrigação eficiente", "Independência energética"],
+    images: [
+      "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=800&q=80",
+      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&q=80",
+    ],
   },
 ];
+
+function ProductCard({ product }: { product: Product }) {
+  const [idx, setIdx] = useState(0);
+  const Icon = product.icon;
+
+  return (
+    <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+
+      {/* Image carousel */}
+      <div className="relative h-56 overflow-hidden bg-gray-200">
+        {product.images.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt={`${product.title} ${i + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+              i === idx ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+
+        {/* Icon badge */}
+        <div className="absolute top-4 left-4 z-10 w-10 h-10 bg-teal-800 rounded-lg flex items-center justify-center shadow-md">
+          <Icon className="w-5 h-5 text-white" />
+        </div>
+
+        {/* Prev arrow */}
+        <button
+          onClick={() => setIdx(0)}
+          disabled={idx === 0}
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow transition-all disabled:opacity-30 disabled:cursor-default"
+        >
+          <ChevronLeft className="w-4 h-4 text-gray-700" />
+        </button>
+
+        {/* Next arrow */}
+        <button
+          onClick={() => setIdx(1)}
+          disabled={idx === 1}
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow transition-all disabled:opacity-30 disabled:cursor-default"
+        >
+          <ChevronRight className="w-4 h-4 text-gray-700" />
+        </button>
+
+        {/* Dots */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5">
+          {product.images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIdx(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === idx ? "w-5 bg-white" : "w-2 bg-white/50"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-6 flex flex-col flex-1">
+        <h3 className="text-2xl font-bold text-teal-800 mb-2">{product.title}</h3>
+        <p className="text-gray-500 text-sm leading-relaxed mb-4">{product.description}</p>
+
+        <ul className="space-y-2 mb-6 flex-1">
+          {product.bullets.map((bullet) => (
+            <li key={bullet} className="flex items-center gap-2.5 text-sm text-gray-600">
+              <span className="w-2 h-2 rounded-full bg-[#ea592d] flex-shrink-0" />
+              {bullet}
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex gap-3">
+          <a
+            href="#contato"
+            className="flex-1 flex items-center justify-center gap-1.5 border border-gray-300 text-gray-700 font-semibold text-sm px-3 py-2.5 rounded-lg hover:border-teal-800 hover:text-teal-800 transition-colors"
+          >
+            Ver Detalhes <span>→</span>
+          </a>
+          <a
+            href="#contato"
+            className="flex-1 flex items-center justify-center bg-[#ea592d] text-white font-bold text-sm px-3 py-2.5 rounded-lg hover:bg-orange-600 transition-colors"
+          >
+            Orçamento
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function ProductsSection() {
   return (
     <>
-      <section className="bg-white px-6 pt-10 pb-24 relative">
+      <section className="bg-white px-6 pt-16 pb-28 relative">
         <div className="container mx-auto">
-          <h2 className="text-center text-2xl font-light tracking-widest uppercase text-teal-800 mb-4">
+          <p className="text-center text-xs font-bold tracking-widest uppercase text-[#ea592d] mb-3">
             PRODUTOS
+          </p>
+          <h2 className="text-center text-4xl font-bold text-teal-800 mb-4 max-w-3xl mx-auto uppercase leading-tight">
+            Soluções em energia solar para cada necessidade
           </h2>
-          <h3 className="text-center text-4xl font-bold text-teal-800 mb-12 max-w-4xl mx-auto uppercase">
-            Conheça aqui algumas das soluções que oferecemos para redução na conta de energia
-          </h3>
+          <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto text-sm">
+            Projetos personalizados que garantem máxima eficiência e o menor tempo de retorno do seu investimento.
+          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((product) => (
-              <div
-                key={product.title}
-                className="group flex flex-col overflow-hidden rounded-lg bg-[#ea592d] text-center"
-              >
-                {/* Top image with hover zoom */}
-                <div
-                  className="flex h-60 justify-center items-center bg-center transition-all duration-1000 ease-in-out group-hover:bg-[length:120%_120%]"
-                  style={{
-                    backgroundImage: `url('${product.bgImage}')`,
-                    backgroundSize: "100% 100%",
-                  }}
-                >
-                  <img
-                    src={product.iconSrc}
-                    alt="Icone"
-                    className="w-12 h-12 object-contain"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-6 flex flex-col flex-1 items-center">
-                  <h4 className="text-[30px] font-bold text-white text-center leading-tight">
-                    {product.title}
-                  </h4>
-                  <p className="text-white text-center text-sm mt-3 flex-1">
-                    {product.description}
-                  </p>
-                  <a
-                    href={product.btnHref}
-                    className="mt-6 bg-white text-[#ea592d] font-bold uppercase px-6 py-3 text-sm hover:bg-gray-100 transition-colors"
-                  >
-                    SAIBA MAIS
-                  </a>
-                </div>
-              </div>
+              <ProductCard key={product.title} product={product} />
             ))}
           </div>
         </div>
