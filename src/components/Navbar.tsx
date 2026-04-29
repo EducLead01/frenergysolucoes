@@ -32,7 +32,6 @@ const navLinks = [
   { label: "GESTÃO DE ENERGIA", href: "#gestao-de-energia" },
   { label: "CASES",             href: "#cases" },
   { label: "CALCULADORA",       href: "#calculadora" },
-  { label: "DEPOIMENTOS",       href: "#depoimentos" },
 ];
 
 export function Navbar() {
