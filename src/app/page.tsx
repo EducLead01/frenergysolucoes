@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSlider } from "@/components/HeroSlider";
 import { ProductsSection } from "@/components/ProductsSection";
+import { ServicosSection } from "@/components/ServicosSection";
 import { AnimacaoSolar } from "@/components/AnimacaoSolar";
 import { ComoFuncionaSection } from "@/components/ComoFuncionaSection";
 import { CalculadoraSection } from "@/components/CalculadoraSection";
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <HeroSlider />
         <ProductsSection />
+        <ServicosSection />
         <AnimacaoSolar />
         <ComoFuncionaSection />
         <CalculadoraSection />
