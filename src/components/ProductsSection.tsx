@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Home, Building2, Factory, Tractor } from "lucide-react";
+import { ChevronLeft, ChevronRight, TrendingUp, Building2, Factory, Tractor } from "lucide-react";
 
 type Product = {
   title: string;
@@ -12,13 +12,13 @@ type Product = {
 
 const products: Product[] = [
   {
-    title: "Residencial",
-    icon: Home,
+    title: "Investidores",
+    icon: TrendingUp,
     description:
-      "Soluções personalizadas para sua casa, reduzindo até 95% da conta de luz e valorizando seu imóvel.",
+      "Invista em usinas solares e gere renda passiva com alta rentabilidade, retorno previsível e impacto positivo no planeta.",
     images: [
-      "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800&q=80",
-      "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80",
+      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&q=80",
+      "https://images.unsplash.com/photo-1548336234-065daf7e5b0a?w=800&q=80",
     ],
   },
   {

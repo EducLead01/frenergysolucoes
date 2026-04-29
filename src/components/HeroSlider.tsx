@@ -10,11 +10,11 @@ const slides = [
   {
     bgImage: "/bg-home.jpg",
     titleHtml:
-      'Migre sua empresa para o <span class="text-amber-400">Mercado Livre</span> e economize na conta de energia',
+      'Invista em energia solar e gere <span class="text-amber-400">renda passiva</span> com alta rentabilidade',
     subtitle:
-      "Solução para empresas com contas acima de R$10 mil. Nossa atuação vai além da migração para o Mercado Livre de Energia. Ajudamos empresas na tomada de decisões e na gestão eficiente de energia.",
-    btnText: "SAIBA MAIS",
-    btnHref: "/produtos/mercado-livre-de-energia",
+      "Seja sócio de usinas solares sem precisar instalar nada. Retorno previsível, contrato seguro e impacto positivo para o planeta.",
+    btnText: "QUERO INVESTIR",
+    btnHref: "#contato",
     btnClass: "border border-white bg-white text-teal-900 hover:bg-white/80",
   },
   {
