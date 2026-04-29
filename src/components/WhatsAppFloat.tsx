@@ -1,9 +1,7 @@
 export function WhatsAppFloat() {
   return (
     <a
-      href="https://wa.me/5562981632741"
-      target="_blank"
-      rel="noopener noreferrer"
+      href="#"
       className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-lg hover:bg-green-400 transition-colors"
       aria-label="WhatsApp"
     >
