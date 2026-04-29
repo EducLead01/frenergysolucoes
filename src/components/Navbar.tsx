@@ -27,11 +27,13 @@ const segments = [
 ];
 
 const navLinks = [
-  { label: "SERVIÇOS",      href: "#servicos" },
-  { label: "COMO FUNCIONA", href: "#como-funciona" },
-  { label: "CALCULADORA",   href: "#calculadora" },
-  { label: "DEPOIMENTOS",   href: "#depoimentos" },
-  { label: "CONTATO",       href: "#contato" },
+  { label: "SERVIÇOS",          href: "#servicos" },
+  { label: "COMO FUNCIONA",     href: "#como-funciona" },
+  { label: "GESTÃO DE ENERGIA", href: "#gestao-de-energia" },
+  { label: "CASES",             href: "#cases" },
+  { label: "CALCULADORA",       href: "#calculadora" },
+  { label: "DEPOIMENTOS",       href: "#depoimentos" },
+  { label: "CONTATO",           href: "#contato" },
 ];
 
 export function Navbar() {
@@ -63,7 +65,7 @@ export function Navbar() {
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden font-bold uppercase lg:flex lg:items-center lg:space-x-6 xl:space-x-10 text-white text-sm">
+        <div className="hidden font-bold uppercase lg:flex lg:items-center lg:space-x-4 xl:space-x-6 text-white text-sm">
           {navLinks.slice(0, 2).map((link) => (
             <a
               key={link.label}
