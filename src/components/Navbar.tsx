@@ -33,7 +33,6 @@ const navLinks = [
   { label: "CASES",             href: "#cases" },
   { label: "CALCULADORA",       href: "#calculadora" },
   { label: "DEPOIMENTOS",       href: "#depoimentos" },
-  { label: "CONTATO",           href: "#contato" },
 ];
 
 export function Navbar() {
