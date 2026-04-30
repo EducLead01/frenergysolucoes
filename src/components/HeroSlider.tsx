@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 
 const slides = [
   {
-    bgImage: "/bg-home.jpg",
+    bgImage: "/images/icone-painel-solar-600x523.png",
     titleHtml:
       '<span class="text-amber-400">Valorização do imóvel</span> e retorno ao investimento com energia solar',
     subtitle:
