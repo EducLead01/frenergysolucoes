@@ -57,6 +57,22 @@ export function ServicosSection() {
                 {/* Top accent line */}
                 <span className="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-1 bg-[#F5A623] rounded-b-full" />
 
+                {/* Left scan line — teal, scans top→bottom */}
+                <div className="absolute left-0 top-0 bottom-0 w-0.5 overflow-hidden rounded-l-2xl">
+                  <span
+                    className="absolute left-0 w-full bg-teal-700 opacity-60 rounded-full"
+                    style={{ height: "35%", animation: "scan-down 2.5s linear infinite" }}
+                  />
+                </div>
+
+                {/* Right scan line — amber, scans bottom→top */}
+                <div className="absolute right-0 top-0 bottom-0 w-0.5 overflow-hidden rounded-r-2xl">
+                  <span
+                    className="absolute left-0 w-full bg-[#F5A623] opacity-80 rounded-full"
+                    style={{ height: "35%", animation: "scan-up 2.5s linear infinite" }}
+                  />
+                </div>
+
                 {/* Icon circle */}
                 <div className="w-20 h-20 rounded-full bg-[#ea592d]/10 flex items-center justify-center mb-5 group-hover:bg-[#ea592d]/20 transition-colors duration-300">
                   <Icon className="w-9 h-9 text-[#ea592d]" />
