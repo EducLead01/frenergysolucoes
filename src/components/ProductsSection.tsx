@@ -67,7 +67,7 @@ function ProductCard({ product }: { product: Product }) {
         style={{
           width: "300%",
           background:
-            "conic-gradient(from 0deg, #ea592d 0deg, #ea592d 310deg, #F5A623 335deg, #ffffff 348deg, #F5A623 360deg)",
+            "conic-gradient(from 0deg, #ea592d 0deg, #ea592d 310deg, #0f766e 330deg, #ffffff 348deg, #0f766e 360deg)",
           animation: "card-border-spin 3s linear infinite",
         }}
       />
