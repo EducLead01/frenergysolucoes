@@ -148,6 +148,12 @@
 #fr-calc-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 #fr-calc-input[type=number] { -moz-appearance: textfield; }
 
+/* Spinning border for product cards */
+@keyframes card-border-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
 /* Product card image zoom */
 .product-card-img {
   transition: background-size 1000ms ease-in-out;

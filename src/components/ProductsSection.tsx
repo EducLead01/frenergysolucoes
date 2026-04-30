@@ -58,83 +58,99 @@ function ProductCard({ product }: { product: Product }) {
   const Icon = product.icon;
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-lg bg-[#ea592d] text-center relative">
+    /* Outer frame: 2px gap that shows the spinning gradient */
+    <div className="relative rounded-lg overflow-hidden p-[2px] bg-[#ea592d]">
 
-      {/* Top accent line */}
-      <span className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#F5A623] rounded-b-full z-40" />
+      {/* Spinning border gradient — mostly orange (invisible), amber sweep travels around */}
+      <div
+        className="absolute top-1/2 left-1/2 aspect-square pointer-events-none z-0"
+        style={{
+          width: "300%",
+          background:
+            "conic-gradient(from 0deg, #ea592d 0deg, #ea592d 310deg, #F5A623 335deg, #ffffff 348deg, #F5A623 360deg)",
+          animation: "card-border-spin 3s linear infinite",
+        }}
+      />
 
-      {/* Bottom bar — desliza no hover */}
-      <span className="absolute bottom-0 left-0 right-0 h-1 bg-teal-800 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-40" />
+      {/* Inner card */}
+      <div className="group relative z-10 flex flex-col overflow-hidden rounded-[6px] bg-[#ea592d] text-center">
 
-      {/* Image carousel */}
-      <div className="relative h-60 overflow-hidden">
-        {product.images.map((src, i) => (
-          <img
-            key={src}
-            src={src}
-            alt={`${product.title} ${i + 1}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
-              i === idx
-                ? "opacity-100 group-hover:scale-110"
-                : "opacity-0"
-            }`}
-          />
-        ))}
+        {/* Top accent line */}
+        <span className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#F5A623] rounded-b-full z-40" />
 
-        {/* Orange gradient overlay */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#ea592d]/50 to-[#ea592d]/80" />
+        {/* Bottom bar — desliza no hover */}
+        <span className="absolute bottom-0 left-0 right-0 h-1 bg-teal-800 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-40" />
 
-        {/* Icon centered on image */}
-        <div className="absolute inset-0 flex items-center justify-center z-30">
-          <Icon className="w-14 h-14 text-[#F5A623] drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]" />
-        </div>
-
-        {/* Prev arrow */}
-        <button
-          onClick={() => setIdx(0)}
-          disabled={idx === 0}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center transition-all disabled:opacity-0"
-        >
-          <ChevronLeft className="w-4 h-4 text-white" />
-        </button>
-
-        {/* Next arrow */}
-        <button
-          onClick={() => setIdx(1)}
-          disabled={idx === 1}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center transition-all disabled:opacity-0"
-        >
-          <ChevronRight className="w-4 h-4 text-white" />
-        </button>
-
-        {/* Dots */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5">
-          {product.images.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIdx(i)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                i === idx ? "w-5 bg-white" : "w-1.5 bg-white/50"
+        {/* Image carousel */}
+        <div className="relative h-60 overflow-hidden">
+          {product.images.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt={`${product.title} ${i + 1}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
+                i === idx
+                  ? "opacity-100 group-hover:scale-110"
+                  : "opacity-0"
               }`}
             />
           ))}
-        </div>
-      </div>
 
-      {/* Content */}
-      <div className="p-6 flex flex-col flex-1 items-center">
-        <h4 className="text-[30px] font-bold text-white text-center leading-tight">
-          {product.title}
-        </h4>
-        <p className="text-white text-center text-sm mt-3 flex-1">
-          {product.description}
-        </p>
-        <a
-          href="#contato"
-          className="mt-6 bg-white text-[#ea592d] font-bold uppercase px-6 py-3 text-sm hover:bg-gray-100 transition-colors"
-        >
-          SAIBA MAIS
-        </a>
+          {/* Orange gradient overlay */}
+          <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#ea592d]/50 to-[#ea592d]/80" />
+
+          {/* Icon centered on image */}
+          <div className="absolute inset-0 flex items-center justify-center z-30">
+            <Icon className="w-14 h-14 text-[#F5A623] drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]" />
+          </div>
+
+          {/* Prev arrow */}
+          <button
+            onClick={() => setIdx(0)}
+            disabled={idx === 0}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center transition-all disabled:opacity-0"
+          >
+            <ChevronLeft className="w-4 h-4 text-white" />
+          </button>
+
+          {/* Next arrow */}
+          <button
+            onClick={() => setIdx(1)}
+            disabled={idx === 1}
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center transition-all disabled:opacity-0"
+          >
+            <ChevronRight className="w-4 h-4 text-white" />
+          </button>
+
+          {/* Dots */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5">
+            {product.images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIdx(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === idx ? "w-5 bg-white" : "w-1.5 bg-white/50"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-6 flex flex-col flex-1 items-center">
+          <h4 className="text-[30px] font-bold text-white text-center leading-tight">
+            {product.title}
+          </h4>
+          <p className="text-white text-center text-sm mt-3 flex-1">
+            {product.description}
+          </p>
+          <a
+            href="#contato"
+            className="mt-6 bg-white text-[#ea592d] font-bold uppercase px-6 py-3 text-sm hover:bg-gray-100 transition-colors"
+          >
+            SAIBA MAIS
+          </a>
+        </div>
       </div>
     </div>
   );
