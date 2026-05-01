@@ -16,7 +16,7 @@ export function EsferaFooter() {
             />
 
             {/* Endereço */}
-            <div className="flex items-start gap-3 text-white/60 text-sm leading-relaxed">
+            <div className="flex items-start gap-3 text-white/60 text-sm leading-relaxed justify-center text-center">
               <svg className="mt-0.5 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
                 <circle cx="12" cy="10" r="3" />
@@ -25,6 +25,23 @@ export function EsferaFooter() {
                 Al. Ricardo Paranhos, Nº 52<br />
                 Setor Marista, Goiânia/GO
               </address>
+            </div>
+
+            {/* Newsletter */}
+            <div className="flex">
+              <input
+                type="email"
+                placeholder="Seu e-mail"
+                className="flex-1 bg-white/10 border border-white/20 rounded-l-full px-4 py-3 text-sm text-white placeholder-white/40 outline-none focus:border-[#F0416E] transition-colors"
+              />
+              <button
+                className="px-4 py-3 rounded-r-full flex items-center justify-center"
+                style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
 
             {/* Redes sociais */}
