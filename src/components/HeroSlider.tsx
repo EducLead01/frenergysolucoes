@@ -9,6 +9,15 @@ export function HeroSlider() {
         loop
         playsInline
       />
+
+      {/* Cinematic gradient overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.05) 60%, rgba(0,0,0,0.55) 100%)",
+        }}
+      />
     </div>
   );
 }
