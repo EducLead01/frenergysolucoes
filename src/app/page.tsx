@@ -8,7 +8,6 @@ import { AppSection } from "@/components/AppSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ClientsSection } from "@/components/ClientsSection";
 import { BCCastSection } from "@/components/BCCastSection";
-import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { EsferaHero } from "@/components/esfera/EsferaHero";
 import { EsferaTestimonial } from "@/components/esfera/EsferaTestimonial";
@@ -56,7 +55,6 @@ export default function Home() {
         <ClientsSection />
         <BCCastSection />
       </main>
-      <Footer />
       <WhatsAppFloat />
     </>
   );
