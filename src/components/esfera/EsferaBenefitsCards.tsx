@@ -1,55 +1,90 @@
+import Image from "next/image";
+
 const cards = [
   {
-    title: "Economia",
+    badge: "ECONOMIA",
+    title: "Redução de até 35% na conta de luz",
     desc: "Para quem busca economia na conta de luz, a Esfera é o lugar certo. Oferecemos as melhores condições de contratação de energia para garantir os melhores preços.",
-    bg: "/images/esfera/card-economia.jpg",
+    img: "/images/esfera/card-economia.jpg",
+    reverse: false,
   },
   {
-    title: "Controle",
+    badge: "CONTROLE",
+    title: "Saber quanto vai pagar",
     desc: "Tenha previsibilidade e saiba exatamente o preço que vai pagar, sem bandeiras tarifárias ou surpresas.",
-    bg: "/images/esfera/card-controle.jpg",
+    img: "/images/esfera/card-controle.jpg",
+    reverse: true,
   },
   {
-    title: "Praticidade",
+    badge: "PRATICIDADE",
+    title: "Experiência sem burocracia",
     desc: "Pode se despreocupar! Nós cuidamos de todo o processo de migração para você, sem custos adicionais. É só aproveitar os benefícios do Mercado Livre de Energia.",
-    bg: "/images/esfera/card-praticidade.jpg",
+    img: "/images/esfera/card-praticidade.jpg",
+    reverse: false,
   },
   {
-    title: "Sustentabilidade",
+    badge: "SUSTENTABILIDADE",
+    title: "Energia limpa de fontes renováveis",
     desc: "Consuma energia limpa na sua empresa e amplie as práticas ESG. Além de economizar, você cuida do Planeta consumindo energia renovável.",
-    bg: "/images/esfera/card-sustentabilidade.jpg",
+    img: "/images/esfera/card-sustentabilidade.jpg",
+    reverse: true,
   },
   {
-    title: "Simplicidade",
+    badge: "SIMPLICIDADE",
+    title: "Simplicidade para economizar",
     desc: "O Mercado Livre de Energia tem burocracias? Não no Esfera Simplifica. Experiência simplificada para você que quer economizar sem complicações.",
-    bg: "/images/esfera/card-simplicidade.jpg",
+    img: "/images/esfera/card-simplicidade.jpg",
+    reverse: false,
   },
   {
-    title: "Transparência",
+    badge: "TRANSPARÊNCIA",
+    title: "Segurança e transparência",
     desc: "Garantimos uma experiência transparente, pensada de pessoa para pessoa. Somos referência no Mercado Livre de Energia e oferecemos todo o suporte necessário.",
-    bg: "/images/esfera/card-transparencia.jpg",
+    img: "/images/esfera/card-transparencia.jpg",
+    reverse: true,
   },
 ];
 
 export function EsferaBenefitsCards() {
   return (
     <section className="py-16 bg-white">
-      <div className="container mx-auto px-6">
-        <h2 className="text-center text-3xl lg:text-4xl font-bold text-[#4D4D4D] mb-12">
+      <div className="container mx-auto px-6 max-w-5xl">
+        <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] mb-12">
           O Esfera Simplifica é para você que busca
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div className="flex flex-col gap-12">
           {cards.map((card) => (
             <div
-              key={card.title}
-              className="relative rounded-2xl overflow-hidden min-h-[280px] flex flex-col justify-end group"
-              style={{ backgroundImage: `url('${card.bg}')`, backgroundSize: "cover", backgroundPosition: "center" }}
+              key={card.badge}
+              className={`flex flex-col ${card.reverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-8`}
             >
-              {/* Dark overlay */}
-              <div className="absolute inset-0 bg-black/55 group-hover:bg-black/65 transition-all" />
-              <div className="relative z-10 p-6">
-                <h3 className="text-white text-xl font-bold mb-2">{card.title}</h3>
-                <p className="text-white/85 text-sm leading-relaxed">{card.desc}</p>
+              {/* Text */}
+              <div className="flex-1 flex flex-col gap-3">
+                <span
+                  className="inline-block self-start text-white text-xs font-bold uppercase px-3 py-1 rounded-full"
+                  style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+                >
+                  {card.badge}
+                </span>
+                <h3 className="text-xl font-bold text-[#4D4D4D]">{card.title}</h3>
+                <p className="text-[#787878] text-sm leading-relaxed">{card.desc}</p>
+              </div>
+
+              {/* Image with orange border accent */}
+              <div className="flex-1 w-full relative">
+                <div
+                  className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
+                  style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
+                />
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+                  <Image
+                    src={card.img}
+                    alt={card.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
           ))}
