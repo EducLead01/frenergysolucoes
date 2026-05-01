@@ -10,12 +10,12 @@ export function HeroSlider() {
         playsInline
       />
 
-      {/* Cinematic gradient overlay */}
+      {/* Teal gradient overlay — left strong, fades to transparent right */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.05) 60%, rgba(0,0,0,0.55) 100%)",
+            "linear-gradient(to right, rgba(17,94,89,0.92) 0%, rgba(17,94,89,0.6) 35%, rgba(17,94,89,0.15) 65%, rgba(17,94,89,0) 100%)",
         }}
       />
     </div>
