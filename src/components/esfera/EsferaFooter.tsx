@@ -2,16 +2,16 @@ import Image from "next/image";
 
 const columns = [
   {
-    title: "Institucional",
-    links: ["Home", "Sobre Nós", "Parceria", "Carreira", "Fale Conosco"],
+    title: "",
+    links: [],
   },
   {
-    title: "Soluções",
-    links: ["Esfera Simplifica", "Esfera Resolve", "Usinas Geradoras"],
+    title: "",
+    links: [],
   },
   {
-    title: "Fique por dentro",
-    links: ["Blog", "Transparência Salarial", "Política de Privacidade", "Valor da energia"],
+    title: "",
+    links: [],
   },
 ];
 
@@ -23,19 +23,17 @@ export function EsferaFooter() {
           {/* Logo + newsletter */}
           <div className="flex flex-col gap-6 lg:w-72">
             <Image
-              src="/images/esfera/logo-footer.png"
-              alt="Esfera Energia"
+              src="/frenergy-logo-white.svg"
+              alt="Frenergy"
               width={160}
               height={50}
               className="object-contain"
             />
-            <p className="text-white/60 text-sm leading-relaxed">
-              Sua empresa economizando com o Mercado Livre de Energia de forma simples e sem burocracia.
-            </p>
+            <p className="text-white/60 text-sm leading-relaxed"></p>
             <div className="flex">
               <input
                 type="email"
-                placeholder="Seu e-mail"
+                placeholder=""
                 className="flex-1 bg-white/10 border border-white/20 rounded-l-full px-4 py-3 text-sm text-white placeholder-white/40 outline-none focus:border-[#F0416E] transition-colors"
               />
               <button
@@ -49,9 +47,9 @@ export function EsferaFooter() {
             </div>
           </div>
 
-          {/* Columns */}
+          {/* Columns (empty — ready for customization) */}
           <div className="flex-1 grid grid-cols-2 lg:grid-cols-3 gap-8">
-            {columns.map((col) => (
+            {columns.filter(col => col.title).map((col) => (
               <div key={col.title}>
                 <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">{col.title}</h4>
                 <ul className="flex flex-col gap-2">
@@ -72,7 +70,7 @@ export function EsferaFooter() {
       {/* Copyright bar */}
       <div className="border-t border-white/10">
         <div className="container mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-white/40 text-xs">© 2026 Esfera Energia. Todos os direitos reservados.</p>
+          <p className="text-white/40 text-xs">© 2026 Frenergy. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
