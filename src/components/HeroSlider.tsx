@@ -120,50 +120,62 @@ function LightTrails() {
 
 export function HeroSlider() {
   return (
-    <div className="relative">
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 4000, pauseOnMouseEnter: true, disableOnInteraction: false }}
+    <div className="relative h-[105vh] overflow-hidden">
+      {/* Drone video background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/videos/drone 01.mp4"
+        autoPlay
+        muted
         loop
-        speed={600}
-        className="hero-swiper"
-      >
-        {slides.map((slide, i) => (
-          <SwiperSlide key={i}>
-            <div
-              className="h-[105vh] bg-cover bg-center relative flex flex-col justify-center py-24"
-              style={{ backgroundImage: `url('${slide.bgImage}')` }}
-            >
-              {/* Dark overlay */}
-              <div className="absolute inset-0 bg-teal-950 opacity-50 z-10" />
+        playsInline
+        style={{ zIndex: 0 }}
+      />
 
-              {/* Light trails */}
-              <LightTrails />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-teal-950 opacity-50" style={{ zIndex: 1 }} />
 
-              {/* Content */}
-              <div className="container mx-auto px-6 relative z-20">
-                <div className="flex flex-col gap-4 lg:w-4/5">
-                  <h1
-                    className="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-white leading-snug lg:leading-[3.7rem]"
-                    dangerouslySetInnerHTML={{ __html: slide.titleHtml }}
-                  />
-                  <p className="text-xl text-white mb-6 mt-2 max-w-2xl">{slide.subtitle}</p>
-                  <div>
-                    <a
-                      href={slide.btnHref}
-                      className={`inline-block font-bold uppercase px-4 py-2 transition-all ${slide.btnClass}`}
-                    >
-                      {slide.btnText}
-                    </a>
+      {/* Light trails */}
+      <div className="absolute inset-0" style={{ zIndex: 2 }}>
+        <LightTrails />
+      </div>
+
+      {/* Slider content */}
+      <div className="absolute inset-0" style={{ zIndex: 3 }}>
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 4000, pauseOnMouseEnter: true, disableOnInteraction: false }}
+          loop
+          speed={600}
+          className="hero-swiper h-full"
+        >
+          {slides.map((slide, i) => (
+            <SwiperSlide key={i}>
+              <div className="h-full flex flex-col justify-center py-24">
+                <div className="container mx-auto px-6">
+                  <div className="flex flex-col gap-4 lg:w-4/5">
+                    <h1
+                      className="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-white leading-snug lg:leading-[3.7rem]"
+                      dangerouslySetInnerHTML={{ __html: slide.titleHtml }}
+                    />
+                    <p className="text-xl text-white mb-6 mt-2 max-w-2xl">{slide.subtitle}</p>
+                    <div>
+                      <a
+                        href={slide.btnHref}
+                        className={`inline-block font-bold uppercase px-4 py-2 transition-all ${slide.btnClass}`}
+                      >
+                        {slide.btnText}
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 }
