@@ -8,15 +8,15 @@ export function EsferaHero() {
           {/* Left: logo + text */}
           <div className="flex-1 flex flex-col gap-6">
             <Image
-              src="/images/esfera/logo-simplifica.png"
-              alt="Esfera Simplifica"
-              width={280}
-              height={80}
+              src="/frenergy-logo.svg"
+              alt="Frenergy"
+              width={220}
+              height={70}
               className="object-contain"
             />
             <h2 className="text-3xl lg:text-4xl font-bold text-[#4D4D4D] leading-snug">
               A conta de luz da sua empresa é maior que{" "}
-              <span className="text-[#F0416E]">3 mil reais por mês?</span>
+              <span className="text-teal-800">3 mil reais por mês?</span>
             </h2>
             <h3 className="text-xl lg:text-2xl text-[#4D4D4D] leading-relaxed">
               Nós simplificamos para você economizar e investir no que realmente importa.
