@@ -75,15 +75,24 @@ export function EsferaHero() {
             </div>
           </div>
 
-          {/* Right: decorative image */}
+          {/* Right: card with orange offset border */}
           <div className="flex-1 flex justify-center">
-            <Image
-              src="/images/esfera/group-hero.png"
-              alt="Frenergy"
-              width={500}
-              height={400}
-              className="object-contain w-full max-w-md"
-            />
+            <div className="relative w-full max-w-md">
+              {/* Orange offset block behind */}
+              <div
+                className="absolute inset-0 rounded-2xl translate-x-4 translate-y-4"
+                style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
+              />
+              {/* Image */}
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-sm">
+                <Image
+                  src="/images/esfera/card-controle.jpg"
+                  alt="Frenergy"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
