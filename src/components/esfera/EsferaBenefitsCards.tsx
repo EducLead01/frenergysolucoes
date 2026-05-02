@@ -47,7 +47,7 @@ const cards = [
 
 export function EsferaBenefitsCards() {
   return (
-    <section className="py-16 bg-white">
+    <section id="como-funciona" className="py-16 bg-white">
       <div className="container mx-auto px-6 max-w-5xl">
         <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] mb-12">
           A Frenergy simplifica todo o processo pra você economizar
