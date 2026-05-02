@@ -28,55 +28,72 @@ export function CalculadoraSection() {
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
 
-          {/* Slider label */}
-          <p className="text-base font-bold text-[#4D4D4D] mb-6">
-            Valor da sua conta de luz mensal
-          </p>
+          {/* Two columns */}
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 lg:divide-x lg:divide-gray-100 mb-8">
 
-          {/* Value input */}
-          <div className="flex items-center justify-center gap-2 mb-5">
-            <span className="text-3xl font-bold text-gray-400">R$</span>
-            <input
-              id="fr-calc-input"
-              type="number"
-              min={100}
-              max={5000}
-              step={10}
-              value={bill}
-              onChange={(e) => {
-                const v = Math.max(100, Math.min(5000, Number(e.target.value) || 100));
-                setBill(v);
-              }}
-              className="w-40 text-5xl font-extrabold text-[#FF5900] border-b-2 border-[#FF5900] outline-none bg-transparent text-center"
-            />
-          </div>
+            {/* Left — input + slider */}
+            <div className="flex-1 flex flex-col items-center lg:pr-10">
+              <p className="text-base font-bold text-[#4D4D4D] mb-6 text-center">
+                Valor da sua conta de luz mensal
+              </p>
 
-          {/* Slider + floating bulb */}
-          <div className="relative pt-14 mb-1">
-            <div
-              className="absolute top-0 pointer-events-none flex flex-col items-center"
-              style={{ left: `clamp(1.2rem, calc(${pct}% - 1.2rem), calc(100% - 1.2rem))` }}
-            >
-              <div className="rounded-full p-2.5 shadow-lg" style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)", boxShadow: "0 4px 16px rgba(255,89,0,0.4)" }}>
-                <Lightbulb className="w-6 h-6 text-white" />
+              <div className="flex items-center justify-center gap-2 mb-5">
+                <span className="text-3xl font-bold text-gray-400">R$</span>
+                <input
+                  id="fr-calc-input"
+                  type="number"
+                  min={100}
+                  max={5000}
+                  step={10}
+                  value={bill}
+                  onChange={(e) => {
+                    const v = Math.max(100, Math.min(5000, Number(e.target.value) || 100));
+                    setBill(v);
+                  }}
+                  className="w-36 text-5xl font-extrabold text-[#FF5900] border-b-2 border-[#FF5900] outline-none bg-transparent text-center"
+                />
               </div>
-              <div className="w-2.5 h-2.5 rotate-45 -mt-1.5" style={{ background: "#FF5900" }} />
+
+              {/* Slider + floating bulb */}
+              <div className="relative pt-14 mb-1 w-full">
+                <div
+                  className="absolute top-0 pointer-events-none flex flex-col items-center"
+                  style={{ left: `clamp(1.2rem, calc(${pct}% - 1.2rem), calc(100% - 1.2rem))` }}
+                >
+                  <div className="rounded-full p-2.5 shadow-lg" style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)", boxShadow: "0 4px 16px rgba(255,89,0,0.4)" }}>
+                    <Lightbulb className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="w-2.5 h-2.5 rotate-45 -mt-1.5" style={{ background: "#FF5900" }} />
+                </div>
+                <input
+                  type="range"
+                  min={100}
+                  max={5000}
+                  step={10}
+                  value={bill}
+                  onChange={(e) => setBill(Number(e.target.value))}
+                  className="fr-slider w-full h-3 rounded-full appearance-none cursor-pointer"
+                  style={{ background: sliderBg }}
+                />
+              </div>
+              <div className="flex justify-between text-xs text-gray-400 w-full">
+                <span>R$ 100</span>
+                <span>R$ 5.000</span>
+              </div>
             </div>
 
-            <input
-              type="range"
-              min={100}
-              max={5000}
-              step={10}
-              value={bill}
-              onChange={(e) => setBill(Number(e.target.value))}
-              className="fr-slider w-full h-3 rounded-full appearance-none cursor-pointer"
-              style={{ background: sliderBg }}
-            />
-          </div>
-          <div className="flex justify-between text-xs text-gray-400 mb-10">
-            <span>R$ 100</span>
-            <span>R$ 5.000</span>
+            {/* Right — monthly savings */}
+            <div className="flex-1 flex flex-col items-center justify-center lg:pl-10">
+              <p className="text-base font-bold text-[#4D4D4D] mb-6 text-center">
+                Valor em média economizado no mês
+              </p>
+              <div className="flex items-center gap-2">
+                <span className="text-3xl font-bold text-gray-400">R$</span>
+                <span className="text-5xl font-extrabold" style={{ color: "#FF5900" }}>
+                  {Math.round(monthly).toLocaleString("pt-BR")}
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Divider */}
