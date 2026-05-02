@@ -2,40 +2,7 @@
 
 import { useState } from "react";
 
-const faqs = [
-  {
-    q: "O que é a migração para o Mercado Livre de Energia no Modelo Varejista?",
-    a: "A modalidade Varejista permite economia com simplicidade, onde a Comercializadora Varejista assume responsabilidades burocráticas e legais da migração. Você economiza sem precisar se preocupar com a parte técnica e jurídica do processo.",
-  },
-  {
-    q: "Quais são os pré-requisitos para migrar no Modelo Varejista?",
-    a: "Desde janeiro de 2024, todos os consumidores de média e alta tensão podem migrar. Mais de 175 mil empresas têm essa possibilidade. Requer-se um estudo de viabilidade desenvolvido pela Comercializadora.",
-  },
-  {
-    q: "Qual a diferença entre a migração no Modelo Tradicional e no Modelo Varejista?",
-    a: "Modelo Tradicional: burocrático, exige associação à CCEE e responsabilidades financeiras diretas. Modelo Varejista: simples e ágil, com suporte completo da Comercializadora — você não precisa se envolver na operação.",
-  },
-  {
-    q: "Quais são as vantagens de migrar no Modelo Varejista?",
-    a: "Economia garantida, simplicidade, liberdade da burocracia, sem exposição a riscos de mercado, previsibilidade orçamentária e preço fixo estabelecido em contrato.",
-  },
-  {
-    q: "Quais são os custos envolvidos na migração?",
-    a: "Dois custos possíveis: contratação de Comercializadora Varejista (despesa baixa) e adequação do sistema de medição de energia (apenas em casos específicos).",
-  },
-  {
-    q: "No Mercado Cativo, tenho de pagar mensalmente somente uma conta de luz. Migrando para o Mercado Livre, no Modelo Varejista, o que vai mudar na minha rotina?",
-    a: "A rotina muda minimamente: você passa a ter duas contas mensais — uma para a distribuidora e outra com a energia com desconto — versus uma única conta anteriormente.",
-  },
-  {
-    q: "A migração é arriscada e pode levar a empresa a ter perdas financeiras?",
-    a: "Não. A Comercializadora assume boa parte dos riscos, a qualidade de fornecimento continua exatamente igual e há apenas economia. Não há risco de falta de energia.",
-  },
-  {
-    q: "Se eu me arrepender da migração, vou poder voltar para o Mercado Cativo?",
-    a: "Sim, é possível voltar, mas com uma espera de até 5 anos pela distribuidora. Essa situação é rara e geralmente ocorre por má escolha da Comercializadora — por isso escolha bem.",
-  },
-];
+const faqs: { q: string; a: string }[] = [];
 
 export function EsferaFAQ() {
   const [open, setOpen] = useState<number | null>(null);
