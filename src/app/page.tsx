@@ -6,6 +6,7 @@ import { CalculadoraSection } from "@/components/CalculadoraSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { EsferaHero } from "@/components/esfera/EsferaHero";
 import { EsferaTestimonial } from "@/components/esfera/EsferaTestimonial";
+import { EsferaAudioTestimonials } from "@/components/esfera/EsferaAudioTestimonials";
 import { EsferaStats } from "@/components/esfera/EsferaStats";
 import { EsferaClientLogos } from "@/components/esfera/EsferaClientLogos";
 import { EsferaBenefitsCards } from "@/components/esfera/EsferaBenefitsCards";
@@ -24,12 +25,7 @@ export default function Home() {
         <ProductsSection />
         {/* — Esfera Simplifica clone — */}
         <EsferaHero />
-        <EsferaTestimonial
-          quote="Depois da migração, percebemos uma economia significativa, que nos apoia no desenvolvimento e nos investimentos no Clube Jundiaiense."
-          name="Hélio Sandoval"
-          role="Diretor de Operações"
-          company="Clube Jundiaiense"
-        />
+        <EsferaAudioTestimonials />
         <EsferaStats />
         <EsferaClientLogos />
         <EsferaTestimonial
