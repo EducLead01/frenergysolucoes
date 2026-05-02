@@ -66,41 +66,10 @@ export function EsferaContactForm() {
         <div className="flex flex-col lg:flex-row gap-12 items-start">
 
           {/* Left */}
-          <div className="flex-1 flex flex-col gap-6 lg:pt-4">
-            {/* Starburst badge */}
-            <div className="w-36 h-36 flex-shrink-0 relative flex items-center justify-center">
-              <svg viewBox="0 0 120 120" className="absolute inset-0 w-full h-full">
-                <path
-                  d="M60 4 L67 22 L86 14 L82 34 L102 34 L90 50 L108 60 L90 70 L102 86 L82 86 L86 106 L67 98 L60 116 L53 98 L34 106 L38 86 L18 86 L30 70 L12 60 L30 50 L18 34 L38 34 L34 14 L53 22 Z"
-                  fill="url(#sg)"
-                />
-                <defs>
-                  <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#F0416E" />
-                    <stop offset="100%" stopColor="#FF5900" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div className="relative text-center text-white leading-tight px-4">
-                <p className="text-xs font-semibold">Até</p>
-                <p className="text-2xl font-black">35%</p>
-                <p className="text-[10px] font-semibold leading-tight">de economia<br />de energia.</p>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-2xl lg:text-3xl font-bold leading-snug" style={{ color: "#F0416E" }}>
-                Entre em contato e saiba como sua empresa irá economizar
-              </h2>
-            </div>
-
-            <p className="text-[#787878] text-base leading-relaxed">
-              Aproveite para tirar todas as suas dúvidas sobre o Mercado Livre de Energia e entender como a Frenergy ajuda você a economizar com a melhor energia.
-            </p>
-
-            <p className="text-[#4D4D4D] text-sm">
-              Preencha os campos ao lado e retornaremos em até 1 dia útil.
-            </p>
+          <div className="flex-1 flex flex-col justify-center lg:pt-4">
+            <h2 className="text-2xl lg:text-3xl font-bold leading-snug" style={{ color: "#F0416E" }}>
+              Entre em contato e saiba como sua empresa irá economizar
+            </h2>
           </div>
 
           {/* Right: form */}
