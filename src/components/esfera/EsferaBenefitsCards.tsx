@@ -50,7 +50,7 @@ export function EsferaBenefitsCards() {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-6 max-w-5xl">
         <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] mb-12">
-          O Esfera Simplifica é para você que busca
+          A Frenergy simplifica todo o processo pra você economizar
         </h2>
 
         <div className="flex flex-col gap-12">
