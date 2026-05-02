@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 const logos = [
+  { src: "/frenergy-logo.svg",                alt: "Frenergy" },
   { src: "/images/esfera/logo-clube.png",     alt: "Clube Jundiaiense" },
   { src: "/images/esfera/logo-petropol.png",  alt: "Petropol" },
   { src: "/images/esfera/logo-portal.png",    alt: "Portal" },
