@@ -26,6 +26,7 @@ export default function Home() {
         <HeroSlider />
         <ProductsSection />
         <AnimacaoSolar />
+        <EsferaBenefitsCards />
         <ComoFuncionaSection />
 
         {/* — Esfera Simplifica clone — */}
@@ -38,7 +39,6 @@ export default function Home() {
         />
         <EsferaStats />
         <EsferaClientLogos />
-        <EsferaBenefitsCards />
         <EsferaTestimonial
           quote="É perceptível a atenção da Esfera na geração de negócios estruturados e focados no resultado satisfatório para nós. Tem sido uma experiência ótima."
           name="Antonio Mello"
