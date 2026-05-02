@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 const experts = [
   { name: "Especialista 1", role: "Consultoria de Energia" },
@@ -69,18 +69,17 @@ export function EsferaExperts() {
         {/* Carousel */}
         <div className="relative mt-12 experts-swiper">
           <Swiper
-            modules={[Autoplay, Navigation, Pagination]}
+            modules={[Autoplay, Navigation]}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
             loop
             navigation
-            pagination={{ clickable: true }}
             slidesPerView={1}
             spaceBetween={16}
             breakpoints={{
               640:  { slidesPerView: 2, spaceBetween: 16 },
               1024: { slidesPerView: 3, spaceBetween: 20 },
             }}
-            className="pb-12"
+            className="pb-4"
           >
             {experts.map((e, i) => (
               <SwiperSlide key={i}>
@@ -90,19 +89,6 @@ export function EsferaExperts() {
           </Swiper>
         </div>
 
-        {/* CTA */}
-        <div className="flex justify-center mt-4">
-          <a
-            href="#contato"
-            className="inline-flex items-center gap-2 px-10 py-4 rounded-full text-white font-bold text-base transition-opacity hover:opacity-90"
-            style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-          >
-            Agendar uma demonstração
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
 
       </div>
     </section>
