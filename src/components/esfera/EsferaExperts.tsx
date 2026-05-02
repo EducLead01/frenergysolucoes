@@ -1,7 +1,9 @@
 "use client";
 
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 
 const experts = [
   { name: "Especialista 1", role: "Consultoria de Energia" },
@@ -12,25 +14,53 @@ const experts = [
   { name: "Especialista 6", role: "Projetos Fotovoltaicos" },
 ];
 
+function ChevronLeft() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M15 18l-6-6 6-6" />
+    </svg>
+  );
+}
+function ChevronRight() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M9 18l6-6-6-6" />
+    </svg>
+  );
+}
+
+function NavBtn({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
+  return (
+    <button
+      onClick={onClick}
+      className="flex items-center justify-center w-12 h-12 rounded-full text-white transition-all hover:scale-110 active:scale-95 flex-shrink-0"
+      style={{
+        background: "rgba(15, 15, 15, 0.82)",
+        backdropFilter: "blur(6px)",
+        boxShadow: "0 4px 20px rgba(0,0,0,0.35)",
+      }}
+    >
+      {children}
+    </button>
+  );
+}
+
 function ExpertCard({ name, role }: { name: string; role: string }) {
   return (
     <div
       className="relative rounded-2xl overflow-hidden flex flex-col justify-end"
       style={{ aspectRatio: "310/480" }}
     >
-      {/* Placeholder background */}
       <div
         className="absolute inset-0"
         style={{ background: "linear-gradient(160deg, #0d4f4c 0%, #1a7a74 60%, #115e59 100%)" }}
       />
-      {/* Person silhouette */}
       <div className="absolute inset-0 flex items-center justify-center">
         <svg viewBox="0 0 100 130" className="w-2/3 opacity-20" fill="white">
           <circle cx="50" cy="38" r="28" />
           <path d="M5 130 C5 90 95 90 95 130 Z" />
         </svg>
       </div>
-      {/* Bottom overlay */}
       <div
         className="relative z-10 p-4 flex flex-col gap-3"
         style={{ background: "linear-gradient(to top, rgba(0,0,0,0.80) 0%, transparent 100%)" }}
@@ -55,40 +85,46 @@ function ExpertCard({ name, role }: { name: string; role: string }) {
 }
 
 export function EsferaExperts() {
+  const swiperRef = useRef<SwiperType | null>(null);
+
   return (
     <section className="py-20 bg-white overflow-hidden">
       <div className="container mx-auto px-6 max-w-6xl">
 
-        {/* Header */}
-        <div className="text-center mb-4">
+        {/* Header + nav buttons */}
+        <div className="flex items-center justify-between mb-12">
           <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D]">
             Veja alguns dos nossos projetos
           </h2>
+          <div className="flex items-center gap-3 flex-shrink-0 ml-6">
+            <NavBtn onClick={() => swiperRef.current?.slidePrev()}>
+              <ChevronLeft />
+            </NavBtn>
+            <NavBtn onClick={() => swiperRef.current?.slideNext()}>
+              <ChevronRight />
+            </NavBtn>
+          </div>
         </div>
 
         {/* Carousel */}
-        <div className="relative mt-12 experts-swiper">
-          <Swiper
-            modules={[Autoplay, Navigation]}
-            autoplay={{ delay: 4000, disableOnInteraction: false }}
-            loop
-            navigation
-            slidesPerView={1}
-            spaceBetween={16}
-            breakpoints={{
-              640:  { slidesPerView: 2, spaceBetween: 16 },
-              1024: { slidesPerView: 3, spaceBetween: 20 },
-            }}
-            className="pb-4"
-          >
-            {experts.map((e, i) => (
-              <SwiperSlide key={i}>
-                <ExpertCard name={e.name} role={e.role} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-
+        <Swiper
+          onSwiper={(s) => { swiperRef.current = s; }}
+          modules={[Autoplay, Navigation]}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          loop
+          slidesPerView={1}
+          spaceBetween={16}
+          breakpoints={{
+            640:  { slidesPerView: 2, spaceBetween: 16 },
+            1024: { slidesPerView: 3, spaceBetween: 20 },
+          }}
+        >
+          {experts.map((e, i) => (
+            <SwiperSlide key={i}>
+              <ExpertCard name={e.name} role={e.role} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
       </div>
     </section>
