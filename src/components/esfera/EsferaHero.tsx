@@ -1,11 +1,57 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
+
+const phrases = [
+  "A conta de luz da sua empresa é maior que 3 mil reais por mês?",
+  "Conheça nosso planejamento e gestão de energia Frenergy e invista seu tempo e dinheiro no que realmente importa.",
+];
+
+function Typewriter() {
+  const [displayed, setDisplayed] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = phrases[phraseIndex];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!deleting && charIndex < current.length) {
+      timeout = setTimeout(() => {
+        setDisplayed(current.slice(0, charIndex + 1));
+        setCharIndex((c) => c + 1);
+      }, 40);
+    } else if (!deleting && charIndex === current.length) {
+      timeout = setTimeout(() => setDeleting(true), 2200);
+    } else if (deleting && charIndex > 0) {
+      timeout = setTimeout(() => {
+        setDisplayed(current.slice(0, charIndex - 1));
+        setCharIndex((c) => c - 1);
+      }, 20);
+    } else if (deleting && charIndex === 0) {
+      setDeleting(false);
+      setPhraseIndex((i) => (i + 1) % phrases.length);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, deleting, phraseIndex]);
+
+  return (
+    <p className="text-xl lg:text-2xl font-bold text-[#4D4D4D] leading-snug min-h-[4rem]">
+      {displayed}
+      <span className="inline-block w-[2px] h-[1.2em] bg-[#F0416E] ml-1 align-middle animate-pulse" />
+    </p>
+  );
+}
 
 export function EsferaHero() {
   return (
     <section className="bg-white py-20">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Left: logo + text */}
+          {/* Left: logo + typewriter + CTA */}
           <div className="flex-1 flex flex-col gap-6">
             <Image
               src="/frenergy-logo.svg"
@@ -14,13 +60,7 @@ export function EsferaHero() {
               height={70}
               className="object-contain"
             />
-            <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] leading-snug">
-              A conta de luz da sua empresa é maior que{" "}
-              <span className="text-teal-800">3 mil reais por mês?</span>
-            </h2>
-            <h3 className="text-xl lg:text-2xl text-[#4D4D4D] leading-relaxed">
-              Nós simplificamos para você economizar e investir no que realmente importa.
-            </h3>
+            <Typewriter />
             <div>
               <a
                 href="#contato-esfera"
@@ -39,7 +79,7 @@ export function EsferaHero() {
           <div className="flex-1 flex justify-center">
             <Image
               src="/images/esfera/group-hero.png"
-              alt="Esfera Energia"
+              alt="Frenergy"
               width={500}
               height={400}
               className="object-contain w-full max-w-md"
