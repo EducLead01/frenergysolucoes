@@ -161,3 +161,9 @@
 .product-card-img:hover {
   background-size: 120% 120%;
 }
+
+/* Infinite marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

@@ -5,8 +5,8 @@ import { AnimacaoSolar } from "@/components/AnimacaoSolar";
 import { CalculadoraSection } from "@/components/CalculadoraSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { EsferaHero } from "@/components/esfera/EsferaHero";
-import { EsferaTestimonial } from "@/components/esfera/EsferaTestimonial";
 import { EsferaAudioTestimonials } from "@/components/esfera/EsferaAudioTestimonials";
+import { EsferaLogoMarquee } from "@/components/esfera/EsferaLogoMarquee";
 import { EsferaStats } from "@/components/esfera/EsferaStats";
 import { EsferaClientLogos } from "@/components/esfera/EsferaClientLogos";
 import { EsferaBenefitsCards } from "@/components/esfera/EsferaBenefitsCards";
@@ -28,12 +28,7 @@ export default function Home() {
         <EsferaAudioTestimonials />
         <EsferaStats />
         <EsferaClientLogos />
-        <EsferaTestimonial
-          quote="É perceptível a atenção da Esfera na geração de negócios estruturados e focados no resultado satisfatório para nós. Tem sido uma experiência ótima."
-          name="Antonio Mello"
-          role="Presidente"
-          company="SHB"
-        />
+        <EsferaLogoMarquee />
         <EsferaFAQ />
         <EsferaContactForm />
         <EsferaFooter />
