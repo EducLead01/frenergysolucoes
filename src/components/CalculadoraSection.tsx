@@ -72,8 +72,8 @@ export function CalculadoraSection() {
                   step={10}
                   value={bill}
                   onChange={(e) => setBill(Number(e.target.value))}
-                  className="fr-slider w-full h-3 rounded-full appearance-none cursor-pointer"
-                  style={{ background: sliderBg }}
+                  className="fr-slider w-full h-3 rounded-full cursor-pointer"
+                  style={{ background: sliderBg, WebkitAppearance: "none", appearance: "none" }}
                 />
               </div>
               <div className="flex justify-between text-xs text-gray-400 w-full">
