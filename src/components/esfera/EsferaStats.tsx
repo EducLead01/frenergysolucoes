@@ -11,7 +11,7 @@ const stats = [
     icon: "/images/esfera/icon-unidades.png",
     number: "+ de 1.600",
     label: "unidades consumidoras",
-    color: "#4D4D4D",
+    color: "#FF5900",
   },
   {
     icon: "/images/esfera/icon-economia.png",
@@ -23,7 +23,7 @@ const stats = [
     icon: "/images/esfera/icon-residencia.png",
     number: "+ de 3.900",
     label: "Empresas e residências pelo Centro-Oeste",
-    color: "#4D4D4D",
+    color: "#FF5900",
   },
 ];
 
