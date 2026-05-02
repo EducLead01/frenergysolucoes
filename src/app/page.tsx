@@ -27,8 +27,8 @@ export default function Home() {
         <EsferaAudioTestimonials />
         <EsferaStats />
         <EsferaClientLogos />
-        <EsferaFAQ />
         <EsferaContactForm />
+        <EsferaFAQ />
         <EsferaFooter />
 
         <CalculadoraSection />
