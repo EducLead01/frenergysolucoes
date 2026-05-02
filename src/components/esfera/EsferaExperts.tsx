@@ -2,9 +2,6 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 const experts = [
   { name: "Especialista 1", role: "Consultoria de Energia" },
@@ -52,23 +49,9 @@ export function EsferaExperts() {
 
         {/* Header */}
         <div className="text-center mb-4">
-          <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-3">
-            Nossa equipe
-          </p>
-          <h2 className="text-3xl lg:text-4xl font-black text-[#4D4D4D] leading-tight mb-4">
-            Os maiores do mercado
+          <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D]">
+            Veja alguns dos nossos projetos
           </h2>
-          <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-            <span style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              Aprenda com quem tem{" "}
-            </span>
-            <span style={{ background: "linear-gradient(90deg, #FF5900, #f5a623)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              experiência na prática
-            </span>
-          </h3>
-          <p className="text-[#787878] text-base max-w-xl mx-auto">
-            Esqueça os Gurus! Aprenda com os melhores Experts do mercado e saiba tudo sobre o ecossistema de energia solar:
-          </p>
         </div>
 
         {/* Carousel */}
