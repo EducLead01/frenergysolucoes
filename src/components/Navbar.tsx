@@ -117,9 +117,13 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           <a
             href="#contato"
-            className="hidden lg:block border border-white text-white font-bold uppercase text-xs lg:text-sm px-4 py-2 hover:bg-white hover:text-teal-900 transition-colors"
+            className="hidden lg:inline-flex items-center gap-1.5 text-white font-bold uppercase text-xs lg:text-sm px-5 py-2.5 rounded-full transition-opacity hover:opacity-90"
+            style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
           >
             QUERO ECONOMIZAR
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
           </a>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -188,9 +192,13 @@ export function Navbar() {
             <a
               href="#contato"
               onClick={() => setMobileOpen(false)}
-              className="mx-6 my-4 block border border-white text-white font-bold uppercase text-sm px-4 py-3 text-center hover:bg-white hover:text-teal-900 transition-colors"
+              className="mx-6 my-4 flex items-center justify-center gap-2 text-white font-bold uppercase text-sm px-4 py-3 rounded-full transition-opacity hover:opacity-90"
+              style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
             >
               QUERO ECONOMIZAR
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </a>
           </div>
         </div>
