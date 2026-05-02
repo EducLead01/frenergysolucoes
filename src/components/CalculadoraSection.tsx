@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Lightbulb } from "lucide-react";
+import { Lightbulb } from "lucide-react";
 
 function fmt(n: number) {
   return Math.round(n).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -14,30 +14,23 @@ export function CalculadoraSection() {
   const monthly = bill * savingsRate;
   const annual = monthly * 12;
   const pct = ((bill - 100) / (5000 - 100)) * 100;
-  const sliderBg = `linear-gradient(to right, #FF5144 ${pct}%, #e5e7eb ${pct}%)`;
+  const sliderBg = `linear-gradient(to right, #FF5900 ${pct}%, #e5e7eb ${pct}%)`;
 
   return (
     <section id="calculadora" className="py-24 bg-gray-50">
       <div className="container mx-auto px-6 max-w-3xl text-center">
 
         {/* Header */}
-        <p className="text-sm uppercase tracking-widest text-teal-800 mb-2">Simulação</p>
-        <h2 className="text-4xl font-bold text-teal-800 uppercase mb-4">
-          Calcule quanto você vai economizar
-        </h2>
-        <p className="text-gray-900 mb-12">
-          Deslize a barra ou digite o valor médio da sua conta de luz e veja sua economia em tempo real.
+        <p className="text-[#4D4D4D] text-lg lg:text-xl font-semibold mb-12 leading-relaxed">
+          Deslize a lâmpada e tenha uma noção do valor médio da sua conta de luz e veja sua economia em tempo real.
         </p>
 
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
 
           {/* Slider label */}
-          <p className="text-base font-semibold text-gray-700 mb-1">
+          <p className="text-base font-bold text-[#4D4D4D] mb-6">
             Valor da sua conta de luz mensal
-          </p>
-          <p className="text-sm text-gray-400 mb-6">
-            Deslize pela barra ou digite o valor desejado
           </p>
 
           {/* Value input */}
@@ -54,24 +47,20 @@ export function CalculadoraSection() {
                 const v = Math.max(100, Math.min(5000, Number(e.target.value) || 100));
                 setBill(v);
               }}
-              className="w-40 text-5xl font-extrabold text-teal-800 border-b-2 border-[#F5A623] outline-none bg-transparent text-center"
+              className="w-40 text-5xl font-extrabold text-[#FF5900] border-b-2 border-[#FF5900] outline-none bg-transparent text-center"
             />
           </div>
 
           {/* Slider + floating bulb */}
           <div className="relative pt-14 mb-1">
-            {/* Floating lightbulb */}
             <div
               className="absolute top-0 pointer-events-none flex flex-col items-center"
-              style={{
-                left: `clamp(1.2rem, calc(${pct}% - 1.2rem), calc(100% - 1.2rem))`,
-              }}
+              style={{ left: `clamp(1.2rem, calc(${pct}% - 1.2rem), calc(100% - 1.2rem))` }}
             >
-              <div className="bg-[#FF5144] rounded-full p-2.5 shadow-lg" style={{ boxShadow: "0 4px 16px rgba(255,81,68,0.45)" }}>
+              <div className="rounded-full p-2.5 shadow-lg" style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)", boxShadow: "0 4px 16px rgba(255,89,0,0.4)" }}>
                 <Lightbulb className="w-6 h-6 text-white" />
               </div>
-              {/* Triangle pointer */}
-              <div className="w-2.5 h-2.5 bg-[#FF5144] rotate-45 -mt-1.5" />
+              <div className="w-2.5 h-2.5 rotate-45 -mt-1.5" style={{ background: "#FF5900" }} />
             </div>
 
             <input
@@ -94,13 +83,12 @@ export function CalculadoraSection() {
           <div className="border-t border-gray-100 mb-8" />
 
           {/* Result */}
-          <p className="text-lg text-teal-800 mb-2">
+          <p className="text-lg font-semibold text-[#4D4D4D] mb-2">
             No primeiro ano, você vai economizar até
           </p>
-          <p className="text-5xl font-extrabold text-teal-800 mb-2">
+          <p className="text-5xl font-extrabold mb-2" style={{ color: "#FF5900" }}>
             {fmt(annual)}
           </p>
-          {/* Disclaimer */}
           <p className="text-xs text-gray-400 mb-8">
             Simulação baseada em 90% de economia solar. O valor real pode sofrer alterações conforme o projeto.
           </p>
@@ -108,14 +96,13 @@ export function CalculadoraSection() {
           {/* CTA */}
           <a
             href="#contato"
-            className="inline-flex flex-col items-center justify-center gap-1 w-full bg-teal-800 hover:bg-teal-700 text-white font-bold py-4 rounded-xl text-lg transition-colors shadow-md"
+            className="inline-flex items-center justify-center gap-2 w-full text-white font-bold py-4 rounded-full text-lg transition-opacity hover:opacity-90"
+            style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
           >
-            <span className="flex items-center gap-2">
-              Solicitar orçamento grátis <ArrowRight className="w-5 h-5" />
-            </span>
-            <span className="text-xs font-normal text-teal-200">
-              Economia mensal estimada: <strong className="text-white">{fmt(monthly)}</strong>
-            </span>
+            Quero economizar
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
           </a>
         </div>
       </div>
