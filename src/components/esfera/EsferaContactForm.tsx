@@ -18,7 +18,7 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="text-xs font-bold text-[#F0416E] uppercase tracking-wide">
+      <label className="text-xs font-bold text-[#FF5900] uppercase tracking-wide">
         {label}{required && "*"}
       </label>
       <div className="relative">
@@ -103,10 +103,11 @@ export function EsferaContactForm() {
                 <Field label="Valor médio da sua conta de energia" required icon={<IconBolt />}>
                   <select required className={fieldClass}>
                     <option value="">Selecione</option>
-                    <option>Até R$ 8.000,00</option>
-                    <option>De R$ 8.000,01 a R$ 25.000,00</option>
-                    <option>De R$ 25.000,01 a R$ 40.000,00</option>
-                    <option>Acima de R$ 40.000,00</option>
+                    <option>Abaixo de R$ 1.000</option>
+                    <option>Até R$ 5.000</option>
+                    <option>De R$ 5.000 a R$ 8.000</option>
+                    <option>De R$ 8.000 a R$ 15.000</option>
+                    <option>Acima de R$ 15.000</option>
                   </select>
                 </Field>
 
