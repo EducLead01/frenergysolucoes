@@ -2,7 +2,6 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSlider } from "@/components/HeroSlider";
 import { ProductsSection } from "@/components/ProductsSection";
 import { AnimacaoSolar } from "@/components/AnimacaoSolar";
-import { ComoFuncionaSection } from "@/components/ComoFuncionaSection";
 import { CalculadoraSection } from "@/components/CalculadoraSection";
 import { AppSection } from "@/components/AppSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
@@ -27,8 +26,6 @@ export default function Home() {
         <AnimacaoSolar />
         <EsferaBenefitsCards />
         <ProductsSection />
-        <ComoFuncionaSection />
-
         {/* — Esfera Simplifica clone — */}
         <EsferaHero />
         <EsferaTestimonial
