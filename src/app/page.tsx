@@ -6,7 +6,6 @@ import { CalculadoraSection } from "@/components/CalculadoraSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { EsferaHero } from "@/components/esfera/EsferaHero";
 import { EsferaAudioTestimonials } from "@/components/esfera/EsferaAudioTestimonials";
-import { EsferaLogoMarquee } from "@/components/esfera/EsferaLogoMarquee";
 import { EsferaStats } from "@/components/esfera/EsferaStats";
 import { EsferaClientLogos } from "@/components/esfera/EsferaClientLogos";
 import { EsferaBenefitsCards } from "@/components/esfera/EsferaBenefitsCards";
@@ -28,7 +27,6 @@ export default function Home() {
         <EsferaAudioTestimonials />
         <EsferaStats />
         <EsferaClientLogos />
-        <EsferaLogoMarquee />
         <EsferaFAQ />
         <EsferaContactForm />
         <EsferaFooter />
