@@ -16,7 +16,7 @@ export function WhatsAppFloat() {
       {/* Botão Topo */}
       {visible && (
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={() => document.getElementById("energia-solar")?.scrollIntoView({ behavior: "smooth" })}
           aria-label="Voltar ao topo"
           className="w-10 h-10 rounded-full bg-white/90 text-teal-800 shadow-md flex items-center justify-center hover:bg-white transition-colors border border-teal-800/20"
         >
