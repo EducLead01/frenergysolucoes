@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const cards = [
   {
-    badge: "ECONOMIA",
-    title: "Redução de até 35% na conta de luz",
-    desc: "Para quem busca economia na conta de luz, a Esfera é o lugar certo. Oferecemos as melhores condições de contratação de energia para garantir os melhores preços.",
+    badge: "AGILIDADE",
+    title: "Atendimento rápido e personalizado",
+    desc: "Entre em contato pelo WhatsApp ou formulário. Nossa equipe responde rapidamente seu primeiro contato.",
     img: "/images/esfera/card-economia.jpg",
     reverse: false,
   },
