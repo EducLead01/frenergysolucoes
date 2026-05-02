@@ -28,10 +28,9 @@ export default function Home() {
         <EsferaStats />
         <EsferaClientLogos />
         <EsferaFAQ />
+        <CalculadoraSection />
         <EsferaContactForm />
         <EsferaFooter />
-
-        <CalculadoraSection />
       </main>
       <WhatsAppFloat />
     </>
