@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const phrases = [
-  "A conta de luz da sua empresa é maior que 3 mil reais por mês?",
   "Conheça nosso planejamento e gestão de energia Frenergy e invista seu tempo e dinheiro no que realmente importa.",
 ];
 
@@ -39,9 +38,9 @@ function Typewriter() {
   }, [charIndex, deleting, phraseIndex]);
 
   return (
-    <p className="text-xl lg:text-2xl font-bold text-[#4D4D4D] leading-snug min-h-[4rem]">
+    <p className="text-base lg:text-lg text-[#787878] leading-relaxed min-h-[4rem]">
       {displayed}
-      <span className="inline-block w-[2px] h-[1.2em] bg-[#F0416E] ml-1 align-middle animate-pulse" />
+      <span className="inline-block w-[2px] h-[1.1em] bg-[#FF5900] ml-0.5 align-middle animate-pulse" />
     </p>
   );
 }
@@ -51,16 +50,24 @@ export function EsferaHero() {
     <section className="bg-white py-20">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Left: logo + typewriter + CTA */}
+          {/* Left: logo + title + typewriter + CTA */}
           <div className="flex-1 flex flex-col gap-6">
-            <Image
-              src="/frenergy-logo.svg"
-              alt="Frenergy"
-              width={220}
-              height={70}
-              className="object-contain"
-            />
+            <div className="flex justify-center lg:justify-start">
+              <Image
+                src="/frenergy-logo.svg"
+                alt="Frenergy"
+                width={220}
+                height={70}
+                className="object-contain"
+              />
+            </div>
+
+            <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] leading-snug">
+              A conta de luz da sua empresa é maior que 3 mil reais por mês?
+            </h2>
+
             <Typewriter />
+
             <div>
               <a
                 href="/gestao-de-energia"
@@ -78,12 +85,10 @@ export function EsferaHero() {
           {/* Right: card with orange offset border */}
           <div className="flex-1 flex justify-center">
             <div className="relative w-full max-w-md">
-              {/* Orange offset block behind */}
               <div
                 className="absolute inset-0 rounded-2xl translate-x-4 translate-y-4"
                 style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
               />
-              {/* Image */}
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-sm">
                 <Image
                   src="/images/esfera/card-controle.jpg"
