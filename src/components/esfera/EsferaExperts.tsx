@@ -29,15 +29,15 @@ function ChevronRight() {
   );
 }
 
-function NavBtn({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
+function NavBtn({ onClick, children, side }: { onClick: () => void; children: React.ReactNode; side: "left" | "right" }) {
   return (
     <button
       onClick={onClick}
-      className="flex items-center justify-center w-12 h-12 rounded-full text-white transition-all hover:scale-110 active:scale-95 flex-shrink-0"
+      className="absolute top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-11 h-11 rounded-full text-white transition-all hover:brightness-110 active:scale-95"
       style={{
-        background: "rgba(15, 15, 15, 0.82)",
-        backdropFilter: "blur(6px)",
-        boxShadow: "0 4px 20px rgba(0,0,0,0.35)",
+        background: "#3D5BDB",
+        boxShadow: "0 4px 16px rgba(61,91,219,0.45)",
+        [side === "left" ? "left" : "right"]: "-18px",
       }}
     >
       {children}
@@ -91,22 +91,19 @@ export function EsferaExperts() {
     <section className="py-20 bg-white overflow-hidden">
       <div className="container mx-auto px-6 max-w-6xl">
 
-        {/* Header + nav buttons */}
-        <div className="flex items-center justify-between mb-12">
-          <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D]">
-            Veja alguns dos nossos projetos
-          </h2>
-          <div className="flex items-center gap-3 flex-shrink-0 ml-6">
-            <NavBtn onClick={() => swiperRef.current?.slidePrev()}>
-              <ChevronLeft />
-            </NavBtn>
-            <NavBtn onClick={() => swiperRef.current?.slideNext()}>
-              <ChevronRight />
-            </NavBtn>
-          </div>
-        </div>
+        <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] text-center mb-12">
+          Veja alguns dos nossos projetos
+        </h2>
 
-        {/* Carousel */}
+        {/* Carousel with side buttons */}
+        <div className="relative px-6">
+          <NavBtn side="left" onClick={() => swiperRef.current?.slidePrev()}>
+            <ChevronLeft />
+          </NavBtn>
+          <NavBtn side="right" onClick={() => swiperRef.current?.slideNext()}>
+            <ChevronRight />
+          </NavBtn>
+
         <Swiper
           onSwiper={(s) => { swiperRef.current = s; }}
           modules={[Autoplay, Navigation]}
@@ -125,6 +122,7 @@ export function EsferaExperts() {
             </SwiperSlide>
           ))}
         </Swiper>
+        </div>
 
       </div>
     </section>
