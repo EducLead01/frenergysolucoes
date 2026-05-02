@@ -54,7 +54,7 @@ export function EsferaAudioTestimonials() {
       <section className="py-10 bg-white flex justify-center">
         <a
           href="/cases"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-bold text-base animate-pulse hover:animate-none hover:opacity-90 transition-opacity"
+          className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-bold text-base transition-opacity hover:opacity-90"
           style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
         >
           Veja mais depoimentos
