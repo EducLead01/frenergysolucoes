@@ -74,7 +74,7 @@ function ExpertCard({ name, role }: { name: string; role: string }) {
           className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-full text-white font-bold text-xs transition-opacity hover:opacity-90"
           style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
         >
-          Acessar projetos
+          Acessar projeto
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
