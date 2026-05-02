@@ -67,8 +67,8 @@ export function EsferaContactForm() {
 
           {/* Left */}
           <div className="flex-1 flex flex-col justify-center lg:pt-4">
-            <h2 className="text-2xl lg:text-3xl font-bold leading-snug text-[#4D4D4D]">
-              Entre em contato para começar a economizar agora
+            <h2 className="text-2xl lg:text-3xl font-bold leading-snug text-[#4D4D4D] text-justify lg:text-left">
+              Entre em contato para começar a economizar
             </h2>
           </div>
 
