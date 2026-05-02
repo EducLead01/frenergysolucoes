@@ -3,10 +3,6 @@ import { HeroSlider } from "@/components/HeroSlider";
 import { ProductsSection } from "@/components/ProductsSection";
 import { AnimacaoSolar } from "@/components/AnimacaoSolar";
 import { CalculadoraSection } from "@/components/CalculadoraSection";
-import { AppSection } from "@/components/AppSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { ClientsSection } from "@/components/ClientsSection";
-import { BCCastSection } from "@/components/BCCastSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { EsferaHero } from "@/components/esfera/EsferaHero";
 import { EsferaTestimonial } from "@/components/esfera/EsferaTestimonial";
@@ -47,10 +43,6 @@ export default function Home() {
         <EsferaFooter />
 
         <CalculadoraSection />
-        <AppSection />
-        <TestimonialsSection />
-        <ClientsSection />
-        <BCCastSection />
       </main>
       <WhatsAppFloat />
     </>
