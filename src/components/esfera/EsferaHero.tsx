@@ -63,11 +63,11 @@ export function EsferaHero() {
             <Typewriter />
             <div>
               <a
-                href="#contato-esfera"
+                href="/gestao-de-energia"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-[70px] text-white font-bold text-base transition-opacity hover:opacity-90"
                 style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
               >
-                Economize com a Frenergy
+                Conheça nossa Gestão de Energia
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
