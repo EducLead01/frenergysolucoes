@@ -24,9 +24,9 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSlider />
-        <ProductsSection />
         <AnimacaoSolar />
         <EsferaBenefitsCards />
+        <ProductsSection />
         <ComoFuncionaSection />
 
         {/* — Esfera Simplifica clone — */}
