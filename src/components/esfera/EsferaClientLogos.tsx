@@ -25,16 +25,16 @@ export function EsferaClientLogos() {
       </section>
 
       {/* White marquee band */}
-      <section className="py-10 bg-white overflow-hidden">
+      <section className="py-10 bg-[#F7F7F7] overflow-hidden">
         <div className="relative overflow-hidden">
           {/* fade edges */}
           <div
             className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-            style={{ background: "linear-gradient(to right, white, transparent)" }}
+            style={{ background: "linear-gradient(to right, #F7F7F7, transparent)" }}
           />
           <div
             className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-            style={{ background: "linear-gradient(to left, white, transparent)" }}
+            style={{ background: "linear-gradient(to left, #F7F7F7, transparent)" }}
           />
 
           <div
