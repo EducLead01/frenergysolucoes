@@ -14,7 +14,7 @@ export function EsferaHero() {
               height={70}
               className="object-contain"
             />
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#4D4D4D] leading-snug">
+            <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] leading-snug">
               A conta de luz da sua empresa é maior que{" "}
               <span className="text-teal-800">3 mil reais por mês?</span>
             </h2>

@@ -43,7 +43,7 @@ export function EsferaFAQ() {
   return (
     <section className="py-16 bg-[#F7F7F7]">
       <div className="container mx-auto px-6 max-w-3xl">
-        <h2 className="text-3xl lg:text-4xl font-bold text-[#4D4D4D] text-center mb-12">
+        <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] text-center mb-12">
           Dúvidas Frequentes
         </h2>
         <div className="flex flex-col gap-3">

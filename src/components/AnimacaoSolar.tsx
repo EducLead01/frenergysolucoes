@@ -6,7 +6,7 @@ export function AnimacaoSolar() {
 
           {/* Texto */}
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <h2 className="text-3xl md:text-4xl font-bold text-teal-800 mb-6 leading-tight">
+            <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] mb-6 leading-tight">
               Energia solar gerando economia para você
             </h2>
             <p className="text-gray-600 text-lg mb-8">

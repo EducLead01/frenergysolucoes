@@ -11,7 +11,7 @@ export function EsferaContactForm() {
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           {/* Left: text */}
           <div className="flex-1">
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#4D4D4D] mb-4 leading-snug">
+            <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] mb-4 leading-snug">
               Entre em contato e saiba como sua empresa irá economizar
             </h2>
             <p className="text-[#787878] text-base leading-relaxed mb-6">

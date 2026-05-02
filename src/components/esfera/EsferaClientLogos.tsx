@@ -17,8 +17,8 @@ export function EsferaClientLogos() {
   return (
     <section className="py-14 bg-white">
       <div className="container mx-auto px-6">
-        <h2 className="text-center text-xl font-bold text-[#4D4D4D] mb-10">
-          A Esfera tem a confiança de marcas como:
+        <h2 className="text-center text-2xl lg:text-3xl font-bold text-[#4D4D4D] mb-10">
+          A Frenergy tem a confiança de marcas como:
         </h2>
         <Swiper
           modules={[Autoplay]}
