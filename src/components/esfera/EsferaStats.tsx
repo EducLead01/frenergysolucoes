@@ -5,21 +5,25 @@ const stats = [
     icon: "/images/esfera/icon-empresas.png",
     number: "+ de 540",
     label: "empresas atendidas",
+    color: "#FF5900",
   },
   {
     icon: "/images/esfera/icon-unidades.png",
     number: "+ de 1.600",
     label: "unidades consumidoras",
+    color: "#4D4D4D",
   },
   {
     icon: "/images/esfera/icon-economia.png",
-    number: "R$ 480 milhões",
-    label: "de economia em energia em 2022",
+    number: "R$ 120 milhões+",
+    label: "em economia para nossos clientes até início de 2025",
+    color: "#FF5900",
   },
   {
     icon: "/images/esfera/icon-residencia.png",
     number: "+ de 3.900",
-    label: "residências pelo Brasil",
+    label: "Empresas e residências pelo Centro-Oeste",
+    color: "#4D4D4D",
   },
 ];
 
@@ -40,7 +44,7 @@ export function EsferaStats() {
                 />
               </div>
               <div>
-                <p className="text-2xl lg:text-3xl font-bold text-[#F0416E]">{stat.number}</p>
+                <p className="text-2xl lg:text-3xl font-bold" style={{ color: stat.color }}>{stat.number}</p>
                 <p className="text-[#787878] text-sm mt-1">{stat.label}</p>
               </div>
             </div>
