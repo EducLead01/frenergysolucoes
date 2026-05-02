@@ -35,8 +35,8 @@ function NavBtn({ onClick, children, side }: { onClick: () => void; children: Re
       onClick={onClick}
       className="absolute top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-11 h-11 rounded-full text-white transition-all hover:brightness-110 active:scale-95"
       style={{
-        background: "#3D5BDB",
-        boxShadow: "0 4px 16px rgba(61,91,219,0.45)",
+        background: "#115e59",
+        boxShadow: "0 4px 16px rgba(17,94,89,0.45)",
         [side === "left" ? "left" : "right"]: "-18px",
       }}
     >
