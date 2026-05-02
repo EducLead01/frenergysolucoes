@@ -39,7 +39,7 @@ const cards = [
   {
     badge: "TRANSPARÊNCIA",
     title: "Segurança e transparência",
-    desc: "Garantimos uma experiência transparente, pensada de pessoa para pessoa. Somos referência no Mercado Livre de Energia e oferecemos todo o suporte necessário.",
+    desc: "Acompanhe sua geração de energia em tempo real, você pode acompanhar a produção de energia, o valor economizado e o desempenho dos painéis através do APP da Frenergy.",
     img: "/images/esfera/card-transparencia.jpg",
     reverse: true,
   },
