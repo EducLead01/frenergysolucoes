@@ -44,7 +44,7 @@ export function EsferaFAQ() {
     <section className="py-16 bg-[#F7F7F7]">
       <div className="container mx-auto px-6 max-w-3xl">
         <h2 className="text-3xl lg:text-4xl font-bold text-[#4D4D4D] text-center mb-12">
-          Quer saber mais sobre o Esfera Simplifica?
+          Dúvidas Frequentes
         </h2>
         <div className="flex flex-col gap-3">
           {faqs.map((faq, i) => (
