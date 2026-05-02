@@ -159,7 +159,7 @@ function ProductCard({ product }: { product: Product }) {
 export function ProductsSection() {
   return (
     <>
-      <section className="bg-white px-6 pt-10 pb-24 relative">
+      <section id="servicos" className="bg-white px-6 pt-10 pb-24 relative">
         <div className="container mx-auto">
           <h2 className="text-center text-2xl lg:text-3xl font-bold text-[#4D4D4D] mb-4">
             PRODUTOS
