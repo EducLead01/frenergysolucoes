@@ -2,63 +2,45 @@
 
 import { useState } from "react";
 
-const fieldClass =
-  "w-full border border-gray-200 rounded-xl px-4 py-3.5 text-[#4D4D4D] text-sm outline-none focus:border-[#FF5900] transition-colors bg-white";
+const inputClass =
+  "w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 outline-none focus:border-gray-400 transition-colors bg-white placeholder:text-gray-400";
 
-function Field({
-  label,
-  required,
-  icon,
-  children,
+const labelClass = "text-sm font-medium text-gray-700";
+
+const ESTADOS = ["GO", "DF", "MT", "MG", "TO"];
+
+function SimNao({
+  value,
+  onChange,
 }: {
-  label: string;
-  required?: boolean;
-  icon: React.ReactNode;
-  children: React.ReactNode;
+  value: "Sim" | "Não" | null;
+  onChange: (v: "Sim" | "Não") => void;
 }) {
+  const base =
+    "flex-1 py-3.5 rounded-xl text-sm font-medium border transition-colors cursor-pointer";
+  const active = "bg-[#1C2744] text-white border-[#1C2744]";
+  const inactive = "bg-white text-gray-700 border-gray-200 hover:border-gray-300";
+
   return (
-    <div className="flex flex-col gap-1.5">
-      <label className="text-xs font-bold text-[#FF5900] uppercase tracking-wide">
-        {label}{required && "*"}
-      </label>
-      <div className="relative">
-        <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
-          {icon}
-        </span>
-        <div className="pl-10">{children}</div>
-      </div>
+    <div className="flex gap-3">
+      {(["Sim", "Não"] as const).map((opt) => (
+        <button
+          key={opt}
+          type="button"
+          onClick={() => onChange(opt)}
+          className={`${base} ${value === opt ? active : inactive}`}
+        >
+          {opt}
+        </button>
+      ))}
     </div>
   );
 }
 
-const IconPerson = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
-  </svg>
-);
-const IconPhone = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="5" y="2" width="14" height="20" rx="2" /><line x1="12" y1="18" x2="12.01" y2="18" />
-  </svg>
-);
-const IconMail = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-  </svg>
-);
-const IconBuilding = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
-  </svg>
-);
-const IconBolt = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
-  </svg>
-);
-
 export function EsferaContactForm() {
   const [sent, setSent] = useState(false);
+  const [contaMaior300, setContaMaior300] = useState<"Sim" | "Não" | null>(null);
+  const [tarifaSocial, setTarifaSocial] = useState<"Sim" | "Não" | null>(null);
 
   return (
     <section id="contato" className="py-16" style={{ background: "#F5F5F5" }}>
@@ -77,54 +59,79 @@ export function EsferaContactForm() {
             {sent ? (
               <div className="text-center py-12">
                 <p className="text-2xl font-bold text-[#F0416E]">Mensagem enviada!</p>
-                <p className="text-[#787878] mt-2">Em breve entraremos em contato.</p>
+                <p className="text-gray-500 mt-2">Em breve entraremos em contato.</p>
               </div>
             ) : (
               <form
                 className="flex flex-col gap-5"
                 onSubmit={(e) => { e.preventDefault(); setSent(true); }}
               >
-                <Field label="Nome" required icon={<IconPerson />}>
-                  <input type="text" placeholder="" required className={fieldClass} />
-                </Field>
+                {/* Nome */}
+                <div className="flex flex-col gap-1.5">
+                  <label className={labelClass}>Qual o seu nome?</label>
+                  <input type="text" placeholder="" required className={inputClass} />
+                </div>
 
-                <Field label="Telefone" required icon={<IconPhone />}>
-                  <input type="tel" placeholder="" required className={fieldClass} />
-                </Field>
+                {/* E-mail + WhatsApp */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex flex-col gap-1.5">
+                    <label className={labelClass}>
+                      Qual o seu e-mail? <span className="text-red-500">*</span>
+                    </label>
+                    <input type="email" placeholder="E-mail" required className={inputClass} />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label className={labelClass}>
+                      Qual o seu Whatsapp? <span className="text-red-500">*</span>
+                    </label>
+                    <input type="tel" placeholder="(XX) XXXXX-XXXX" required className={inputClass} />
+                  </div>
+                </div>
 
-                <Field label="E-mail" required icon={<IconMail />}>
-                  <input type="email" placeholder="" required className={fieldClass} />
-                </Field>
+                {/* Valor médio + Estado */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex flex-col gap-1.5">
+                    <label className={labelClass}>
+                      Qual Valor médio da sua conta de energia? <span className="text-red-500">*</span>
+                    </label>
+                    <input type="text" placeholder="" required className={inputClass} />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label className={labelClass}>
+                      Qual é o seu estado? <span className="text-red-500">*</span>
+                    </label>
+                    <select required className={inputClass}>
+                      {ESTADOS.map((uf) => (
+                        <option key={uf} value={uf}>{uf}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
 
-                <Field label="Nome da empresa" required icon={<IconBuilding />}>
-                  <input type="text" placeholder="" required className={fieldClass} />
-                </Field>
+                {/* Conta maior que R$ 300 */}
+                <div className="flex flex-col gap-2.5">
+                  <label className={labelClass}>
+                    O valor da sua conta é maior que R$ 300,00? <span className="text-red-500">*</span>
+                  </label>
+                  <SimNao value={contaMaior300} onChange={setContaMaior300} />
+                </div>
 
-                <Field label="Valor médio da sua conta de energia" required icon={<IconBolt />}>
-                  <select required className={fieldClass}>
-                    <option value="">Selecione</option>
-                    <option>Abaixo de R$ 1.000</option>
-                    <option>Até R$ 5.000</option>
-                    <option>De R$ 5.000 a R$ 8.000</option>
-                    <option>De R$ 8.000 a R$ 15.000</option>
-                    <option>Acima de R$ 15.000</option>
-                  </select>
-                </Field>
+                {/* Tarifa Social */}
+                <div className="flex flex-col gap-2.5">
+                  <label className={labelClass}>
+                    Você possui benefício da Tarifa Social de Energia Elétrica? <span className="text-red-500">*</span>
+                  </label>
+                  <SimNao value={tarifaSocial} onChange={setTarifaSocial} />
+                </div>
 
-                <Field label="Segmento" required icon={<IconBuilding />}>
-                  <select required className={fieldClass}>
-                    <option value="">Selecione</option>
-                    <option>Bares e Restaurantes</option>
-                    <option>Postos de Combustíveis</option>
-                    <option>Usinas em Fazendas</option>
-                    <option>Escolas e Faculdades</option>
-                    <option>Oficinas Mecânicas</option>
-                    <option>Condomínios</option>
-                    <option>Templos e Igrejas</option>
-                    <option>Galpões</option>
-                    <option>Outro</option>
-                  </select>
-                </Field>
+                {/* Warning: Tarifa Social */}
+                {tarifaSocial === "Sim" && (
+                  <div className="rounded-xl border border-pink-200 bg-pink-50 px-4 py-3 text-sm text-pink-700 leading-relaxed">
+                    Infelizmente não conseguimos oferecer desconto para quem já possui a
+                    Tarifa Social, pois o benefício do governo já é o limite máximo permitido.
+                    Qualquer dúvida, estou à disposição.
+                  </div>
+                )}
 
                 <button
                   type="submit"
@@ -137,7 +144,7 @@ export function EsferaContactForm() {
                   </svg>
                 </button>
 
-                <p className="text-[#787878] text-xs text-center leading-relaxed">
+                <p className="text-gray-400 text-xs text-center leading-relaxed">
                   Ao clicar em enviar você concorda que entraremos em contato com você, bem como com a nossa{" "}
                   <a href="#" className="text-[#F0416E] underline">Política de Privacidade</a>.
                 </p>
