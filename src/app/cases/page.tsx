@@ -43,15 +43,20 @@ export default function Cases() {
               </div>
 
               {/* Image */}
-              <div className="flex-1 w-full flex justify-center items-center">
-                <Image
-                  src="/images/icone-painel-solar-600x523.png"
-                  alt="Técnico instalando painéis solares"
-                  width={600}
-                  height={523}
-                  className="w-full max-w-md object-contain"
-                  priority
+              <div className="flex-1 w-full relative">
+                <div
+                  className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
+                  style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
                 />
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-white">
+                  <Image
+                    src="/images/icone-painel-solar-600x523.png"
+                    alt="Técnico instalando painéis solares"
+                    fill
+                    className="object-contain p-4"
+                    priority
+                  />
+                </div>
               </div>
 
             </div>
