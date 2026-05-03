@@ -18,7 +18,7 @@ function SimNao({
 }) {
   const base =
     "flex-1 py-3.5 rounded-xl text-sm font-medium border transition-colors cursor-pointer";
-  const active = "bg-[#1C2744] text-white border-[#1C2744]";
+  const active = "bg-teal-800 text-white border-teal-800";
   const inactive = "bg-white text-gray-700 border-gray-200 hover:border-gray-300";
 
   return (
@@ -119,7 +119,7 @@ export function EsferaContactForm() {
                 {/* Conta maior que R$ 300 */}
                 <div className="flex flex-col gap-2.5">
                   <label className={labelClass}>
-                    O valor da sua conta é maior que R$ 300,00? <span className="text-red-500">*</span>
+                    O valor da sua conta é maior que R$ 1.000,00? <span className="text-red-500">*</span>
                   </label>
                   <SimNao value={contaMaior300} onChange={setContaMaior300} />
                 </div>
