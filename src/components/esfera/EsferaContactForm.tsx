@@ -134,8 +134,8 @@ export function EsferaContactForm() {
 
                 {/* Warning: Tarifa Social */}
                 {tarifaSocial === "Sim" && (
-                  <div className="rounded-xl border border-pink-200 bg-pink-50 px-4 py-3 text-sm text-pink-700 leading-relaxed">
-                    Infelizmente não conseguimos oferecer desconto para quem já possui a
+                  <div className="rounded-xl px-4 py-3 text-sm text-white leading-relaxed" style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}>
+                    Infelizmente não conseguimos oferecer nossa implementação para quem já possui a
                     Tarifa Social, pois o benefício do governo já é o limite máximo permitido.
                     Qualquer dúvida, estou à disposição.
                   </div>
