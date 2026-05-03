@@ -94,7 +94,15 @@ export function EsferaContactForm() {
                     <label className={labelClass}>
                       Qual Valor médio da sua conta de energia? <span className="text-red-500">*</span>
                     </label>
-                    <input type="text" placeholder="" required className={inputClass} />
+                    <select required className={inputClass}>
+                      <option value="">Selecione</option>
+                      <option>Abaixo de R$ 1.000</option>
+                      <option>Entre R$ 1.000 e R$ 3.000</option>
+                      <option>Entre R$ 3.000 e R$ 5.000</option>
+                      <option>Entre R$ 5.000 e R$ 8.000</option>
+                      <option>Entre R$ 8.000 e R$ 12.000</option>
+                      <option>Acima de R$ 12.000</option>
+                    </select>
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label className={labelClass}>
