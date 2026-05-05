@@ -2,6 +2,13 @@ import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
+import { SobreClientes } from "@/components/sobre/SobreClientes";
+import { SobreSegmentos } from "@/components/sobre/SobreSegmentos";
+import { SobreHighlights } from "@/components/sobre/SobreHighlights";
+import { SobrePlanos } from "@/components/sobre/SobrePlanos";
+import { SobreParceiros } from "@/components/sobre/SobreParceiros";
+import { SobreComoFunciona } from "@/components/sobre/SobreComoFunciona";
+import { SobreFuncionalidades } from "@/components/sobre/SobreFuncionalidades";
 
 export default function Cases() {
   return (
@@ -63,7 +70,18 @@ export default function Cases() {
           </div>
         </section>
 
-        <EsferaContactForm />
+        {/* Clone AssineStore /sobre — seções em ordem idêntica ao original */}
+        <SobreClientes />
+        <SobreSegmentos />
+        <SobreHighlights />
+        <SobrePlanos />
+        <SobreParceiros />
+        <SobreComoFunciona />
+        <SobreFuncionalidades />
+
+        <div id="contato">
+          <EsferaContactForm />
+        </div>
       </main>
       <EsferaFooter />
     </>
