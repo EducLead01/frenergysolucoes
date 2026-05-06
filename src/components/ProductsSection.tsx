@@ -7,19 +7,19 @@ const products = [
     title: "Investidores",
     description: "Invista em usinas solares e gere renda passiva com alta rentabilidade, retorno previsível e impacto positivo no planeta.",
     img: "/images/Investidores.jpg",
-    href: "#contato",
+    href: "/produtos/investidores",
   },
   {
     title: "Comercial",
     description: "Sistemas de 20 a 75 kWp para empresas e comércios. Projeto elétrico completo, homologação ANEEL e acompanhamento dedicado.",
     img: "https://images.unsplash.com/photo-1592833159155-c62df1b65634?w=800&q=80",
-    href: "#contato",
+    href: "/produtos/comercial",
   },
   {
     title: "Industrial",
     description: "Acima de 75 kWp para indústrias e grandes consumidores. Consultoria energética e engenheiro dedicado ao projeto.",
     img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
-    href: "#contato",
+    href: "/produtos/industrial",
   },
   {
     title: "Agro",
@@ -31,7 +31,7 @@ const products = [
     title: "Residencial",
     description: "Sistemas de 3 a 20 kWp para casas e apartamentos. Retorno de investimento em até 4 anos com economia real na conta de luz.",
     img: "/images/08.png",
-    href: "#contato",
+    href: "/produtos/residencial",
   },
 ];
 
