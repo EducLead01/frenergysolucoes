@@ -34,12 +34,6 @@ export function HomeModelos() {
                   style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
                 />
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-[#f2f2f2]">
-                  <span
-                    className="absolute top-3 left-3 z-10 text-white text-[10px] font-bold uppercase px-2 py-1 rounded-full"
-                    style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-                  >
-                    {m.badge}
-                  </span>
                   <Image
                     src={m.img}
                     alt={m.badge}
