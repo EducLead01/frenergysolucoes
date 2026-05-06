@@ -100,9 +100,9 @@ export default function GestaoDeEnergia() {
                     <ul className="flex flex-col gap-2">
                       {v.itens.map((item, j) => (
                         <li key={j} className="flex items-center gap-2">
-                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="shrink-0">
-                            <circle cx="10" cy="10" r="10" fill="#F0416E" />
-                            <path d="M6 10.5l2.5 2.5 5.5-5.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                          <svg width="22" height="22" viewBox="0 0 30 31" fill="none" className="shrink-0">
+                            <path d="M4 15.6431C4 9.38349 9.07441 4.30908 15.334 4.30908C21.5936 4.30908 26.668 9.38349 26.668 15.6431C26.668 21.9027 21.5936 26.9771 15.334 26.9771C9.07441 26.9771 4 21.9027 4 15.6431Z" fill="#FF5900" fillOpacity="0.15" stroke="#FF5900" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M11.8167 16.8154L12.4947 18.2605C13.0321 19.4058 14.6362 19.4718 15.2659 18.3745L18.8515 12.1255" stroke="#FF5900" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                           <span className="text-[#787878] text-sm">{item}</span>
                         </li>
