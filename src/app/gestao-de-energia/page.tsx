@@ -7,7 +7,7 @@ import { GestaoTabs } from "@/components/gestao/GestaoTabs";
 const vantagens = [
   "Gerenciamento energético aplicado ao seu processo produtivo, visando o melhor aproveitamento com o menor custo operacional.",
   "Inteligência energética e de mercado, vislumbrando as melhores oportunidades para sua empresa economizar energia.",
-  "Dados de energia em tempo real para consultas através de plataformas eletrônicas.",
+  "Dados de energia em tempo real para consultas através do nosso App.",
   "Equipe especializada de engenheiros e técnicos para o acompanhamento da sua gestão energética.",
 ];
 
