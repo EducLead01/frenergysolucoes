@@ -80,7 +80,7 @@ export function ProductsSection() {
                 <a
                   href="#contato"
                   className="self-start text-white text-xs font-bold px-5 py-2 rounded-full transition-opacity hover:opacity-90 mt-1"
-                  style={{ background: "#0d3347" }}
+                  style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
                 >
                   Saiba Mais
                 </a>
