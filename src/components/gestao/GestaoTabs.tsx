@@ -26,7 +26,7 @@ const tabs = [
       </svg>
     ),
     titulo: "Independência Financeira",
-    descricao: "Com a gestão de energia da Frenergy, sua empresa pode reduzir em até 26% os custos com energia. Auxiliamos na migração para o Mercado Livre de Energia e estruturamos um plano de economia personalizado com retorno rápido sobre o investimento.",
+    descricao: "Com a gestão de energia da Frenergy, sua empresa pode reduzir custos, gerar receita com a venda de energia excedente e abastecer pontos estratégicos do seu negócio, como eletropostos e carregamento de baterias. Estruturamos um plano personalizado, com retorno rápido sobre o investimento.",
     img: "/images/Financeiro.jpg",
   },
   {
