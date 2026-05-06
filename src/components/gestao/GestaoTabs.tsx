@@ -136,21 +136,57 @@ export function GestaoTabs() {
               </a>
             </div>
 
-            {/* Image — padrão Frenergy */}
-            <div className="w-full lg:w-[220px] shrink-0 relative">
-              <div
-                className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
-                style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
-              />
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-                <Image
-                  src={current.img}
-                  alt={current.titulo}
-                  fill
-                  className="object-cover transition-all duration-500"
-                />
+            {/* Image */}
+            {current.id === "app" ? (
+              /* Phone mockup */
+              <div className="w-full lg:w-[180px] shrink-0 flex justify-center">
+                <div className="relative" style={{ width: "150px" }}>
+                  {/* glow */}
+                  <div
+                    className="absolute -inset-3 rounded-[40px] blur-xl opacity-30"
+                    style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
+                  />
+                  {/* frame */}
+                  <div
+                    className="relative rounded-[32px] overflow-hidden border-[7px] bg-black shadow-2xl"
+                    style={{ borderColor: "#111", aspectRatio: "9/19" }}
+                  >
+                    {/* notch */}
+                    <div className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full z-10" />
+                    {/* screen */}
+                    <div className="relative w-full h-full">
+                      <Image
+                        src="/images/app2.png"
+                        alt="App Frenergy"
+                        fill
+                        className="object-cover transition-all duration-500"
+                        style={{ objectPosition: "90% center" }}
+                      />
+                    </div>
+                  </div>
+                  {/* side button */}
+                  <div className="absolute right-[-9px] top-16 w-1.5 h-8 bg-[#222] rounded-r-md" />
+                  <div className="absolute left-[-9px] top-14 w-1.5 h-6 bg-[#222] rounded-l-md" />
+                  <div className="absolute left-[-9px] top-24 w-1.5 h-6 bg-[#222] rounded-l-md" />
+                </div>
               </div>
-            </div>
+            ) : (
+              /* Standard Frenergy image card */
+              <div className="w-full lg:w-[220px] shrink-0 relative">
+                <div
+                  className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
+                  style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
+                />
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+                  <Image
+                    src={current.img}
+                    alt={current.titulo}
+                    fill
+                    className="object-cover transition-all duration-500"
+                  />
+                </div>
+              </div>
+            )}
 
           </div>
         </div>
