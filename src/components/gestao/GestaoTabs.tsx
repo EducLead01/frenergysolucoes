@@ -40,7 +40,7 @@ const tabs = [
     ),
     titulo: "APP Dedicado",
     descricao: "O aplicativo exclusivo da Frenergy coloca o controle da sua energia na palma da mão. Acompanhe em tempo real a geração solar, o valor economizado e o desempenho dos painéis, de qualquer lugar e a qualquer hora.",
-    img: "/images/esfera/card-transparencia.jpg",
+    img: "/images/app.png",
   },
   {
     id: "equipe",
