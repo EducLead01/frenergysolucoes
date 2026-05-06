@@ -3,7 +3,6 @@ import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
 import { HomeClientes } from "@/components/home/HomeClientes";
-import { HomePainel } from "@/components/home/HomePainel";
 import { HomeModelos } from "@/components/home/HomeModelos";
 
 export default function Cases() {
@@ -67,7 +66,6 @@ export default function Cases() {
         </section>
 
         <HomeClientes />
-        <HomePainel />
         <HomeModelos />
         <div id="contato">
           <EsferaContactForm />
