@@ -4,7 +4,6 @@ import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
 import { HomeClientes } from "@/components/home/HomeClientes";
 import { HomePainel } from "@/components/home/HomePainel";
-import { HomePlanos } from "@/components/home/HomePlanos";
 import { HomeModelos } from "@/components/home/HomeModelos";
 import { HomeParceiros } from "@/components/home/HomeParceiros";
 
@@ -70,7 +69,6 @@ export default function Cases() {
 
         <HomeClientes />
         <HomePainel />
-        <HomePlanos />
         <HomeModelos />
         <HomeParceiros />
         <div id="contato">
