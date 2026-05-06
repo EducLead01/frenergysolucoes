@@ -64,15 +64,6 @@ export default function Cliente04() {
         {/* Galeria */}
         <section className="bg-[#fafafa] py-16">
           <div className="container mx-auto px-6 max-w-5xl">
-            <span
-              className="inline-block text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-4"
-              style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-            >
-              Galeria
-            </span>
-            <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] mb-10">
-              Fotos da <span style={{ color: "#F0416E" }}>instalação</span>
-            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {fotos.length > 0 ? fotos.map((src, i) => (
                 <div key={i} className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-[#f0f0f0]">
