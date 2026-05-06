@@ -100,14 +100,10 @@ export default function GestaoDeEnergia() {
                     <ul className="flex flex-col gap-2">
                       {v.itens.map((item, j) => (
                         <li key={j} className="flex items-center gap-2">
-                          <div
-                            className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-                            style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
-                          >
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                              <path d="M20 6L9 17l-5-5" />
-                            </svg>
-                          </div>
+                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="shrink-0">
+                            <circle cx="10" cy="10" r="10" fill="#F0416E" />
+                            <path d="M6 10.5l2.5 2.5 5.5-5.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
                           <span className="text-[#787878] text-sm">{item}</span>
                         </li>
                       ))}
