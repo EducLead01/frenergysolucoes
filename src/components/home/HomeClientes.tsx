@@ -1,84 +1,60 @@
-import Image from "next/image";
+"use client";
 
 const clientes = [
-  { src: "/images/clientes/cliente1.png", alt: "Cliente 1", width: 120 },
-  { src: "/images/clientes/cliente2.png", alt: "Cliente 2", width: 120 },
-  { src: "/images/clientes/cliente3.png", alt: "Cliente 3", width: 100 },
-  { src: "/images/clientes/cliente4.png", alt: "Cliente 4", width: 100 },
-  { src: "/images/clientes/cliente5.png", alt: "Cliente 5", width: 120 },
+  { nome: "Cliente 1" },
+  { nome: "Cliente 2" },
+  { nome: "Cliente 3" },
+  { nome: "Cliente 4" },
+  { nome: "Cliente 5" },
+  { nome: "Cliente 6" },
+  { nome: "Cliente 7" },
+  { nome: "Cliente 8" },
 ];
+
+const track = [...clientes, ...clientes];
 
 export function HomeClientes() {
   return (
     <div
       style={{
         width: "100%",
-        paddingTop: "60px",
-        paddingBottom: "60px",
+        paddingTop: "50px",
+        paddingBottom: "50px",
         backgroundColor: "#e7eaf1",
+        overflow: "hidden",
       }}
     >
       <div
-        className="flex flex-col sm:flex-row items-center gap-8"
         style={{
-          maxWidth: "1200px",
-          marginRight: "auto",
-          marginLeft: "auto",
-          paddingRight: "20px",
-          paddingLeft: "20px",
+          display: "flex",
+          gap: "24px",
+          width: "max-content",
+          animation: "marquee 28s linear infinite",
         }}
+        onMouseEnter={(e) => ((e.currentTarget as HTMLDivElement).style.animationPlayState = "paused")}
+        onMouseLeave={(e) => ((e.currentTarget as HTMLDivElement).style.animationPlayState = "running")}
       >
-        {/* Label */}
-        <div
-          style={{
-            display: "flex",
-            marginRight: "80px",
-            alignItems: "center",
-            fontFamily: "var(--font-montserrat), Gilroy, sans-serif",
-            color: "#007bcc",
-            fontSize: "18px",
-            lineHeight: "22px",
-            fontWeight: 800,
-            textTransform: "uppercase",
-            flexShrink: 0,
-          }}
-        >
-          <Image
-            src="/images/assinestore/star_clients.svg"
-            alt=""
-            width={30}
-            height={30}
-            style={{ marginRight: "10px" }}
-          />
-          <div>
-            Clientes<br />de sucesso
+        {track.map((c, i) => (
+          <div
+            key={i}
+            style={{
+              width: "200px",
+              height: "100px",
+              backgroundColor: "#fff",
+              borderRadius: "10px",
+              boxShadow: "0 3px 20px 0 rgba(0,0,0,0.07)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "14px",
+              fontWeight: 700,
+              color: "#007bcc",
+              flexShrink: 0,
+            }}
+          >
+            {c.nome}
           </div>
-        </div>
-
-        {/* Logos */}
-        <div
-          className="flex flex-wrap justify-center sm:justify-between items-center gap-4 flex-1"
-        >
-          {clientes.map((c) => (
-            <div
-              key={c.alt}
-              style={{
-                width: c.width,
-                height: 60,
-                backgroundColor: "#d0d5dd",
-                borderRadius: "5px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "11px",
-                color: "#666",
-                fontWeight: 600,
-              }}
-            >
-              {c.alt}
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
     </div>
   );
