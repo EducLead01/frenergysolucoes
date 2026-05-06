@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export function PhoneMockupGroup() {
   return (
-    <div className="flex-1 w-full flex justify-center">
-      <div className="relative w-full max-w-sm aspect-[4/3]">
+    <div className="w-full flex justify-center">
+      <div className="relative w-full max-w-sm h-[280px] lg:h-[340px]">
         <Image
           src="/images/app03.png"
           alt="App Frenergy"
