@@ -21,11 +21,11 @@ export function PhoneMockupGroup() {
           {/* screen */}
           <div className="w-full h-full overflow-hidden">
             <Image
-              src="/images/app2.png"
+              src="/images/app03.png"
               alt="App Frenergy"
               fill
               className="object-cover"
-              style={{ objectPosition: "88% center" }}
+              style={{ objectPosition: "center" }}
             />
           </div>
         </div>
