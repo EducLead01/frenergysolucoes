@@ -5,7 +5,6 @@ import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
 import { HomeClientes } from "@/components/home/HomeClientes";
 import { HomePainel } from "@/components/home/HomePainel";
 import { HomeModelos } from "@/components/home/HomeModelos";
-import { HomeParceiros } from "@/components/home/HomeParceiros";
 
 export default function Cases() {
   return (
@@ -70,7 +69,6 @@ export default function Cases() {
         <HomeClientes />
         <HomePainel />
         <HomeModelos />
-        <HomeParceiros />
         <div id="contato">
           <EsferaContactForm />
         </div>
