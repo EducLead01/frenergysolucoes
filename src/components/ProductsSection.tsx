@@ -4,9 +4,9 @@ import { useState } from "react";
 
 const products = [
   {
-    title: "Residencial",
-    description: "Sistemas de 3 a 20 kWp para casas e apartamentos. Retorno de investimento em até 4 anos com economia real na conta de luz.",
-    img: "/images/08.png",
+    title: "Investidores",
+    description: "Invista em usinas solares e gere renda passiva com alta rentabilidade, retorno previsível e impacto positivo no planeta.",
+    img: "/images/Investidores.jpg",
   },
   {
     title: "Comercial",
@@ -24,9 +24,9 @@ const products = [
     img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=800&q=80",
   },
   {
-    title: "Investidores",
-    description: "Invista em usinas solares e gere renda passiva com alta rentabilidade, retorno previsível e impacto positivo no planeta.",
-    img: "/images/Investidores.jpg",
+    title: "Residencial",
+    description: "Sistemas de 3 a 20 kWp para casas e apartamentos. Retorno de investimento em até 4 anos com economia real na conta de luz.",
+    img: "/images/08.png",
   },
 ];
 
