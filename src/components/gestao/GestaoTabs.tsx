@@ -91,18 +91,18 @@ export function GestaoTabs() {
                   onClick={() => setActive(tab.id)}
                   className="flex items-center gap-3 bg-white rounded-2xl px-5 py-4 text-left transition-all duration-200 cursor-pointer border-2 w-full"
                   style={{
-                    borderColor: isActive ? "#F0416E" : "transparent",
+                    borderColor: isActive ? "#FF5900" : "transparent",
                     boxShadow: isActive
-                      ? "0 4px 20px rgba(240,65,110,0.2)"
+                      ? "0 4px 20px rgba(255,89,0,0.2)"
                       : "0 2px 8px rgba(0,0,0,0.08)",
                   }}
                 >
-                  <span style={{ color: isActive ? "#F0416E" : "#bbb", transition: "color 200ms" }}>
+                  <span style={{ color: isActive ? "#FF5900" : "#bbb", transition: "color 200ms" }}>
                     {tab.icon}
                   </span>
                   <span
                     className="font-bold text-sm"
-                    style={{ color: isActive ? "#F0416E" : "#4D4D4D", transition: "color 200ms" }}
+                    style={{ color: isActive ? "#FF5900" : "#4D4D4D", transition: "color 200ms" }}
                   >
                     {tab.label}
                   </span>
