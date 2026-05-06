@@ -14,13 +14,17 @@ const modelos = [
     badge: "INDUSTRIAL",
     img: "/images/assinestore/tela_personalizado.png",
   },
+  {
+    badge: "AGRO",
+    img: "/images/assinestore/tela_personalizado.png",
+  },
 ];
 
 export function HomeModelos() {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-6 max-w-5xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {modelos.map((m) => (
             <div key={m.badge} className="flex flex-col gap-4">
               {/* Image with gradient offset border */}
