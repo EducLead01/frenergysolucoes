@@ -42,30 +42,28 @@ export function HomePainel() {
 
       {/* container-full */}
       <div
+        className="flex flex-col lg:flex-row items-center lg:items-stretch gap-8 lg:gap-0"
         style={{
           position: "relative",
-          display: "flex",
           width: "100%",
-          height: "450px",
           marginTop: "60px",
           marginBottom: "60px",
-          justifyContent: "space-between",
-          alignItems: "center",
           maxWidth: "1200px",
           marginLeft: "auto",
           marginRight: "auto",
           paddingLeft: "20px",
           paddingRight: "20px",
+          justifyContent: "space-between",
         }}
       >
         {/* container-left */}
         <div
           ref={leftRef}
+          className="w-full lg:w-[50%]"
           style={{
             position: "relative",
             display: "flex",
-            width: "50%",
-            minHeight: "410px",
+            minHeight: "300px",
             paddingRight: "30px",
             paddingLeft: "30px",
             flexDirection: "column",
@@ -121,9 +119,9 @@ export function HomePainel() {
 
         {/* container-right */}
         <div
+          className="w-full lg:w-[44%]"
           style={{
             display: "flex",
-            width: "44%",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "flex-start",

@@ -124,9 +124,9 @@ function PlanoCard({ plano }: { plano: Plano }) {
 
   return (
     <div
+      className="w-full sm:w-[360px]"
       style={{
         display: "flex",
-        width: "380px",
         marginRight: "10px",
         marginLeft: "10px",
         paddingBottom: "40px",
@@ -273,11 +273,13 @@ function PlanoCard({ plano }: { plano: Plano }) {
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "rgba(33,37,41,0.7)",
+            padding: "20px",
           }}
           onClick={() => setSaibaOpen(false)}
         >
           <div
-            style={{ width: "500px", boxShadow: "0 3px 20px 0 rgba(0,0,0,0.1)" }}
+            className="w-full max-w-[500px]"
+            style={{ boxShadow: "0 3px 20px 0 rgba(0,0,0,0.1)" }}
             onClick={(e) => e.stopPropagation()}
           >
             <div
@@ -319,11 +321,13 @@ function PlanoCard({ plano }: { plano: Plano }) {
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "rgba(33,37,41,0.7)",
+            padding: "20px",
           }}
           onClick={() => setFuncOpen(false)}
         >
           <div
-            style={{ width: "500px", boxShadow: "0 3px 20px 0 rgba(0,0,0,0.1)" }}
+            className="w-full max-w-[500px]"
+            style={{ boxShadow: "0 3px 20px 0 rgba(0,0,0,0.1)" }}
             onClick={(e) => e.stopPropagation()}
           >
             <div
@@ -378,22 +382,18 @@ export function HomePlanos() {
       <div
         style={{
           position: "relative",
-          display: "flex",
           maxWidth: "1200px",
           marginRight: "auto",
           marginBottom: "70px",
           marginLeft: "auto",
           paddingLeft: "20px",
           paddingRight: "20px",
-          justifyContent: "space-between",
-          alignItems: "flex-start",
           color: "#212529",
         }}
       >
         <div
           style={{
             display: "flex",
-            width: "45%",
             flexDirection: "column",
             alignItems: "flex-start",
           }}
@@ -422,16 +422,16 @@ export function HomePlanos() {
 
       {/* Cards */}
       <div
+        className="flex flex-col sm:flex-row flex-wrap"
         style={{
           position: "relative",
-          display: "flex",
-          overflow: "auto",
           maxWidth: "1200px",
           marginRight: "auto",
           marginLeft: "auto",
           paddingLeft: "20px",
           paddingRight: "20px",
-          justifyContent: "space-between",
+          gap: "20px",
+          justifyContent: "center",
         }}
       >
         {planos.map((p) => (

@@ -78,12 +78,7 @@ export function HomeParceiros() {
 
         {/* Partners grid */}
         <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "20px",
-            marginTop: "40px",
-          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10"
         >
           {parceiros.map((p) => (
             <div
@@ -91,7 +86,6 @@ export function HomeParceiros() {
               style={{
                 display: "flex",
                 alignItems: "flex-start",
-                width: "calc(25% - 15px)",
                 padding: "20px",
                 borderRadius: "10px",
                 backgroundColor: "#fff",

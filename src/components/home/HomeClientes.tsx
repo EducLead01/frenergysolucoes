@@ -19,15 +19,13 @@ export function HomeClientes() {
       }}
     >
       <div
+        className="flex flex-col sm:flex-row items-center gap-8"
         style={{
-          display: "flex",
           maxWidth: "1200px",
           marginRight: "auto",
           marginLeft: "auto",
           paddingRight: "20px",
           paddingLeft: "20px",
-          justifyContent: "space-between",
-          alignItems: "center",
         }}
       >
         {/* Label */}
@@ -59,13 +57,7 @@ export function HomeClientes() {
 
         {/* Logos */}
         <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flex: 1,
-            gap: "20px",
-          }}
+          className="flex flex-wrap justify-center sm:justify-between items-center gap-4 flex-1"
         >
           {clientes.map((c) => (
             <div

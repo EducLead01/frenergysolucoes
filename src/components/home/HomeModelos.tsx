@@ -74,26 +74,24 @@ export function HomeModelos() {
         />
       </div>
 
-      {/* Slider-style row */}
+      {/* Cards row */}
       <div
+        className="flex flex-col sm:flex-row flex-wrap justify-center"
         style={{
           maxWidth: "1200px",
           marginLeft: "auto",
           marginRight: "auto",
           paddingLeft: "20px",
           paddingRight: "20px",
-          display: "flex",
           gap: "30px",
-          justifyContent: "center",
-          flexWrap: "wrap",
           marginBottom: "80px",
         }}
       >
-        {modelos.map((m, i) => (
+        {modelos.map((m) => (
           <div
             key={m.titulo}
+            className="w-full sm:w-[340px]"
             style={{
-              flex: "0 0 340px",
               borderRadius: "10px",
               overflow: "hidden",
               backgroundColor: "#fff",
@@ -147,19 +145,16 @@ export function HomeModelos() {
         }}
       >
         <div
+          className="flex flex-col lg:flex-row items-center gap-10"
           style={{
             maxWidth: "1200px",
             marginLeft: "auto",
             marginRight: "auto",
             paddingLeft: "20px",
             paddingRight: "20px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            gap: "60px",
           }}
         >
-          <div style={{ flex: 1 }}>
+          <div className="w-full lg:flex-1">
             <Image
               src="/images/assinestore/tela_personalizado.png"
               alt="Projeto solar personalizado"
@@ -168,7 +163,7 @@ export function HomeModelos() {
               style={{ maxWidth: "100%", borderRadius: "10px" }}
             />
           </div>
-          <div style={{ flex: 1 }}>
+          <div className="w-full lg:flex-1">
             <h3
               style={{
                 fontFamily: "var(--font-montserrat), Gilroy, sans-serif",
