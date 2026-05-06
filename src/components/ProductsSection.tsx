@@ -5,26 +5,31 @@ const products = [
     title: "Investidores",
     description: "Invista em usinas solares e gere renda passiva com alta rentabilidade, retorno previsível e impacto positivo no planeta.",
     img: "/images/Investidores.jpg",
+    href: "#contato",
   },
   {
     title: "Comercial",
     description: "Sistemas de 20 a 75 kWp para empresas e comércios. Projeto elétrico completo, homologação ANEEL e acompanhamento dedicado.",
     img: "https://images.unsplash.com/photo-1592833159155-c62df1b65634?w=800&q=80",
+    href: "#contato",
   },
   {
     title: "Industrial",
     description: "Acima de 75 kWp para indústrias e grandes consumidores. Consultoria energética e engenheiro dedicado ao projeto.",
     img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
+    href: "#contato",
   },
   {
     title: "Agro",
     description: "Energia solar para o agronegócio. Irrigação, refrigeração e operações agrícolas com energia limpa e economia real.",
     img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=800&q=80",
+    href: "/produtos/agro",
   },
   {
     title: "Residencial",
     description: "Sistemas de 3 a 20 kWp para casas e apartamentos. Retorno de investimento em até 4 anos com economia real na conta de luz.",
     img: "/images/08.png",
+    href: "#contato",
   },
 ];
 
@@ -78,7 +83,7 @@ export function ProductsSection() {
                 <h3 className="font-bold text-base" style={{ color: "#0d3347" }}>{p.title}</h3>
                 <p className="text-[#787878] text-sm leading-relaxed flex-1">{p.description}</p>
                 <a
-                  href="#contato"
+                  href={p.href}
                   className="self-start text-white text-xs font-bold px-5 py-2 rounded-full transition-opacity hover:opacity-90 mt-1"
                   style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
                 >
