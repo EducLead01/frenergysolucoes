@@ -4,214 +4,138 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const modelos = [
   {
-    titulo: "Residencial",
-    descricao: "Sistemas de 3 a 20 kWp para casas e apartamentos. Retorno de investimento em até 4 anos.",
+    badge: "RESIDENCIAL",
+    titulo: "Sistema solar residencial",
+    descricao: "Sistemas de 3 a 20 kWp para casas e apartamentos. Retorno de investimento em até 4 anos com economia real na conta de luz.",
     img: "/images/assinestore/tela_personalizado.png",
+    reverse: false,
   },
   {
-    titulo: "Comercial",
-    descricao: "Sistemas de 20 a 75 kWp para empresas, comércios e estabelecimentos de médio porte.",
+    badge: "COMERCIAL",
+    titulo: "Sistema solar comercial",
+    descricao: "Sistemas de 20 a 75 kWp para empresas e comércios. Estudo de viabilidade, projeto elétrico completo e homologação ANEEL.",
     img: "/images/assinestore/admin_analytics2x.png",
+    reverse: true,
   },
   {
-    titulo: "Industrial",
-    descricao: "Sistemas acima de 75 kWp para indústrias e grandes consumidores com alta demanda.",
+    badge: "INDUSTRIAL",
+    titulo: "Sistema solar industrial",
+    descricao: "Sistemas acima de 75 kWp para indústrias e grandes consumidores. Consultoria energética e engenheiro dedicado ao projeto.",
     img: "/images/assinestore/tela_personalizado.png",
+    reverse: false,
   },
 ];
 
 export function HomeModelos() {
   const h2Ref = useScrollReveal<HTMLHeadingElement>(0);
-  const dropRef = useScrollReveal<HTMLDivElement>(100);
 
   return (
-    <section
-      style={{
-        width: "100%",
-        paddingTop: "120px",
-        paddingBottom: "10px",
-      }}
-    >
-      {/* Heading */}
-      <div
-        style={{
-          maxWidth: "1200px",
-          marginLeft: "auto",
-          marginRight: "auto",
-          paddingLeft: "20px",
-          paddingRight: "20px",
-          marginBottom: "60px",
-          textAlign: "center",
-        }}
-      >
+    <section id="tipos-projeto" className="py-16 bg-white">
+      <div className="container mx-auto px-6 max-w-5xl">
+
         <h2
           ref={h2Ref}
+          className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] mb-12"
           style={{
-            fontFamily: "var(--font-montserrat), Gilroy, sans-serif",
-            fontSize: "36px",
-            lineHeight: "40px",
-            fontWeight: 300,
-            marginTop: 0,
             opacity: 0,
             transform: "translateY(20px)",
             transition: "opacity 600ms ease, transform 600ms ease",
           }}
         >
-          <strong style={{ color: "#007bcc" }}>Tipos de projetos</strong> para o seu sistema solar
+          Tipos de projetos para o seu{" "}
+          <span style={{ color: "#F0416E" }}>sistema solar</span>
         </h2>
-        <div
-          ref={dropRef}
-          style={{
-            width: "60px",
-            height: "5px",
-            margin: "15px auto 25px",
-            borderRadius: "200px",
-            backgroundColor: "#007bcc",
-            opacity: 0,
-            transform: "translateY(10px)",
-            transition: "opacity 600ms ease 100ms, transform 600ms ease 100ms",
-          }}
-        />
-      </div>
 
-      {/* Cards row */}
-      <div
-        className="flex flex-col sm:flex-row flex-wrap justify-center"
-        style={{
-          maxWidth: "1200px",
-          marginLeft: "auto",
-          marginRight: "auto",
-          paddingLeft: "20px",
-          paddingRight: "20px",
-          gap: "30px",
-          marginBottom: "80px",
-        }}
-      >
-        {modelos.map((m) => (
-          <div
-            key={m.titulo}
-            className="w-full sm:w-[340px]"
-            style={{
-              borderRadius: "10px",
-              overflow: "hidden",
-              backgroundColor: "#fff",
-              boxShadow: "0 3px 20px 0 rgba(0,0,0,0.1)",
-              transition: "transform 200ms ease, box-shadow 200ms ease",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
-              (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px 0 rgba(0,0,0,0.15)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-              (e.currentTarget as HTMLDivElement).style.boxShadow = "0 3px 20px 0 rgba(0,0,0,0.1)";
-            }}
-          >
-            <div style={{ height: "200px", overflow: "hidden", backgroundColor: "#e7eaf1" }}>
-              <Image
-                src={m.img}
-                alt={m.titulo}
-                width={340}
-                height={200}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            </div>
-            <div style={{ padding: "24px" }}>
-              <div
-                style={{
-                  fontFamily: "var(--font-montserrat), Gilroy, sans-serif",
-                  fontSize: "20px",
-                  fontWeight: 800,
-                  color: "#007bcc",
-                  marginBottom: "10px",
-                }}
-              >
-                {m.titulo}
-              </div>
-              <div style={{ fontSize: "14px", lineHeight: "22px", color: "#555" }}>
-                {m.descricao}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* "100% personalizado" section */}
-      <div
-        style={{
-          backgroundColor: "#e7eaf1",
-          paddingTop: "80px",
-          paddingBottom: "80px",
-        }}
-      >
-        <div
-          className="flex flex-col lg:flex-row items-center gap-10"
-          style={{
-            maxWidth: "1200px",
-            marginLeft: "auto",
-            marginRight: "auto",
-            paddingLeft: "20px",
-            paddingRight: "20px",
-          }}
-        >
-          <div className="w-full lg:flex-1">
-            <Image
-              src="/images/assinestore/tela_personalizado.png"
-              alt="Projeto solar personalizado"
-              width={500}
-              height={350}
-              style={{ maxWidth: "100%", borderRadius: "10px" }}
-            />
-          </div>
-          <div className="w-full lg:flex-1">
-            <h3
-              style={{
-                fontFamily: "var(--font-montserrat), Gilroy, sans-serif",
-                fontSize: "28px",
-                lineHeight: "34px",
-                fontWeight: 300,
-                marginTop: 0,
-                color: "#212529",
-              }}
-            >
-              Ou tenha um projeto solar <strong style={{ color: "#007bcc" }}>100% personalizado</strong>
-            </h3>
+        <div className="flex flex-col gap-12">
+          {modelos.map((m) => (
             <div
-              style={{
-                width: "60px",
-                height: "5px",
-                marginTop: "15px",
-                marginBottom: "25px",
-                borderRadius: "200px",
-                backgroundColor: "#007bcc",
-              }}
-            />
-            <p style={{ fontSize: "16px", lineHeight: "26px", color: "#555", marginBottom: "30px" }}>
+              key={m.badge}
+              className={`flex flex-col ${m.reverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-8`}
+            >
+              {/* Text */}
+              <div className="flex-1 flex flex-col gap-3">
+                <span
+                  className="inline-block self-start text-white text-xs font-bold uppercase px-3 py-1 rounded-full"
+                  style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+                >
+                  {m.badge}
+                </span>
+                <h3 className="text-xl font-bold text-[#4D4D4D]">{m.titulo}</h3>
+                <p className="text-[#787878] text-sm leading-relaxed">{m.descricao}</p>
+                <a
+                  href="#contato"
+                  className="self-start inline-flex items-center gap-2 px-6 py-3 rounded-[70px] text-white font-bold text-sm transition-opacity hover:opacity-90 mt-2"
+                  style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+                >
+                  Solicitar orçamento
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+
+              {/* Image with gradient offset border */}
+              <div className="flex-1 w-full relative">
+                <div
+                  className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
+                  style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
+                />
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-[#f2f2f2]">
+                  <Image
+                    src={m.img}
+                    alt={m.titulo}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* 100% personalizado */}
+        <div className="mt-20 flex flex-col lg:flex-row items-center gap-12 bg-[#fafafa] rounded-2xl p-8 lg:p-12">
+          <div className="flex-1 flex flex-col gap-4">
+            <span
+              className="inline-block self-start text-white text-xs font-bold uppercase px-3 py-1 rounded-full"
+              style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+            >
+              Personalizado
+            </span>
+            <h3 className="text-xl lg:text-2xl font-bold text-[#4D4D4D] leading-snug">
+              Ou tenha um projeto solar{" "}
+              <span style={{ color: "#F0416E" }}>100% personalizado</span>
+            </h3>
+            <p className="text-[#787878] text-sm leading-relaxed">
               Nossa equipe cria do zero um projeto solar exclusivo para a sua necessidade, seja residencial, comercial ou industrial.
             </p>
             <a
               href="#contato"
-              style={{
-                display: "inline-flex",
-                height: "60px",
-                paddingRight: "35px",
-                paddingLeft: "35px",
-                alignItems: "center",
-                borderRadius: "300px",
-                backgroundColor: "#007bcc",
-                transition: "background-color 300ms ease-in-out",
-                color: "#fff",
-                fontWeight: 700,
-                textDecoration: "none",
-                fontSize: "15px",
-              }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#f79d34")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#007bcc")}
+              className="self-start inline-flex items-center gap-2 px-8 py-4 rounded-[70px] text-white font-bold text-base transition-opacity hover:opacity-90"
+              style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
             >
               Projeto personalizado
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </a>
           </div>
+          <div className="flex-1 w-full relative">
+            <div
+              className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
+              style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
+            />
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-[#f2f2f2]">
+              <Image
+                src="/images/assinestore/tela_personalizado.png"
+                alt="Projeto solar personalizado"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
   );

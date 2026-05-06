@@ -15,19 +15,10 @@ const track = [...clientes, ...clientes];
 
 export function HomeClientes() {
   return (
-    <div
-      style={{
-        width: "100%",
-        paddingTop: "50px",
-        paddingBottom: "50px",
-        backgroundColor: "#e7eaf1",
-        overflow: "hidden",
-      }}
-    >
+    <div className="w-full py-12 bg-[#fafafa] overflow-hidden">
       <div
+        className="flex gap-6"
         style={{
-          display: "flex",
-          gap: "24px",
           width: "max-content",
           animation: "marquee 28s linear infinite",
         }}
@@ -37,20 +28,7 @@ export function HomeClientes() {
         {track.map((c, i) => (
           <div
             key={i}
-            style={{
-              width: "200px",
-              height: "100px",
-              backgroundColor: "#fff",
-              borderRadius: "10px",
-              boxShadow: "0 3px 20px 0 rgba(0,0,0,0.07)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "14px",
-              fontWeight: 700,
-              color: "#007bcc",
-              flexShrink: 0,
-            }}
+            className="w-[200px] h-[100px] bg-white rounded-xl shadow-sm flex items-center justify-center text-sm font-bold text-[#4D4D4D] shrink-0 border border-[#f0f0f0]"
           >
             {c.nome}
           </div>
