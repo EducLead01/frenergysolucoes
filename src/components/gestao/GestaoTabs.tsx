@@ -98,18 +98,23 @@ export function GestaoTabs() {
                 {/* Header */}
                 <button
                   onClick={() => toggle(tab.id)}
-                  className="w-full flex items-center justify-between px-5 py-4 cursor-pointer"
+                  className="w-full flex items-start justify-between px-5 py-4 cursor-pointer gap-3"
                 >
-                  <div className="flex items-center gap-3">
-                    <span style={{ color: isOpen ? "#FF5900" : "#bbb", transition: "color 200ms" }}>
+                  <div className="flex items-start gap-3 min-w-0">
+                    <span className="shrink-0 mt-0.5" style={{ color: isOpen ? "#FF5900" : "#bbb", transition: "color 200ms" }}>
                       {tab.icon}
                     </span>
-                    <span
-                      className="font-bold text-sm"
-                      style={{ color: isOpen ? "#FF5900" : "#4D4D4D", transition: "color 200ms" }}
-                    >
-                      {tab.label}
-                    </span>
+                    <div className="flex flex-col gap-1 min-w-0 text-left">
+                      <span
+                        className="font-bold text-sm"
+                        style={{ color: isOpen ? "#FF5900" : "#4D4D4D", transition: "color 200ms" }}
+                      >
+                        {tab.label}
+                      </span>
+                      {!isOpen && (
+                        <span className="text-xs text-[#aaa] truncate">{tab.descricao}</span>
+                      )}
+                    </div>
                   </div>
                   <svg
                     width="18"
@@ -120,7 +125,7 @@ export function GestaoTabs() {
                     strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    style={{ transition: "transform 300ms, stroke 200ms", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", flexShrink: 0 }}
+                    style={{ transition: "transform 300ms, stroke 200ms", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", flexShrink: 0, marginTop: "2px" }}
                   >
                     <path d="M6 9l6 6 6-6" />
                   </svg>
