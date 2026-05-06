@@ -10,14 +10,17 @@ const modelos = [
   {
     badge: "COMERCIAL",
     img: "/images/assinestore/admin_analytics2x.png",
+    href: "/cases/cliente02",
   },
   {
     badge: "INDUSTRIAL",
     img: "/images/assinestore/tela_personalizado.png",
+    href: "/cases/cliente03",
   },
   {
     badge: "AGRO",
     img: "/images/assinestore/tela_personalizado.png",
+    href: "/cases/cliente04",
   },
 ];
 
