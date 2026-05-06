@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function HeroSlider() {
   return (
-    <div className="relative mt-20 h-[calc(100vh-80px)] overflow-hidden">
+    <div className="relative mt-28 h-[calc(100vh-112px)] overflow-hidden">
       <Image
         src="/images/hero.png"
         alt="Frenergy"
