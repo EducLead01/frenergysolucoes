@@ -1,107 +1,191 @@
-const solucoes = [
+"use client";
+
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, TrendingUp, Building2, Factory, Tractor } from "lucide-react";
+
+type Product = {
+  title: string;
+  icon: React.ElementType;
+  description: string;
+  images: [string, string];
+};
+
+const products: Product[] = [
   {
-    titulo: "Residencial",
-    descricao: "Sistemas de 3 a 20 kWp para casas e apartamentos. Retorno em até 4 anos.",
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
-    ),
+    title: "Investidores",
+    icon: TrendingUp,
+    description:
+      "Invista em usinas solares e gere renda passiva com alta rentabilidade, retorno previsível e impacto positivo no planeta.",
+    images: [
+      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&q=80",
+      "https://images.unsplash.com/photo-1548336234-065daf7e5b0a?w=800&q=80",
+    ],
   },
   {
-    titulo: "Comercial",
-    descricao: "Sistemas de 20 a 75 kWp para empresas. Projeto elétrico completo e homologação ANEEL.",
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="7" width="20" height="14" rx="2"/>
-        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-        <line x1="12" y1="12" x2="12" y2="16"/>
-        <line x1="10" y1="14" x2="14" y2="14"/>
-      </svg>
-    ),
+    title: "Comercial",
+    icon: Building2,
+    description:
+      "Maximize os lucros do seu negócio com energia solar. Reduza custos operacionais e melhore sua competitividade.",
+    images: [
+      "https://images.unsplash.com/photo-1592833159155-c62df1b65634?w=800&q=80",
+      "https://images.unsplash.com/photo-1565118531796-763e5082d113?w=800&q=80",
+    ],
   },
   {
-    titulo: "Industrial",
-    descricao: "Acima de 75 kWp para indústrias e grandes consumidores. Consultoria energética dedicada.",
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-      </svg>
-    ),
+    title: "Industrial",
+    icon: Factory,
+    description:
+      "Grandes projetos para indústrias que buscam eficiência energética e redução significativa de custos.",
+    images: [
+      "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
+      "https://images.unsplash.com/photo-1548336234-065daf7e5b0a?w=800&q=80",
+    ],
   },
   {
-    titulo: "Agro",
-    descricao: "Energia solar para o agronegócio. Irrigação, refrigeração e operações agrícolas com energia limpa.",
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12c0-2.76 1.12-5.26 2.93-7.07"/>
-        <path d="M12 6v6l4 2"/>
-      </svg>
-    ),
-  },
-  {
-    titulo: "Gestão de Energia",
-    descricao: "Monitoramento em tempo real, relatórios e suporte de engenheiros certificados.",
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2"/>
-        <path d="M7 16l3-4 3 3 3-5"/>
-      </svg>
-    ),
-  },
-  {
-    titulo: "Mercado Livre de Energia",
-    descricao: "Migre para o Mercado Livre e negocie sua energia com liberdade, reduzindo custos operacionais.",
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="1" x2="12" y2="23"/>
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-      </svg>
-    ),
+    title: "Agro",
+    icon: Tractor,
+    description:
+      "Energia solar para o agronegócio. Irrigação, refrigeração e operações agrícolas com energia limpa.",
+    images: [
+      "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=800&q=80",
+      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&q=80",
+    ],
   },
 ];
 
+function ProductCard({ product }: { product: Product }) {
+  const [idx, setIdx] = useState(0);
+  const Icon = product.icon;
+
+  return (
+    /* Outer frame: 2px gap that shows the spinning gradient */
+    <div className="relative rounded-lg overflow-hidden p-[2px] bg-[#ea592d]">
+
+      {/* Spinning border gradient — mostly orange (invisible), amber sweep travels around */}
+      <div
+        className="absolute top-1/2 left-1/2 aspect-square pointer-events-none z-0"
+        style={{
+          width: "300%",
+          background:
+            "conic-gradient(from 0deg, #ea592d 0deg, #ea592d 310deg, #0f766e 330deg, #ffffff 348deg, #0f766e 360deg)",
+          animation: "card-border-spin 3s linear infinite",
+        }}
+      />
+
+      {/* Inner card */}
+      <div className="group relative z-10 flex flex-col overflow-hidden rounded-[6px] bg-[#ea592d] text-center">
+
+        {/* Top accent line */}
+        <span className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#F5A623] rounded-b-full z-40" />
+
+        {/* Bottom bar — desliza no hover */}
+        <span className="absolute bottom-0 left-0 right-0 h-1 bg-teal-800 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-40" />
+
+        {/* Image carousel */}
+        <div className="relative h-60 overflow-hidden">
+          {product.images.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt={`${product.title} ${i + 1}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
+                i === idx
+                  ? "opacity-100 group-hover:scale-110"
+                  : "opacity-0"
+              }`}
+            />
+          ))}
+
+          {/* Orange gradient overlay */}
+          <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#ea592d]/50 to-[#ea592d]/80" />
+
+          {/* Icon centered on image */}
+          <div className="absolute inset-0 flex items-center justify-center z-30">
+            <Icon className="w-14 h-14 text-[#F5A623] drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]" />
+          </div>
+
+          {/* Prev arrow */}
+          <button
+            onClick={() => setIdx(0)}
+            disabled={idx === 0}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center transition-all disabled:opacity-0"
+          >
+            <ChevronLeft className="w-4 h-4 text-white" />
+          </button>
+
+          {/* Next arrow */}
+          <button
+            onClick={() => setIdx(1)}
+            disabled={idx === 1}
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center transition-all disabled:opacity-0"
+          >
+            <ChevronRight className="w-4 h-4 text-white" />
+          </button>
+
+          {/* Dots */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5">
+            {product.images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIdx(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === idx ? "w-5 bg-white" : "w-1.5 bg-white/50"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-6 flex flex-col flex-1 items-center">
+          <h4 className="text-[30px] font-bold text-white text-center leading-tight">
+            {product.title}
+          </h4>
+          <p className="text-white text-center text-sm mt-3 flex-1">
+            {product.description}
+          </p>
+          <a
+            href="#contato"
+            className="mt-6 bg-white text-[#ea592d] font-bold uppercase px-6 py-3 text-sm hover:bg-gray-100 transition-colors"
+          >
+            SAIBA MAIS
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function ProductsSection() {
   return (
-    <section id="servicos" className="bg-white py-20">
-      <div className="container mx-auto px-6 max-w-5xl">
-
-        <div className="mb-12 text-center">
-          <span
-            className="inline-block text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-4"
-            style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-          >
-            Soluções
-          </span>
-          <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D]">
-            O que a <span style={{ color: "#F0416E" }}>Frenergy</span> oferece
+    <>
+      <section id="servicos" className="bg-white px-6 pt-10 pb-24 relative">
+        <div className="container mx-auto">
+          <h2 className="text-center text-2xl lg:text-3xl font-bold text-[#4D4D4D] mb-4">
+            PRODUTOS
           </h2>
-        </div>
+          <h3 className="text-center text-xl text-[#787878] mb-12 max-w-4xl mx-auto">
+            Soluções em energia solar para cada necessidade
+          </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {solucoes.map((s) => (
-            <div key={s.titulo} className="flex flex-col gap-3 p-6 rounded-2xl border border-[#f0f0f0] hover:border-[#FF5900]/30 hover:shadow-md transition-all duration-200">
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center text-white shrink-0"
-                style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
-              >
-                {s.icon}
-              </div>
-              <h3 className="font-bold text-[#4D4D4D] text-base">{s.titulo}</h3>
-              <p className="text-[#787878] text-sm leading-relaxed">{s.descricao}</p>
-              <a
-                href="#contato"
-                className="text-sm font-bold mt-auto"
-                style={{ color: "#FF5900" }}
-              >
-                Saiba mais →
-              </a>
-            </div>
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {products.map((product) => (
+              <ProductCard key={product.title} product={product} />
+            ))}
+          </div>
         </div>
+      </section>
 
-      </div>
-    </section>
+      {/* Arrow divider */}
+      <div
+        className="relative h-20 z-10 -mt-1 bg-white"
+        style={{
+          backgroundImage: "url('/img/global/section-arrow-down-white.svg')",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center top",
+          backgroundSize: "contain",
+        }}
+      />
+    </>
   );
 }

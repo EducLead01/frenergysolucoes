@@ -1,13 +1,18 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSlider } from "@/components/HeroSlider";
-import { StatsBar } from "@/components/StatsBar";
 import { ProductsSection } from "@/components/ProductsSection";
-import { HomeModelos } from "@/components/home/HomeModelos";
-import { HomeClientes } from "@/components/home/HomeClientes";
+import { AnimacaoSolar } from "@/components/AnimacaoSolar";
+import { CalculadoraSection } from "@/components/CalculadoraSection";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { EsferaHero } from "@/components/esfera/EsferaHero";
+import { EsferaAudioTestimonials } from "@/components/esfera/EsferaAudioTestimonials";
+import { EsferaStats } from "@/components/esfera/EsferaStats";
+import { EsferaClientLogos } from "@/components/esfera/EsferaClientLogos";
+import { EsferaExperts } from "@/components/esfera/EsferaExperts";
+import { EsferaBenefitsCards } from "@/components/esfera/EsferaBenefitsCards";
 import { EsferaFAQ } from "@/components/esfera/EsferaFAQ";
 import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 
 export default function Home() {
   return (
@@ -15,11 +20,17 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSlider />
-        <StatsBar />
+        <AnimacaoSolar />
+        <EsferaBenefitsCards />
         <ProductsSection />
-        <HomeModelos />
-        <HomeClientes />
+        {/* — Esfera Simplifica clone — */}
+        <EsferaHero />
+        <EsferaAudioTestimonials />
+        <EsferaStats />
+        <EsferaClientLogos />
+        <EsferaExperts />
         <EsferaFAQ />
+        <CalculadoraSection />
         <EsferaContactForm />
         <EsferaFooter />
       </main>
