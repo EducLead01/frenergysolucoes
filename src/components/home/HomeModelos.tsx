@@ -4,7 +4,7 @@ import Image from "next/image";
 const modelos = [
   {
     badge: "RESIDENCIAL",
-    img: "/images/assinestore/tela_personalizado.png",
+    img: "/images/08.png",
   },
   {
     badge: "COMERCIAL",
