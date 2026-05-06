@@ -6,10 +6,24 @@ import { GestaoTabs } from "@/components/gestao/GestaoTabs";
 import { PhoneMockupGroup } from "@/components/gestao/PhoneMockupGroup";
 
 const vantagens = [
-  "Gerenciamento energético aplicado ao seu processo produtivo, visando o melhor aproveitamento com o menor custo operacional.",
-  "Inteligência energética e de mercado, vislumbrando as melhores oportunidades para sua empresa economizar energia.",
-  "Dados de energia em tempo real para consultas através do nosso App.",
-  "Equipe especializada de engenheiros e técnicos para o acompanhamento da sua gestão energética.",
+  {
+    titulo: "Acompanhe sua economia em tempo real",
+    descricao: "Visualize quanto sua usina está economizando a cada dia, mês e ano, com indicadores claros que mostram o impacto real no seu bolso.",
+    itens: [
+      "Economia diária, mensal e anual",
+      "Comparativo com a conta de luz tradicional",
+      "Projeção de economia futura",
+    ],
+  },
+  {
+    titulo: "Receba alertas e notificações inteligentes",
+    descricao: "Seja avisado sobre qualquer mudança no funcionamento do sistema, garantindo que sua usina opere sempre no máximo desempenho.",
+    itens: [
+      "Alertas de queda de geração",
+      "Notificações de manutenção preventiva",
+      "Avisos de falhas e anomalias",
+    ],
+  },
 ];
 
 export default function GestaoDeEnergia() {
@@ -88,35 +102,26 @@ export default function GestaoDeEnergia() {
                 >
                   Vantagens
                 </span>
-                <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] leading-snug">
-                  Vantagens da{" "}
-                  <span style={{ color: "#F0416E" }}>Frenergy Soluções</span>
-                </h2>
-                <p className="text-[#787878] text-base leading-relaxed">
-                  Além de especialistas no mercado de energia, contamos com um software
-                  qualificado para gestão de energia que tem tudo para reduzir os seus custos.
-                </p>
-                <p className="text-[#787878] text-base leading-relaxed">
-                  Com o Sistema de Gerenciamento de Energia, sua empresa pode alcançar um
-                  corte de{" "}
-                  <strong className="text-[#4D4D4D]">até 26% nas despesas</strong>{" "}
-                  relacionadas à conta e consumo.
-                </p>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-6">
                 {vantagens.map((v, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm border border-[#f0f0f0]"
-                  >
-                    <div
-                      className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                      style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
-                    >
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M20 6L9 17l-5-5" />
-                      </svg>
-                    </div>
-                    <p className="text-[#787878] text-sm leading-relaxed">{v}</p>
+                  <div key={i} className="flex flex-col gap-3 bg-white rounded-xl p-5 shadow-sm border border-[#f0f0f0]">
+                    <h3 className="text-base font-bold text-[#4D4D4D]">{v.titulo}</h3>
+                    <p className="text-[#787878] text-sm leading-relaxed">{v.descricao}</p>
+                    <ul className="flex flex-col gap-2">
+                      {v.itens.map((item, j) => (
+                        <li key={j} className="flex items-center gap-2">
+                          <div
+                            className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
+                            style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
+                          >
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M20 6L9 17l-5-5" />
+                            </svg>
+                          </div>
+                          <span className="text-[#787878] text-sm">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 ))}
                 </div>
