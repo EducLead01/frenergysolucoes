@@ -2,22 +2,20 @@ import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
-import { SobreClientes } from "@/components/sobre/SobreClientes";
-import { SobreSegmentos } from "@/components/sobre/SobreSegmentos";
-import { SobreHighlights } from "@/components/sobre/SobreHighlights";
-import { SobrePlanos } from "@/components/sobre/SobrePlanos";
-import { SobreParceiros } from "@/components/sobre/SobreParceiros";
-import { SobreComoFunciona } from "@/components/sobre/SobreComoFunciona";
-import { SobreFuncionalidades } from "@/components/sobre/SobreFuncionalidades";
+import { HomeClientes } from "@/components/home/HomeClientes";
+import { HomePainel } from "@/components/home/HomePainel";
+import { HomePlanos } from "@/components/home/HomePlanos";
+import { HomeModelos } from "@/components/home/HomeModelos";
+import { HomeParceiros } from "@/components/home/HomeParceiros";
 
 export default function Cases() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pt-24">
+      <main className="min-h-screen" style={{ fontFamily: "'Open Sans', sans-serif", color: "#212529" }}>
 
         {/* Hero */}
-        <section className="bg-white py-16">
+        <section className="bg-white py-16 pt-24">
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="flex flex-col lg:flex-row items-center gap-12">
 
@@ -58,7 +56,7 @@ export default function Cases() {
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-white">
                   <Image
                     src="/images/icone-painel-solar-600x523.png"
-                    alt="Técnico instalando painéis solares"
+                    alt="Painel solar instalado"
                     fill
                     className="object-contain p-4"
                     priority
@@ -70,15 +68,11 @@ export default function Cases() {
           </div>
         </section>
 
-        {/* Clone AssineStore /sobre — seções em ordem idêntica ao original */}
-        <SobreClientes />
-        <SobreSegmentos />
-        <SobreHighlights />
-        <SobrePlanos />
-        <SobreParceiros />
-        <SobreComoFunciona />
-        <SobreFuncionalidades />
-
+        <HomeClientes />
+        <HomePainel />
+        <HomePlanos />
+        <HomeModelos />
+        <HomeParceiros />
         <div id="contato">
           <EsferaContactForm />
         </div>
