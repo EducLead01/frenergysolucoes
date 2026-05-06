@@ -136,8 +136,8 @@ export function ProductsSection() {
           {[...products, ...products].map((p, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl overflow-hidden flex flex-col shadow-md border border-[#FF5900]/20"
-              style={{ width: "280px", flexShrink: 0 }}
+              className="bg-white rounded-2xl overflow-hidden flex flex-col shadow-md"
+              style={{ width: "280px", flexShrink: 0, border: "1.5px solid rgba(255, 89, 0, 0.25)" }}
             >
               <div className="h-48 overflow-hidden">
                 <img
