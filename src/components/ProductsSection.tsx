@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef, useEffect } from "react";
+
 const products = [
   {
     title: "Investidores",
@@ -33,21 +35,75 @@ const products = [
   },
 ];
 
+const SPEED = 1; // px per frame
+
 export function ProductsSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+  const dragging = useRef(false);
+  const dragStartX = useRef(0);
+  const dragStartScroll = useRef(0);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    function tick() {
+      if (el && !dragging.current) {
+        el.scrollLeft += SPEED;
+        if (el.scrollLeft >= el.scrollWidth / 2) {
+          el.scrollLeft = 0;
+        }
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    }
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
+
+  function onMouseDown(e: React.MouseEvent) {
+    dragging.current = true;
+    dragStartX.current = e.clientX;
+    dragStartScroll.current = scrollRef.current?.scrollLeft ?? 0;
+  }
+
+  function onMouseMove(e: React.MouseEvent) {
+    if (!dragging.current || !scrollRef.current) return;
+    const dx = e.clientX - dragStartX.current;
+    let next = dragStartScroll.current - dx;
+    const half = scrollRef.current.scrollWidth / 2;
+    if (next < 0) next += half;
+    if (next >= half) next -= half;
+    scrollRef.current.scrollLeft = next;
+  }
+
+  function onMouseUp() {
+    dragging.current = false;
+  }
+
+  function onTouchStart(e: React.TouchEvent) {
+    dragging.current = true;
+    dragStartX.current = e.touches[0].clientX;
+    dragStartScroll.current = scrollRef.current?.scrollLeft ?? 0;
+  }
+
+  function onTouchMove(e: React.TouchEvent) {
+    if (!dragging.current || !scrollRef.current) return;
+    const dx = e.touches[0].clientX - dragStartX.current;
+    let next = dragStartScroll.current - dx;
+    const half = scrollRef.current.scrollWidth / 2;
+    if (next < 0) next += half;
+    if (next >= half) next -= half;
+    scrollRef.current.scrollLeft = next;
+  }
+
+  function onTouchEnd() {
+    dragging.current = false;
+  }
+
   return (
-    <section id="servicos" className="py-20 bg-white overflow-hidden">
-      <style>{`
-        @keyframes marquee-frenergy {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        .marquee-frenergy {
-          animation: marquee-frenergy 25s linear infinite;
-        }
-        .marquee-frenergy:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
+    <section id="servicos" className="py-20 bg-white">
 
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-12">
@@ -64,8 +120,19 @@ export function ProductsSection() {
         </div>
       </div>
 
-      <div className="overflow-hidden">
-        <div className="marquee-frenergy flex" style={{ gap: "20px", width: "max-content" }}>
+      <div
+        ref={scrollRef}
+        className="overflow-x-scroll select-none cursor-grab active:cursor-grabbing"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseLeave={onMouseUp}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        <div className="flex px-6" style={{ gap: "20px", width: "max-content" }}>
           {[...products, ...products].map((p, i) => (
             <div
               key={i}
@@ -77,6 +144,7 @@ export function ProductsSection() {
                   src={p.img}
                   alt={p.title}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  draggable={false}
                 />
               </div>
               <div className="p-5 flex flex-col gap-3 flex-1">
@@ -94,6 +162,7 @@ export function ProductsSection() {
           ))}
         </div>
       </div>
+
     </section>
   );
 }
