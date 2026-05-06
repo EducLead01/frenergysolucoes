@@ -41,7 +41,7 @@ export function ProductsSection() {
   const visible = products.slice(start, start + VISIBLE);
 
   return (
-    <section id="servicos" className="py-20" style={{ background: "#0d3347" }}>
+    <section id="servicos" className="py-20 bg-white">
       <div className="container mx-auto px-6 max-w-5xl">
 
         <div className="text-center mb-12">
@@ -51,7 +51,7 @@ export function ProductsSection() {
           >
             Produtos
           </span>
-          <h2 className="text-2xl lg:text-3xl font-bold text-white">
+          <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D]">
             Soluções em energia solar para{" "}
             <span style={{ color: "#FF5900" }}>cada necessidade</span>
           </h2>
@@ -65,8 +65,8 @@ export function ProductsSection() {
             disabled={!canPrev}
             className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all"
             style={{
-              background: canPrev ? "white" : "rgba(255,255,255,0.15)",
-              color: canPrev ? "#0d3347" : "rgba(255,255,255,0.4)",
+              background: canPrev ? "#0d3347" : "rgba(0,0,0,0.08)",
+              color: canPrev ? "white" : "rgba(0,0,0,0.25)",
               cursor: canPrev ? "pointer" : "default",
             }}
           >
@@ -78,7 +78,7 @@ export function ProductsSection() {
           {/* Cards */}
           <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {visible.map((p) => (
-              <div key={p.title} className="bg-white rounded-2xl overflow-hidden flex flex-col shadow-lg">
+              <div key={p.title} className="bg-white rounded-2xl overflow-hidden flex flex-col shadow-md border border-[#eee]">
                 <div className="h-48 overflow-hidden">
                   <img
                     src={p.img}
@@ -107,8 +107,8 @@ export function ProductsSection() {
             disabled={!canNext}
             className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all"
             style={{
-              background: canNext ? "white" : "rgba(255,255,255,0.15)",
-              color: canNext ? "#0d3347" : "rgba(255,255,255,0.4)",
+              background: canNext ? "#0d3347" : "rgba(0,0,0,0.08)",
+              color: canNext ? "white" : "rgba(0,0,0,0.25)",
               cursor: canNext ? "pointer" : "default",
             }}
           >
