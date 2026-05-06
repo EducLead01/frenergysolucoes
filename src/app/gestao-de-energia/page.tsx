@@ -137,8 +137,8 @@ export default function GestaoDeEnergia() {
                 </a>
               </div>
 
-              {/* Right: phone mockup group */}
-              <div className="flex-1 flex justify-center">
+              {/* Right: phone mockup group — aparece primeiro no mobile */}
+              <div className="flex-1 flex justify-center order-first lg:order-last">
                 <PhoneMockupGroup />
               </div>
 
