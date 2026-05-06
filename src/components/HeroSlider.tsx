@@ -7,7 +7,7 @@ export function HeroSlider() {
         src="/images/hero.png"
         alt="Frenergy"
         fill
-        className="object-cover"
+        className="object-cover object-right"
         priority
       />
     </div>
