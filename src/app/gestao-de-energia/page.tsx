@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
+import { GestaoTabs } from "@/components/gestao/GestaoTabs";
 
 const vantagens = [
   "Gerenciamento energético aplicado ao seu processo produtivo, visando o melhor aproveitamento com o menor custo operacional.",
@@ -128,6 +129,8 @@ export default function GestaoDeEnergia() {
             </div>
           </div>
         </section>
+
+        <GestaoTabs />
 
         {/* Seção: Vantagens */}
         <section className="bg-[#fafafa] py-16">
