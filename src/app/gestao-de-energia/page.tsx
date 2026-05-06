@@ -112,19 +112,31 @@ export default function GestaoDeEnergia() {
                   </svg>
                 </a>
 
-                {/* app2 image */}
-                <div className="w-full relative mt-4">
-                  <div
-                    className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
-                    style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
-                  />
-                  <div className="relative rounded-2xl overflow-hidden aspect-[16/9]">
-                    <Image
-                      src="/images/app2.png"
-                      alt="Plataforma de gestão de energia Frenergy"
-                      fill
-                      className="object-cover"
+                {/* Phone mockup */}
+                <div className="flex justify-start mt-4">
+                  <div className="relative" style={{ width: "150px" }}>
+                    <div
+                      className="absolute -inset-3 rounded-[40px] blur-xl opacity-25"
+                      style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
                     />
+                    <div
+                      className="relative rounded-[32px] overflow-hidden border-[7px] bg-black shadow-2xl"
+                      style={{ borderColor: "#111", aspectRatio: "9/19" }}
+                    >
+                      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full z-10" />
+                      <div className="relative w-full h-full">
+                        <Image
+                          src="/images/app2.png"
+                          alt="App Frenergy"
+                          fill
+                          className="object-cover"
+                          style={{ objectPosition: "90% center" }}
+                        />
+                      </div>
+                    </div>
+                    <div className="absolute right-[-9px] top-16 w-1.5 h-8 bg-[#222] rounded-r-md" />
+                    <div className="absolute left-[-9px] top-14 w-1.5 h-6 bg-[#222] rounded-l-md" />
+                    <div className="absolute left-[-9px] top-24 w-1.5 h-6 bg-[#222] rounded-l-md" />
                   </div>
                 </div>
               </div>
