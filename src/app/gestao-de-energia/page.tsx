@@ -111,6 +111,22 @@ export default function GestaoDeEnergia() {
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </a>
+
+                {/* app2 image */}
+                <div className="w-full relative mt-4">
+                  <div
+                    className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
+                    style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
+                  />
+                  <div className="relative rounded-2xl overflow-hidden aspect-[16/9]">
+                    <Image
+                      src="/images/app2.png"
+                      alt="Plataforma de gestão de energia Frenergy"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
               </div>
 
               {/* Right: checklist */}
