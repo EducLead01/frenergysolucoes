@@ -54,7 +54,7 @@ const tabs = [
     ),
     titulo: "Equipe Especializada",
     descricao: "Contamos com uma equipe multidisciplinar de engenheiros e técnicos certificados, com ampla experiência no mercado de energia solar. Do projeto à manutenção, estamos ao seu lado em cada etapa com suporte prioritário.",
-    img: "/images/esfera/card-controle.jpg",
+    img: "/images/equipe.webp",
   },
 ];
 
