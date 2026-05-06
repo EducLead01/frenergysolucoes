@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
 import { GestaoTabs } from "@/components/gestao/GestaoTabs";
+import { PhoneMockupGroup } from "@/components/gestao/PhoneMockupGroup";
 
 const vantagens = [
   "Gerenciamento energético aplicado ao seu processo produtivo, visando o melhor aproveitamento com o menor custo operacional.",
@@ -77,9 +78,9 @@ export default function GestaoDeEnergia() {
         <section className="bg-[#fafafa] py-16">
           <div className="container mx-auto px-6 max-w-5xl">
 
-            <div className="flex flex-col lg:flex-row items-start gap-12">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
 
-              {/* Left: heading + intro */}
+              {/* Left: heading + intro + checklist */}
               <div className="flex-1 flex flex-col gap-5">
                 <span
                   className="inline-block self-start text-white text-xs font-bold uppercase px-3 py-1 rounded-full"
@@ -101,6 +102,24 @@ export default function GestaoDeEnergia() {
                   <strong className="text-[#4D4D4D]">até 26% nas despesas</strong>{" "}
                   relacionadas à conta e consumo.
                 </p>
+                <div className="flex flex-col gap-3">
+                {vantagens.map((v, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm border border-[#f0f0f0]"
+                  >
+                    <div
+                      className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                      style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
+                    >
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M20 6L9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <p className="text-[#787878] text-sm leading-relaxed">{v}</p>
+                  </div>
+                ))}
+                </div>
                 <a
                   href="#contato"
                   className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90"
@@ -111,55 +130,13 @@ export default function GestaoDeEnergia() {
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </a>
-
-                {/* Phone mockup */}
-                <div className="flex justify-start mt-4">
-                  <div className="relative" style={{ width: "150px" }}>
-                    <div
-                      className="absolute -inset-3 rounded-[40px] blur-xl opacity-25"
-                      style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
-                    />
-                    <div
-                      className="relative rounded-[32px] overflow-hidden border-[7px] bg-black shadow-2xl"
-                      style={{ borderColor: "#111", aspectRatio: "9/19" }}
-                    >
-                      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full z-10" />
-                      <div className="relative w-full h-full">
-                        <Image
-                          src="/images/app2.png"
-                          alt="App Frenergy"
-                          fill
-                          className="object-cover"
-                          style={{ objectPosition: "90% center" }}
-                        />
-                      </div>
-                    </div>
-                    <div className="absolute right-[-9px] top-16 w-1.5 h-8 bg-[#222] rounded-r-md" />
-                    <div className="absolute left-[-9px] top-14 w-1.5 h-6 bg-[#222] rounded-l-md" />
-                    <div className="absolute left-[-9px] top-24 w-1.5 h-6 bg-[#222] rounded-l-md" />
-                  </div>
-                </div>
               </div>
 
-              {/* Right: checklist */}
-              <div className="flex-1 flex flex-col gap-4">
-                {vantagens.map((v, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm border border-[#f0f0f0]"
-                  >
-                    <div
-                      className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                      style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
-                    >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M20 6L9 17l-5-5" />
-                      </svg>
-                    </div>
-                    <p className="text-[#787878] text-sm leading-relaxed">{v}</p>
-                  </div>
-                ))}
+              {/* Right: phone mockup group */}
+              <div className="flex-1 flex justify-center">
+                <PhoneMockupGroup />
               </div>
+
 
             </div>
           </div>
