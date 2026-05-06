@@ -2,74 +2,12 @@ import Image from "next/image";
 
 export function PhoneMockupGroup() {
   return (
-    <div className="relative flex justify-center items-end" style={{ height: "480px", minWidth: "300px" }}>
+    <div className="relative flex justify-center items-end" style={{ height: "480px", minWidth: "260px" }}>
 
-      {/* ── Phone back-left (tilted, behind) ── */}
+      {/* ── Phone (main) ── */}
       <div
         className="absolute"
-        style={{
-          left: "0px",
-          bottom: "20px",
-          zIndex: 1,
-          transform: "rotate(-8deg) scale(0.88)",
-          transformOrigin: "bottom center",
-        }}
-      >
-        <div
-          className="relative rounded-[36px] overflow-hidden border-[7px] shadow-xl bg-black"
-          style={{ borderColor: "#1a1a1a", width: "180px", aspectRatio: "9/19" }}
-        >
-          {/* notch */}
-          <div className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full z-10" />
-          {/* screen: app list view */}
-          <div className="w-full h-full bg-white flex flex-col overflow-hidden">
-            {/* status bar */}
-            <div className="bg-[#FF5900] px-3 pt-5 pb-2 flex items-center justify-between shrink-0">
-              <span className="text-white text-[9px] font-bold">08:00</span>
-              <span className="text-white text-[9px]">⚡ 100%</span>
-            </div>
-            {/* list header */}
-            <div className="bg-[#FF5900] px-3 pb-3 shrink-0">
-              <p className="text-white text-[10px] font-bold uppercase tracking-wide">Detalhados</p>
-            </div>
-            {/* list items */}
-            <div className="flex-1 overflow-hidden px-3 py-2 flex flex-col gap-2 bg-[#fafafa]">
-              {[
-                { mes: "ABRIL", val: "R$ 418,15" },
-                { mes: "MARÇO", val: "R$ 482,74" },
-                { mes: "FEVEREIRO", val: "R$ 420,05" },
-                { mes: "JANEIRO", val: "R$ 813,25" },
-                { mes: "DEZEMBRO", val: "R$ 585,80" },
-                { mes: "NOVEMBRO", val: "R$ 468,42" },
-              ].map((item) => (
-                <div key={item.mes} className="flex justify-between items-center py-1 border-b border-gray-100">
-                  <div>
-                    <p className="text-[8px] font-bold text-[#4D4D4D]">{item.mes}</p>
-                    <p className="text-[7px] text-[#787878]">Economizado</p>
-                  </div>
-                  <p className="text-[8px] font-bold text-[#FF5900]">{item.val}</p>
-                </div>
-              ))}
-            </div>
-            {/* bottom nav */}
-            <div className="flex justify-around items-center py-2 border-t border-gray-100 bg-white shrink-0">
-              <div className="w-5 h-5 rounded-full bg-[#FF5900] flex items-center justify-center">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-              </div>
-              <div className="w-5 h-5 flex items-center justify-center">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* side buttons */}
-        <div className="absolute right-[-8px] top-16 w-1.5 h-8 bg-[#111] rounded-r-md" />
-      </div>
-
-      {/* ── Phone front-right (main) ── */}
-      <div
-        className="absolute"
-        style={{ right: "0px", bottom: "0px", zIndex: 2 }}
+        style={{ left: "50%", transform: "translateX(-50%)", bottom: "0px", zIndex: 2 }}
       >
         <div
           className="relative rounded-[36px] overflow-hidden border-[7px] shadow-2xl bg-black"
@@ -102,7 +40,7 @@ export function PhoneMockupGroup() {
         className="absolute rounded-2xl px-4 py-3 shadow-2xl"
         style={{
           bottom: "10px",
-          left: "60px",
+          left: "-20px",
           zIndex: 5,
           backgroundColor: "#1a1a1a",
           minWidth: "160px",
