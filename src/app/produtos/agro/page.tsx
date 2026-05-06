@@ -9,35 +9,8 @@ export default function ProdutoAgro() {
       <Navbar />
       <main style={{ fontFamily: "'Open Sans', sans-serif" }}>
 
-        {/* Hero */}
-        <section
-          className="pt-32 pb-20 relative overflow-hidden"
-          style={{ background: "#0d3347" }}
-        >
-          <div className="container mx-auto px-6 max-w-5xl text-center relative z-10">
-            <span
-              className="inline-block text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-6"
-              style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-            >
-              Segmento
-            </span>
-            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-              Energia Solar para o{" "}
-              <span style={{ color: "#FF5900" }}>Agronegócio</span>
-            </h1>
-            <p className="text-white/70 text-lg max-w-2xl mx-auto">
-              Reduza os custos operacionais da sua propriedade rural com energia solar fotovoltaica. Irrigação, refrigeração e toda a operação com energia limpa e previsível.
-            </p>
-          </div>
-          {/* decorative gradient blob */}
-          <div
-            className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full opacity-10"
-            style={{ background: "radial-gradient(circle, #FF5900, transparent)" }}
-          />
-        </section>
-
         {/* Intro — imagem + texto */}
-        <section className="py-20 bg-white">
+        <section className="pt-32 pb-20 bg-white">
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="flex flex-col lg:flex-row items-center gap-12">
 
