@@ -136,7 +136,7 @@ export function ProductsSection() {
           {[...products, ...products].map((p, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl overflow-hidden flex flex-col shadow-md border border-[#eee]"
+              className="bg-white rounded-2xl overflow-hidden flex flex-col shadow-md border border-[#FF5900]/20"
               style={{ width: "280px", flexShrink: 0 }}
             >
               <div className="h-48 overflow-hidden">
