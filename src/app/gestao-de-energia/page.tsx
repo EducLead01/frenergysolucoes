@@ -14,6 +14,14 @@ const iconBarras = (
   </svg>
 );
 
+const iconDocumento = (
+  <svg width="22" height="22" viewBox="0 0 30 30" fill="none">
+    <path d="M27 9.03445V24.5517C27 26.4562 25.4562 28 23.5517 28H5.44828C3.54384 28 2 26.4562 2 24.5517V6.44824" fill="#FF5900" fillOpacity="0.15" stroke="#FF5900" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M22.2593 17.2244C22.2593 17.7004 21.8733 18.0864 21.3972 18.0864C20.9212 18.0864 20.5352 17.7004 20.5352 17.2244C20.5352 16.7483 20.9212 16.3623 21.3972 16.3623C21.8733 16.3623 22.2593 16.7483 22.2593 17.2244Z" fill="#FF5900" fillOpacity="0.15" stroke="#FF5900" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M23.5517 9.03448H5.01724C3.35086 9.03448 2 7.68362 2 6.01724C2 4.35086 3.35086 3 5.01724 3H20.1034C22.0079 3 23.5517 4.54384 23.5517 6.44828V9.03448ZM23.5517 9.03448H27Z" fill="#FF5900" fillOpacity="0.15" stroke="#FF5900" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
 const iconCheck = (
   <svg width="22" height="22" viewBox="0 0 30 31" fill="none">
     <path d="M4 15.6431C4 9.38349 9.07441 4.30908 15.334 4.30908C21.5936 4.30908 26.668 9.38349 26.668 15.6431C26.668 21.9027 21.5936 26.9771 15.334 26.9771C9.07441 26.9771 4 21.9027 4 15.6431Z" fill="#FF5900" fillOpacity="0.15" stroke="#FF5900" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -27,7 +35,7 @@ const vantagens: Array<{ titulo: string; descricao: string; itens: Array<{ texto
     descricao: "Visualize quanto sua usina está economizando a cada dia, mês e ano, com indicadores claros que mostram o impacto real no seu bolso.",
     itens: [
       { texto: "Economia diária, mensal e anual", icon: iconBarras },
-      { texto: "Comparativo com a conta de luz tradicional", icon: iconCheck },
+      { texto: "Comparativo com a conta de luz tradicional", icon: iconDocumento },
       { texto: "Projeção de economia futura", icon: iconCheck },
     ],
   },
