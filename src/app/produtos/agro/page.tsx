@@ -62,27 +62,6 @@ export default function ProdutoAgro() {
           </div>
         </section>
 
-        {/* Banner destaque */}
-        <section className="py-20" style={{ background: "#0d3347" }}>
-          <div className="container mx-auto px-6 max-w-5xl text-center">
-            <p className="text-white/60 text-sm font-bold uppercase tracking-widest mb-4">Frenergy</p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-white leading-snug mb-6">
-              Somos especialistas em{" "}
-              <span style={{ color: "#FF5900" }}>projetos rurais</span>{" "}
-              de médio e grande porte no Centro-Oeste.
-            </h2>
-            <a
-              href="#contato"
-              className="inline-flex items-center gap-2 text-white font-bold text-sm px-8 py-3 rounded-full transition-opacity hover:opacity-90"
-              style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-            >
-              Quero economizar
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </section>
 
         {/* Benefícios — 3 cards */}
         <section className="py-20 bg-[#F7F7F7]">
