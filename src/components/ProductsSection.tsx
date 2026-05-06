@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 const products = [
   {
     title: "Investidores",
@@ -30,20 +28,23 @@ const products = [
   },
 ];
 
-const VISIBLE = 3;
-
 export function ProductsSection() {
-  const [start, setStart] = useState(0);
-
-  const canPrev = start > 0;
-  const canNext = start + VISIBLE < products.length;
-
-  const visible = products.slice(start, start + VISIBLE);
-
   return (
-    <section id="servicos" className="py-20 bg-white">
-      <div className="container mx-auto px-6 max-w-5xl">
+    <section id="servicos" className="py-20 bg-white overflow-hidden">
+      <style>{`
+        @keyframes marquee-frenergy {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .marquee-frenergy {
+          animation: marquee-frenergy 25s linear infinite;
+        }
+        .marquee-frenergy:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
 
+      <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-12">
           <span
             className="inline-block text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-4"
@@ -56,69 +57,37 @@ export function ProductsSection() {
             <span style={{ color: "#FF5900" }}>cada necessidade</span>
           </h2>
         </div>
+      </div>
 
-        <div className="relative flex items-center gap-4">
-
-          {/* Prev arrow */}
-          <button
-            onClick={() => setStart(start - 1)}
-            disabled={!canPrev}
-            className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all"
-            style={{
-              background: canPrev ? "#0d3347" : "rgba(0,0,0,0.08)",
-              color: canPrev ? "white" : "rgba(0,0,0,0.25)",
-              cursor: canPrev ? "pointer" : "default",
-            }}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-
-          {/* Cards */}
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {visible.map((p) => (
-              <div key={p.title} className="bg-white rounded-2xl overflow-hidden flex flex-col shadow-md border border-[#eee]">
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={p.img}
-                    alt={p.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
-                <div className="p-5 flex flex-col gap-3 flex-1">
-                  <h3 className="font-bold text-base" style={{ color: "#0d3347" }}>{p.title}</h3>
-                  <p className="text-[#787878] text-sm leading-relaxed flex-1">{p.description}</p>
-                  <a
-                    href="#contato"
-                    className="self-start text-white text-xs font-bold px-5 py-2 rounded-full transition-opacity hover:opacity-90 mt-1"
-                    style={{ background: "#0d3347" }}
-                  >
-                    Saiba Mais
-                  </a>
-                </div>
+      <div className="overflow-hidden">
+        <div className="marquee-frenergy flex" style={{ gap: "20px", width: "max-content" }}>
+          {[...products, ...products].map((p, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-2xl overflow-hidden flex flex-col shadow-md border border-[#eee]"
+              style={{ width: "280px", flexShrink: 0 }}
+            >
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
               </div>
-            ))}
-          </div>
-
-          {/* Next arrow */}
-          <button
-            onClick={() => setStart(start + 1)}
-            disabled={!canNext}
-            className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all"
-            style={{
-              background: canNext ? "#0d3347" : "rgba(0,0,0,0.08)",
-              color: canNext ? "white" : "rgba(0,0,0,0.25)",
-              cursor: canNext ? "pointer" : "default",
-            }}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
-
+              <div className="p-5 flex flex-col gap-3 flex-1">
+                <h3 className="font-bold text-base" style={{ color: "#0d3347" }}>{p.title}</h3>
+                <p className="text-[#787878] text-sm leading-relaxed flex-1">{p.description}</p>
+                <a
+                  href="#contato"
+                  className="self-start text-white text-xs font-bold px-5 py-2 rounded-full transition-opacity hover:opacity-90 mt-1"
+                  style={{ background: "#0d3347" }}
+                >
+                  Saiba Mais
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
-
       </div>
     </section>
   );
