@@ -171,12 +171,13 @@ export function GestaoTabs() {
                         className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
                         style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
                       />
-                      <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+                      <div className="relative rounded-2xl overflow-hidden h-[200px] lg:h-auto lg:aspect-[4/3]">
                         <Image
                           src={tab.img}
                           alt={tab.titulo}
                           fill
                           className="object-cover"
+                          sizes="(max-width: 1024px) calc(100vw - 48px), 220px"
                         />
                       </div>
                     </div>
