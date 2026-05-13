@@ -186,14 +186,27 @@ export default function Condominios() {
               </h2>
               <a href="#contato" className="cs-btn-yellow">SEJA UM REVENDEDOR</a>
             </div>
-            <div style={{ flex: "1 1 320px", display: "flex", justifyContent: "center" }}>
-              <Image
-                src="/images/centersol-tecnico.png"
-                alt="Técnico Center Sol"
-                width={520}
-                height={280}
-                style={{ objectFit: "contain", maxWidth: "100%", height: "auto" }}
-              />
+            <div style={{ flex: "1 1 320px", position: "relative", display: "flex", justifyContent: "center", alignItems: "flex-end", minHeight: 340 }}>
+              {/* Mapa com fundo teal */}
+              <div style={{ background: "#115e59", borderRadius: 16, padding: "28px 24px", overflow: "hidden", position: "relative" }}>
+                <Image
+                  src="/images/brazil-states.png"
+                  alt="Mapa do Brasil"
+                  width={280}
+                  height={295}
+                  style={{ display: "block", filter: "invert(1)", mixBlendMode: "screen", opacity: 0.88 }}
+                />
+              </div>
+              {/* Engenheiro sobreposto */}
+              <div style={{ position: "absolute", right: -10, bottom: 0, height: "100%", display: "flex", alignItems: "flex-end" }}>
+                <Image
+                  src="/images/hero02.png"
+                  alt="Engenheiro Frenergy"
+                  width={200}
+                  height={320}
+                  style={{ height: "100%", width: "auto", objectFit: "contain", objectPosition: "bottom" }}
+                />
+              </div>
             </div>
           </div>
         </div>
