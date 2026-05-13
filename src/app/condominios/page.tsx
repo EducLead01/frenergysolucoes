@@ -338,7 +338,6 @@ export default function Condominios() {
               </div>
             </div>
           </div>
-          <a href="#contato" className="cs-btn-yellow">SEJA UM REVENDEDOR</a>
         </div>
       </section>
 
