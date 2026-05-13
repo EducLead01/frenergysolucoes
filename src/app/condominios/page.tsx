@@ -60,12 +60,6 @@ const products = [
   },
 ];
 
-const icons = [
-  { src: "https://centersol.com.br/wp-content/uploads/2024/05/1.png", label: "Linha Residencial" },
-  { src: "https://centersol.com.br/wp-content/uploads/2024/05/2.png", label: "Grande Porte" },
-  { src: "https://centersol.com.br/wp-content/uploads/2024/05/3.png", label: "Linha Piscina" },
-  { src: "https://centersol.com.br/wp-content/uploads/2024/05/4.png", label: "Econômica e Rural" },
-];
 
 export default function Condominios() {
   const [openSpec, setOpenSpec] = useState<number | null>(null);
@@ -182,8 +176,9 @@ export default function Condominios() {
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "80px 32px 0" }}>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "center", paddingBottom: 60 }}>
             <div style={{ flex: "1 1 380px" }}>
-              <h2 style={{ color: "#000", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 800, marginBottom: 20, lineHeight: 1.3 }}>
-                Grupo Center Sol, soluções em Aquecimento Solar
+              <h2 style={{ color: "#4D4D4D", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 800, marginBottom: 20, lineHeight: 1.3 }}>
+                O grupo Frenergy Soluções está presente em todo{" "}
+                <span style={{ color: "#FF5900" }}>centro oeste brasileiro</span>
               </h2>
               <p style={{ color: "#555", fontSize: 15, lineHeight: 1.8, marginBottom: 32 }}>
                 Na linha de aquecimento solar trabalhamos com a linha piscina, grande porte, residencial, econômica e rural. Na venda de produtos e acessórios para instalação, além de oferecer suporte técnico e treinamento necessário para seu projeto decolar.
