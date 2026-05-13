@@ -316,31 +316,15 @@ export default function Condominios() {
           <div style={{ background: "#115e59", borderRadius: 12, padding: "40px 32px", marginBottom: 32, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: 40, position: "relative", overflow: "hidden" }}>
             {/* glow de fundo */}
             <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 60% 50%, rgba(255,193,14,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
-            {/* mapa inline SVG */}
+            {/* mapa real com estados */}
             <div style={{ position: "relative", zIndex: 1 }}>
-              <svg viewBox="0 0 510 530" xmlns="http://www.w3.org/2000/svg" style={{ width: 320, maxWidth: "100%", height: "auto", display: "block" }} aria-label="Mapa do Brasil">
-                {/* contorno do Brasil */}
-                <path
-                  fill="rgba(255,255,255,0.18)"
-                  stroke="rgba(255,255,255,0.7)"
-                  strokeWidth="2.5"
-                  strokeLinejoin="round"
-                  d="M78,44 L138,19 L156,3 L174,17 L246,44 L283,20 L296,55 L319,90 L375,100 L403,111 L431,107 L488,141 L488,192 L479,210 L445,260 L444,330 L426,360 L386,404 L349,418 L321,446 L318,460 L258,520 L220,500 L195,500 L210,460 L240,415 L200,370 L195,330 L175,300 L145,260 L20,200 L15,185 L50,115 Z"
-                />
-                {/* região centro-oeste destacada */}
-                <path
-                  fill="rgba(255,193,14,0.2)"
-                  stroke="rgba(255,193,14,0.5)"
-                  strokeWidth="1.5"
-                  d="M165,205 L348,205 L348,388 L165,388 Z"
-                  style={{ clipPath: "url(#br)" }}
-                />
-                {/* pontos das cidades */}
-                <circle cx="309" cy="293" r="8" fill="#FFC10E" stroke="white" strokeWidth="2"/> {/* Goiânia */}
-                <circle cx="224" cy="279" r="8" fill="#FFC10E" stroke="white" strokeWidth="2"/> {/* Cuiabá */}
-                <circle cx="242" cy="344" r="8" fill="#FFC10E" stroke="white" strokeWidth="2"/> {/* Campo Grande */}
-                <circle cx="326" cy="281" r="6" fill="white" stroke="#FFC10E" strokeWidth="2"/>  {/* Brasília */}
-              </svg>
+              <Image
+                src="/images/brazil-states.png"
+                alt="Mapa do Brasil com estados"
+                width={320}
+                height={336}
+                style={{ width: 320, maxWidth: "100%", height: "auto", display: "block", filter: "invert(1)", mixBlendMode: "screen", opacity: 0.9 }}
+              />
             </div>
             {/* legenda */}
             <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: 16, maxWidth: 280 }}>
