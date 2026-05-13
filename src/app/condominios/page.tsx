@@ -147,9 +147,15 @@ export default function Condominios() {
       }}>
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.65)" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto", padding: "80px 32px" }}>
-          <h2 style={{ color: "#fff", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 800, maxWidth: 700, lineHeight: 1.2, marginBottom: 32 }}>
-            Indústria com mais de 22 anos no mercado de aquecimento solar
+          <p style={{ color: "#FFC10E", fontWeight: 700, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
+            Energia solar para condomínios
+          </p>
+          <h2 style={{ color: "#fff", fontSize: "clamp(32px, 4.5vw, 58px)", fontWeight: 900, maxWidth: 700, lineHeight: 1.15, marginBottom: 16 }}>
+            O ativo que reelege síndicos.
           </h2>
+          <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(16px, 2vw, 20px)", fontWeight: 400, maxWidth: 560, lineHeight: 1.6, marginBottom: 36 }}>
+            Economia que aparece na conta e na assembleia.
+          </p>
           <a href="#contato" className="cs-btn-yellow">SEJA UM REVENDEDOR</a>
         </div>
       </section>
