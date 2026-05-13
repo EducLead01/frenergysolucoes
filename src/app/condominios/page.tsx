@@ -173,7 +173,7 @@ export default function Condominios() {
                 alt="Mapa do Brasil"
                 width={340}
                 height={360}
-                style={{ width: 340, maxWidth: "100%", height: "auto", opacity: 0.18, filter: "sepia(1) saturate(2) hue-rotate(140deg)" }}
+                style={{ width: 340, maxWidth: "100%", height: "auto", opacity: 0.85, filter: "sepia(1) saturate(2) hue-rotate(140deg)" }}
               />
               {/* Engenheiro sobreposto */}
               <div style={{ position: "absolute", right: -10, bottom: 0, height: "95%", display: "flex", alignItems: "flex-end" }}>
