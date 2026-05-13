@@ -308,19 +308,19 @@ export default function Condominios() {
       {/* ── Quem somos ── */}
       <section style={{ background: "#fff", padding: "80px 0" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
-          <h2 style={{ color: NAVY, fontSize: "clamp(22px, 3vw, 34px)", fontWeight: 800, marginBottom: 16 }}>Quem somos</h2>
-          <p style={{ color: "#555", fontSize: 15, lineHeight: 1.8, maxWidth: 800, marginBottom: 48 }}>
-            Hoje nos orgulhamos em ser líder em aquecimento solar no Brasil. Buscamos sempre a excelência na fabricação dos produtos, e atendimento às revendas. Ao instalar um aquecedor solar Center Sol, você contribui com o meio ambiente utilizando energia limpa e renovável para aquecer a água do seu banho ou da sua piscina.
+          <h2 style={{ color: "#4D4D4D", fontSize: "clamp(22px, 3vw, 34px)", fontWeight: 800, marginBottom: 16 }}>Quem somos</h2>
+          <p style={{ color: "#787878", fontSize: 15, lineHeight: 1.8, maxWidth: 800, marginBottom: 48 }}>
+            A Frenergy Soluções é uma empresa goiana especializada em energia solar fotovoltaica, presente em todo o Centro-Oeste. Levamos tecnologia de ponta, economia real e impacto positivo para condomínios, empresas e residências de Goiás e região.
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 32 }}>
             {[
-              { title: "Missão", text: "Oferecer produtos com alto padrão de qualidade, focando em tecnologia, inovação, soluções sustentáveis, sem esquecer de levar o melhor custo/benefício." },
-              { title: "Visão", text: "Ser referência nacional em soluções de aquecimento solar, expandindo nossa presença em todo o território brasileiro com produtos de excelência." },
-              { title: "Valores", text: "Qualidade, inovação, sustentabilidade, respeito ao cliente e compromisso com o meio ambiente são os pilares que guiam cada decisão da Center Sol." },
+              { title: "Missão", text: "Democratizar o acesso à energia solar em Goiás, entregando soluções completas com qualidade, agilidade e o melhor retorno sobre investimento para cada cliente." },
+              { title: "Visão", text: "Ser a maior referência em energia solar do Centro-Oeste, expandindo nossa presença e transformando a forma como condomínios, empresas e famílias consomem energia." },
+              { title: "Valores", text: "Transparência, inovação, compromisso com o cliente e responsabilidade ambiental guiam cada projeto da Frenergy — do primeiro contato à conta de luz zerada." },
             ].map((item, i) => (
-              <div key={i} style={{ borderTop: `4px solid ${YELLOW}`, paddingTop: 20 }}>
-                <h4 style={{ color: NAVY, fontWeight: 800, fontSize: 17, marginBottom: 12 }}>{item.title}</h4>
-                <p style={{ color: "#555", fontSize: 14, lineHeight: 1.7 }}>{item.text}</p>
+              <div key={i} style={{ borderTop: "4px solid #FF5900", paddingTop: 20 }}>
+                <h4 style={{ color: "#0d3347", fontWeight: 800, fontSize: 17, marginBottom: 12 }}>{item.title}</h4>
+                <p style={{ color: "#787878", fontSize: 14, lineHeight: 1.7 }}>{item.text}</p>
               </div>
             ))}
           </div>
