@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Navbar } from "@/components/Navbar";
 
 const NAVY = "#091B30";
 const YELLOW = "#FFC10E";
@@ -67,11 +68,11 @@ const icons = [
 ];
 
 export default function Condominios() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [openSpec, setOpenSpec] = useState<number | null>(null);
 
   return (
     <div style={{ fontFamily: "Montserrat, sans-serif", color: "#333" }}>
+      <Navbar />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
         @keyframes ticker-anim {
@@ -134,42 +135,6 @@ export default function Condominios() {
         }
         .form-input:focus { border-color: ${YELLOW}; }
       `}</style>
-
-      {/* ── Navbar ── */}
-      <nav style={{ background: NAVY, position: "sticky", top: 0, zIndex: 100 }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 80 }}>
-          <a href="/condominios">
-            <Image
-              src="https://centersol.com.br/wp-content/uploads/2024/04/Ativo-2-1024x195.png"
-              alt="Center Sol"
-              width={160}
-              height={30}
-              style={{ objectFit: "contain" }}
-            />
-          </a>
-          <div className="hidden lg:flex" style={{ gap: 32 }}>
-            {["Sobre Nós", "Produtos", "Contato"].map((l) => (
-              <a key={l} href={`#${l === "Sobre Nós" ? "sobre" : l === "Produtos" ? "produtos" : "contato"}`}
-                style={{ color: "#fff", fontWeight: 600, fontSize: 14, textDecoration: "none", letterSpacing: 0.5 }}
-              >{l}</a>
-            ))}
-          </div>
-          <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)} style={{ background: "none", border: "none", cursor: "pointer" }}>
-            <svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round">
-              <line x1="4" y1="8" x2="24" y2="8" /><line x1="4" y1="16" x2="24" y2="16" /><line x1="4" y1="24" x2="24" y2="24" />
-            </svg>
-          </button>
-        </div>
-        {menuOpen && (
-          <div style={{ background: NAVY, padding: "8px 32px 16px" }}>
-            {[{ l: "Sobre Nós", h: "sobre" }, { l: "Produtos", h: "produtos" }, { l: "Contato", h: "contato" }].map(({ l, h }) => (
-              <a key={l} href={`#${h}`} onClick={() => setMenuOpen(false)}
-                style={{ display: "block", color: "#fff", fontWeight: 600, fontSize: 14, padding: "10px 0", borderBottom: "1px solid rgba(255,255,255,0.1)", textDecoration: "none" }}
-              >{l}</a>
-            ))}
-          </div>
-        )}
-      </nav>
 
       {/* ── Hero ── */}
       <section style={{
