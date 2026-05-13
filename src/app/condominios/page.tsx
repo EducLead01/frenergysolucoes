@@ -264,55 +264,40 @@ export default function Condominios() {
       {/* ── Products ── */}
       <section id="produtos" style={{ background: "#f7f7f7", padding: "80px 0" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
-<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, marginBottom: 24 }}>
-            {products.map((p) => (
-              <div key={p.id} style={{ background: p.color, borderRadius: 8, padding: 28, display: "flex", flexDirection: "column", gap: 16 }}>
-                <div style={{ height: 160, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", borderRadius: 6, background: "rgba(255,255,255,0.1)" }}>
-                  <Image src={p.img} alt={p.title} width={140} height={140} style={{ objectFit: "contain" }} />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24 }}>
+            {[...products, {
+              id: 0,
+              title: "Conheça Nossos Produtos",
+              desc: "Na linha de produtos de aquecimento solar trabalhamos com: linha piscina, aquecimento residencial, aquecimento rural e fabricação de boiler especial (grande porte). Oferecemos suporte e treinamento necessário para seu projeto decolar!",
+              img: "/images/08.png",
+            }].map((p) => (
+              <div key={p.id} style={{ background: "#fff", borderRadius: 16, overflow: "hidden", display: "flex", flexDirection: "column", boxShadow: "0 4px 20px rgba(255,89,0,0.08)", border: "1.5px solid rgba(255,89,0,0.25)" }}>
+                {/* imagem */}
+                <div style={{ height: 192, overflow: "hidden", background: "#f5f5f5", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Image src={p.img} alt={p.title} width={280} height={192} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </div>
-                <h4 style={{ color: p.textColor, fontWeight: 800, fontSize: 17, margin: 0 }}>{p.title}</h4>
-                <p style={{ color: p.textColor, fontSize: 14, lineHeight: 1.6, opacity: 0.85, flexGrow: 1 }}>{p.desc}</p>
-                <div>
+                {/* conteúdo */}
+                <div style={{ padding: "20px 20px 8px", display: "flex", flexDirection: "column", gap: 8, flex: 1 }}>
+                  <h4 style={{ color: "#0d3347", fontWeight: 700, fontSize: 15, margin: 0 }}>{p.title}</h4>
+                  <p style={{ color: "#787878", fontSize: 13, lineHeight: 1.6, margin: 0, flex: 1 }}>{p.desc}</p>
+                </div>
+                {/* accordion */}
+                <div style={{ padding: "0 20px 16px" }}>
                   <button
                     onClick={() => setOpenSpec(openSpec === p.id ? null : p.id)}
-                    style={{ background: "transparent", border: `1px solid ${p.textColor}`, color: p.textColor, fontFamily: "Montserrat, sans-serif", fontWeight: 600, fontSize: 13, padding: "8px 18px", borderRadius: 4, cursor: "pointer", width: "100%", marginBottom: 10, display: "flex", alignItems: "center", justifyContent: "space-between" }}
+                    style={{ background: openSpec === p.id ? "linear-gradient(90deg,#F0416E,#FF5900)" : "transparent", border: "1.5px solid rgba(255,89,0,0.4)", color: openSpec === p.id ? "#fff" : "#FF5900", fontWeight: 700, fontSize: 13, padding: "10px 16px", borderRadius: 8, cursor: "pointer", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", transition: "all 0.2s" }}
                   >
                     Especificações
-                    <span style={{ transform: openSpec === p.id ? "rotate(180deg)" : "none", transition: "0.2s", display: "inline-block" }}>▼</span>
+                    <span style={{ fontSize: 11, transform: openSpec === p.id ? "rotate(180deg)" : "none", transition: "transform 0.2s", display: "inline-block" }}>▲</span>
                   </button>
                   {openSpec === p.id && (
-                    <div style={{ background: "rgba(255,255,255,0.12)", borderRadius: 4, padding: "12px 14px", marginBottom: 10 }}>
-                      <p style={{ color: p.textColor, fontSize: 13, margin: 0 }}>Entre em contato para receber as especificações técnicas completas deste produto.</p>
+                    <div style={{ background: "rgba(255,89,0,0.05)", border: "1px solid rgba(255,89,0,0.15)", borderRadius: 8, padding: "12px 14px", marginTop: 8 }}>
+                      <p style={{ color: "#4D4D4D", fontSize: 13, margin: 0, lineHeight: 1.6 }}>Entre em contato para receber as especificações técnicas completas deste produto.</p>
                     </div>
                   )}
                 </div>
               </div>
             ))}
-
-            {/* CTA card */}
-            <div style={{ background: NAVY, borderRadius: 8, padding: 28, display: "flex", flexDirection: "column", gap: 16 }}>
-              <div style={{ height: 160, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", borderRadius: 6, background: "rgba(255,255,255,0.1)" }}>
-                <Image src="/images/08.png" alt="Nossos Produtos" width={140} height={140} style={{ objectFit: "contain" }} />
-              </div>
-              <h4 style={{ color: YELLOW, fontWeight: 800, fontSize: 18, margin: 0 }}>CONHEÇA NOSSOS PRODUTOS</h4>
-              <p style={{ color: "#fff", fontSize: 14, lineHeight: 1.7, opacity: 0.85, flexGrow: 1 }}>
-                Na linha de produtos de aquecimento solar trabalhamos com: linha piscina, aquecimento residencial, aquecimento rural e fabricação de boiler especial (grande porte). Oferecemos suporte e treinamento necessário para seu projeto decolar!
-              </p>
-              <div>
-                <button
-                  onClick={() => setOpenSpec(openSpec === 0 ? null : 0)}
-                  style={{ background: "transparent", border: "1px solid #fff", color: "#fff", fontFamily: "Montserrat, sans-serif", fontWeight: 600, fontSize: 13, padding: "8px 18px", borderRadius: 4, cursor: "pointer", width: "100%", marginBottom: 10, display: "flex", alignItems: "center", justifyContent: "space-between" }}
-                >
-                  Especificações
-                  <span style={{ transform: openSpec === 0 ? "rotate(180deg)" : "none", transition: "0.2s", display: "inline-block" }}>▼</span>
-                </button>
-                {openSpec === 0 && (
-                  <div style={{ background: "rgba(255,255,255,0.12)", borderRadius: 4, padding: "12px 14px" }}>
-                    <p style={{ color: "#fff", fontSize: 13, margin: 0 }}>Entre em contato para receber as especificações técnicas completas deste produto.</p>
-                  </div>
-                )}
-              </div>
-            </div>
           </div>
         </div>
       </section>
