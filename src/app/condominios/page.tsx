@@ -290,11 +290,28 @@ export default function Condominios() {
             ))}
 
             {/* CTA card */}
-            <div style={{ background: NAVY, borderRadius: 8, padding: 28, display: "flex", flexDirection: "column", justifyContent: "center", gap: 16 }}>
+            <div style={{ background: NAVY, borderRadius: 8, padding: 28, display: "flex", flexDirection: "column", gap: 16 }}>
+              <div style={{ height: 160, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", borderRadius: 6, background: "rgba(255,255,255,0.1)" }}>
+                <Image src="/images/08.png" alt="Nossos Produtos" width={140} height={140} style={{ objectFit: "contain" }} />
+              </div>
               <h4 style={{ color: YELLOW, fontWeight: 800, fontSize: 18, margin: 0 }}>CONHEÇA NOSSOS PRODUTOS</h4>
-              <p style={{ color: "#fff", fontSize: 14, lineHeight: 1.7, opacity: 0.85 }}>
+              <p style={{ color: "#fff", fontSize: 14, lineHeight: 1.7, opacity: 0.85, flexGrow: 1 }}>
                 Na linha de produtos de aquecimento solar trabalhamos com: linha piscina, aquecimento residencial, aquecimento rural e fabricação de boiler especial (grande porte). Oferecemos suporte e treinamento necessário para seu projeto decolar!
               </p>
+              <div>
+                <button
+                  onClick={() => setOpenSpec(openSpec === 0 ? null : 0)}
+                  style={{ background: "transparent", border: "1px solid #fff", color: "#fff", fontFamily: "Montserrat, sans-serif", fontWeight: 600, fontSize: 13, padding: "8px 18px", borderRadius: 4, cursor: "pointer", width: "100%", marginBottom: 10, display: "flex", alignItems: "center", justifyContent: "space-between" }}
+                >
+                  Especificações
+                  <span style={{ transform: openSpec === 0 ? "rotate(180deg)" : "none", transition: "0.2s", display: "inline-block" }}>▼</span>
+                </button>
+                {openSpec === 0 && (
+                  <div style={{ background: "rgba(255,255,255,0.12)", borderRadius: 4, padding: "12px 14px" }}>
+                    <p style={{ color: "#fff", fontSize: 13, margin: 0 }}>Entre em contato para receber as especificações técnicas completas deste produto.</p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
