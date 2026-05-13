@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 
 const NAVY = "#091B30";
 const YELLOW = "#FFC10E";
@@ -318,6 +319,7 @@ export default function Condominios() {
         </div>
       </section>
 
+      <WhatsAppFloat />
     </div>
   );
 }
