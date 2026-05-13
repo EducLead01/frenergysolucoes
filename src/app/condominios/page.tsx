@@ -192,10 +192,10 @@ export default function Condominios() {
             </div>
             <div style={{ flex: "1 1 320px", display: "flex", justifyContent: "center" }}>
               <Image
-                src="https://centersol.com.br/wp-content/uploads/2024/05/1.png"
+                src="https://centersol.com.br/wp-content/uploads/2024/05/Ativo-2.png"
                 alt="Técnico Center Sol"
                 width={420}
-                height={420}
+                height={440}
                 style={{ objectFit: "contain", maxWidth: "100%", height: "auto" }}
               />
             </div>
@@ -214,11 +214,11 @@ export default function Condominios() {
               { label: "Ampla experiência em desenvolvimento e distribuição de produtos.", svg: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 175" style={{ width: 80, height: 80 }}><style>{`.s0{fill:#FFC100}.s1{fill:#00142D}`}</style><path className="s0" d="M175,87.5c0,48.3-39.2,87.5-87.5,87.5S0,135.8,0,87.5C0,39.2,39.2,0,87.5,0S175,39.2,175,87.5z"/><path className="s1" d="M141.8,91.6h-1.4c-6,0-11.4,3.1-14.5,7.8V89c2.9-2.5,13.8-12.9,13.8-25.8c0-14.5-13.9-25.9-14.4-26.3c-0.7-0.5-1.6-0.5-2.3,0c-0.6,0.5-14.4,11.9-14.4,26.3c0,12.8,10.9,23.2,13.8,25.8v10.4c-3.1-4.7-8.5-7.8-14.5-7.8h-1.4c-1,0-1.8,0.8-1.8,1.8v1.4c0,9.6,7.8,17.5,17.5,17.5h0.2v3.9c0,10.3-8.4,18.7-18.7,18.7H69.8c-10.3,0-18.7-8.4-18.7-18.7V87.3c8.6-0.5,15.4-7.6,15.4-16.2V54c0-1-0.8-1.8-1.8-1.8H51.3c-1,0-1.8,0.8-1.8,1.8s0.8,1.8,1.8,1.8h11.6v15.3c0,6.9-5.6,12.5-12.5,12.5s-12.5-5.6-12.5-12.5V55.8h11.6c1,0,1.8-0.8,1.8-1.8S51,52.2,50,52.2H35.4c-1,0-1.8,0.8-1.8,1.8v17.1c0,9.6,7.8,17.5,17.5,17.5h0.2v27.6c0,12.3,10,22.3,22.3,22.3h35.3c12.3,0,22.3-10,22.3-22.3v-3.9h0.2c9.6,0,17.5-7.8,17.5-17.5v-1.4C143.6,92.4,142.8,91.6,141.8,91.6z"/></svg> },
               { label: "Energia limpa, natural, renovável, segura e 100% gratuita.", svg: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 175" style={{ width: 80, height: 80 }}><style>{`.s0{fill:#FFC100}.s1{fill:#00142D}`}</style><path className="s0" d="M175,87.5c0,48.3-39.2,87.5-87.5,87.5S0,135.8,0,87.5C0,39.2,39.2,0,87.5,0S175,39.2,175,87.5z"/><path className="s1" d="M93.4,31.4H81.6c-17.2,0-31.2,14-31.2,31.1v12.3c0,10.4,5.2,20,13.8,25.8c2.8,1.8,4.5,4.9,4.5,8.2v8.9c0,1,0.8,1.8,1.8,1.8h32.3c1,0,1.8-0.8,1.8-1.8v-8.9c0-3.3,1.7-6.4,4.5-8.2c8.7-5.8,13.8-15.5,13.8-25.8V62.6C124.5,45.4,110.5,31.4,93.4,31.4z M120.9,74.9c0,8.9-4.5,17.1-11.9,22.1c-3.9,2.6-6.2,6.9-6.2,11.5v7.1H72.2v-7.1c0-4.6-2.3-8.9-6.2-11.5C59,92,54.5,83.8,54.5,74.9V62.6c0-15.2,12.4-27.6,27.6-27.6h11.8c15.2,0,27.6,12.4,27.6,27.6V74.9z"/><path className="s1" d="M103.3,119.2H71.7c-1,0-1.8,0.8-1.8,1.8s0.8,1.8,1.8,1.8h31.6c1,0,1.8-0.8,1.8-1.8S104.3,119.2,103.3,119.2z"/><path className="s1" d="M100.5,125.7H74.5c-1,0-1.8,0.8-1.8,1.8c0,7.5,6.1,13.6,13.6,13.6h2.4c7.5,0,13.6-6.1,13.6-13.6C102.3,126.5,101.5,125.7,100.5,125.7z"/></svg> },
             ].map((item, i) => (
-              <div key={i} style={{ background: "#fff", borderRadius: 12, padding: "24px 16px", textAlign: "center", boxShadow: "0 4px 20px rgba(0,0,0,0.12)", display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
+              <div key={i} style={{ background: YELLOW, borderRadius: 12, padding: "24px 16px", textAlign: "center", boxShadow: "0 4px 20px rgba(0,0,0,0.18)", display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                   {item.svg}
                 </div>
-                <p style={{ fontWeight: 600, fontSize: 13, color: NAVY, lineHeight: 1.5, margin: 0 }}>{item.label}</p>
+                <p style={{ fontWeight: 700, fontSize: 13, color: NAVY, lineHeight: 1.5, margin: 0 }}>{item.label}</p>
               </div>
             ))}
           </div>
