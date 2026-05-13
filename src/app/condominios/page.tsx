@@ -309,8 +309,34 @@ export default function Condominios() {
           <p style={{ color: "#555", fontSize: 15, lineHeight: 1.8, marginBottom: 32 }}>
             Clique em um dos pontos no mapa e entre em contato com um de nossos revendedores mais próximo de você.
           </p>
-          <div style={{ background: "#ddd", borderRadius: 8, height: 300, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32 }}>
-            <p style={{ color: "#888", fontWeight: 600, fontSize: 15 }}>Mapa de Revendedores</p>
+          <div style={{ background: "#115e59", borderRadius: 12, padding: "40px 32px", marginBottom: 32, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: 40, position: "relative", overflow: "hidden" }}>
+            {/* glow de fundo */}
+            <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 60% 50%, rgba(255,193,14,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
+            {/* mapa */}
+            <div style={{ position: "relative", zIndex: 1 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Brazil-states.svg"
+                alt="Mapa do Brasil"
+                style={{ width: 340, maxWidth: "100%", height: "auto", filter: "brightness(0) invert(1) opacity(0.85)", display: "block" }}
+              />
+            </div>
+            {/* legenda */}
+            <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: 16, maxWidth: 280 }}>
+              <span style={{ background: YELLOW, color: NAVY, fontWeight: 800, fontSize: 12, padding: "4px 14px", borderRadius: 999, alignSelf: "flex-start", letterSpacing: 1 }}>COBERTURA</span>
+              <h3 style={{ color: "#fff", fontWeight: 800, fontSize: 22, lineHeight: 1.3, margin: 0 }}>Centro-Oeste<br />Brasileiro</h3>
+              <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 14, lineHeight: 1.7, margin: 0 }}>
+                Atendemos Goiás, Mato Grosso, Mato Grosso do Sul, Distrito Federal e regiões adjacentes com instalação e suporte completos.
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                {["Goiânia — GO", "Cuiabá — MT", "Campo Grande — MS", "Brasília — DF"].map((city) => (
+                  <div key={city} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <span style={{ width: 8, height: 8, borderRadius: "50%", background: YELLOW, flexShrink: 0, display: "inline-block" }} />
+                    <span style={{ color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 600 }}>{city}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
           <a href="#contato" className="cs-btn-yellow">SEJA UM REVENDEDOR</a>
         </div>
