@@ -188,10 +188,10 @@ export default function Condominios() {
             </div>
             <div style={{ flex: "1 1 320px", display: "flex", justifyContent: "center" }}>
               <Image
-                src="https://centersol.com.br/wp-content/uploads/2024/05/Ativo-2.png"
+                src="/images/centersol-tecnico.png"
                 alt="Técnico Center Sol"
-                width={420}
-                height={440}
+                width={520}
+                height={280}
                 style={{ objectFit: "contain", maxWidth: "100%", height: "auto" }}
               />
             </div>
