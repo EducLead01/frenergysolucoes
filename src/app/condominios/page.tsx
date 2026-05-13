@@ -180,9 +180,6 @@ export default function Condominios() {
                 O grupo Frenergy Soluções está presente em todo{" "}
                 <span style={{ color: "#FF5900" }}>centro oeste brasileiro</span>
               </h2>
-              <p style={{ color: "#555", fontSize: 15, lineHeight: 1.8, marginBottom: 32 }}>
-                Na linha de aquecimento solar trabalhamos com a linha piscina, grande porte, residencial, econômica e rural. Na venda de produtos e acessórios para instalação, além de oferecer suporte técnico e treinamento necessário para seu projeto decolar.
-              </p>
               <a href="#contato" className="cs-btn-yellow">SEJA UM REVENDEDOR</a>
             </div>
             <div style={{ flex: "1 1 320px", display: "flex", justifyContent: "center" }}>
