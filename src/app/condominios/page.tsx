@@ -16,7 +16,7 @@ const products = [
     textColor: "#fff",
     btnColor: YELLOW,
     btnText: "#000",
-    img: "https://centersol.com.br/wp-content/uploads/2024/05/1.png",
+    img: "/images/08.png",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const products = [
     textColor: "#000",
     btnColor: NAVY,
     btnText: "#fff",
-    img: "https://centersol.com.br/wp-content/uploads/2024/05/2.png",
+    img: "/images/08.png",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const products = [
     textColor: "#fff",
     btnColor: YELLOW,
     btnText: "#000",
-    img: "https://centersol.com.br/wp-content/uploads/2024/05/3.png",
+    img: "/images/08.png",
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ const products = [
     textColor: "#fff",
     btnColor: YELLOW,
     btnText: "#000",
-    img: "https://centersol.com.br/wp-content/uploads/2024/05/4.png",
+    img: "/images/08.png",
   },
   {
     id: 5,
@@ -56,7 +56,7 @@ const products = [
     textColor: "#000",
     btnColor: NAVY,
     btnText: "#fff",
-    img: "https://centersol.com.br/wp-content/uploads/2024/05/5.png",
+    img: "/images/08.png",
   },
 ];
 
