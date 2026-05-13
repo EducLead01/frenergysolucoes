@@ -229,31 +229,33 @@ export default function Condominios() {
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
           <div className="icon-cards-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
             {[
-              { label: "Empresa pioneira em Aquecimento solar.", svg: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 175" style={{ width: 80, height: 80 }}><style>{`.s0{fill:#FFC100}.s1{fill:#00142D}`}</style><circle className="s0" cx="87.5" cy="87.5" r="87.5"/><path className="s1" d="M139.7,131l-22.2-40.7c-0.3-0.6-0.9-0.9-1.6-0.9H59.1c-0.7,0-1.3,0.4-1.6,0.9L35.3,131c-0.3,0.6-0.3,1.2,0,1.8c0.3,0.5,0.9,0.9,1.6,0.9h6.2v8.1c0,1,0.8,1.8,1.8,1.8h85.1c1,0,1.8-0.8,1.8-1.8v-8.1h6.2c0.6,0,1.2-0.3,1.6-0.9C140,132.3,140,131.6,139.7,131z"/><path className="s1" d="M65.9,56.6h4.5c0.4,3.4,1.7,6.5,3.7,9L71,68.8c-0.7,0.7-0.7,1.9,0,2.6c0.7,0.7,1.9,0.7,2.6,0l3.2-3.2c2.5,2,5.6,3.4,9,3.7v4.5c0,1,0.8,1.8,1.8,1.8s1.8-0.8,1.8-1.8v-4.5c3.4-0.4,6.5-1.7,9-3.7l3.2,3.2c0.7,0.7,1.9,0.7,2.6,0c0.7-0.7,0.7-1.9,0-2.6l-3.2-3.2c2-2.5,3.4-5.6,3.7-9h4.5c1,0,1.8-0.8,1.8-1.8s-0.8-1.8-1.8-1.8h-4.5c-0.4-3.4-1.7-6.5-3.7-9l3.2-3.2c0.7-0.7,0.7-1.9,0-2.6c-0.7-0.7-1.9-0.7-2.6,0l-3.2,3.2c-2.5-2-5.6-3.4-9-3.7v-4.5c0-1-0.8-1.8-1.8-1.8s-1.8,0.8-1.8,1.8v4.5c-3.4,0.4-6.5,1.7-9,3.7l-3.2-3.2c-0.7-0.7-1.9-0.7-2.6,0c-0.7,0.7-0.7,1.9,0,2.6l3.2,3.2c-2,2.5-3.4,5.6-3.7,9h-4.5c-1,0-1.8,0.8-1.8,1.8S64.9,56.6,65.9,56.6z M87.5,41.2c7.5,0,13.6,6.1,13.6,13.6S95,68.4,87.5,68.4S73.9,62.3,73.9,54.8S80,41.2,87.5,41.2z"/></svg> },
-              { label: "Preços e condições especiais para revenda.", svg: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 175" style={{ width: 80, height: 80 }}><style>{`.s0{fill:#FFC100}.s1{fill:#00142D}`}</style><ellipse className="s0" cx="87.5" cy="87.5" rx="87.5" ry="87.5"/><path className="s1" d="M125.5,60.4h-16.3v-6.8c0-12.2-9.9-22.1-22.1-22.1C74.9,31.4,65,41.3,65,53.5v6.8H49.5c-1,0-1.8,0.8-1.8,1.8v79.6c0,1,0.8,1.8,1.8,1.8h76c1,0,1.8-0.8,1.8-1.8V62.2C127.3,61.2,126.5,60.4,125.5,60.4z M68.6,53.5c0-10.2,8.3-18.5,18.5-18.5c10.2,0,18.5,8.3,18.5,18.5v6.8h-37V53.5z M123.7,140H51.3V64h13.7v11.7c0,1,0.8,1.8,1.8,1.8s1.8-0.8,1.8-1.8V64h37v11.7c0,1,0.8,1.8,1.8,1.8s1.8-0.8,1.8-1.8V64h14.5V140z"/></svg> },
-              { label: "Ampla experiência em desenvolvimento e distribuição de produtos.", svg: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 175" style={{ width: 80, height: 80 }}><style>{`.s0{fill:#FFC100}.s1{fill:#00142D}`}</style><path className="s0" d="M175,87.5c0,48.3-39.2,87.5-87.5,87.5S0,135.8,0,87.5C0,39.2,39.2,0,87.5,0S175,39.2,175,87.5z"/><path className="s1" d="M141.8,91.6h-1.4c-6,0-11.4,3.1-14.5,7.8V89c2.9-2.5,13.8-12.9,13.8-25.8c0-14.5-13.9-25.9-14.4-26.3c-0.7-0.5-1.6-0.5-2.3,0c-0.6,0.5-14.4,11.9-14.4,26.3c0,12.8,10.9,23.2,13.8,25.8v10.4c-3.1-4.7-8.5-7.8-14.5-7.8h-1.4c-1,0-1.8,0.8-1.8,1.8v1.4c0,9.6,7.8,17.5,17.5,17.5h0.2v3.9c0,10.3-8.4,18.7-18.7,18.7H69.8c-10.3,0-18.7-8.4-18.7-18.7V87.3c8.6-0.5,15.4-7.6,15.4-16.2V54c0-1-0.8-1.8-1.8-1.8H51.3c-1,0-1.8,0.8-1.8,1.8s0.8,1.8,1.8,1.8h11.6v15.3c0,6.9-5.6,12.5-12.5,12.5s-12.5-5.6-12.5-12.5V55.8h11.6c1,0,1.8-0.8,1.8-1.8S51,52.2,50,52.2H35.4c-1,0-1.8,0.8-1.8,1.8v17.1c0,9.6,7.8,17.5,17.5,17.5h0.2v27.6c0,12.3,10,22.3,22.3,22.3h35.3c12.3,0,22.3-10,22.3-22.3v-3.9h0.2c9.6,0,17.5-7.8,17.5-17.5v-1.4C143.6,92.4,142.8,91.6,141.8,91.6z"/></svg> },
-              { label: "Energia limpa, natural, renovável, segura e 100% gratuita.", svg: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 175" style={{ width: 80, height: 80 }}><style>{`.s0{fill:#FFC100}.s1{fill:#00142D}`}</style><path className="s0" d="M175,87.5c0,48.3-39.2,87.5-87.5,87.5S0,135.8,0,87.5C0,39.2,39.2,0,87.5,0S175,39.2,175,87.5z"/><path className="s1" d="M93.4,31.4H81.6c-17.2,0-31.2,14-31.2,31.1v12.3c0,10.4,5.2,20,13.8,25.8c2.8,1.8,4.5,4.9,4.5,8.2v8.9c0,1,0.8,1.8,1.8,1.8h32.3c1,0,1.8-0.8,1.8-1.8v-8.9c0-3.3,1.7-6.4,4.5-8.2c8.7-5.8,13.8-15.5,13.8-25.8V62.6C124.5,45.4,110.5,31.4,93.4,31.4z M120.9,74.9c0,8.9-4.5,17.1-11.9,22.1c-3.9,2.6-6.2,6.9-6.2,11.5v7.1H72.2v-7.1c0-4.6-2.3-8.9-6.2-11.5C59,92,54.5,83.8,54.5,74.9V62.6c0-15.2,12.4-27.6,27.6-27.6h11.8c15.2,0,27.6,12.4,27.6,27.6V74.9z"/><path className="s1" d="M103.3,119.2H71.7c-1,0-1.8,0.8-1.8,1.8s0.8,1.8,1.8,1.8h31.6c1,0,1.8-0.8,1.8-1.8S104.3,119.2,103.3,119.2z"/><path className="s1" d="M100.5,125.7H74.5c-1,0-1.8,0.8-1.8,1.8c0,7.5,6.1,13.6,13.6,13.6h2.4c7.5,0,13.6-6.1,13.6-13.6C102.3,126.5,101.5,125.7,100.5,125.7z"/></svg> },
+              {
+                title: "Economia imediata",
+                text: "Redução de até 95% na conta de energia das áreas comuns do condomínio.",
+                icon: <svg width="36" height="36" viewBox="0 0 30 31" fill="none"><rect x="1" y="17.9" width="5.96" height="8.9" rx="2.98" fill="#FF5900" fillOpacity="0.2" stroke="#FF5900" strokeWidth="2"/><rect x="12.08" y="13.08" width="5.96" height="13.73" rx="2.98" fill="#FF5900" fillOpacity="0.2" stroke="#FF5900" strokeWidth="2"/><rect x="23.04" y="3.81" width="5.96" height="23" rx="2.98" fill="#FF5900" fillOpacity="0.2" stroke="#FF5900" strokeWidth="2"/></svg>,
+              },
+              {
+                title: "Valoriza o imóvel",
+                text: "Condomínios com energia solar têm maior valor de mercado e atratividade.",
+                icon: <svg width="36" height="36" viewBox="0 0 30 30" fill="none"><path d="M3 13L15 3l12 10v14a1 1 0 01-1 1H4a1 1 0 01-1-1V13z" fill="#FF5900" fillOpacity="0.15" stroke="#FF5900" strokeWidth="2" strokeLinejoin="round"/><path d="M11 28V18h8v10" stroke="#FF5900" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+              },
+              {
+                title: "Sem obras nas unidades",
+                text: "Instalação nas áreas comuns. Nenhuma intervenção necessária nos apartamentos.",
+                icon: <svg width="36" height="36" viewBox="0 0 30 30" fill="none"><path d="M15 3C8.373 3 3 8.373 3 15s5.373 12 12 12 12-5.373 12-12S21.627 3 15 3z" fill="#FF5900" fillOpacity="0.15" stroke="#FF5900" strokeWidth="2"/><path d="M10 15l3.5 3.5 6.5-7" stroke="#FF5900" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+              },
+              {
+                title: "Energia 100% limpa",
+                text: "Solar fotovoltaica — renovável, sustentável e sem emissão de carbono.",
+                icon: <svg width="36" height="36" viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="5" fill="#FF5900" fillOpacity="0.2" stroke="#FF5900" strokeWidth="2"/><path d="M15 3v3M15 24v3M3 15h3M24 15h3M6.22 6.22l2.12 2.12M21.66 21.66l2.12 2.12M6.22 23.78l2.12-2.12M21.66 8.34l2.12-2.12" stroke="#FF5900" strokeWidth="2" strokeLinecap="round"/></svg>,
+              },
             ].map((item, i) => (
-              <div key={i} style={{ background: YELLOW, borderRadius: 12, padding: "24px 16px", textAlign: "center", boxShadow: "0 4px 20px rgba(0,0,0,0.18)", display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  {item.svg}
+              <div key={i} style={{ background: "#fff", borderRadius: 16, padding: "28px 20px", textAlign: "center", border: "1.5px solid rgba(255,89,0,0.25)", boxShadow: "0 4px 20px rgba(255,89,0,0.08)", display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+                <div style={{ width: 60, height: 60, borderRadius: "50%", background: "linear-gradient(135deg,rgba(240,65,110,0.08),rgba(255,89,0,0.08))", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  {item.icon}
                 </div>
-                <p style={{ fontWeight: 700, fontSize: 13, color: NAVY, lineHeight: 1.5, margin: 0 }}>{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        {/* Features text */}
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px 48px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 32 }}>
-            {[
-              "Empresa pioneira em Aquecimento solar.",
-              "Preços e condições especiais para revenda.",
-              "Ampla experiência em desenvolvimento e distribuição de produtos.",
-              "Energia limpa, natural, renovável, segura e 100% gratuita.",
-            ].map((text, i) => (
-              <div key={i} style={{ borderLeft: `3px solid ${YELLOW}`, paddingLeft: 16 }}>
-                <p style={{ color: "#fff", fontWeight: 600, fontSize: 14, lineHeight: 1.6 }}>{text}</p>
+                <h3 style={{ fontWeight: 700, fontSize: 14, color: "#0d3347", margin: 0 }}>{item.title}</h3>
+                <p style={{ fontWeight: 400, fontSize: 12, color: "#787878", lineHeight: 1.6, margin: 0 }}>{item.text}</p>
               </div>
             ))}
           </div>
