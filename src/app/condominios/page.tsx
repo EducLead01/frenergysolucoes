@@ -169,14 +169,10 @@ export default function Condominios() {
       {/* ── Ticker ── */}
       <div style={{ background: YELLOW, overflow: "hidden", padding: "10px 0", whiteSpace: "nowrap" }}>
         <div className="ticker-track" style={{ display: "inline-flex", gap: "40px", width: "max-content" }}>
-          {[...Array(4)].flatMap(() => [
-            "SOMOS O FUTURO DA INDÚSTRIA SOLAR",
+          {[...Array(6)].flatMap(() => [
+            "ENERGIA RENOVÁVEL",
             "•",
-            "EMPRESA PIONEIRA EM AQUECIMENTO SOLAR",
-            "•",
-            "PREÇOS ESPECIAIS PARA REVENDA",
-            "•",
-            "ENERGIA LIMPA, RENOVÁVEL E GRATUITA",
+            "LIMPA E ECONÔMICA PARA CONDOMÍNIOS",
             "•",
           ]).map((t, i) => (
             <span key={i} style={{ fontWeight: 700, fontSize: 13, color: "#000", letterSpacing: 1 }}>{t}</span>
