@@ -268,33 +268,44 @@ export default function Condominios() {
             {[...products, {
               id: 0,
               title: "Conheça Nossos Produtos",
-              desc: "Na linha de produtos de aquecimento solar trabalhamos com: linha piscina, aquecimento residencial, aquecimento rural e fabricação de boiler especial (grande porte). Oferecemos suporte e treinamento necessário para seu projeto decolar!",
+              desc: "Na linha de produtos de aquecimento solar trabalhamos com: linha piscina, aquecimento residencial, aquecimento rural e fabricação de boiler especial (grande porte). Suporte e treinamento para seu projeto decolar!",
               img: "/images/08.png",
             }].map((p) => (
-              <div key={p.id} style={{ background: "#fff", borderRadius: 16, overflow: "hidden", display: "flex", flexDirection: "column", boxShadow: "0 4px 20px rgba(255,89,0,0.08)", border: "1.5px solid rgba(255,89,0,0.25)" }}>
+              <div
+                key={p.id}
+                className="bg-white rounded-2xl overflow-hidden flex flex-col shadow-md"
+                style={{ border: "1.5px solid rgba(255, 89, 0, 0.25)" }}
+              >
                 {/* imagem */}
-                <div style={{ height: 192, overflow: "hidden", background: "#f5f5f5", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Image src={p.img} alt={p.title} width={280} height={192} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <div className="h-48 overflow-hidden">
+                  <Image
+                    src={p.img}
+                    alt={p.title}
+                    width={280}
+                    height={192}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
                 </div>
                 {/* conteúdo */}
-                <div style={{ padding: "20px 20px 8px", display: "flex", flexDirection: "column", gap: 8, flex: 1 }}>
-                  <h4 style={{ color: "#0d3347", fontWeight: 700, fontSize: 15, margin: 0 }}>{p.title}</h4>
-                  <p style={{ color: "#787878", fontSize: 13, lineHeight: 1.6, margin: 0, flex: 1 }}>{p.desc}</p>
-                </div>
-                {/* accordion */}
-                <div style={{ padding: "0 20px 16px" }}>
-                  <button
-                    onClick={() => setOpenSpec(openSpec === p.id ? null : p.id)}
-                    style={{ background: openSpec === p.id ? "linear-gradient(90deg,#F0416E,#FF5900)" : "transparent", border: "1.5px solid rgba(255,89,0,0.4)", color: openSpec === p.id ? "#fff" : "#FF5900", fontWeight: 700, fontSize: 13, padding: "10px 16px", borderRadius: 8, cursor: "pointer", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", transition: "all 0.2s" }}
-                  >
-                    Especificações
-                    <span style={{ fontSize: 11, transform: openSpec === p.id ? "rotate(180deg)" : "none", transition: "transform 0.2s", display: "inline-block" }}>▲</span>
-                  </button>
-                  {openSpec === p.id && (
-                    <div style={{ background: "rgba(255,89,0,0.05)", border: "1px solid rgba(255,89,0,0.15)", borderRadius: 8, padding: "12px 14px", marginTop: 8 }}>
-                      <p style={{ color: "#4D4D4D", fontSize: 13, margin: 0, lineHeight: 1.6 }}>Entre em contato para receber as especificações técnicas completas deste produto.</p>
-                    </div>
-                  )}
+                <div className="p-5 flex flex-col gap-3 flex-1">
+                  <h3 className="font-bold text-base" style={{ color: "#0d3347" }}>{p.title}</h3>
+                  <p className="text-sm leading-relaxed flex-1" style={{ color: "#787878" }}>{p.desc}</p>
+                  {/* botão accordion estilo Saiba Mais */}
+                  <div className="mt-1">
+                    <button
+                      onClick={() => setOpenSpec(openSpec === p.id ? null : p.id)}
+                      className="flex items-center gap-2 text-white text-xs font-bold px-5 py-2 rounded-full transition-opacity hover:opacity-90"
+                      style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+                    >
+                      Especificações
+                      <span style={{ display: "inline-block", transition: "transform 0.25s", transform: openSpec === p.id ? "rotate(180deg)" : "rotate(0deg)", fontSize: 9 }}>▲</span>
+                    </button>
+                    {openSpec === p.id && (
+                      <div className="mt-3 rounded-xl p-3 text-xs leading-relaxed" style={{ background: "rgba(255,89,0,0.05)", border: "1px solid rgba(255,89,0,0.15)", color: "#4D4D4D" }}>
+                        Entre em contato para receber as especificações técnicas completas deste produto.
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
