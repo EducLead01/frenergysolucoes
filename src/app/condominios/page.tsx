@@ -1,126 +1,435 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import { Navbar } from "@/components/Navbar";
-import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
-import { EsferaFooter } from "@/components/esfera/EsferaFooter";
+
+const NAVY = "#091B30";
+const YELLOW = "#FFC10E";
+
+const products = [
+  {
+    id: 1,
+    title: "Linha Residencial",
+    desc: "Seu banho não será mais o mesmo! O prazer e a sensação de se tomar um banho quente sem custos",
+    color: NAVY,
+    textColor: "#fff",
+    btnColor: YELLOW,
+    btnText: "#000",
+    img: "https://centersol.com.br/wp-content/uploads/2024/05/1.png",
+  },
+  {
+    id: 2,
+    title: "Grande Porte",
+    desc: "Os reservatórios de grande porte é um diferencial da Center Sol. Suas características construtivas",
+    color: YELLOW,
+    textColor: "#000",
+    btnColor: NAVY,
+    btnText: "#fff",
+    img: "https://centersol.com.br/wp-content/uploads/2024/05/2.png",
+  },
+  {
+    id: 3,
+    title: "Linha Piscina",
+    desc: "Instalar o coletor solar para piscina permite a todos usufruir o máximo de sua piscina",
+    color: NAVY,
+    textColor: "#fff",
+    btnColor: YELLOW,
+    btnText: "#000",
+    img: "https://centersol.com.br/wp-content/uploads/2024/05/3.png",
+  },
+  {
+    id: 4,
+    title: "Econômica e Rural",
+    desc: "A Center Sol possui em sua linha de produção de aquecedores este equipamento versátil e econômico",
+    color: NAVY,
+    textColor: "#fff",
+    btnColor: YELLOW,
+    btnText: "#000",
+    img: "https://centersol.com.br/wp-content/uploads/2024/05/4.png",
+  },
+  {
+    id: 5,
+    title: "Coletores Residenciais",
+    desc: "Responsável por absorver a radiação solar ao longo do dia e transformá-la em calor.",
+    color: YELLOW,
+    textColor: "#000",
+    btnColor: NAVY,
+    btnText: "#fff",
+    img: "https://centersol.com.br/wp-content/uploads/2024/05/5.png",
+  },
+];
+
+const icons = [
+  { src: "https://centersol.com.br/wp-content/uploads/2024/05/1.png", label: "Linha Residencial" },
+  { src: "https://centersol.com.br/wp-content/uploads/2024/05/2.png", label: "Grande Porte" },
+  { src: "https://centersol.com.br/wp-content/uploads/2024/05/3.png", label: "Linha Piscina" },
+  { src: "https://centersol.com.br/wp-content/uploads/2024/05/4.png", label: "Econômica e Rural" },
+];
 
 export default function Condominios() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [openSpec, setOpenSpec] = useState<number | null>(null);
+
   return (
-    <>
-      <Navbar />
-      <main style={{ fontFamily: "'Open Sans', sans-serif" }}>
+    <div style={{ fontFamily: "Montserrat, sans-serif", color: "#333" }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+        @keyframes ticker-anim {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .ticker-track { animation: ticker-anim 18s linear infinite; }
+        .ticker-track:hover { animation-play-state: paused; }
+        .cs-btn-yellow {
+          display: inline-block;
+          background: ${YELLOW};
+          color: #000;
+          font-weight: 700;
+          font-size: 13px;
+          padding: 12px 28px;
+          border-radius: 4px;
+          text-decoration: none;
+          letter-spacing: 0.5px;
+          transition: opacity 0.2s;
+        }
+        .cs-btn-yellow:hover { opacity: 0.85; }
+        .cs-btn-navy {
+          display: inline-block;
+          background: ${NAVY};
+          color: #fff;
+          font-weight: 700;
+          font-size: 13px;
+          padding: 12px 28px;
+          border-radius: 4px;
+          text-decoration: none;
+          letter-spacing: 0.5px;
+          transition: opacity 0.2s;
+        }
+        .cs-btn-navy:hover { opacity: 0.85; }
+        .download-btn {
+          display: block;
+          background: ${YELLOW};
+          color: #000;
+          font-weight: 700;
+          font-size: 13px;
+          padding: 14px 32px;
+          border-radius: 4px;
+          text-decoration: none;
+          letter-spacing: 0.5px;
+          text-align: center;
+          transition: opacity 0.2s;
+          margin-bottom: 12px;
+        }
+        .download-btn:hover { opacity: 0.85; }
+        .form-input {
+          width: 100%;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          padding: 12px 14px;
+          font-family: Montserrat, sans-serif;
+          font-size: 14px;
+          outline: none;
+          margin-bottom: 12px;
+          box-sizing: border-box;
+        }
+        .form-input:focus { border-color: ${YELLOW}; }
+      `}</style>
 
-        {/* Intro */}
-        <section className="pt-32 pb-20 bg-white">
-          <div className="container mx-auto px-6 max-w-5xl">
-            <div className="flex flex-col lg:flex-row items-center gap-12">
-
-              <div className="flex-1 relative">
-                <div
-                  className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
-                  style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
-                />
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-                  <Image
-                    src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=80"
-                    alt="Energia solar em condomínios"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-
-              <div className="flex-1 flex flex-col gap-5">
-                <span
-                  className="inline-block self-start text-white text-xs font-bold uppercase px-3 py-1 rounded-full"
-                  style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-                >
-                  Condomínios
-                </span>
-                <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] leading-snug">
-                  Reduza o custo do condomínio com{" "}
-                  <span style={{ color: "#FF5900" }}>energia solar</span>
-                </h2>
-                <p className="text-[#787878] text-base leading-relaxed">
-                  Áreas comuns como elevadores, iluminação, bombas d'água e portaria consomem grande parte da energia de um condomínio. Com um sistema solar dimensionado para sua demanda, é possível reduzir drasticamente essa conta e dividir a economia entre os condôminos.
-                </p>
-                <p className="text-[#787878] text-base leading-relaxed">
-                  A Frenergy cuida de todo o processo: estudo de viabilidade, projeto elétrico, aprovação na distribuidora e instalação. Seu condomínio passa a gerar energia limpa e reduz as despesas mensais de forma permanente.
-                </p>
-                <a
-                  href="#contato"
-                  className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90"
-                  style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-                >
-                  Solicitar proposta
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-
-            </div>
+      {/* ── Navbar ── */}
+      <nav style={{ background: NAVY, position: "sticky", top: 0, zIndex: 100 }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 80 }}>
+          <a href="/condominios">
+            <Image
+              src="https://centersol.com.br/wp-content/uploads/2024/04/Ativo-2-1024x195.png"
+              alt="Center Sol"
+              width={160}
+              height={30}
+              style={{ objectFit: "contain" }}
+            />
+          </a>
+          <div className="hidden lg:flex" style={{ gap: 32 }}>
+            {["Sobre Nós", "Produtos", "Contato"].map((l) => (
+              <a key={l} href={`#${l === "Sobre Nós" ? "sobre" : l === "Produtos" ? "produtos" : "contato"}`}
+                style={{ color: "#fff", fontWeight: 600, fontSize: 14, textDecoration: "none", letterSpacing: 0.5 }}
+              >{l}</a>
+            ))}
           </div>
-        </section>
+          <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)} style={{ background: "none", border: "none", cursor: "pointer" }}>
+            <svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round">
+              <line x1="4" y1="8" x2="24" y2="8" /><line x1="4" y1="16" x2="24" y2="16" /><line x1="4" y1="24" x2="24" y2="24" />
+            </svg>
+          </button>
+        </div>
+        {menuOpen && (
+          <div style={{ background: NAVY, padding: "8px 32px 16px" }}>
+            {[{ l: "Sobre Nós", h: "sobre" }, { l: "Produtos", h: "produtos" }, { l: "Contato", h: "contato" }].map(({ l, h }) => (
+              <a key={l} href={`#${h}`} onClick={() => setMenuOpen(false)}
+                style={{ display: "block", color: "#fff", fontWeight: 600, fontSize: 14, padding: "10px 0", borderBottom: "1px solid rgba(255,255,255,0.1)", textDecoration: "none" }}
+              >{l}</a>
+            ))}
+          </div>
+        )}
+      </nav>
 
-        {/* Benefícios */}
-        <section className="py-20 bg-[#F7F7F7]">
-          <div className="container mx-auto px-6 max-w-5xl">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D]">
-                Vantagens para o{" "}
-                <span style={{ color: "#FF5900" }}>seu condomínio</span>
-              </h2>
+      {/* ── Hero ── */}
+      <section style={{
+        position: "relative",
+        minHeight: 600,
+        display: "flex",
+        alignItems: "center",
+        background: `url('https://centersol.com.br/wp-content/uploads/2024/04/parallax.png') center/cover no-repeat`,
+        backgroundAttachment: "fixed",
+      }}>
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.65)" }} />
+        <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto", padding: "80px 32px" }}>
+          <h2 style={{ color: "#fff", fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 800, maxWidth: 700, lineHeight: 1.2, marginBottom: 32 }}>
+            Indústria com mais de 22 anos no mercado de aquecimento solar
+          </h2>
+          <a href="#contato" className="cs-btn-yellow">SEJA UM REVENDEDOR</a>
+        </div>
+      </section>
+
+      {/* ── Ticker ── */}
+      <div style={{ background: YELLOW, overflow: "hidden", padding: "10px 0", whiteSpace: "nowrap" }}>
+        <div className="ticker-track" style={{ display: "inline-flex", gap: "40px", width: "max-content" }}>
+          {[...Array(4)].flatMap(() => [
+            "SOMOS O FUTURO DA INDÚSTRIA SOLAR",
+            "•",
+            "EMPRESA PIONEIRA EM AQUECIMENTO SOLAR",
+            "•",
+            "PREÇOS ESPECIAIS PARA REVENDA",
+            "•",
+            "ENERGIA LIMPA, RENOVÁVEL E GRATUITA",
+            "•",
+          ]).map((t, i) => (
+            <span key={i} style={{ fontWeight: 700, fontSize: 13, color: "#000", letterSpacing: 1 }}>{t}</span>
+          ))}
+        </div>
+      </div>
+
+      {/* ── About ── */}
+      <section id="sobre" style={{ background: `url('https://centersol.com.br/wp-content/uploads/2024/05/SISTEMA-SOLAR.png') center/cover no-repeat`, backgroundColor: "#fff" }}>
+        <div style={{ background: "rgba(255,255,255,0.93)" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "80px 32px" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "center" }}>
+              <div style={{ flex: "1 1 380px" }}>
+                <h2 style={{ color: "#000", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 800, marginBottom: 20, lineHeight: 1.3 }}>
+                  Grupo Center Sol, soluções em Aquecimento Solar
+                </h2>
+                <p style={{ color: "#555", fontSize: 15, lineHeight: 1.8, marginBottom: 32 }}>
+                  Na linha de aquecimento solar trabalhamos com a linha piscina, grande porte, residencial, econômica e rural. Na venda de produtos e acessórios para instalação, além de oferecer suporte técnico e treinamento necessário para seu projeto decolar.
+                </p>
+                <a href="#contato" className="cs-btn-yellow">SEJA UM REVENDEDOR</a>
+              </div>
+              <div style={{ flex: "1 1 320px", display: "flex", justifyContent: "center" }}>
+                <Image
+                  src="https://centersol.com.br/wp-content/uploads/2024/05/1.png"
+                  alt="Técnico Center Sol"
+                  width={400}
+                  height={400}
+                  style={{ objectFit: "contain", maxWidth: "100%", height: "auto" }}
+                />
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                {
-                  icon: (
-                    <svg width="32" height="32" viewBox="0 0 30 31" fill="none">
-                      <rect x="1" y="17.9" width="5.96" height="8.9" rx="2.98" fill="#FF5900" fillOpacity="0.2" stroke="#FF5900" strokeWidth="2" />
-                      <rect x="12.08" y="13.08" width="5.96" height="13.73" rx="2.98" fill="#FF5900" fillOpacity="0.2" stroke="#FF5900" strokeWidth="2" />
-                      <rect x="23.04" y="3.81" width="5.96" height="23" rx="2.98" fill="#FF5900" fillOpacity="0.2" stroke="#FF5900" strokeWidth="2" />
-                    </svg>
-                  ),
-                  title: "Redução das taxas",
-                  text: "Menos gasto com energia nas áreas comuns significa taxas condominiais menores para todos os moradores.",
-                },
-                {
-                  icon: (
-                    <svg width="32" height="32" viewBox="0 0 30 30" fill="none">
-                      <path d="M15 3C8.373 3 3 8.373 3 15s5.373 12 12 12 12-5.373 12-12S21.627 3 15 3z" fill="#FF5900" fillOpacity="0.15" stroke="#FF5900" strokeWidth="2" />
-                      <path d="M15 8v7l4.5 2.5" stroke="#FF5900" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  ),
-                  title: "Valorização do imóvel",
-                  text: "Condomínios com energia solar têm maior valorização no mercado imobiliário e atraem mais compradores.",
-                },
-                {
-                  icon: (
-                    <svg width="32" height="32" viewBox="0 0 30 31" fill="none">
-                      <path d="M4 15.64C4 9.38 9.07 4.31 15.33 4.31c6.26 0 11.34 5.07 11.34 11.33 0 6.26-5.08 11.34-11.34 11.34C9.07 26.98 4 21.9 4 15.64z" fill="#FF5900" fillOpacity="0.15" stroke="#FF5900" strokeWidth="2" />
-                      <path d="M11.82 16.82l2.33 2.33 4.66-4.66" stroke="#FF5900" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  ),
-                  title: "Projeto completo",
-                  text: "Da aprovação em assembleia à homologação na distribuidora: a Frenergy gerencia tudo para o síndico.",
-                },
-              ].map((b, i) => (
-                <div key={i} className="bg-white rounded-2xl p-7 shadow-sm flex flex-col gap-4">
-                  {b.icon}
-                  <h3 className="font-bold text-[#4D4D4D] text-base">{b.title}</h3>
-                  <p className="text-[#787878] text-sm leading-relaxed">{b.text}</p>
+            {/* Icon cards */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 20, marginTop: 48 }}>
+              {icons.map((icon, i) => (
+                <div key={i} style={{ background: "#fff", border: `2px solid ${YELLOW}`, borderRadius: 8, padding: "20px 16px", textAlign: "center", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
+                  <Image src={icon.src} alt={icon.label} width={64} height={64} style={{ objectFit: "contain", margin: "0 auto 12px" }} />
+                  <p style={{ fontWeight: 700, fontSize: 13, color: NAVY }}>{icon.label}</p>
                 </div>
               ))}
             </div>
           </div>
-        </section>
-
-        <div id="contato">
-          <EsferaContactForm />
         </div>
+      </section>
 
-      </main>
-      <EsferaFooter />
-    </>
+      {/* ── Features strip ── */}
+      <section style={{ background: NAVY }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 32 }}>
+            {[
+              "Empresa pioneira em Aquecimento solar.",
+              "Preços e condições especiais para revenda.",
+              "Ampla experiência em desenvolvimento e distribuição de produtos.",
+              "Energia limpa, natural, renovável, segura e 100% gratuita.",
+            ].map((text, i) => (
+              <div key={i} style={{ borderLeft: `3px solid ${YELLOW}`, paddingLeft: 16 }}>
+                <p style={{ color: "#fff", fontWeight: 600, fontSize: 14, lineHeight: 1.6 }}>{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Products ── */}
+      <section id="produtos" style={{ background: "#f7f7f7", padding: "80px 0" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+          <h3 style={{ color: NAVY, fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 800, marginBottom: 12 }}>Grupo Center Sol</h3>
+          <p style={{ color: "#555", fontSize: 15, lineHeight: 1.8, maxWidth: 800, marginBottom: 48 }}>
+            Hoje nos orgulhamos em ser líder em aquecimento solar no Brasil. Buscamos sempre a excelência na fabricação dos produtos, e atendimento às revendas. Ao instalar um aquecedor solar Center Sol, você contribui com o meio ambiente utilizando energia limpa e renovável para aquecer a água do seu banho ou da sua piscina.
+          </p>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, marginBottom: 24 }}>
+            {products.map((p) => (
+              <div key={p.id} style={{ background: p.color, borderRadius: 8, padding: 28, display: "flex", flexDirection: "column", gap: 16 }}>
+                <div style={{ height: 160, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", borderRadius: 6, background: "rgba(255,255,255,0.1)" }}>
+                  <Image src={p.img} alt={p.title} width={140} height={140} style={{ objectFit: "contain" }} />
+                </div>
+                <h4 style={{ color: p.textColor, fontWeight: 800, fontSize: 17, margin: 0 }}>{p.title}</h4>
+                <p style={{ color: p.textColor, fontSize: 14, lineHeight: 1.6, opacity: 0.85, flexGrow: 1 }}>{p.desc}</p>
+                <div>
+                  <button
+                    onClick={() => setOpenSpec(openSpec === p.id ? null : p.id)}
+                    style={{ background: "transparent", border: `1px solid ${p.textColor}`, color: p.textColor, fontFamily: "Montserrat, sans-serif", fontWeight: 600, fontSize: 13, padding: "8px 18px", borderRadius: 4, cursor: "pointer", width: "100%", marginBottom: 10, display: "flex", alignItems: "center", justifyContent: "space-between" }}
+                  >
+                    Especificações
+                    <span style={{ transform: openSpec === p.id ? "rotate(180deg)" : "none", transition: "0.2s", display: "inline-block" }}>▼</span>
+                  </button>
+                  {openSpec === p.id && (
+                    <div style={{ background: "rgba(255,255,255,0.12)", borderRadius: 4, padding: "12px 14px", marginBottom: 10 }}>
+                      <p style={{ color: p.textColor, fontSize: 13, margin: 0 }}>Entre em contato para receber as especificações técnicas completas deste produto.</p>
+                    </div>
+                  )}
+                  <a href="#contato" style={{ display: "block", background: p.btnColor, color: p.btnText, fontWeight: 700, fontSize: 13, padding: "11px 0", borderRadius: 4, textAlign: "center", textDecoration: "none", letterSpacing: 0.5 }}>
+                    SEJA UM REVENDEDOR
+                  </a>
+                </div>
+              </div>
+            ))}
+
+            {/* CTA card */}
+            <div style={{ background: NAVY, borderRadius: 8, padding: 28, display: "flex", flexDirection: "column", justifyContent: "center", gap: 16 }}>
+              <h4 style={{ color: YELLOW, fontWeight: 800, fontSize: 18, margin: 0 }}>CONHEÇA NOSSOS PRODUTOS</h4>
+              <p style={{ color: "#fff", fontSize: 14, lineHeight: 1.7, opacity: 0.85 }}>
+                Na linha de produtos de aquecimento solar trabalhamos com: linha piscina, aquecimento residencial, aquecimento rural e fabricação de boiler especial (grande porte). Oferecemos suporte e treinamento necessário para seu projeto decolar!
+              </p>
+              <a href="#contato" className="cs-btn-yellow" style={{ textAlign: "center" }}>SEJA UM REVENDEDOR</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Quem somos ── */}
+      <section style={{ background: "#fff", padding: "80px 0" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+          <h2 style={{ color: NAVY, fontSize: "clamp(22px, 3vw, 34px)", fontWeight: 800, marginBottom: 16 }}>Quem somos</h2>
+          <p style={{ color: "#555", fontSize: 15, lineHeight: 1.8, maxWidth: 800, marginBottom: 48 }}>
+            Hoje nos orgulhamos em ser líder em aquecimento solar no Brasil. Buscamos sempre a excelência na fabricação dos produtos, e atendimento às revendas. Ao instalar um aquecedor solar Center Sol, você contribui com o meio ambiente utilizando energia limpa e renovável para aquecer a água do seu banho ou da sua piscina.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 32 }}>
+            {[
+              { title: "Missão", text: "Oferecer produtos com alto padrão de qualidade, focando em tecnologia, inovação, soluções sustentáveis, sem esquecer de levar o melhor custo/benefício." },
+              { title: "Visão", text: "Ser referência nacional em soluções de aquecimento solar, expandindo nossa presença em todo o território brasileiro com produtos de excelência." },
+              { title: "Valores", text: "Qualidade, inovação, sustentabilidade, respeito ao cliente e compromisso com o meio ambiente são os pilares que guiam cada decisão da Center Sol." },
+            ].map((item, i) => (
+              <div key={i} style={{ borderTop: `4px solid ${YELLOW}`, paddingTop: 20 }}>
+                <h4 style={{ color: NAVY, fontWeight: 800, fontSize: 17, marginBottom: 12 }}>{item.title}</h4>
+                <p style={{ color: "#555", fontSize: 14, lineHeight: 1.7 }}>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Revendedores ── */}
+      <section style={{ background: "#f7f7f7", padding: "80px 0" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+          <h2 style={{ color: NAVY, fontSize: "clamp(22px, 3vw, 34px)", fontWeight: 800, marginBottom: 12 }}>Conheça nossos revedendores</h2>
+          <p style={{ color: "#555", fontSize: 15, lineHeight: 1.8, marginBottom: 32 }}>
+            Clique em um dos pontos no mapa e entre em contato com um de nossos revendedores mais próximo de você.
+          </p>
+          <div style={{ background: "#ddd", borderRadius: 8, height: 300, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32 }}>
+            <p style={{ color: "#888", fontWeight: 600, fontSize: 15 }}>Mapa de Revendedores</p>
+          </div>
+          <a href="#contato" className="cs-btn-yellow">SEJA UM REVENDEDOR</a>
+        </div>
+      </section>
+
+      {/* ── Contact form ── */}
+      <section id="contato" style={{ background: "#fff", padding: "80px 0" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "flex-start" }}>
+            {/* Form */}
+            <div style={{ flex: "1 1 340px" }}>
+              <h2 style={{ color: NAVY, fontSize: "clamp(20px, 2.5vw, 30px)", fontWeight: 800, marginBottom: 8 }}>Preencha o formulário</h2>
+              <p style={{ color: "#888", fontSize: 14, marginBottom: 28 }}>Preencha com seus dados que nossa equipe vai entrar em contato</p>
+              <input className="form-input" type="text" placeholder="Nome" />
+              <input className="form-input" type="email" placeholder="E-mail" />
+              <input className="form-input" type="tel" placeholder="Telefone" />
+              <textarea className="form-input" placeholder="Mensagem" rows={5} style={{ resize: "vertical" }} />
+              <button style={{ background: YELLOW, color: "#000", fontWeight: 700, fontSize: 14, padding: "13px 40px", borderRadius: 4, border: "none", cursor: "pointer", fontFamily: "Montserrat, sans-serif", letterSpacing: 0.5 }}>
+                Enviar
+              </button>
+            </div>
+            {/* CTA card */}
+            <div style={{ flex: "1 1 280px", background: YELLOW, borderRadius: 8, padding: 40, display: "flex", flexDirection: "column", gap: 20, alignItems: "center", textAlign: "center" }}>
+              <Image
+                src="https://centersol.com.br/wp-content/uploads/2024/05/Ativo-2.png"
+                alt="Center Sol"
+                width={160}
+                height={60}
+                style={{ objectFit: "contain" }}
+              />
+              <h3 style={{ color: NAVY, fontWeight: 900, fontSize: 20, lineHeight: 1.3 }}>LÍDER EM AQUECIMENTO SOLAR NO BRASIL</h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                {["(62) 3295-7007", "(62) 9 8178-0484", "centersol@centersol.com.br"].map((c, i) => (
+                  <p key={i} style={{ color: NAVY, fontWeight: 600, fontSize: 14 }}>{c}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Downloads ── */}
+      <section style={{ background: "#f7f7f7", padding: "80px 0" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+          <h2 style={{ color: NAVY, fontSize: "clamp(22px, 3vw, 34px)", fontWeight: 800, marginBottom: 8 }}>Downloads</h2>
+          <p style={{ color: "#888", fontSize: 15, marginBottom: 40 }}>Clique nos links abaixo para fazer o download de nossos arquivos</p>
+          <div style={{ display: "flex", flexDirection: "column", maxWidth: 480 }}>
+            {["CERTIFICADO DE GARANTIA", "MANUAL BOILER", "MANUAL PISCINA", "MEDIDA BAIXA PRESSÃO", "MEDIDA ALTA PRESSÃO"].map((file, i) => (
+              <a key={i} href="#" className="download-btn">{file}</a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Footer ── */}
+      <footer style={{ background: NAVY }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "56px 32px 32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 48, marginBottom: 48 }}>
+            <div>
+              <Image
+                src="https://centersol.com.br/wp-content/uploads/2024/04/Ativo-2-1024x195.png"
+                alt="Center Sol"
+                width={140}
+                height={28}
+                style={{ objectFit: "contain", marginBottom: 12 }}
+              />
+              <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 13 }}>@centersol</p>
+            </div>
+            <div>
+              <h2 style={{ color: "#fff", fontWeight: 800, fontSize: 16, marginBottom: 16 }}>Contato</h2>
+              {["(62) 3295-7007", "(62) 9 8178-0484", "centersol@centersol.com.br"].map((c, i) => (
+                <p key={i} style={{ color: "rgba(255,255,255,0.7)", fontSize: 13, marginBottom: 6 }}>{c}</p>
+              ))}
+            </div>
+            <div>
+              <h2 style={{ color: "#fff", fontWeight: 800, fontSize: 16, marginBottom: 16 }}>Endereço</h2>
+              <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 13, lineHeight: 1.7 }}>
+                Rua 11, Quadra 4, Lote 6/13, s/n<br />
+                Polo Empresarial<br />
+                Aparecida de Goiânia
+              </p>
+            </div>
+          </div>
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 24, display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 8 }}>
+            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 12 }}>Center Sol • 2024 • Todos os direitos reservados</p>
+            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 12 }}>Feito por ® Focus Creative</p>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 }
