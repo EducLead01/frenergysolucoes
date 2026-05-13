@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 
@@ -9,99 +9,39 @@ const YELLOW = "#FFC10E";
 
 
 
-const SCROLL_SPEED = 1;
-
 const condoProducts = [
   {
     id: 1,
-    title: "Linha Residencial",
-    desc: "Seu banho não será mais o mesmo! O prazer e a sensação de se tomar um banho quente sem custos",
+    badge: "Economia",
+    title: "Redução de até 95% na conta de energia",
+    desc: "Sistema solar nas áreas comuns do condomínio — corredores, elevadores, bombas, iluminação externa — gera economia imediata e visível para todos os moradores.",
     img: "/images/08.png",
   },
   {
     id: 2,
-    title: "Grande Porte",
-    desc: "Os reservatórios de grande porte é um diferencial. Suas características construtivas garantem durabilidade.",
+    badge: "Instalação",
+    title: "Sem obras nas unidades privativas",
+    desc: "Toda a instalação é feita nas áreas comuns. Os apartamentos não precisam de nenhuma intervenção. Processo rápido, limpo e com engenheiro dedicado.",
     img: "/images/08.png",
   },
   {
     id: 3,
-    title: "Linha Piscina",
-    desc: "Instalar o coletor solar para piscina permite a todos usufruir o máximo de sua piscina com energia limpa.",
+    badge: "Valorização",
+    title: "Condomínio com energia solar vale mais",
+    desc: "Imóveis com sistema solar têm maior valor de mercado e atratividade para locação e venda. Um diferencial real na assembleia e na hora de negociar.",
     img: "/images/08.png",
   },
   {
     id: 4,
-    title: "Econômica e Rural",
-    desc: "Equipamento versátil e econômico para produção de aquecedores e operações agrícolas.",
-    img: "/images/08.png",
-  },
-  {
-    id: 5,
-    title: "Coletores Residenciais",
-    desc: "Responsável por absorver a radiação solar ao longo do dia e transformá-la em calor para sua residência.",
-    img: "/images/08.png",
-  },
-  {
-    id: 6,
-    title: "Conheça Nossos Produtos",
-    desc: "Suporte e treinamento necessário para seu projeto de energia solar em condomínio decolar com eficiência.",
+    badge: "Sustentabilidade",
+    title: "Energia 100% limpa e renovável",
+    desc: "Solar fotovoltaica sem emissão de carbono. Contribui com o meio ambiente e com as metas de sustentabilidade do condomínio — um argumento forte para moradores conscientes.",
     img: "/images/08.png",
   },
 ];
 
 export default function Condominios() {
   const [openSpec, setOpenSpec] = useState<number | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>(0);
-  const dragging = useRef(false);
-  const dragStartX = useRef(0);
-  const dragStartScroll = useRef(0);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    function tick() {
-      if (el && !dragging.current) {
-        el.scrollLeft += SCROLL_SPEED;
-        if (el.scrollLeft >= el.scrollWidth / 2) el.scrollLeft = 0;
-      }
-      rafRef.current = requestAnimationFrame(tick);
-    }
-    rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, []);
-
-  function onMouseDown(e: React.MouseEvent) {
-    dragging.current = true;
-    dragStartX.current = e.clientX;
-    dragStartScroll.current = scrollRef.current?.scrollLeft ?? 0;
-  }
-  function onMouseMove(e: React.MouseEvent) {
-    if (!dragging.current || !scrollRef.current) return;
-    const dx = e.clientX - dragStartX.current;
-    let next = dragStartScroll.current - dx;
-    const half = scrollRef.current.scrollWidth / 2;
-    if (next < 0) next += half;
-    if (next >= half) next -= half;
-    scrollRef.current.scrollLeft = next;
-  }
-  function onMouseUp() { dragging.current = false; }
-  function onTouchStart(e: React.TouchEvent) {
-    dragging.current = true;
-    dragStartX.current = e.touches[0].clientX;
-    dragStartScroll.current = scrollRef.current?.scrollLeft ?? 0;
-  }
-  function onTouchMove(e: React.TouchEvent) {
-    if (!dragging.current || !scrollRef.current) return;
-    const dx = e.touches[0].clientX - dragStartX.current;
-    let next = dragStartScroll.current - dx;
-    const half = scrollRef.current.scrollWidth / 2;
-    if (next < 0) next += half;
-    if (next >= half) next -= half;
-    scrollRef.current.scrollLeft = next;
-  }
-  function onTouchEnd() { dragging.current = false; }
 
   return (
     <div style={{ fontFamily: "'Open Sans', sans-serif", color: "#333" }}>
@@ -303,7 +243,7 @@ export default function Condominios() {
       {/* ── Products ── */}
       <section id="produtos" className="py-20 bg-white">
         <div className="container mx-auto px-6 max-w-5xl">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <span
               className="inline-block text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-4"
               style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
@@ -315,54 +255,48 @@ export default function Condominios() {
               <span style={{ color: "#FF5900" }}>condomínios</span>
             </h2>
           </div>
-        </div>
 
-        <div
-          ref={scrollRef}
-          className="overflow-x-scroll select-none cursor-grab active:cursor-grabbing"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          onMouseDown={onMouseDown}
-          onMouseMove={onMouseMove}
-          onMouseUp={onMouseUp}
-          onMouseLeave={onMouseUp}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          <div className="flex px-6" style={{ gap: "20px", width: "max-content" }}>
-            {[...condoProducts, ...condoProducts].map((p, i) => (
+          <div className="flex flex-col gap-20">
+            {condoProducts.map((p, i) => (
               <div
-                key={i}
-                className="bg-white rounded-2xl overflow-hidden flex flex-col shadow-md"
-                style={{ width: "280px", flexShrink: 0, border: "1.5px solid rgba(255, 89, 0, 0.25)" }}
+                key={p.id}
+                className={`flex flex-col items-center gap-12 ${i % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"}`}
               >
-                <div className="h-48 overflow-hidden">
-                  <Image
-                    src={p.img}
-                    alt={p.title}
-                    width={280}
-                    height={192}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    draggable={false}
-                  />
-                </div>
-                <div className="p-5 flex flex-col gap-3 flex-1">
-                  <h3 className="font-bold text-base" style={{ color: "#0d3347" }}>{p.title}</h3>
-                  <p className="text-sm leading-relaxed flex-1" style={{ color: "#787878" }}>{p.desc}</p>
-                  <div className="mt-1">
+                {/* Texto */}
+                <div className="flex-1 flex flex-col gap-4">
+                  <span
+                    className="inline-block self-start text-white text-xs font-bold uppercase px-3 py-1 rounded-full"
+                    style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+                  >
+                    {p.badge}
+                  </span>
+                  <h3 className="text-xl lg:text-2xl font-bold text-[#4D4D4D] leading-snug">{p.title}</h3>
+                  <p className="text-[#787878] text-base leading-relaxed">{p.desc}</p>
+                  <div>
                     <button
-                      onClick={() => setOpenSpec(openSpec === (i % condoProducts.length) ? null : (i % condoProducts.length))}
+                      onClick={() => setOpenSpec(openSpec === p.id ? null : p.id)}
                       className="flex items-center gap-2 text-white text-xs font-bold px-5 py-2 rounded-full transition-opacity hover:opacity-90"
                       style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
                     >
                       Especificações
-                      <span style={{ display: "inline-block", transition: "transform 0.25s", transform: openSpec === (i % condoProducts.length) ? "rotate(180deg)" : "rotate(0deg)", fontSize: 9 }}>▲</span>
+                      <span style={{ display: "inline-block", transition: "transform 0.25s", transform: openSpec === p.id ? "rotate(180deg)" : "rotate(0deg)", fontSize: 9 }}>▲</span>
                     </button>
-                    {openSpec === (i % condoProducts.length) && (
-                      <div className="mt-3 rounded-xl p-3 text-xs leading-relaxed" style={{ background: "rgba(255,89,0,0.05)", border: "1px solid rgba(255,89,0,0.15)", color: "#4D4D4D" }}>
+                    {openSpec === p.id && (
+                      <div className="mt-3 rounded-xl p-4 text-sm leading-relaxed" style={{ background: "rgba(255,89,0,0.05)", border: "1px solid rgba(255,89,0,0.15)", color: "#4D4D4D" }}>
                         Entre em contato para receber as especificações técnicas completas deste produto.
                       </div>
                     )}
+                  </div>
+                </div>
+
+                {/* Imagem com sombra laranja offset */}
+                <div className="flex-1 w-full relative">
+                  <div
+                    className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
+                    style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
+                  />
+                  <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+                    <Image src={p.img} alt={p.title} fill className="object-cover" />
                   </div>
                 </div>
               </div>
