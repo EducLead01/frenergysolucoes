@@ -143,7 +143,6 @@ export default function Condominios() {
         display: "flex",
         alignItems: "center",
         background: `url('https://centersol.com.br/wp-content/uploads/2024/04/parallax.png') center/cover no-repeat`,
-        backgroundAttachment: "fixed",
       }}>
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.65)" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto", padding: "80px 32px" }}>
