@@ -278,7 +278,7 @@ export default function Condominios() {
                       className="flex items-center gap-2 text-white text-xs font-bold px-5 py-2 rounded-full transition-opacity hover:opacity-90"
                       style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
                     >
-                      Especificações
+                      Insights para o síndico
                       <span style={{ display: "inline-block", transition: "transform 0.25s", transform: openSpec === p.id ? "rotate(180deg)" : "rotate(0deg)", fontSize: 9 }}>▲</span>
                     </button>
                     {openSpec === p.id && (
