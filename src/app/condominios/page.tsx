@@ -186,7 +186,6 @@ export default function Condominios() {
                 O grupo Frenergy Soluções está presente em todo{" "}
                 <span style={{ color: "#FF5900" }}>centro oeste brasileiro</span>
               </h2>
-              <a href="#contato" className="cs-btn-yellow">SEJA UM REVENDEDOR</a>
             </div>
             <div style={{ flex: "1 1 320px", position: "relative", display: "flex", justifyContent: "center", alignItems: "flex-end", minHeight: 360 }}>
               {/* SVG contorno do Brasil com animação laranja */}
@@ -286,9 +285,6 @@ export default function Condominios() {
                       <p style={{ color: p.textColor, fontSize: 13, margin: 0 }}>Entre em contato para receber as especificações técnicas completas deste produto.</p>
                     </div>
                   )}
-                  <a href="#contato" style={{ display: "block", background: p.btnColor, color: p.btnText, fontWeight: 700, fontSize: 13, padding: "11px 0", borderRadius: 4, textAlign: "center", textDecoration: "none", letterSpacing: 0.5 }}>
-                    SEJA UM REVENDEDOR
-                  </a>
                 </div>
               </div>
             ))}
@@ -299,7 +295,6 @@ export default function Condominios() {
               <p style={{ color: "#fff", fontSize: 14, lineHeight: 1.7, opacity: 0.85 }}>
                 Na linha de produtos de aquecimento solar trabalhamos com: linha piscina, aquecimento residencial, aquecimento rural e fabricação de boiler especial (grande porte). Oferecemos suporte e treinamento necessário para seu projeto decolar!
               </p>
-              <a href="#contato" className="cs-btn-yellow" style={{ textAlign: "center" }}>SEJA UM REVENDEDOR</a>
             </div>
           </div>
         </div>
