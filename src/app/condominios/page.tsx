@@ -265,12 +265,7 @@ export default function Condominios() {
       {/* ── Products ── */}
       <section id="produtos" style={{ background: "#f7f7f7", padding: "80px 0" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
-          <h3 style={{ color: NAVY, fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 800, marginBottom: 12 }}>Grupo Center Sol</h3>
-          <p style={{ color: "#555", fontSize: 15, lineHeight: 1.8, maxWidth: 800, marginBottom: 48 }}>
-            Hoje nos orgulhamos em ser líder em aquecimento solar no Brasil. Buscamos sempre a excelência na fabricação dos produtos, e atendimento às revendas. Ao instalar um aquecedor solar Center Sol, você contribui com o meio ambiente utilizando energia limpa e renovável para aquecer a água do seu banho ou da sua piscina.
-          </p>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, marginBottom: 24 }}>
+<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, marginBottom: 24 }}>
             {products.map((p) => (
               <div key={p.id} style={{ background: p.color, borderRadius: 8, padding: 28, display: "flex", flexDirection: "column", gap: 16 }}>
                 <div style={{ height: 160, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", borderRadius: 6, background: "rgba(255,255,255,0.1)" }}>
