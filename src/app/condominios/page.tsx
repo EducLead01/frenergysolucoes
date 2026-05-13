@@ -166,23 +166,25 @@ export default function Condominios() {
                 <span style={{ color: "#FF5900" }}>centro oeste brasileiro</span>
               </h2>
             </div>
-            <div style={{ flex: "1 1 320px", position: "relative", display: "flex", justifyContent: "center", alignItems: "flex-end", minHeight: 360 }}>
-              {/* Mapa do Brasil */}
-              <Image
-                src="/images/brazil-states.png"
-                alt="Mapa do Brasil"
-                width={340}
-                height={360}
-                style={{ width: 340, maxWidth: "100%", height: "auto", opacity: 0.85, filter: "sepia(1) saturate(2) hue-rotate(140deg)" }}
-              />
-              {/* Engenheiro sobreposto */}
-              <div style={{ position: "absolute", right: -10, bottom: 0, height: "95%", display: "flex", alignItems: "flex-end" }}>
+            <div style={{ flex: "1 1 320px", position: "relative", height: 400 }}>
+              {/* Mapa do Brasil — centralizado */}
+              <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Image
+                  src="/images/brazil-states.png"
+                  alt="Mapa do Brasil"
+                  width={340}
+                  height={360}
+                  style={{ width: 320, height: "auto", opacity: 0.85, filter: "sepia(1) saturate(2) hue-rotate(140deg)" }}
+                />
+              </div>
+              {/* Engenheiro colado na base */}
+              <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)" }}>
                 <Image
                   src="/images/hero02.png"
                   alt="Engenheiro Frenergy"
-                  width={200}
-                  height={320}
-                  style={{ height: "100%", width: "auto", objectFit: "contain", objectPosition: "bottom" }}
+                  width={220}
+                  height={380}
+                  style={{ display: "block", objectFit: "contain", objectPosition: "bottom" }}
                 />
               </div>
             </div>
