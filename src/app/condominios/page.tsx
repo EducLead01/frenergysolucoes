@@ -71,10 +71,10 @@ export default function Condominios() {
   const [openSpec, setOpenSpec] = useState<number | null>(null);
 
   return (
-    <div style={{ fontFamily: "Montserrat, sans-serif", color: "#333" }}>
+    <div style={{ fontFamily: "'Open Sans', sans-serif", color: "#333" }}>
       <Navbar />
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
         @keyframes ticker-anim {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
@@ -156,7 +156,13 @@ export default function Condominios() {
           <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(16px, 2vw, 20px)", fontWeight: 400, maxWidth: 560, lineHeight: 1.6, marginBottom: 36 }}>
             Economia que aparece na conta e na assembleia.
           </p>
-          <a href="#contato" className="cs-btn-yellow">SEJA UM REVENDEDOR</a>
+          <a
+            href="#contato"
+            style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(90deg, #F0416E, #FF5900)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "14px 32px", borderRadius: 999, textDecoration: "none", transition: "opacity 0.2s" }}
+          >
+            Solicitar estudo do seu condomínio
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
       </section>
 
