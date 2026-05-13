@@ -32,6 +32,7 @@ const navLinks = [
   { label: "COMO FUNCIONA",     href: "#como-funciona" },
   { label: "GESTÃO DE ENERGIA", href: "/gestao-de-energia" },
   { label: "CASES",             href: "/cases" },
+  { label: "CONDOMÍNIOS",       href: "/condominios" },
 ];
 
 export function Navbar() {
