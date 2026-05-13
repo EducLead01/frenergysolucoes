@@ -75,6 +75,8 @@ export default function Condominios() {
         }
         .ticker-track { animation: ticker-anim 18s linear infinite; }
         .ticker-track:hover { animation-play-state: paused; }
+        @keyframes br-run { to { stroke-dashoffset: -1860; } }
+        .br-dash { stroke-dasharray: 60 1800; stroke-dashoffset: 0; animation: br-run 4s linear infinite; }
         .icon-cards-grid { transform: translateY(-50%); margin-bottom: -40px; }
         @media (max-width: 768px) {
           .icon-cards-grid { transform: none; margin-bottom: 0; padding-top: 32px; }
@@ -186,19 +188,28 @@ export default function Condominios() {
               </h2>
               <a href="#contato" className="cs-btn-yellow">SEJA UM REVENDEDOR</a>
             </div>
-            <div style={{ flex: "1 1 320px", position: "relative", display: "flex", justifyContent: "center", alignItems: "flex-end", minHeight: 340 }}>
-              {/* Mapa com fundo teal */}
-              <div style={{ background: "#115e59", borderRadius: 16, padding: "28px 24px", overflow: "hidden", position: "relative" }}>
-                <Image
-                  src="/images/brazil-states.png"
-                  alt="Mapa do Brasil"
-                  width={280}
-                  height={295}
-                  style={{ display: "block", filter: "invert(1)", mixBlendMode: "screen", opacity: 0.88 }}
-                />
-              </div>
+            <div style={{ flex: "1 1 320px", position: "relative", display: "flex", justifyContent: "center", alignItems: "flex-end", minHeight: 360 }}>
+              {/* SVG contorno do Brasil com animação laranja */}
+              <svg viewBox="0 0 510 530" style={{ width: 300, maxWidth: "100%", height: "auto", display: "block" }} aria-label="Mapa do Brasil">
+                <defs>
+                  <filter id="glow-orange">
+                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+                {/* preenchimento sutil */}
+                <path fill="rgba(17,94,89,0.12)" stroke="rgba(17,94,89,0.5)" strokeWidth="1.5"
+                  d="M78,44 L138,19 L156,3 L174,17 L246,44 L283,20 L296,55 L319,90 L375,100 L403,111 L431,107 L488,141 L488,192 L479,210 L445,260 L444,330 L426,360 L386,404 L349,418 L321,446 L318,460 L258,520 L220,500 L195,500 L210,460 L240,415 L200,370 L195,330 L175,300 L145,260 L20,200 L15,185 L50,115 Z"/>
+                {/* contorno base */}
+                <path fill="none" stroke="rgba(77,77,77,0.3)" strokeWidth="2"
+                  d="M78,44 L138,19 L156,3 L174,17 L246,44 L283,20 L296,55 L319,90 L375,100 L403,111 L431,107 L488,141 L488,192 L479,210 L445,260 L444,330 L426,360 L386,404 L349,418 L321,446 L318,460 L258,520 L220,500 L195,500 L210,460 L240,415 L200,370 L195,330 L175,300 L145,260 L20,200 L15,185 L50,115 Z"/>
+                {/* ponto laranja animado */}
+                <path className="br-dash" fill="none" stroke="#FF5900" strokeWidth="5" strokeLinecap="round"
+                  style={{ filter: "url(#glow-orange)" }}
+                  d="M78,44 L138,19 L156,3 L174,17 L246,44 L283,20 L296,55 L319,90 L375,100 L403,111 L431,107 L488,141 L488,192 L479,210 L445,260 L444,330 L426,360 L386,404 L349,418 L321,446 L318,460 L258,520 L220,500 L195,500 L210,460 L240,415 L200,370 L195,330 L175,300 L145,260 L20,200 L15,185 L50,115 Z"/>
+              </svg>
               {/* Engenheiro sobreposto */}
-              <div style={{ position: "absolute", right: -10, bottom: 0, height: "100%", display: "flex", alignItems: "flex-end" }}>
+              <div style={{ position: "absolute", right: -10, bottom: 0, height: "95%", display: "flex", alignItems: "flex-end" }}>
                 <Image
                   src="/images/hero02.png"
                   alt="Engenheiro Frenergy"
