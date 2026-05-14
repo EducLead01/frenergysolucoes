@@ -149,7 +149,7 @@ export default function Condominios() {
       <div style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)", overflow: "hidden", padding: "10px 0", whiteSpace: "nowrap" }}>
         <div className="ticker-track" style={{ display: "inline-flex", gap: "40px", width: "max-content" }}>
           {[...Array(8)].flatMap(() => [
-            "ENERGIA SOLAR PARA CONDOMÍNIOS",
+            "EXCLUSIVO PARA MULHERES",
             "•",
           ]).map((t, i) => (
             <span key={i} style={{ fontWeight: 700, fontSize: 13, color: "#000", letterSpacing: 1 }}>{t}</span>
