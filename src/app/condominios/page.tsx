@@ -161,9 +161,9 @@ export default function Condominios() {
       </div>
 
       {/* ── About ── */}
-      <section id="sobre" style={{ background: "#fff", paddingBottom: 0 }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "80px 32px 0" }}>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "center", paddingBottom: 60 }}>
+      <section id="sobre" style={{ background: "#fff" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "80px 32px 60px" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "center" }}>
             {/* Texto */}
             <div style={{ flex: "1 0 min(380px, 100%)" }}>
               <h2 style={{ color: "#4D4D4D", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 800, marginBottom: 20, lineHeight: 1.3 }}>
@@ -172,22 +172,22 @@ export default function Condominios() {
               </h2>
             </div>
             {/* Imagens — mapa + engenheiro */}
-            <div style={{ flex: "1 0 min(320px, 100%)", position: "relative", height: 480 }}>
+            <div style={{ flex: "1 0 min(320px, 100%)", position: "relative", height: 420 }}>
               {/* Mapa — fill com objectFit contain, nunca corta */}
               <Image
                 src="/images/brazil-states.png"
                 alt="Mapa do Brasil"
                 fill
-                style={{ objectFit: "contain", opacity: 0.85, filter: "sepia(1) saturate(2) hue-rotate(140deg)", padding: "20px 20px 0" }}
+                style={{ objectFit: "contain", opacity: 0.85, filter: "sepia(1) saturate(2) hue-rotate(140deg)", padding: "20px 20px 40px" }}
               />
-              {/* Engenheiro — h-full w-auto, igual ao HeroSlider da home */}
+              {/* Engenheiro — altura máxima de 340px, ancorado na base */}
               <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
                 <Image
                   src="/images/hero02.png"
                   alt="Engenheiro Frenergy"
                   width={220}
                   height={380}
-                  className="h-full w-auto object-contain object-bottom"
+                  style={{ width: "auto", height: "min(340px, 85%)", objectFit: "contain", objectPosition: "bottom", display: "block" }}
                 />
               </div>
             </div>
