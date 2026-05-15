@@ -163,31 +163,31 @@ export default function Condominios() {
       {/* ── About ── */}
       <section id="sobre" style={{ background: "#fff" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "80px 32px 60px" }}>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "center" }}>
+          <div className="flex flex-col md:flex-row items-center gap-12">
             {/* Texto */}
-            <div style={{ flex: "1 0 min(380px, 100%)" }}>
+            <div className="w-full md:flex-1">
               <h2 style={{ color: "#4D4D4D", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 800, marginBottom: 20, lineHeight: 1.3 }}>
                 O grupo Frenergy Soluções está presente em todo{" "}
                 <span style={{ color: "#FF5900" }}>centro oeste brasileiro</span>
               </h2>
             </div>
             {/* Imagens — mapa + engenheiro */}
-            <div style={{ flex: "1 0 min(320px, 100%)", position: "relative", height: 420 }}>
-              {/* Mapa — fill com objectFit contain, nunca corta */}
+            <div className="w-full md:flex-1 relative" style={{ height: 380 }}>
+              {/* Mapa — fill contido, com padding inferior para não descer até a borda */}
               <Image
                 src="/images/brazil-states.png"
                 alt="Mapa do Brasil"
                 fill
-                style={{ objectFit: "contain", opacity: 0.85, filter: "sepia(1) saturate(2) hue-rotate(140deg)", padding: "20px 20px 40px" }}
+                style={{ objectFit: "contain", objectPosition: "center top", opacity: 0.85, filter: "sepia(1) saturate(2) hue-rotate(140deg)", padding: "0 20px 60px" }}
               />
-              {/* Engenheiro — altura máxima de 340px, ancorado na base */}
-              <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
+              {/* Engenheiro — 280px de altura, ancorado na base */}
+              <div className="absolute inset-0 flex items-end justify-center">
                 <Image
                   src="/images/hero02.png"
                   alt="Engenheiro Frenergy"
                   width={220}
                   height={380}
-                  style={{ width: "auto", height: "min(340px, 85%)", objectFit: "contain", objectPosition: "bottom", display: "block" }}
+                  style={{ width: "auto", height: 280, objectFit: "contain", objectPosition: "bottom" }}
                 />
               </div>
             </div>
