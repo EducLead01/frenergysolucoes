@@ -60,6 +60,9 @@ export default function Condominios() {
         .icon-cards-grid { transform: translateY(-50%); margin-bottom: -40px; }
         @media (max-width: 768px) {
           .icon-cards-grid { transform: none; margin-bottom: 0; padding-top: 32px; }
+          .about-img-container { height: 500px !important; }
+          .about-map-img { width: 260px !important; }
+          .about-engineer-img { width: 180px !important; height: 310px !important; }
         }
         .cs-btn-yellow {
           display: inline-block;
@@ -160,14 +163,14 @@ export default function Condominios() {
       {/* ── About ── */}
       <section id="sobre" style={{ background: "#fff", paddingBottom: 0 }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "80px 32px 0" }}>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "center", paddingBottom: 60 }}>
-            <div style={{ flex: "1 1 380px" }}>
+          <div className="flex flex-col md:flex-row gap-12 items-center pb-16">
+            <div className="w-full md:flex-1">
               <h2 style={{ color: "#4D4D4D", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 800, marginBottom: 20, lineHeight: 1.3 }}>
                 O grupo Frenergy Soluções está presente em todo{" "}
                 <span style={{ color: "#FF5900" }}>centro oeste brasileiro</span>
               </h2>
             </div>
-            <div style={{ flex: "1 1 320px", position: "relative", height: 400 }}>
+            <div className="w-full md:flex-1 relative" style={{ height: 480 }}>
               {/* Mapa do Brasil — centralizado */}
               <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <Image
@@ -175,7 +178,7 @@ export default function Condominios() {
                   alt="Mapa do Brasil"
                   width={340}
                   height={360}
-                  style={{ width: 320, height: "auto", opacity: 0.85, filter: "sepia(1) saturate(2) hue-rotate(140deg)" }}
+                  style={{ width: "min(320px, 80%)", height: "auto", opacity: 0.85, filter: "sepia(1) saturate(2) hue-rotate(140deg)" }}
                 />
               </div>
               {/* Engenheiro colado na base */}
@@ -185,7 +188,7 @@ export default function Condominios() {
                   alt="Engenheiro Frenergy"
                   width={220}
                   height={380}
-                  style={{ display: "block", objectFit: "contain", objectPosition: "bottom" }}
+                  style={{ display: "block", objectFit: "contain", objectPosition: "bottom", width: "min(220px, 60vw)", height: "auto" }}
                 />
               </div>
             </div>
