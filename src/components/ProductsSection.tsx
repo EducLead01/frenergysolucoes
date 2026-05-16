@@ -6,13 +6,13 @@ const products = [
   {
     title: "Industrial",
     description: "Acima de 75 kWp para indústrias e grandes consumidores. Consultoria energética e engenheiro dedicado ao projeto.",
-    img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
+    img: "/images/Industrial.png",
     href: "/produtos/industrial",
   },
   {
     title: "Agro",
     description: "Energia solar para o agronegócio. Irrigação, refrigeração e operações agrícolas com energia limpa e economia real.",
-    img: "/images/fazenda-solar.jpg",
+    img: "/images/Agro.png",
     href: "/agro",
   },
   {
@@ -24,7 +24,7 @@ const products = [
   {
     title: "Investidores",
     description: "Invista em usinas solares e gere renda passiva com alta rentabilidade, retorno previsível e impacto positivo no planeta.",
-    img: "/images/Investidores.jpg",
+    img: "/images/Investidores.png",
     href: "/produtos/investidores",
   },
   {
