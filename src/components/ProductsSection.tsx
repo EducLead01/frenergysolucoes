@@ -18,13 +18,13 @@ const products = [
   {
     title: "Residencial",
     description: "Sistemas de 3 a 20 kWp para casas e apartamentos. Retorno de investimento em até 4 anos com economia real na conta de luz.",
-    img: "/images/08.png",
+    img: "/images/Residencial.png",
     href: "/produtos/residencial",
   },
   {
     title: "Investidores",
     description: "Invista em usinas solares e gere renda passiva com alta rentabilidade, retorno previsível e impacto positivo no planeta.",
-    img: "/images/Investidores.png",
+    img: "/images/Investidores.net.png",
     href: "/produtos/investidores",
   },
   {
