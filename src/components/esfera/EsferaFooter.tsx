@@ -25,25 +25,6 @@ export function EsferaFooter() {
             </address>
           </div>
 
-          {/* Newsletter */}
-          <div className="w-full max-w-sm flex flex-col gap-2">
-            <p className="text-white/70 text-sm font-medium">Receba nosso contato por email:</p>
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="Seu e-mail"
-                className="flex-1 bg-white/10 border border-white/20 rounded-l-full px-4 py-3 text-sm text-white placeholder-white/40 outline-none focus:border-[#F0416E] transition-colors"
-              />
-              <button
-                className="px-4 py-3 rounded-r-full flex items-center justify-center"
-                style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
 
           {/* Redes sociais */}
           <div className="flex items-center gap-3">
