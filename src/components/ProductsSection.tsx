@@ -12,7 +12,7 @@ const products = [
   {
     title: "Agro",
     description: "Energia solar para o agronegócio. Irrigação, refrigeração e operações agrícolas com energia limpa e economia real.",
-    img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=800&q=80",
+    img: "/images/fazenda-solar.jpg",
     href: "/agro",
   },
   {
@@ -35,8 +35,47 @@ const products = [
   },
 ];
 
+function ProductCard({ title, description, img, href }: typeof products[0]) {
+  return (
+    <div
+      className="relative rounded-2xl overflow-hidden flex flex-col justify-end w-full"
+      style={{ aspectRatio: "310/480" }}
+    >
+      {/* Imagem de fundo */}
+      <img
+        src={img}
+        alt={title}
+        className="absolute inset-0 w-full h-full object-cover"
+        draggable={false}
+      />
+      {/* Overlay gradiente na base */}
+      <div
+        className="absolute inset-0"
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)" }}
+      />
+      {/* Conteúdo */}
+      <div className="relative z-10 p-5 flex flex-col gap-3">
+        <div>
+          <p className="text-white font-bold text-base leading-tight">{title}</p>
+          <p className="text-white/70 text-xs mt-1 leading-relaxed line-clamp-3">{description}</p>
+        </div>
+        <a
+          href={href}
+          className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-full text-white font-bold text-xs transition-opacity hover:opacity-90"
+          style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+        >
+          Saiba Mais
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  );
+}
+
 const VISIBLE = 4;
-const max = products.length - VISIBLE;
+const maxIdx = products.length - VISIBLE;
 
 export function ProductsSection() {
   const [idx, setIdx] = useState(0);
@@ -44,6 +83,7 @@ export function ProductsSection() {
   return (
     <section id="servicos" className="py-20 bg-white">
       <div className="container mx-auto px-6 max-w-6xl">
+
         <div className="text-center mb-12">
           <span
             className="inline-block text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-4"
@@ -57,31 +97,29 @@ export function ProductsSection() {
           </h2>
         </div>
 
-        {/* Carrossel */}
-        <div className="relative">
-
+        <div className="relative px-6">
           {/* Seta esquerda */}
           <button
             onClick={() => setIdx(i => Math.max(0, i - 1))}
             disabled={idx === 0}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 z-10 w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-opacity disabled:opacity-20"
-            style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)", color: "#fff" }}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-20 hover:brightness-110"
+            style={{ background: "#115e59" }}
             aria-label="Anterior"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M15 18l-6-6 6-6" />
             </svg>
           </button>
 
           {/* Seta direita */}
           <button
-            onClick={() => setIdx(i => Math.min(max, i + 1))}
-            disabled={idx === max}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 z-10 w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-opacity disabled:opacity-20"
-            style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)", color: "#fff" }}
+            onClick={() => setIdx(i => Math.min(maxIdx, i + 1))}
+            disabled={idx === maxIdx}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-20 hover:brightness-110"
+            style={{ background: "#115e59" }}
             aria-label="Próximo"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 18l6-6-6-6" />
             </svg>
           </button>
@@ -96,34 +134,8 @@ export function ProductsSection() {
               }}
             >
               {products.map((p, i) => (
-                <div
-                  key={i}
-                  style={{ width: `${100 / VISIBLE}%`, flexShrink: 0, padding: "0 10px" }}
-                >
-                  <div
-                    className="bg-white rounded-2xl overflow-hidden flex flex-col h-full"
-                    style={{ border: "1.5px solid rgba(255,89,0,0.2)", boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}
-                  >
-                    <div className="overflow-hidden" style={{ height: 180 }}>
-                      <img
-                        src={p.img}
-                        alt={p.title}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                        draggable={false}
-                      />
-                    </div>
-                    <div className="p-5 flex flex-col gap-3 flex-1">
-                      <h3 className="font-bold text-base" style={{ color: "#0d3347" }}>{p.title}</h3>
-                      <p className="text-[#787878] text-sm leading-relaxed flex-1">{p.description}</p>
-                      <a
-                        href={p.href}
-                        className="self-start text-white text-xs font-bold px-5 py-2 rounded-full transition-opacity hover:opacity-90 mt-1"
-                        style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-                      >
-                        Saiba Mais
-                      </a>
-                    </div>
-                  </div>
+                <div key={i} style={{ width: `${100 / VISIBLE}%`, flexShrink: 0, padding: "0 8px" }}>
+                  <ProductCard {...p} />
                 </div>
               ))}
             </div>
@@ -131,22 +143,22 @@ export function ProductsSection() {
 
           {/* Dots */}
           <div className="flex justify-center gap-2 mt-6">
-            {Array.from({ length: max + 1 }).map((_, i) => (
+            {Array.from({ length: maxIdx + 1 }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => setIdx(i)}
-                className="rounded-full transition-all"
+                className="rounded-full transition-all duration-300"
                 style={{
                   width: idx === i ? 24 : 8,
                   height: 8,
                   background: idx === i ? "linear-gradient(90deg, #F0416E, #FF5900)" : "#ddd",
                 }}
-                aria-label={`Ir para ${i + 1}`}
+                aria-label={`Posição ${i + 1}`}
               />
             ))}
           </div>
-
         </div>
+
       </div>
     </section>
   );
