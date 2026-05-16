@@ -185,8 +185,8 @@ export default function Condominios() {
               />
               <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
                 <Image
-                  src="/images/hero02.png"
-                  alt="Engenheiro Frenergy"
+                  src="/images/tecnico.png"
+                  alt="Técnico Frenergy"
                   width={220}
                   height={380}
                   style={{ width: "auto", height: 260, objectFit: "contain", objectPosition: "bottom" }}
