@@ -1,20 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const cases = [
-  { img: "/images/Residencial.png", href: "/cases/cliente01" },
-  { img: "/images/Comercial.png",   href: "/cases/cliente02" },
-  { img: "/images/Industrial.png",  href: "/cases/cliente03" },
-  { img: "/images/Agro.png",        href: "/cases/cliente04" },
+  { img: "/images/Residencial.png",      href: "/cases/cliente01" },
+  { img: "/images/Comercial.png",        href: "/cases/cliente02" },
+  { img: "/images/Industrial.png",       href: "/cases/cliente03" },
+  { img: "/images/Agro.png",             href: "/cases/cliente04" },
   { img: "/images/Investidores.net.png", href: "/cases/cliente05" },
 ];
 
-const VISIBLE = 4;
-const maxIdx = cases.length - VISIBLE;
+function useVisible() {
+  const [visible, setVisible] = useState(4);
+  useEffect(() => {
+    function update() {
+      if (window.innerWidth < 640) setVisible(1);
+      else if (window.innerWidth < 1024) setVisible(2);
+      else setVisible(4);
+    }
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  return visible;
+}
 
 export function HomeModelos() {
+  const visible = useVisible();
+  const maxIdx = Math.max(0, cases.length - visible);
   const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    setIdx(i => Math.min(i, maxIdx));
+  }, [maxIdx]);
 
   return (
     <section className="py-16 bg-white">
@@ -58,12 +76,12 @@ export function HomeModelos() {
             <div
               className="flex"
               style={{
-                transform: `translateX(-${idx * (100 / VISIBLE)}%)`,
+                transform: `translateX(-${idx * (100 / visible)}%)`,
                 transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
               }}
             >
               {cases.map((c, i) => (
-                <div key={i} style={{ width: `${100 / VISIBLE}%`, flexShrink: 0, padding: "0 8px" }}>
+                <div key={i} style={{ width: `${100 / visible}%`, flexShrink: 0, padding: "0 8px" }}>
                   <a
                     href={c.href}
                     className="relative rounded-2xl overflow-hidden block w-full group"

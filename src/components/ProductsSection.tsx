@@ -1,6 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+function useVisible() {
+  const [visible, setVisible] = useState(4);
+  useEffect(() => {
+    function update() {
+      if (window.innerWidth < 640) setVisible(1);
+      else if (window.innerWidth < 1024) setVisible(2);
+      else setVisible(4);
+    }
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  return visible;
+}
 
 const products = [
   {
@@ -52,11 +67,14 @@ function ProductCard({ title, img, href }: typeof products[0]) {
   );
 }
 
-const VISIBLE = 4;
-const maxIdx = products.length - VISIBLE;
-
 export function ProductsSection() {
+  const visible = useVisible();
+  const maxIdx = Math.max(0, products.length - visible);
   const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    setIdx(i => Math.min(i, maxIdx));
+  }, [maxIdx]);
 
   return (
     <section id="servicos" className="py-20 bg-white">
@@ -107,12 +125,12 @@ export function ProductsSection() {
             <div
               className="flex"
               style={{
-                transform: `translateX(-${idx * (100 / VISIBLE)}%)`,
+                transform: `translateX(-${idx * (100 / visible)}%)`,
                 transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
               }}
             >
               {products.map((p, i) => (
-                <div key={i} style={{ width: `${100 / VISIBLE}%`, flexShrink: 0, padding: "0 8px" }}>
+                <div key={i} style={{ width: `${100 / visible}%`, flexShrink: 0, padding: "0 8px" }}>
                   <ProductCard {...p} />
                 </div>
               ))}
@@ -121,7 +139,7 @@ export function ProductsSection() {
 
           {/* Dots */}
           <div className="flex justify-center gap-2 mt-6">
-            {Array.from({ length: maxIdx + 1 }).map((_, i) => (
+            {Array.from({ length: Math.max(1, maxIdx + 1) }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => setIdx(i)}
