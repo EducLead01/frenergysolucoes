@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -58,7 +59,10 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${montserrat.variable} ${openSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-montserrat">{children}</body>
+      <body className="min-h-full flex flex-col font-montserrat">
+        {children}
+        <WhatsAppFloat />
+      </body>
     </html>
   );
 }
