@@ -14,7 +14,7 @@ const tabs = [
     ),
     titulo: "Gerenciamento Inteligente",
     descricao: "Nossa plataforma de gerenciamento energético monitora em tempo real a geração e o consumo da sua empresa. Com dashboards intuitivos, você acompanha cada kWh gerado, identifica desperdícios e toma decisões baseadas em dados precisos.",
-    img: "https://images.unsplash.com/photo-1581093196277-9f608bb3b511?w=800&q=80",
+    img: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&q=80",
   },
   {
     id: "independencia",
