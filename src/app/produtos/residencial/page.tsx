@@ -10,29 +10,28 @@ export default function ProdutoResidencial() {
       <main style={{ fontFamily: "'Open Sans', sans-serif" }}>
 
         {/* Hero */}
-        <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
-          >
-            <source src="https://solaredge.widen.net/content/lg36c9iabl/mp4/seh_hero_banner_v2_wash.mp4-1080p.mp4?quality=hd&t.autoplay=true" type="video/mp4" />
-          </video>
-          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.60)" }} />
-          <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "120px 32px 80px" }}>
-            <p style={{ color: "#FFC10E", fontWeight: 700, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Energia solar residencial</p>
-            <h1 style={{ color: "#fff", fontSize: "clamp(32px, 4.5vw, 62px)", fontWeight: 900, maxWidth: 760, lineHeight: 1.15, marginBottom: 20 }}>
-              Economia real na conta de luz todo mês.
-            </h1>
-            <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(16px, 2vw, 20px)", maxWidth: 560, lineHeight: 1.65, marginBottom: 40 }}>
-              Sistemas de 3 a 20 kWp para casas e apartamentos com retorno garantido em até 4 anos e 25 anos de geração.
-            </p>
-            <a href="#contato" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(90deg, #F0416E, #FF5900)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "16px 36px", borderRadius: 999, textDecoration: "none" }}>
-              Quero economizar na minha casa
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-            </a>
+        <section style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
+          <Image src="/images/hero01.jpeg" alt="Energia solar residencial" fill className="object-cover" priority />
+          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.45)" }} />
+          {/* Engenheiro */}
+          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "flex-end", justifyContent: "flex-end" }}>
+            <Image src="/images/hero02.png" alt="Técnico Frenergy" width={600} height={800} className="h-full w-auto object-contain object-bottom" priority />
+          </div>
+          {/* Texto */}
+          <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "0 32px", height: "100%", display: "flex", alignItems: "center" }}>
+            <div style={{ paddingTop: 120 }}>
+              <p style={{ color: "#FFC10E", fontWeight: 700, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Energia solar residencial</p>
+              <h1 style={{ color: "#fff", fontSize: "clamp(32px, 4.5vw, 62px)", fontWeight: 900, maxWidth: 760, lineHeight: 1.15, marginBottom: 20 }}>
+                Economia real na conta de luz todo mês.
+              </h1>
+              <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(16px, 2vw, 20px)", maxWidth: 560, lineHeight: 1.65, marginBottom: 40 }}>
+                Sistemas de 3 a 20 kWp para casas e apartamentos com retorno garantido em até 4 anos e 25 anos de geração.
+              </p>
+              <a href="#contato" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(90deg, #F0416E, #FF5900)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "16px 36px", borderRadius: 999, textDecoration: "none" }}>
+                Quero economizar na minha casa
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </a>
+            </div>
           </div>
         </section>
 
