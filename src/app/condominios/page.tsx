@@ -175,23 +175,14 @@ export default function Condominios() {
                 <span style={{ color: "#FF5900" }}>centro oeste brasileiro</span>
               </h2>
             </div>
-            {/* Imagens — mapa + engenheiro */}
+            {/* Mapa */}
             <div className="about-img-wrap">
               <Image
                 src="/images/brazil-states.png"
                 alt="Mapa do Brasil"
                 fill
-                style={{ objectFit: "contain", objectPosition: "center top", opacity: 0.85, filter: "sepia(1) saturate(2) hue-rotate(140deg)", padding: "0 20px 60px" }}
+                style={{ objectFit: "contain", objectPosition: "center", opacity: 0.85, filter: "sepia(1) saturate(2) hue-rotate(140deg)", padding: "0 20px" }}
               />
-              <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
-                <Image
-                  src="/images/tecnico.png"
-                  alt="Técnico Frenergy"
-                  width={220}
-                  height={380}
-                  style={{ width: "auto", height: 260, objectFit: "contain", objectPosition: "bottom" }}
-                />
-              </div>
             </div>
           </div>
         </div>
