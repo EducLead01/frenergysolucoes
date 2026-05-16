@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
@@ -17,7 +18,20 @@ export default function Agro() {
           }}
         >
           <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.55)" }} />
-          <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto", padding: "120px 32px 80px" }}>
+
+          {/* Fazendeiro — ancorado na base direita */}
+          <div style={{ position: "absolute", bottom: 0, right: "8%", zIndex: 1, display: "flex", alignItems: "flex-end" }}>
+            <Image
+              src="/images/Fazendeiro.png"
+              alt="Fazendeiro"
+              width={340}
+              height={520}
+              className="h-[70vh] w-auto object-contain object-bottom"
+              priority
+            />
+          </div>
+
+          <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "120px 32px 80px" }}>
             <p style={{ color: "#FFC10E", fontWeight: 700, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
               Energia solar para o agronegócio
             </p>
