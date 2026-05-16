@@ -35,42 +35,20 @@ const products = [
   },
 ];
 
-function ProductCard({ title, description, img, href }: typeof products[0]) {
+function ProductCard({ title, img, href }: typeof products[0]) {
   return (
-    <div
-      className="relative rounded-2xl overflow-hidden flex flex-col justify-end w-full"
+    <a
+      href={href}
+      className="relative rounded-2xl overflow-hidden block w-full group"
       style={{ aspectRatio: "310/480" }}
     >
-      {/* Imagem de fundo */}
       <img
         src={img}
         alt={title}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         draggable={false}
       />
-      {/* Overlay gradiente na base */}
-      <div
-        className="absolute inset-0"
-        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)" }}
-      />
-      {/* Conteúdo */}
-      <div className="relative z-10 p-5 flex flex-col gap-3">
-        <div>
-          <p className="text-white font-bold text-base leading-tight">{title}</p>
-          <p className="text-white/70 text-xs mt-1 leading-relaxed line-clamp-3">{description}</p>
-        </div>
-        <a
-          href={href}
-          className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-full text-white font-bold text-xs transition-opacity hover:opacity-90"
-          style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-        >
-          Saiba Mais
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </a>
-      </div>
-    </div>
+    </a>
   );
 }
 
