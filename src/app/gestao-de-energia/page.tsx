@@ -56,7 +56,7 @@ export default function GestaoDeEnergia() {
       <main className="min-h-screen" style={{ fontFamily: "'Open Sans', sans-serif" }}>
 
         {/* Hero */}
-        <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", background: "url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1600&q=80') center/cover no-repeat" }}>
+        <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", background: "url('/images/gestao de energia.jpg') center/cover no-repeat" }}>
           <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.62)" }} />
           <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "120px 32px 80px" }}>
             <p style={{ color: "#FFC10E", fontWeight: 700, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Gestão de energia</p>
