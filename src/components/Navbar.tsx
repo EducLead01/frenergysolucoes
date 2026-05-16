@@ -16,14 +16,14 @@ import {
 } from "lucide-react";
 
 const segments = [
-  { label: "Bares e Restaurantes",   icon: Utensils },
-  { label: "Postos de Combustíveis", icon: Fuel },
-  { label: "Usinas em Fazendas",     icon: Wheat },
-  { label: "Escolas e Faculdades",   icon: GraduationCap },
-  { label: "Oficinas Mecânicas",     icon: Wrench },
-  { label: "Condomínios",            icon: Building2 },
-  { label: "Templos e Igrejas",      icon: Landmark },
-  { label: "Galpões",                icon: Warehouse },
+  { label: "Bares e Restaurantes",   icon: Utensils,      href: "#segmentos" },
+  { label: "Postos de Combustíveis", icon: Fuel,          href: "#segmentos" },
+  { label: "Usinas em Fazendas",     icon: Wheat,         href: "/agro" },
+  { label: "Escolas e Faculdades",   icon: GraduationCap, href: "#segmentos" },
+  { label: "Oficinas Mecânicas",     icon: Wrench,        href: "#segmentos" },
+  { label: "Condomínios",            icon: Building2,     href: "/condominios" },
+  { label: "Templos e Igrejas",      icon: Landmark,      href: "#segmentos" },
+  { label: "Galpões",                icon: Warehouse,     href: "#segmentos" },
 ];
 
 const navLinks = [
@@ -89,7 +89,7 @@ export function Navbar() {
                   return (
                     <a
                       key={seg.label}
-                      href="#segmentos"
+                      href={seg.href}
                       className={`flex items-center gap-3 px-5 py-3.5 text-white text-[0.78rem] font-medium border-b border-white/10 hover:bg-white/15 transition-colors normal-case tracking-normal ${
                         i % 2 === 0 ? "border-r border-white/10" : ""
                       }`}
@@ -177,7 +177,7 @@ export function Navbar() {
                   return (
                     <a
                       key={seg.label}
-                      href="#segmentos"
+                      href={seg.href}
                       onClick={() => setMobileOpen(false)}
                       className="flex items-center gap-2 px-4 py-3 text-white/80 text-xs font-medium border-b border-white/10 hover:text-white transition-colors"
                     >
