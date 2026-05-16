@@ -10,7 +10,16 @@ export default function ProdutoResidencial() {
       <main style={{ fontFamily: "'Open Sans', sans-serif" }}>
 
         {/* Hero */}
-        <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", background: "url('https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=1600&q=80') center/cover no-repeat" }}>
+        <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+          >
+            <source src="https://solaredge.widen.net/content/lg36c9iabl/mp4/seh_hero_banner_v2_wash.mp4-1080p.mp4?quality=hd&t.autoplay=true" type="video/mp4" />
+          </video>
           <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.60)" }} />
           <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "120px 32px 80px" }}>
             <p style={{ color: "#FFC10E", fontWeight: 700, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Energia solar residencial</p>
