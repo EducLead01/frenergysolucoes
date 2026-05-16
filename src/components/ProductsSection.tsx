@@ -30,7 +30,7 @@ const products = [
   {
     title: "Comercial",
     description: "Sistemas de 20 a 75 kWp para empresas e comércios. Projeto elétrico completo, homologação ANEEL e acompanhamento dedicado.",
-    img: "https://images.unsplash.com/photo-1592833159155-c62df1b65634?w=800&q=80",
+    img: "/images/Comercial.png",
     href: "/produtos/comercial",
   },
 ];
