@@ -5,7 +5,6 @@ import { AnimacaoSolar } from "@/components/AnimacaoSolar";
 import { CalculadoraSection } from "@/components/CalculadoraSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { EsferaHero } from "@/components/esfera/EsferaHero";
-import { EsferaAudioTestimonials } from "@/components/esfera/EsferaAudioTestimonials";
 import { EsferaStats } from "@/components/esfera/EsferaStats";
 import { EsferaClientLogos } from "@/components/esfera/EsferaClientLogos";
 import { EsferaExperts } from "@/components/esfera/EsferaExperts";
@@ -25,7 +24,6 @@ export default function Home() {
         <ProductsSection />
         {/* — Esfera Simplifica clone — */}
         <EsferaHero />
-        <EsferaAudioTestimonials />
         <EsferaStats />
         <EsferaClientLogos />
         <EsferaExperts />
