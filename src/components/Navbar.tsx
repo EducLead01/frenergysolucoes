@@ -16,14 +16,14 @@ import {
 } from "lucide-react";
 
 const segments = [
-  { label: "Bares e Restaurantes",   icon: Utensils,      href: "#segmentos" },
-  { label: "Postos de Combustíveis", icon: Fuel,          href: "#segmentos" },
+  { label: "Bares e Restaurantes",   icon: Utensils,      href: "/bares" },
+  { label: "Postos de Combustíveis", icon: Fuel,          href: "/postos" },
   { label: "Usinas em Fazendas",     icon: Wheat,         href: "/agro" },
-  { label: "Escolas e Faculdades",   icon: GraduationCap, href: "#segmentos" },
-  { label: "Oficinas Mecânicas",     icon: Wrench,        href: "#segmentos" },
+  { label: "Escolas e Faculdades",   icon: GraduationCap, href: "/escolas" },
+  { label: "Oficinas Mecânicas",     icon: Wrench,        href: "/oficinas" },
   { label: "Condomínios",            icon: Building2,     href: "/condominios" },
-  { label: "Templos e Igrejas",      icon: Landmark,      href: "#segmentos" },
-  { label: "Galpões",                icon: Warehouse,     href: "#segmentos" },
+  { label: "Templos e Igrejas",      icon: Landmark,      href: "/templos" },
+  { label: "Galpões",                icon: Warehouse,     href: "/galpoes" },
 ];
 
 const navLinks = [
