@@ -179,7 +179,7 @@ export default function Condominios() {
                 <span style={{ color: "#FF5900" }}>centro oeste brasileiro</span>
               </h2>
             </div>
-            {/* Mapa + Centro-Oeste highlight */}
+            {/* Mapa */}
             <div className="about-img-wrap">
               <Image
                 src="/images/brazil-states.png"
@@ -187,28 +187,6 @@ export default function Condominios() {
                 fill
                 style={{ objectFit: "contain", objectPosition: "center", opacity: 0.85, filter: "sepia(1) saturate(2) hue-rotate(140deg)", padding: "0 20px" }}
               />
-              {/* SVG overlay — Centro-Oeste animado */}
-              <svg
-                viewBox="0 0 100 116"
-                preserveAspectRatio="xMidYMid meet"
-                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", padding: "0 20px", boxSizing: "border-box" }}
-              >
-                {/* Polígono aproximado do Centro-Oeste (MT + GO + MS + DF) */}
-                <polygon
-                  className="co-fill"
-                  points="18,22 28,13 50,13 60,18 67,26 67,50 60,55 54,65 50,80 36,82 24,80 16,65 16,40"
-                  fill="#FF5900"
-                  fillOpacity="0.15"
-                  stroke="none"
-                />
-                <polygon
-                  className="co-border"
-                  points="18,22 28,13 50,13 60,18 67,26 67,50 60,55 54,65 50,80 36,82 24,80 16,65 16,40"
-                  fill="none"
-                  stroke="#FF5900"
-                  strokeWidth="1.2"
-                />
-              </svg>
             </div>
           </div>
         </div>
