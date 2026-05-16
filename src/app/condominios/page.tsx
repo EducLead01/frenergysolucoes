@@ -58,6 +58,10 @@ export default function Condominios() {
         .ticker-track:hover { animation-play-state: paused; }
         @keyframes br-run { to { stroke-dashoffset: -1860; } }
         .br-dash { stroke-dasharray: 60 1800; stroke-dashoffset: 0; animation: br-run 4s linear infinite; }
+        @keyframes co-dash { to { stroke-dashoffset: -200; } }
+        @keyframes co-pulse { 0%,100% { fill-opacity: 0.12; } 50% { fill-opacity: 0.28; } }
+        .co-border { stroke-dasharray: 10 5; stroke-dashoffset: 0; animation: co-dash 2.4s linear infinite; }
+        .co-fill { animation: co-pulse 2.4s ease-in-out infinite; }
         .icon-cards-grid { transform: translateY(-50%); margin-bottom: -40px; }
         .about-flex { display: flex; align-items: center; gap: 48px; }
         .about-text { flex: 1 1 380px; }
@@ -175,7 +179,7 @@ export default function Condominios() {
                 <span style={{ color: "#FF5900" }}>centro oeste brasileiro</span>
               </h2>
             </div>
-            {/* Mapa */}
+            {/* Mapa + Centro-Oeste highlight */}
             <div className="about-img-wrap">
               <Image
                 src="/images/brazil-states.png"
@@ -183,6 +187,28 @@ export default function Condominios() {
                 fill
                 style={{ objectFit: "contain", objectPosition: "center", opacity: 0.85, filter: "sepia(1) saturate(2) hue-rotate(140deg)", padding: "0 20px" }}
               />
+              {/* SVG overlay — Centro-Oeste animado */}
+              <svg
+                viewBox="0 0 100 116"
+                preserveAspectRatio="xMidYMid meet"
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", padding: "0 20px", boxSizing: "border-box" }}
+              >
+                {/* Polígono aproximado do Centro-Oeste (MT + GO + MS + DF) */}
+                <polygon
+                  className="co-fill"
+                  points="18,22 28,13 50,13 60,18 67,26 67,50 60,55 54,65 50,80 36,82 24,80 16,65 16,40"
+                  fill="#FF5900"
+                  fillOpacity="0.15"
+                  stroke="none"
+                />
+                <polygon
+                  className="co-border"
+                  points="18,22 28,13 50,13 60,18 67,26 67,50 60,55 54,65 50,80 36,82 24,80 16,65 16,40"
+                  fill="none"
+                  stroke="#FF5900"
+                  strokeWidth="1.2"
+                />
+              </svg>
             </div>
           </div>
         </div>
