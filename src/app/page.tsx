@@ -7,7 +7,6 @@ import { EsferaHero } from "@/components/esfera/EsferaHero";
 import { EsferaStats } from "@/components/esfera/EsferaStats";
 import { EsferaBenefitsCards } from "@/components/esfera/EsferaBenefitsCards";
 import { EsferaFAQ } from "@/components/esfera/EsferaFAQ";
-import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
         <EsferaHero />
         <EsferaStats />
         <EsferaFAQ />
-        <EsferaContactForm />
 
         {/* Quem somos */}
         <section style={{ background: "#fff", padding: "80px 0" }}>
