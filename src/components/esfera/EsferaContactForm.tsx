@@ -67,13 +67,12 @@ export function EsferaContactForm() {
   function choose(opt: string) {
     if (!current) return;
     setAnswers((a) => ({ ...a, [current.field]: opt }));
+    if (current.field === "tarifaSocial" && opt === "Sim") {
+      setStep(STEPS.length + 1);
+    }
   }
 
   function next() {
-    if (answers.tarifaSocial === "Sim") {
-      setStep(STEPS.length + 1);
-      return;
-    }
     setStep((s) => s + 1);
   }
 
