@@ -1,6 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { Home, Building2, Warehouse, Wheat, type LucideIcon } from "lucide-react";
+
+const TIPO_ICONS: Record<string, LucideIcon> = {
+  "Residencial": Home,
+  "Comercial": Building2,
+  "Industrial": Warehouse,
+  "Agronegócio": Wheat,
+};
 
 const STEPS = [
   {
@@ -170,39 +178,46 @@ export function EsferaContactForm() {
 
               {/* Opções */}
               <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 28 }}>
-                {current.options.map((opt) => (
-                  <button
-                    key={opt}
-                    type="button"
-                    onClick={() => choose(opt)}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 12,
-                      padding: "14px 18px",
-                      borderRadius: 12,
-                      border: selected === opt ? "2px solid #FF5900" : "2px solid #e5e7eb",
-                      background: selected === opt ? "rgba(255,89,0,0.06)" : "#fff",
-                      cursor: "pointer",
-                      textAlign: "left",
-                      transition: "all 0.15s",
-                      fontWeight: selected === opt ? 700 : 500,
-                      color: selected === opt ? "#FF5900" : "#374151",
-                      fontSize: 15,
-                    }}
-                  >
-                    <span style={{
-                      width: 20, height: 20, borderRadius: "50%",
-                      border: selected === opt ? "2px solid #FF5900" : "2px solid #d1d5db",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      flexShrink: 0,
-                      background: selected === opt ? "#FF5900" : "transparent",
-                    }}>
-                      {selected === opt && <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#fff", display: "block" }} />}
-                    </span>
-                    {opt}
-                  </button>
-                ))}
+                {current.options.map((opt) => {
+                  const Icon = current.field === "tipo" ? TIPO_ICONS[opt] : undefined;
+                  return (
+                    <button
+                      key={opt}
+                      type="button"
+                      onClick={() => choose(opt)}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 12,
+                        padding: "14px 18px",
+                        borderRadius: 12,
+                        border: selected === opt ? "2px solid #FF5900" : "2px solid #e5e7eb",
+                        background: selected === opt ? "rgba(255,89,0,0.06)" : "#fff",
+                        cursor: "pointer",
+                        textAlign: "left",
+                        transition: "all 0.15s",
+                        fontWeight: selected === opt ? 700 : 500,
+                        color: selected === opt ? "#FF5900" : "#374151",
+                        fontSize: 15,
+                      }}
+                    >
+                      {Icon ? (
+                        <Icon size={20} style={{ color: selected === opt ? "#FF5900" : "#9ca3af", flexShrink: 0 }} />
+                      ) : (
+                        <span style={{
+                          width: 20, height: 20, borderRadius: "50%",
+                          border: selected === opt ? "2px solid #FF5900" : "2px solid #d1d5db",
+                          display: "flex", alignItems: "center", justifyContent: "center",
+                          flexShrink: 0,
+                          background: selected === opt ? "#FF5900" : "transparent",
+                        }}>
+                          {selected === opt && <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#fff", display: "block" }} />}
+                        </span>
+                      )}
+                      {opt}
+                    </button>
+                  );
+                })}
               </div>
 
               {/* Botão próximo */}
