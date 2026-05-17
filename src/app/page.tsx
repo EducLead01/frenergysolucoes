@@ -6,7 +6,6 @@ import { CalculadoraSection } from "@/components/CalculadoraSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { EsferaHero } from "@/components/esfera/EsferaHero";
 import { EsferaStats } from "@/components/esfera/EsferaStats";
-import { EsferaClientLogos } from "@/components/esfera/EsferaClientLogos";
 import { EsferaBenefitsCards } from "@/components/esfera/EsferaBenefitsCards";
 import { EsferaFAQ } from "@/components/esfera/EsferaFAQ";
 import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
@@ -24,7 +23,6 @@ export default function Home() {
         {/* — Esfera Simplifica clone — */}
         <EsferaHero />
         <EsferaStats />
-        <EsferaClientLogos />
         <EsferaFAQ />
         <CalculadoraSection />
         <EsferaContactForm />
