@@ -95,8 +95,8 @@ export function EsferaContactForm() {
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.75)" }} />
         <div style={{ position: "relative", zIndex: 1, padding: "80px 24px", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
           <div style={{ textAlign: "center" }}>
-            <p style={{ color: "#FFC10E", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>Orçamento gratuito</p>
-            <h2 style={{ color: "#fff", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 900, lineHeight: 1.2 }}>Rápido e sem compromisso!</h2>
+            <h2 style={{ color: "#fff", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 900, lineHeight: 1.2 }}>Orçamento personalizado</h2>
+            <p style={{ color: "rgba(255,255,255,0.65)", fontSize: 15, marginTop: 8 }}>leva menos de 30 segundos</p>
           </div>
           <div style={{ background: "#fff", borderRadius: 20, padding: "40px 28px", width: "100%", maxWidth: 580, boxShadow: "0 20px 60px rgba(0,0,0,0.4)", textAlign: "center" }}>
             <div style={{ fontSize: 52, marginBottom: 16 }}>⚠️</div>
