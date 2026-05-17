@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 const cases = [
-  { img: "/images/Residencial.png",      href: "/cases/cliente01" },
+  { img: "/images/panificadora.png",     href: "/cases/cliente01" },
   { img: "/images/Comercial.png",        href: "/cases/cliente02" },
   { img: "/images/Industrial.png",       href: "/cases/cliente03" },
   { img: "/images/Agro.png",             href: "/cases/cliente04" },
