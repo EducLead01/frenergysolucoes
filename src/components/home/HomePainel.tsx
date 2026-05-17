@@ -119,7 +119,7 @@ export function HomePainel() {
 
             <a
               ref={btnRef}
-              href="#contato"
+              href="/orcamentos"
               className="self-start inline-flex items-center gap-2 px-8 py-4 rounded-[70px] text-white font-bold text-base transition-opacity hover:opacity-90"
               style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)", ...reveal }}
             >

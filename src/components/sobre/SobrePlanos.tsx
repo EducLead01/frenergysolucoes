@@ -171,7 +171,7 @@ export function SobrePlanos() {
               </div>
 
               <a
-                href="#contato"
+                href="/orcamentos"
                 style={{
                   marginTop: "auto",
                   display: "block",
@@ -192,7 +192,7 @@ export function SobrePlanos() {
 
         <div style={{ textAlign: "center", marginTop: 40 }}>
           <a
-            href="#contato"
+            href="/orcamentos"
             style={{
               display: "inline-block",
               backgroundColor: "rgb(247, 157, 52)",

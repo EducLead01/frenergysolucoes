@@ -157,7 +157,7 @@ export function CalculadoraSection() {
           </p>
 
           <a
-            href="#contato"
+            href="/orcamentos"
             className="inline-flex items-center justify-center gap-2 w-full text-white font-bold py-4 rounded-full text-lg transition-opacity hover:opacity-90"
             style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
           >

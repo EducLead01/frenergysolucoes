@@ -30,7 +30,7 @@ export default function ProdutoResidencial() {
                 <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] leading-snug">Economia real na conta de luz <span style={{ color: "#FF5900" }}>todo mês</span></h2>
                 <p className="text-[#787878] text-base leading-relaxed">Sistemas de 3 a 20 kWp são ideais para casas e apartamentos. Com energia solar, você deixa de pagar à distribuidora e passa a produzir sua própria eletricidade, com retorno garantido em até 4 anos.</p>
                 <p className="text-[#787878] text-base leading-relaxed">A Frenergy realiza a visita técnica, dimensiona o sistema ideal para o seu perfil de consumo, cuida de toda a documentação e entrega o projeto instalado e funcionando. Você só precisa acompanhar a economia.</p>
-                <a href="#contato" className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90" style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}>
+                <a href="/orcamentos" className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90" style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}>
                   Quero economizar
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
