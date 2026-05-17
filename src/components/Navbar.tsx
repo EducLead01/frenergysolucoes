@@ -117,7 +117,7 @@ export function Navbar() {
         {/* CTA + hamburger */}
         <div className="flex items-center gap-4">
           <a
-            href="#contato"
+            href="/orcamentos"
             className="hidden lg:inline-flex items-center gap-1.5 text-white font-bold uppercase text-xs lg:text-sm px-5 py-2.5 rounded-full transition-opacity hover:opacity-90"
             style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
           >
@@ -201,7 +201,7 @@ export function Navbar() {
             ))}
 
             <a
-              href="#contato"
+              href="/orcamentos"
               onClick={() => setMobileOpen(false)}
               className="mx-6 my-4 flex items-center justify-center gap-2 text-white font-bold uppercase text-sm px-4 py-3 rounded-full transition-opacity hover:opacity-90"
               style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
