@@ -2,7 +2,6 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSlider } from "@/components/HeroSlider";
 import { ProductsSection } from "@/components/ProductsSection";
 import { AnimacaoSolar } from "@/components/AnimacaoSolar";
-import { CalculadoraSection } from "@/components/CalculadoraSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { EsferaHero } from "@/components/esfera/EsferaHero";
 import { EsferaStats } from "@/components/esfera/EsferaStats";
@@ -24,7 +23,6 @@ export default function Home() {
         <EsferaHero />
         <EsferaStats />
         <EsferaFAQ />
-        <CalculadoraSection />
         <EsferaContactForm />
 
         {/* Quem somos */}
