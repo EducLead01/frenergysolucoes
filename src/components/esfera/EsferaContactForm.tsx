@@ -2,164 +2,309 @@
 
 import { useState } from "react";
 
-const inputClass =
-  "w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 outline-none focus:border-gray-400 transition-colors bg-white placeholder:text-gray-400";
+const STEPS = [
+  {
+    pct: 20,
+    question: "Qual o tipo do seu imóvel?",
+    field: "tipo",
+    options: ["Residencial", "Comercial", "Industrial", "Agronegócio"],
+  },
+  {
+    pct: 40,
+    question: "Qual é o seu estado?",
+    field: "estado",
+    options: ["GO", "DF", "MT", "MG", "TO", "Outro"],
+  },
+  {
+    pct: 60,
+    question: "Qual o valor médio da sua conta de energia?",
+    field: "conta",
+    options: [
+      "Abaixo de R$ 300",
+      "Entre R$ 300 e R$ 1.000",
+      "Entre R$ 1.000 e R$ 3.000",
+      "Entre R$ 3.000 e R$ 5.000",
+      "Acima de R$ 5.000",
+    ],
+  },
+  {
+    pct: 80,
+    question: "O valor da sua conta é maior que R$ 1.000,00?",
+    field: "contaMaior",
+    options: ["Sim", "Não"],
+  },
+  {
+    pct: 90,
+    question: "Você possui benefício da Tarifa Social de Energia Elétrica?",
+    field: "tarifaSocial",
+    options: ["Sim", "Não"],
+  },
+];
 
-const labelClass = "text-sm font-medium text-gray-700";
-
-const ESTADOS = ["GO", "DF", "MT", "MG", "TO"];
-
-function SimNao({
-  value,
-  onChange,
-}: {
-  value: "Sim" | "Não" | null;
-  onChange: (v: "Sim" | "Não") => void;
-}) {
-  const base =
-    "flex-1 py-3.5 rounded-xl text-sm font-medium border transition-colors cursor-pointer";
-  const active = "bg-teal-800 text-white border-teal-800";
-  const inactive = "bg-white text-gray-700 border-gray-200 hover:border-gray-300";
-
-  return (
-    <div className="flex gap-3">
-      {(["Sim", "Não"] as const).map((opt) => (
-        <button
-          key={opt}
-          type="button"
-          onClick={() => onChange(opt)}
-          className={`${base} ${value === opt ? active : inactive}`}
-        >
-          {opt}
-        </button>
-      ))}
-    </div>
-  );
-}
+type Answers = Record<string, string>;
 
 export function EsferaContactForm() {
+  const [step, setStep] = useState(0);
+  const [answers, setAnswers] = useState<Answers>({});
+  const [nome, setNome] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
+  const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
-  const [contaMaior300, setContaMaior300] = useState<"Sim" | "Não" | null>(null);
-  const [tarifaSocial, setTarifaSocial] = useState<"Sim" | "Não" | null>(null);
+
+  const isLastQuestion = step === STEPS.length;
+  const current = STEPS[step];
+  const pct = isLastQuestion ? 100 : current.pct;
+
+  const selected = current ? answers[current.field] : null;
+
+  const blocked =
+    !isLastQuestion && !selected
+      ? true
+      : isLastQuestion && (!nome || !whatsapp || !email)
+      ? true
+      : false;
+
+  function choose(opt: string) {
+    if (!current) return;
+    setAnswers((a) => ({ ...a, [current.field]: opt }));
+  }
+
+  function next() {
+    if (step === STEPS.length - 1 && answers.tarifaSocial === "Sim") {
+      setStep(STEPS.length + 1);
+      return;
+    }
+    setStep((s) => s + 1);
+  }
+
+  function submit(e: React.FormEvent) {
+    e.preventDefault();
+    setSent(true);
+  }
+
+  if (sent || step === STEPS.length + 1) {
+    return (
+      <section id="contato" className="py-16" style={{ background: "#111", minHeight: 420, display: "flex", alignItems: "center" }}>
+        <div className="container mx-auto px-6 max-w-lg text-center">
+          {step === STEPS.length + 1 ? (
+            <>
+              <div style={{ fontSize: 48, marginBottom: 16 }}>⚠️</div>
+              <p className="text-2xl font-bold text-white mb-3">Não conseguimos ajudar neste caso</p>
+              <p className="text-white/60 leading-relaxed">
+                Quem possui Tarifa Social já tem o benefício máximo permitido pelo governo. Qualquer dúvida, entre em contato conosco.
+              </p>
+            </>
+          ) : (
+            <>
+              <div style={{ fontSize: 48, marginBottom: 16 }}>✅</div>
+              <p className="text-2xl font-bold text-white mb-3">Orçamento solicitado!</p>
+              <p className="text-white/60">Em breve nossa equipe entrará em contato com você.</p>
+            </>
+          )}
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section id="contato" className="py-16" style={{ background: "#F5F5F5" }}>
-      <div className="container mx-auto px-6 max-w-5xl">
-        <div className="flex flex-col lg:flex-row gap-12 items-start">
+    <section id="contato" style={{ background: "url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80') center/cover no-repeat", position: "relative" }}>
+      <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.75)" }} />
+      <div style={{ position: "relative", zIndex: 1, padding: "80px 24px", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
 
-          {/* Left */}
-          <div className="flex-1 flex flex-col justify-center lg:pt-4">
-            <h2 className="text-2xl lg:text-3xl font-bold leading-snug text-[#4D4D4D] text-justify lg:text-left">
-              Entre em contato para começar a economizar
-            </h2>
-          </div>
+        {/* Título acima do card */}
+        <div style={{ textAlign: "center" }}>
+          <p style={{ color: "#FFC10E", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>Orçamento gratuito</p>
+          <h2 style={{ color: "#fff", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 900, lineHeight: 1.2 }}>
+            Rápido e sem compromisso!
+          </h2>
+        </div>
 
-          {/* Right: form */}
-          <div className="flex-1 w-full bg-white rounded-2xl shadow-sm p-8">
-            {sent ? (
-              <div className="text-center py-12">
-                <p className="text-2xl font-bold text-[#F0416E]">Mensagem enviada!</p>
-                <p className="text-gray-500 mt-2">Em breve entraremos em contato.</p>
-              </div>
-            ) : (
-              <form
-                className="flex flex-col gap-5"
-                onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+        {/* Card */}
+        <div style={{ background: "#fff", borderRadius: 20, padding: "32px 28px", width: "100%", maxWidth: 580, boxShadow: "0 20px 60px rgba(0,0,0,0.4)" }}>
+
+          {/* Progress bar */}
+          <div style={{ marginBottom: 28 }}>
+            <div style={{ background: "#e5e7eb", borderRadius: 999, height: 12, overflow: "hidden", position: "relative" }}>
+              <div
+                style={{
+                  height: "100%",
+                  borderRadius: 999,
+                  background: "linear-gradient(90deg, #F0416E, #FF5900)",
+                  width: `${pct}%`,
+                  transition: "width 0.4s ease",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "flex-end",
+                  paddingRight: 8,
+                }}
               >
-                {/* Nome */}
-                <div className="flex flex-col gap-1.5">
-                  <label className={labelClass}>Qual o seu nome?</label>
-                  <input type="text" placeholder="" required className={inputClass} />
-                </div>
-
-                {/* E-mail + WhatsApp */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex flex-col gap-1.5">
-                    <label className={labelClass}>
-                      Qual o seu e-mail? <span className="text-red-500">*</span>
-                    </label>
-                    <input type="email" placeholder="E-mail" required className={inputClass} />
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <label className={labelClass}>
-                      Qual o seu Whatsapp? <span className="text-red-500">*</span>
-                    </label>
-                    <input type="tel" placeholder="(XX) XXXXX-XXXX" required className={inputClass} />
-                  </div>
-                </div>
-
-                {/* Valor médio + Estado */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex flex-col gap-1.5">
-                    <label className={labelClass}>
-                      Qual Valor médio da sua conta de energia? <span className="text-red-500">*</span>
-                    </label>
-                    <select required className={inputClass}>
-                      <option value="">Selecione</option>
-                      <option>Abaixo de R$ 1.000</option>
-                      <option>Entre R$ 1.000 e R$ 3.000</option>
-                      <option>Entre R$ 3.000 e R$ 5.000</option>
-                      <option>Entre R$ 5.000 e R$ 8.000</option>
-                      <option>Entre R$ 8.000 e R$ 12.000</option>
-                      <option>Acima de R$ 12.000</option>
-                    </select>
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <label className={labelClass}>
-                      Qual é o seu estado? <span className="text-red-500">*</span>
-                    </label>
-                    <select required className={inputClass}>
-                      {ESTADOS.map((uf) => (
-                        <option key={uf} value={uf}>{uf}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Conta maior que R$ 300 */}
-                <div className="flex flex-col gap-2.5">
-                  <label className={labelClass}>
-                    O valor da sua conta é maior que R$ 1.000,00? <span className="text-red-500">*</span>
-                  </label>
-                  <SimNao value={contaMaior300} onChange={setContaMaior300} />
-                </div>
-
-                {/* Tarifa Social */}
-                <div className="flex flex-col gap-2.5">
-                  <label className={labelClass}>
-                    Você possui benefício da Tarifa Social de Energia Elétrica? <span className="text-red-500">*</span>
-                  </label>
-                  <SimNao value={tarifaSocial} onChange={setTarifaSocial} />
-                </div>
-
-                {/* Warning: Tarifa Social */}
-                {tarifaSocial === "Sim" && (
-                  <div className="rounded-xl px-4 py-3 text-sm text-white leading-relaxed" style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}>
-                    Infelizmente não conseguimos oferecer nossa implementação para quem já possui a
-                    Tarifa Social, pois o benefício do governo já é o limite máximo permitido.
-                    Qualquer dúvida, estou à disposição.
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  className="w-full py-4 rounded-full inline-flex items-center justify-center gap-2 text-white font-bold text-base transition-opacity hover:opacity-90 mt-1"
-                  style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-                >
-                  Enviar
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </button>
-
-                <p className="text-gray-400 text-xs text-center leading-relaxed">
-                  Ao clicar em enviar você concorda que entraremos em contato com você, bem como com a nossa{" "}
-                  <a href="#" className="text-[#F0416E] underline">Política de Privacidade</a>.
-                </p>
-              </form>
-            )}
+                <span style={{ color: "#fff", fontSize: 10, fontWeight: 700 }}>{pct}%</span>
+              </div>
+            </div>
           </div>
 
+          {!isLastQuestion ? (
+            <>
+              {/* Pergunta */}
+              <p style={{ fontWeight: 800, fontSize: "clamp(16px, 2.5vw, 20px)", color: "#1a1a1a", marginBottom: 20, lineHeight: 1.3 }}>
+                {current.question}
+              </p>
+
+              {/* Opções */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 28 }}>
+                {current.options.map((opt) => (
+                  <button
+                    key={opt}
+                    type="button"
+                    onClick={() => choose(opt)}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 12,
+                      padding: "14px 18px",
+                      borderRadius: 12,
+                      border: selected === opt ? "2px solid #FF5900" : "2px solid #e5e7eb",
+                      background: selected === opt ? "rgba(255,89,0,0.06)" : "#fff",
+                      cursor: "pointer",
+                      textAlign: "left",
+                      transition: "all 0.15s",
+                      fontWeight: selected === opt ? 700 : 500,
+                      color: selected === opt ? "#FF5900" : "#374151",
+                      fontSize: 15,
+                    }}
+                  >
+                    <span style={{
+                      width: 20, height: 20, borderRadius: "50%",
+                      border: selected === opt ? "2px solid #FF5900" : "2px solid #d1d5db",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      flexShrink: 0,
+                      background: selected === opt ? "#FF5900" : "transparent",
+                    }}>
+                      {selected === opt && <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#fff", display: "block" }} />}
+                    </span>
+                    {opt}
+                  </button>
+                ))}
+              </div>
+
+              {/* Botão próximo */}
+              <button
+                type="button"
+                onClick={next}
+                disabled={!selected}
+                style={{
+                  width: "100%",
+                  padding: "16px",
+                  borderRadius: 12,
+                  border: "none",
+                  background: selected ? "linear-gradient(90deg, #F0416E, #FF5900)" : "#e5e7eb",
+                  color: selected ? "#fff" : "#9ca3af",
+                  fontWeight: 700,
+                  fontSize: 16,
+                  cursor: selected ? "pointer" : "default",
+                  transition: "all 0.2s",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 8,
+                }}
+              >
+                Próximo
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </button>
+
+              {/* Voltar */}
+              {step > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setStep((s) => s - 1)}
+                  style={{ marginTop: 12, background: "none", border: "none", color: "#9ca3af", fontSize: 13, cursor: "pointer", width: "100%", textAlign: "center" }}
+                >
+                  ← Voltar
+                </button>
+              )}
+            </>
+          ) : (
+            /* Etapa final: dados pessoais */
+            <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              <p style={{ fontWeight: 800, fontSize: "clamp(16px, 2.5vw, 20px)", color: "#1a1a1a", marginBottom: 4, lineHeight: 1.3 }}>
+                Quase lá! Informe seus dados para receber o orçamento.
+              </p>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                <label style={{ fontSize: 13, fontWeight: 600, color: "#374151" }}>Qual o seu nome?</label>
+                <input
+                  type="text"
+                  value={nome}
+                  onChange={(e) => setNome(e.target.value)}
+                  placeholder="Seu nome completo"
+                  required
+                  style={{ border: "2px solid #e5e7eb", borderRadius: 12, padding: "12px 16px", fontSize: 14, outline: "none", transition: "border 0.2s", color: "#1a1a1a" }}
+                />
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                <label style={{ fontSize: 13, fontWeight: 600, color: "#374151" }}>Qual o seu WhatsApp?</label>
+                <input
+                  type="tel"
+                  value={whatsapp}
+                  onChange={(e) => setWhatsapp(e.target.value)}
+                  placeholder="(62) 99999-9999"
+                  required
+                  style={{ border: "2px solid #e5e7eb", borderRadius: 12, padding: "12px 16px", fontSize: 14, outline: "none", transition: "border 0.2s", color: "#1a1a1a" }}
+                />
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                <label style={{ fontSize: 13, fontWeight: 600, color: "#374151" }}>Qual o seu e-mail?</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="seu@email.com"
+                  required
+                  style={{ border: "2px solid #e5e7eb", borderRadius: 12, padding: "12px 16px", fontSize: 14, outline: "none", transition: "border 0.2s", color: "#1a1a1a" }}
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={blocked}
+                style={{
+                  marginTop: 4,
+                  width: "100%",
+                  padding: "16px",
+                  borderRadius: 12,
+                  border: "none",
+                  background: !blocked ? "linear-gradient(90deg, #F0416E, #FF5900)" : "#e5e7eb",
+                  color: !blocked ? "#fff" : "#9ca3af",
+                  fontWeight: 700,
+                  fontSize: 16,
+                  cursor: !blocked ? "pointer" : "default",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 8,
+                }}
+              >
+                Solicitar orçamento grátis
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setStep((s) => s - 1)}
+                style={{ background: "none", border: "none", color: "#9ca3af", fontSize: 13, cursor: "pointer", textAlign: "center" }}
+              >
+                ← Voltar
+              </button>
+
+              <p style={{ color: "#9ca3af", fontSize: 11, textAlign: "center", lineHeight: 1.5 }}>
+                Ao solicitar você concorda com a nossa{" "}
+                <a href="#" style={{ color: "#F0416E" }}>Política de Privacidade</a>.
+              </p>
+            </form>
+          )}
         </div>
       </div>
     </section>
