@@ -53,7 +53,7 @@ export function EsferaContactForm() {
 
   const isLastQuestion = step === STEPS.length;
   const current = STEPS[step];
-  const pct = isLastQuestion ? 100 : current.pct;
+  const pct = isLastQuestion ? 100 : (current?.pct ?? 100);
 
   const selected = current ? answers[current.field] : null;
 
