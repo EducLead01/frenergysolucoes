@@ -139,10 +139,8 @@ export function EsferaContactForm() {
 
         {/* Título acima do card */}
         <div style={{ textAlign: "center" }}>
-          <p style={{ color: "#FFC10E", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>Orçamento gratuito</p>
-          <h2 style={{ color: "#fff", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 900, lineHeight: 1.2 }}>
-            Rápido e sem compromisso!
-          </h2>
+          <h2 style={{ color: "#fff", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 900, lineHeight: 1.2 }}>Orçamento Personalizado</h2>
+          <p style={{ color: "rgba(255,255,255,0.65)", fontSize: 15, marginTop: 8 }}>Leva menos de 30 segundos</p>
         </div>
 
         {/* Card */}
