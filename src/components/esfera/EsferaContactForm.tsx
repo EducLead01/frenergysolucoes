@@ -81,25 +81,44 @@ export function EsferaContactForm() {
     setSent(true);
   }
 
-  if (sent || step === STEPS.length + 1) {
+  if (step === STEPS.length + 1) {
     return (
-      <section id="contato" className="py-16" style={{ background: "#111", minHeight: 420, display: "flex", alignItems: "center" }}>
-        <div className="container mx-auto px-6 max-w-lg text-center">
-          {step === STEPS.length + 1 ? (
-            <>
-              <div style={{ fontSize: 48, marginBottom: 16 }}>⚠️</div>
-              <p className="text-2xl font-bold text-white mb-3">Não conseguimos ajudar neste caso</p>
-              <p className="text-white/60 leading-relaxed">
-                Quem possui Tarifa Social já tem o benefício máximo permitido pelo governo. Qualquer dúvida, entre em contato conosco.
-              </p>
-            </>
-          ) : (
-            <>
-              <div style={{ fontSize: 48, marginBottom: 16 }}>✅</div>
-              <p className="text-2xl font-bold text-white mb-3">Orçamento solicitado!</p>
-              <p className="text-white/60">Em breve nossa equipe entrará em contato com você.</p>
-            </>
-          )}
+      <section id="contato" style={{ background: "url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80') center/cover no-repeat", position: "relative" }}>
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.75)" }} />
+        <div style={{ position: "relative", zIndex: 1, padding: "80px 24px", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
+          <div style={{ textAlign: "center" }}>
+            <p style={{ color: "#FFC10E", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>Orçamento gratuito</p>
+            <h2 style={{ color: "#fff", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 900, lineHeight: 1.2 }}>Rápido e sem compromisso!</h2>
+          </div>
+          <div style={{ background: "#fff", borderRadius: 20, padding: "40px 28px", width: "100%", maxWidth: 580, boxShadow: "0 20px 60px rgba(0,0,0,0.4)", textAlign: "center" }}>
+            <div style={{ fontSize: 52, marginBottom: 16 }}>⚠️</div>
+            <p style={{ fontWeight: 800, fontSize: 20, color: "#1a1a1a", marginBottom: 10 }}>Não conseguimos ajudar neste caso</p>
+            <p style={{ color: "#6b7280", fontSize: 15, lineHeight: 1.65, marginBottom: 28 }}>
+              Quem possui Tarifa Social já tem o benefício máximo permitido pelo governo. Qualquer dúvida, entre em contato conosco.
+            </p>
+            <button
+              type="button"
+              onClick={() => { setStep(0); setAnswers({}); }}
+              style={{ background: "none", border: "2px solid #e5e7eb", borderRadius: 12, color: "#6b7280", fontSize: 14, fontWeight: 600, cursor: "pointer", padding: "12px 24px" }}
+            >
+              ← Voltar ao início
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (sent) {
+    return (
+      <section id="contato" style={{ background: "url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80') center/cover no-repeat", position: "relative" }}>
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.75)" }} />
+        <div style={{ position: "relative", zIndex: 1, padding: "80px 24px", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
+          <div style={{ background: "#fff", borderRadius: 20, padding: "48px 28px", width: "100%", maxWidth: 580, boxShadow: "0 20px 60px rgba(0,0,0,0.4)", textAlign: "center" }}>
+            <div style={{ fontSize: 52, marginBottom: 16 }}>✅</div>
+            <p style={{ fontWeight: 800, fontSize: 22, color: "#1a1a1a", marginBottom: 10 }}>Orçamento solicitado!</p>
+            <p style={{ color: "#6b7280", fontSize: 15, lineHeight: 1.6 }}>Em breve nossa equipe entrará em contato com você.</p>
+          </div>
         </div>
       </section>
     );
