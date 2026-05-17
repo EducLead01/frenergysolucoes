@@ -91,7 +91,7 @@ export function EsferaContactForm() {
 
   if (step === STEPS.length + 1) {
     return (
-      <section id="contato" style={{ background: "url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80') center/cover no-repeat", position: "relative" }}>
+      <section id="contato" style={{ background: "url('/images/torre.png') center/cover no-repeat", position: "relative" }}>
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.75)" }} />
         <div style={{ position: "relative", zIndex: 1, padding: "80px 24px", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
           <div style={{ textAlign: "center" }}>
@@ -119,7 +119,7 @@ export function EsferaContactForm() {
 
   if (sent) {
     return (
-      <section id="contato" style={{ background: "url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80') center/cover no-repeat", position: "relative" }}>
+      <section id="contato" style={{ background: "url('/images/torre.png') center/cover no-repeat", position: "relative" }}>
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.75)" }} />
         <div style={{ position: "relative", zIndex: 1, padding: "80px 24px", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
           <div style={{ background: "#fff", borderRadius: 20, padding: "48px 28px", width: "100%", maxWidth: 580, boxShadow: "0 20px 60px rgba(0,0,0,0.4)", textAlign: "center" }}>
@@ -133,7 +133,7 @@ export function EsferaContactForm() {
   }
 
   return (
-    <section id="contato" style={{ background: "url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80') center/cover no-repeat", position: "relative" }}>
+    <section id="contato" style={{ background: "url('/images/torre.png') center/cover no-repeat", position: "relative" }}>
       <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.75)" }} />
       <div style={{ position: "relative", zIndex: 1, padding: "80px 24px", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
 
