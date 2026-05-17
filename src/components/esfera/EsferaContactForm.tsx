@@ -5,18 +5,24 @@ import { useState } from "react";
 const STEPS = [
   {
     pct: 20,
+    question: "Você possui benefício da Tarifa Social de Energia Elétrica?",
+    field: "tarifaSocial",
+    options: ["Sim", "Não"],
+  },
+  {
+    pct: 40,
     question: "Qual o tipo do seu imóvel?",
     field: "tipo",
     options: ["Residencial", "Comercial", "Industrial", "Agronegócio"],
   },
   {
-    pct: 40,
+    pct: 60,
     question: "Qual é o seu estado?",
     field: "estado",
     options: ["GO", "DF", "MT", "MG", "TO", "Outro"],
   },
   {
-    pct: 60,
+    pct: 80,
     question: "Qual o valor médio da sua conta de energia?",
     field: "conta",
     options: [
@@ -28,15 +34,9 @@ const STEPS = [
     ],
   },
   {
-    pct: 80,
+    pct: 90,
     question: "O valor da sua conta é maior que R$ 1.000,00?",
     field: "contaMaior",
-    options: ["Sim", "Não"],
-  },
-  {
-    pct: 90,
-    question: "Você possui benefício da Tarifa Social de Energia Elétrica?",
-    field: "tarifaSocial",
     options: ["Sim", "Não"],
   },
 ];
@@ -70,7 +70,7 @@ export function EsferaContactForm() {
   }
 
   function next() {
-    if (step === STEPS.length - 1 && answers.tarifaSocial === "Sim") {
+    if (answers.tarifaSocial === "Sim") {
       setStep(STEPS.length + 1);
       return;
     }
