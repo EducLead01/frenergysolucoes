@@ -63,7 +63,7 @@ export default function PanificadoraParaguai() {
                 <div key={item.label} className="bg-white rounded-2xl p-6 text-center shadow-sm">
                   <p className="font-black text-3xl leading-none" style={{ color: "#FF5900" }}>{item.valor}</p>
                   <p className="text-xs font-bold text-[#FF5900] mt-1">{item.unidade}</p>
-                  <p className="text-xs text-[#9ca3af] mt-2 leading-snug">{item.label}</p>
+                  <p className="text-sm font-semibold text-[#4D4D4D] mt-2 leading-snug">{item.label}</p>
                 </div>
               ))}
             </div>
