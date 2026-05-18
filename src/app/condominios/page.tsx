@@ -44,7 +44,6 @@ const condoProducts = [
 ];
 
 export default function Condominios() {
-  const [openSpec, setOpenSpec] = useState<number | null>(null);
   const [carouselIdx, setCarouselIdx] = useState<Record<number, number>>({});
 
   return (
@@ -265,21 +264,6 @@ export default function Condominios() {
                   </span>
                   <h3 className="text-xl lg:text-2xl font-bold text-[#4D4D4D] leading-snug">{p.title}</h3>
                   <p className="text-[#787878] text-base leading-relaxed">{p.desc}</p>
-                  <div>
-                    <button
-                      onClick={() => setOpenSpec(openSpec === p.id ? null : p.id)}
-                      className="flex items-center gap-2 text-white text-xs font-bold px-5 py-2 rounded-full transition-opacity hover:opacity-90"
-                      style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-                    >
-                      Insights para o síndico
-                      <span style={{ display: "inline-block", transition: "transform 0.25s", transform: openSpec === p.id ? "rotate(180deg)" : "rotate(0deg)", fontSize: 9 }}>▲</span>
-                    </button>
-                    {openSpec === p.id && (
-                      <div className="mt-3 rounded-xl p-4 text-sm leading-relaxed" style={{ background: "rgba(255,89,0,0.05)", border: "1px solid rgba(255,89,0,0.15)", color: "#4D4D4D" }}>
-                        Entre em contato para receber as especificações técnicas completas deste produto.
-                      </div>
-                    )}
-                  </div>
                 </div>
 
                 {/* Imagem com sombra laranja offset */}
