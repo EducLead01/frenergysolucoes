@@ -99,6 +99,18 @@ export default function PanificadoraParaguai() {
           </div>
         </section>
 
+        {/* CTA */}
+        <div className="flex justify-center py-10 bg-white">
+          <a
+            href="/orcamentos"
+            className="inline-flex items-center gap-2 text-white font-bold text-sm px-8 py-4 rounded-full transition-opacity hover:opacity-90"
+            style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+          >
+            Quero economizar
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+          </a>
+        </div>
+
         {/* Números */}
         <section className="py-14" style={{ background: "#f7f7f7" }}>
           <div className="container mx-auto px-6 max-w-5xl">
