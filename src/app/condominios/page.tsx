@@ -25,21 +25,21 @@ const condoProducts = [
     badge: "Instalação",
     title: "Sem obras nas unidades privativas",
     desc: "Toda a instalação é feita nas áreas comuns. Os apartamentos não precisam de nenhuma intervenção. Processo rápido, limpo e com engenheiro dedicado.",
-    fotos: ["/images/08.png"],
+    fotos: [],
   },
   {
     id: 3,
     badge: "Valorização",
     title: "Condomínio com energia solar vale mais",
     desc: "Imóveis com sistema solar têm maior valor de mercado e atratividade para locação e venda. Um diferencial real na assembleia e na hora de negociar.",
-    fotos: ["/images/08.png"],
+    fotos: [],
   },
   {
     id: 4,
     badge: "Sustentabilidade",
     title: "Energia 100% limpa e renovável",
     desc: "Solar fotovoltaica sem emissão de carbono. Contribui com o meio ambiente e com as metas de sustentabilidade do condomínio — um argumento forte para moradores conscientes.",
-    fotos: ["/images/08.png"],
+    fotos: [],
   },
 ];
 
@@ -283,46 +283,48 @@ export default function Condominios() {
                 </div>
 
                 {/* Imagem com sombra laranja offset */}
-                <div className="flex-1 w-full relative">
-                  <div
-                    className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
-                    style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
-                  />
-                  <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-                    <Image src={p.fotos[carouselIdx[p.id] ?? 0]} alt={p.title} fill className="object-cover transition-opacity duration-300" />
+                {p.fotos.length > 0 && (
+                  <div className="flex-1 w-full relative">
+                    <div
+                      className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
+                      style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
+                    />
+                    <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+                      <Image src={p.fotos[carouselIdx[p.id] ?? 0]} alt={p.title} fill className="object-cover transition-opacity duration-300" />
 
-                    {p.fotos.length > 1 && (
-                      <>
-                        <button
-                          onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: Math.max(0, (s[p.id] ?? 0) - 1) }))}
-                          disabled={(carouselIdx[p.id] ?? 0) === 0}
-                          className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-30"
-                          style={{ background: "rgba(0,0,0,0.45)" }}
-                        >
-                          <ChevronLeft size={20} />
-                        </button>
-                        <button
-                          onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: Math.min(p.fotos.length - 1, (s[p.id] ?? 0) + 1) }))}
-                          disabled={(carouselIdx[p.id] ?? 0) === p.fotos.length - 1}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-30"
-                          style={{ background: "rgba(0,0,0,0.45)" }}
-                        >
-                          <ChevronRight size={20} />
-                        </button>
-                        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-                          {p.fotos.map((_, i) => (
-                            <button
-                              key={i}
-                              onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: i }))}
-                              className="rounded-full transition-all duration-300"
-                              style={{ width: (carouselIdx[p.id] ?? 0) === i ? 20 : 6, height: 6, background: (carouselIdx[p.id] ?? 0) === i ? "#FF5900" : "rgba(255,255,255,0.6)" }}
-                            />
-                          ))}
-                        </div>
-                      </>
-                    )}
+                      {p.fotos.length > 1 && (
+                        <>
+                          <button
+                            onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: Math.max(0, (s[p.id] ?? 0) - 1) }))}
+                            disabled={(carouselIdx[p.id] ?? 0) === 0}
+                            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-30"
+                            style={{ background: "rgba(0,0,0,0.45)" }}
+                          >
+                            <ChevronLeft size={20} />
+                          </button>
+                          <button
+                            onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: Math.min(p.fotos.length - 1, (s[p.id] ?? 0) + 1) }))}
+                            disabled={(carouselIdx[p.id] ?? 0) === p.fotos.length - 1}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-30"
+                            style={{ background: "rgba(0,0,0,0.45)" }}
+                          >
+                            <ChevronRight size={20} />
+                          </button>
+                          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                            {p.fotos.map((_, i) => (
+                              <button
+                                key={i}
+                                onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: i }))}
+                                className="rounded-full transition-all duration-300"
+                                style={{ width: (carouselIdx[p.id] ?? 0) === i ? 20 : 6, height: 6, background: (carouselIdx[p.id] ?? 0) === i ? "#FF5900" : "rgba(255,255,255,0.6)" }}
+                              />
+                            ))}
+                          </div>
+                        </>
+                      )}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             ))}
           </div>
