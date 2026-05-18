@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 
 const cases = [
   { img: "/images/panificadora.png",     href: "/cases/panificadoraparaguai" },
-  { img: "/images/laminex01.png",        href: "/cases/cliente02" },
-  { img: "/images/posto01.png",          href: "/cases/cliente06" },
+  { img: "/images/laminex01.png",        href: "/cases/laminex" },
+  { img: "/images/posto01.png",          href: "/cases/postosabadin" },
 ];
 
 function useVisible() {
