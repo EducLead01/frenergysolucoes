@@ -33,7 +33,7 @@ export default function Postos() {
               <div className="flex-1 relative">
                 <div className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3" style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }} />
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-                  <Image src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=900&q=80" alt="Posto de combustível com energia solar" fill className="object-cover" />
+                  <Image src="/images/posto04.png" alt="Posto de combustível com energia solar" fill className="object-cover" />
                 </div>
               </div>
               <div className="flex-1 flex flex-col gap-5">
