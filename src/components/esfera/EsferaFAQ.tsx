@@ -4,20 +4,20 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "Pergunta 1",
-    a: "Resposta 1",
+    q: "Quanto custa instalar energia solar?",
+    a: "Para descobrir a resposta, basta preencher o formulário com as suas informações e o nosso Simulador Solar vai fazer todo o cálculo, trazendo as informações que você precisa com clareza e simplicidade.",
   },
   {
-    q: "Pergunta 2",
-    a: "Resposta 2",
+    q: "Preciso ser uma empresa para instalar energia solar?",
+    a: "Não, pessoas físicas e pessoas jurídicas contam com a oportunidade de economizar com a energia solar.",
   },
   {
-    q: "Pergunta 3",
-    a: "Resposta 3",
+    q: "Consigo instalar energia solar em apartamento?",
+    a: "A melhor localização para instalar energia solar em apartamento é na cobertura do condomínio, onde há uma ampla área livre e alta incidência do sol.",
   },
   {
-    q: "Pergunta 4",
-    a: "Resposta 4",
+    q: "Será feito alguma obra ou mudança elétrica na casa?",
+    a: "Nenhuma obra é necessária. O sistema é integrado diretamente à rede elétrica já existente do imóvel — sem quebras, sem reformas e sem qualquer alteração no projeto arquitetônico. O processo é simples, rápido e o seu dia a dia não é interrompido.",
   },
 ];
 
