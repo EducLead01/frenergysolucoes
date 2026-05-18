@@ -98,6 +98,19 @@ export default function Itapoa() {
           </div>
         </section>
 
+        {/* O que está incluso */}
+        <section className="py-10 bg-white">
+          <div className="container mx-auto px-6 max-w-3xl">
+            <div className="flex gap-5 items-start p-6 rounded-2xl bg-[#f7f7f7]">
+              <ShieldCheck size={22} className="flex-shrink-0 mt-0.5" style={{ color: "#FF5900" }} />
+              <div>
+                <p className="font-bold text-[#1a1a1a] text-base mb-1">O que está incluso no investimento</p>
+                <p className="text-[#787878] text-sm leading-relaxed whitespace-pre-line">{"Projeto de investimento em usinas fotovoltaicas com geração de renda passiva mensal. Sistema de médio porte com alta eficiência, monitoramento completo e retorno previsível ao investidor.\n\n✅ Cercamento\n✅ Material solar\n✅ Mão de obra de execução com britamento\n✅ Projetos e homologação\n✅ Monitoramento de câmeras com DVRs"}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <div className="flex justify-center py-10 bg-white">
           <a
@@ -141,11 +154,6 @@ export default function Itapoa() {
           <div className="container mx-auto px-6 max-w-3xl">
             <div className="flex flex-col gap-5">
               {[
-                {
-                  Icon: ShieldCheck,
-                  titulo: "O que está incluso no investimento",
-                  texto: "Projeto de investimento em usinas fotovoltaicas com geração de renda passiva mensal. Sistema de médio porte com alta eficiência, monitoramento completo e retorno previsível ao investidor.\n\n✅ Cercamento\n✅ Material solar\n✅ Mão de obra de execução com britamento\n✅ Projetos e homologação\n✅ Monitoramento de câmeras com DVRs",
-                },
                 {
                   Icon: Award,
                   titulo: "Garantia de 10 anos",
