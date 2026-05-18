@@ -10,7 +10,7 @@ const fotos = [
   "/images/vpmvidros01.jpg",
 ];
 
-export default function Laminex() {
+export default function VpmVidros() {
   const [idx, setIdx] = useState(0);
 
   return (
@@ -30,12 +30,12 @@ export default function Laminex() {
                 >
                   Case de Sucesso
                 </span>
-                <p className="text-sm font-semibold text-[#FF5900] uppercase tracking-widest">Comercial · Goiânia/GO</p>
+                <p className="text-sm font-semibold text-[#FF5900] uppercase tracking-widest">Indústria Vidraria · Goiânia/GO</p>
                 <h1 className="text-3xl lg:text-4xl font-bold text-[#1a1a1a] leading-snug">
-                  Laminex
+                  VPM Vidros
                 </h1>
                 <p className="text-[#787878] text-base leading-relaxed">
-                  Empresa de Goiânia com usina instalada na zona rural da região metropolitana, operando em consumo remoto. Sistema de grande porte projetado para alta geração e máxima segurança.
+                  Indústria vidraria de Goiânia com mais de 32 anos de experiência. Sistema fotovoltaico de médio porte instalado para reduzir os custos energéticos da operação industrial, com alta geração e máxima segurança.
                 </p>
               </div>
 
@@ -48,7 +48,7 @@ export default function Laminex() {
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                   <Image
                     src={fotos[idx]}
-                    alt={`Laminex ${idx + 1}`}
+                    alt={`VPM Vidros ${idx + 1}`}
                     fill
                     className="object-cover transition-opacity duration-300"
                     priority
@@ -108,10 +108,10 @@ export default function Laminex() {
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { valor: "227,63", unidade: "kWp", label: "Potência instalada" },
-                { valor: "28.000", unidade: "kWh/mês", label: "Produção média" },
-                { valor: "358", unidade: "módulos", label: "JÁ 635W cada" },
-                { valor: "2", unidade: "inversores", label: "SolarEdge 75 kW" },
+                { valor: "60,495", unidade: "kWp", label: "Potência instalada" },
+                { valor: "7.700", unidade: "kWh/mês", label: "Produção média" },
+                { valor: "109", unidade: "módulos", label: "Canadian 555W cada" },
+                { valor: "2", unidade: "inversores", label: "SolarEdge 20,1 kW" },
               ].map((item) => (
                 <div key={item.label} className="bg-white rounded-2xl p-6 text-center shadow-sm">
                   <p className="font-black text-3xl leading-none" style={{ color: "#FF5900" }}>{item.valor}</p>
@@ -131,12 +131,12 @@ export default function Laminex() {
                 {
                   Icon: ShieldCheck,
                   titulo: "Aprovado pelo Corpo de Bombeiros",
-                  texto: "O sistema utiliza otimizadores de potência entre os módulos e os inversores, atendendo à nova norma de segurança contra incêndio exigida pelo Corpo de Bombeiros.",
+                  texto: "O sistema possui otimizadores de potência ligados entre os módulos e os inversores, atendendo à nova norma de segurança contra incêndio exigida pelo Corpo de Bombeiros.",
                 },
                 {
                   Icon: Award,
                   titulo: "Garantia de 12 anos",
-                  texto: "Equipamentos com garantia muito acima da média do mercado, assegurando proteção de longo prazo para o investimento.",
+                  texto: "Equipamentos com garantia muito acima da média do mercado, assegurando um excelente pós-venda e proteção de longo prazo para o investimento.",
                 },
                 {
                   Icon: Clock,
