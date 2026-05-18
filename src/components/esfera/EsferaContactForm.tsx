@@ -112,7 +112,7 @@ export function EsferaContactForm() {
       "",
       `* Possui Tarifa Social: *${answers.tarifaSocial ?? "-"}*`,
       "",
-      `* Tipo de imóvel: ${answers.tipo ?? "-"}`,
+      `* Tipo de imóvel: *${answers.tipo ?? "-"}*`,
       "",
       `* Estado: *${answers.estado ?? "-"}*`,
       "",
