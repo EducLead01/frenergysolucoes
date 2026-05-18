@@ -1,11 +1,6 @@
 import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
-import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
-
-const fotos: string[] = [
-  // adicione os caminhos das fotos aqui, ex: "/images/panificadoraparaguai/foto1.jpg"
-];
 
 export default function PanificadoraParaguai() {
   return (
@@ -25,11 +20,12 @@ export default function PanificadoraParaguai() {
                 >
                   Case de Sucesso
                 </span>
-                <h1 className="text-3xl lg:text-4xl font-bold text-[#4D4D4D] leading-snug">
-                  Cliente 01
+                <p className="text-sm font-semibold text-[#FF5900] uppercase tracking-widest">Agronegócio · Goiânia/GO</p>
+                <h1 className="text-3xl lg:text-4xl font-bold text-[#1a1a1a] leading-snug">
+                  Panificadora Paraguai
                 </h1>
                 <p className="text-[#787878] text-base leading-relaxed">
-                  Descrição do case: contexto do cliente, desafio, solução aplicada e resultado obtido com a Frenergy.
+                  Empresa de Goiânia com usina instalada na zona rural da região metropolitana, operando em consumo remoto. Sistema de grande porte projetado para alta geração e máxima segurança.
                 </p>
                 <a
                   href="/orcamentos"
@@ -48,10 +44,10 @@ export default function PanificadoraParaguai() {
                   className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
                   style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
                 />
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-white">
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                   <Image
                     src="/images/panificadora02.jpeg"
-                    alt="Panificadora Paraguay"
+                    alt="Panificadora Paraguai"
                     fill
                     className="object-cover"
                     priority
@@ -63,29 +59,75 @@ export default function PanificadoraParaguai() {
           </div>
         </section>
 
-        {/* Galeria */}
-        <section className="bg-[#fafafa] py-16">
+        {/* Números */}
+        <section className="py-14" style={{ background: "#f7f7f7" }}>
           <div className="container mx-auto px-6 max-w-5xl">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {fotos.length > 0 ? fotos.map((src, i) => (
-                <div key={i} className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-[#f0f0f0]">
-                  <Image src={src} alt={`Foto ${i + 1}`} fill className="object-cover" />
-                </div>
-              )) : Array.from({ length: 6 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl aspect-[4/3] bg-[#f0f0f0] border-2 border-dashed border-[#ddd] flex items-center justify-center"
-                >
-                  <span className="text-[#bbb] text-sm font-medium">Foto {i + 1}</span>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { valor: "227,63", unidade: "kWp", label: "Potência instalada" },
+                { valor: "28.000", unidade: "kWh/mês", label: "Produção média" },
+                { valor: "358", unidade: "módulos", label: "JÁ 635W cada" },
+                { valor: "2", unidade: "inversores", label: "SolarEdge 75 kW" },
+              ].map((item) => (
+                <div key={item.label} className="bg-white rounded-2xl p-6 text-center shadow-sm">
+                  <p className="font-black text-3xl leading-none" style={{ color: "#FF5900" }}>{item.valor}</p>
+                  <p className="text-xs font-bold text-[#FF5900] mt-1">{item.unidade}</p>
+                  <p className="text-xs text-[#9ca3af] mt-2 leading-snug">{item.label}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <div id="contato">
-          <EsferaContactForm />
-        </div>
+        {/* Diferenciais */}
+        <section className="py-14 bg-white">
+          <div className="container mx-auto px-6 max-w-3xl">
+            <div className="flex flex-col gap-5">
+              {[
+                {
+                  icon: "🔥",
+                  titulo: "Aprovado pelo Corpo de Bombeiros",
+                  texto: "O sistema utiliza otimizadores de potência entre os módulos e os inversores, atendendo à nova norma de segurança contra incêndio exigida pelo Corpo de Bombeiros.",
+                },
+                {
+                  icon: "🛡️",
+                  titulo: "Garantia de 12 anos",
+                  texto: "Equipamentos com garantia muito acima da média do mercado, assegurando proteção de longo prazo para o investimento.",
+                },
+                {
+                  icon: "⚡",
+                  titulo: "Reposição em até 15 dias",
+                  texto: "Em caso de acionamento de garantia, a peça é reposta na planta em média 15 dias após a aprovação — tempo recorde no setor.",
+                },
+              ].map((d) => (
+                <div key={d.titulo} className="flex gap-5 items-start p-6 rounded-2xl bg-[#f7f7f7]">
+                  <span className="text-2xl mt-0.5 flex-shrink-0">{d.icon}</span>
+                  <div>
+                    <p className="font-bold text-[#1a1a1a] text-base mb-1">{d.titulo}</p>
+                    <p className="text-[#787878] text-sm leading-relaxed">{d.texto}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA final */}
+        <section className="py-14" style={{ background: "#111" }}>
+          <div className="container mx-auto px-6 max-w-xl text-center">
+            <p className="text-white font-bold text-xl mb-2">Quer um projeto assim?</p>
+            <p className="text-white/60 text-sm mb-8">Faça um orçamento gratuito e descubra quanto você pode economizar.</p>
+            <a
+              href="/orcamentos"
+              className="inline-flex items-center gap-2 text-white font-bold text-sm px-8 py-4 rounded-full transition-opacity hover:opacity-90"
+              style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+            >
+              Quero economizar também
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+          </div>
+        </section>
+
       </main>
       <EsferaFooter />
     </>
