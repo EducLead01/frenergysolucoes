@@ -7,7 +7,7 @@ import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
 const fotos = [
-  "/images/laminex01.png",
+  "/images/vpmvidros01.png",
   // adicione mais fotos aqui
 ];
 
