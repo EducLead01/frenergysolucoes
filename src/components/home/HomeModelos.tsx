@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const cases = [
   { img: "/images/panificadora.png",     href: "/cases/panificadoraparaguai" },
-  { img: "/images/laminex01.png",        href: "/cases/vpmvidros" },
+  { img: "/images/vpmcapa.png",           href: "/cases/vpmvidros" },
   { img: "/images/posto01.png",          href: "/cases/postosabadin" },
 ];
 
