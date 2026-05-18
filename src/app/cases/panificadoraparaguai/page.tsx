@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ShieldCheck, Award, Clock } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
@@ -85,26 +86,26 @@ export default function PanificadoraParaguai() {
             <div className="flex flex-col gap-5">
               {[
                 {
-                  icon: "🔥",
+                  Icon: ShieldCheck,
                   titulo: "Aprovado pelo Corpo de Bombeiros",
                   texto: "O sistema utiliza otimizadores de potência entre os módulos e os inversores, atendendo à nova norma de segurança contra incêndio exigida pelo Corpo de Bombeiros.",
                 },
                 {
-                  icon: "🛡️",
+                  Icon: Award,
                   titulo: "Garantia de 12 anos",
                   texto: "Equipamentos com garantia muito acima da média do mercado, assegurando proteção de longo prazo para o investimento.",
                 },
                 {
-                  icon: "⚡",
+                  Icon: Clock,
                   titulo: "Reposição em até 15 dias",
                   texto: "Em caso de acionamento de garantia, a peça é reposta na planta em média 15 dias após a aprovação — tempo recorde no setor.",
                 },
-              ].map((d) => (
-                <div key={d.titulo} className="flex gap-5 items-start p-6 rounded-2xl bg-[#f7f7f7]">
-                  <span className="text-2xl mt-0.5 flex-shrink-0">{d.icon}</span>
+              ].map(({ Icon, titulo, texto }) => (
+                <div key={titulo} className="flex gap-5 items-start p-6 rounded-2xl bg-[#f7f7f7]">
+                  <Icon size={22} className="flex-shrink-0 mt-0.5" style={{ color: "#FF5900" }} />
                   <div>
-                    <p className="font-bold text-[#1a1a1a] text-base mb-1">{d.titulo}</p>
-                    <p className="text-[#787878] text-sm leading-relaxed">{d.texto}</p>
+                    <p className="font-bold text-[#1a1a1a] text-base mb-1">{titulo}</p>
+                    <p className="text-[#787878] text-sm leading-relaxed">{texto}</p>
                   </div>
                 </div>
               ))}
