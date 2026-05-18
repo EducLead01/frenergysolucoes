@@ -8,6 +8,9 @@ import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
 const fotos = [
   "/images/vpmvidros01.jpg",
+  "/images/vpmvidros02.jpeg",
+  "/images/vpmvidros03.jpeg",
+  "/images/vpmvidros04.png",
 ];
 
 export default function VpmVidros() {
