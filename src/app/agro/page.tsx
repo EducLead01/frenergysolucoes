@@ -23,8 +23,8 @@ export default function Agro() {
           {/* Fazendeiro — ancorado na base direita */}
           <div style={{ position: "absolute", bottom: 0, right: "8%", zIndex: 1, display: "flex", alignItems: "flex-end" }}>
             <Image
-              src="/images/agro02.jpg"
-              alt="Agronegócio com energia solar"
+              src="/images/Fazendeiro.png"
+              alt="Fazendeiro"
               width={340}
               height={520}
               className="h-[70vh] w-auto object-contain object-bottom"
@@ -73,7 +73,7 @@ export default function Agro() {
                 <div className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3" style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }} />
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                   <Image
-                    src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=900&q=80"
+                    src="/images/agro02.jpg"
                     alt="Energia solar no agronegócio"
                     fill
                     className="object-cover"
