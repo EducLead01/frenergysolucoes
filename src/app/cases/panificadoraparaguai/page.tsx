@@ -7,8 +7,10 @@ import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
 const fotos = [
-  "/images/panificadora02.jpeg",
-  // adicione mais fotos aqui: "/images/panificadora03.jpeg"
+  "/images/panificadora02.webp",
+  "/images/panificadora03.jpeg",
+  "/images/panificadora04.jpeg",
+  "/images/panificadora05.jpeg",
 ];
 
 export default function PanificadoraParaguai() {
