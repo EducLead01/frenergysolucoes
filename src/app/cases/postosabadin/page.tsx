@@ -32,12 +32,12 @@ export default function PostoSabadin() {
                 >
                   Case de Sucesso
                 </span>
-                <p className="text-sm font-semibold text-[#FF5900] uppercase tracking-widest">Posto de Combustível · Goiânia/GO</p>
+                <p className="text-sm font-semibold text-[#FF5900] uppercase tracking-widest">Posto de Combustível · Auto Consumo · Goiânia/GO</p>
                 <h1 className="text-3xl lg:text-4xl font-bold text-[#1a1a1a] leading-snug">
                   Posto Sabadin
                 </h1>
                 <p className="text-[#787878] text-base leading-relaxed">
-                  Empresa de Goiânia com usina instalada na zona rural da região metropolitana, operando em consumo remoto. Sistema de grande porte projetado para alta geração e máxima segurança.
+                  Sistema fotovoltaico de grande porte instalado em auto consumo, projetado para alta geração e máxima segurança, atendendo às exigências do Corpo de Bombeiros.
                 </p>
               </div>
 
@@ -110,10 +110,10 @@ export default function PostoSabadin() {
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { valor: "227,63", unidade: "kWp", label: "Potência instalada" },
-                { valor: "28.000", unidade: "kWh/mês", label: "Produção média" },
-                { valor: "358", unidade: "módulos", label: "JÁ 635W cada" },
-                { valor: "2", unidade: "inversores", label: "SolarEdge 75 kW" },
+                { valor: "99,06", unidade: "kWp", label: "Potência instalada" },
+                { valor: "12.600", unidade: "kWh/mês", label: "Produção média" },
+                { valor: "156", unidade: "módulos", label: "JÁ 635W cada" },
+                { valor: "1", unidade: "inversor", label: "SolarEdge 75 kW" },
               ].map((item) => (
                 <div key={item.label} className="bg-white rounded-2xl p-6 text-center shadow-sm">
                   <p className="font-black text-3xl leading-none" style={{ color: "#FF5900" }}>{item.valor}</p>
@@ -133,17 +133,17 @@ export default function PostoSabadin() {
                 {
                   Icon: ShieldCheck,
                   titulo: "Aprovado pelo Corpo de Bombeiros",
-                  texto: "O sistema utiliza otimizadores de potência entre os módulos e os inversores, atendendo à nova norma de segurança contra incêndio exigida pelo Corpo de Bombeiros.",
+                  texto: "O sistema possui otimizadores de potência ligados entre os módulos e os inversores, atendendo à nova norma de segurança contra incêndio exigida pelo Corpo de Bombeiros.",
                 },
                 {
                   Icon: Award,
                   titulo: "Garantia de 12 anos",
-                  texto: "Equipamentos com garantia muito acima da média do mercado, assegurando proteção de longo prazo para o investimento.",
+                  texto: "Equipamentos com garantia muito acima da média do mercado, garantindo um prazo muito acima dos outros produtos existentes no mercado e excelente pós-venda.",
                 },
                 {
                   Icon: Clock,
                   titulo: "Reposição em até 15 dias",
-                  texto: "Em caso de acionamento de garantia, a peça é reposta na planta em média 15 dias após a aprovação — tempo recorde no setor.",
+                  texto: "Prazo com reposição em média de 15 dias entre a aprovação da garantia e a reposição na planta — tempo recorde no setor.",
                 },
               ].map(({ Icon, titulo, texto }) => (
                 <div key={titulo} className="flex gap-5 items-start p-6 rounded-2xl bg-[#f7f7f7]">
