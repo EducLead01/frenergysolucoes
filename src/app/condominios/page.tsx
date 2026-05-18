@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
@@ -17,33 +18,34 @@ const condoProducts = [
     badge: "Economia",
     title: "Redução de até 95% na conta de energia",
     desc: "Sistema solar nas áreas comuns do condomínio — corredores, elevadores, bombas, iluminação externa — gera economia imediata e visível para todos os moradores.",
-    img: "/images/08.png",
+    fotos: ["/images/08.png"],
   },
   {
     id: 2,
     badge: "Instalação",
     title: "Sem obras nas unidades privativas",
     desc: "Toda a instalação é feita nas áreas comuns. Os apartamentos não precisam de nenhuma intervenção. Processo rápido, limpo e com engenheiro dedicado.",
-    img: "/images/08.png",
+    fotos: ["/images/08.png"],
   },
   {
     id: 3,
     badge: "Valorização",
     title: "Condomínio com energia solar vale mais",
     desc: "Imóveis com sistema solar têm maior valor de mercado e atratividade para locação e venda. Um diferencial real na assembleia e na hora de negociar.",
-    img: "/images/08.png",
+    fotos: ["/images/08.png"],
   },
   {
     id: 4,
     badge: "Sustentabilidade",
     title: "Energia 100% limpa e renovável",
     desc: "Solar fotovoltaica sem emissão de carbono. Contribui com o meio ambiente e com as metas de sustentabilidade do condomínio — um argumento forte para moradores conscientes.",
-    img: "/images/08.png",
+    fotos: ["/images/08.png"],
   },
 ];
 
 export default function Condominios() {
   const [openSpec, setOpenSpec] = useState<number | null>(null);
+  const [carouselIdx, setCarouselIdx] = useState<Record<number, number>>({});
 
   return (
     <div style={{ fontFamily: "'Open Sans', sans-serif", color: "#333" }}>
@@ -287,7 +289,38 @@ export default function Condominios() {
                     style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
                   />
                   <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-                    <Image src={p.img} alt={p.title} fill className="object-cover" />
+                    <Image src={p.fotos[carouselIdx[p.id] ?? 0]} alt={p.title} fill className="object-cover transition-opacity duration-300" />
+
+                    {p.fotos.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: Math.max(0, (s[p.id] ?? 0) - 1) }))}
+                          disabled={(carouselIdx[p.id] ?? 0) === 0}
+                          className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-30"
+                          style={{ background: "rgba(0,0,0,0.45)" }}
+                        >
+                          <ChevronLeft size={20} />
+                        </button>
+                        <button
+                          onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: Math.min(p.fotos.length - 1, (s[p.id] ?? 0) + 1) }))}
+                          disabled={(carouselIdx[p.id] ?? 0) === p.fotos.length - 1}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-30"
+                          style={{ background: "rgba(0,0,0,0.45)" }}
+                        >
+                          <ChevronRight size={20} />
+                        </button>
+                        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                          {p.fotos.map((_, i) => (
+                            <button
+                              key={i}
+                              onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: i }))}
+                              className="rounded-full transition-all duration-300"
+                              style={{ width: (carouselIdx[p.id] ?? 0) === i ? 20 : 6, height: 6, background: (carouselIdx[p.id] ?? 0) === i ? "#FF5900" : "rgba(255,255,255,0.6)" }}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
