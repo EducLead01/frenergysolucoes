@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
-import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
 import { GestaoTabs } from "@/components/gestao/GestaoTabs";
 import { PhoneMockupGroup } from "@/components/gestao/PhoneMockupGroup";
 
@@ -66,7 +65,7 @@ export default function GestaoDeEnergia() {
             <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(16px, 2vw, 20px)", maxWidth: 560, lineHeight: 1.65, marginBottom: 40 }}>
               Consultoria completa em geração e consumo de energia — do diagnóstico à otimização do retorno financeiro.
             </p>
-            <a href="#contato" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(90deg, #F0416E, #FF5900)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "16px 36px", borderRadius: 999, textDecoration: "none" }}>
+            <a href="/orcamentos" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(90deg, #F0416E, #FF5900)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "16px 36px", borderRadius: 999, textDecoration: "none" }}>
               Falar com especialista
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </a>
@@ -106,7 +105,7 @@ export default function GestaoDeEnergia() {
                 ))}
                 </div>
                 <a
-                  href="#contato"
+                  href="/orcamentos"
                   className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90"
                   style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
                 >
@@ -127,9 +126,6 @@ export default function GestaoDeEnergia() {
           </div>
         </section>
 
-        <div id="contato">
-          <EsferaContactForm />
-        </div>
       </main>
       <EsferaFooter />
     </>
