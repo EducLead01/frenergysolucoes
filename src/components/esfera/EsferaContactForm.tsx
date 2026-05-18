@@ -83,8 +83,25 @@ export function EsferaContactForm() {
     setStep((s) => s + 1);
   }
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
+
+    // Envia para Formspree (você recebe o email)
+    fetch("https://formspree.io/f/mpqnznzz", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        Nome: nome,
+        WhatsApp: whatsapp,
+        "Tarifa Social": answers.tarifaSocial ?? "-",
+        "Tipo de imóvel": answers.tipo ?? "-",
+        Estado: answers.estado ?? "-",
+        "Conta de energia": answers.conta ?? "-",
+        "Conta > R$ 1.000": answers.contaMaior ?? "-",
+      }),
+    });
+
+    // Abre WhatsApp do cliente pré-preenchido
     const msg = [
       "Olá! Gostaria de solicitar um orçamento de energia solar.",
       "",
@@ -99,6 +116,7 @@ export function EsferaContactForm() {
       `• Conta > R$ 1.000: ${answers.contaMaior ?? "-"}`,
     ].join("\n");
     window.open(`https://wa.me/5562996426626?text=${encodeURIComponent(msg)}`, "_blank");
+
     setSent(true);
   }
 
