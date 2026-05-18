@@ -11,6 +11,7 @@ const fotos = [
   "/images/panificadora03.jpeg",
   "/images/panificadora04.jpeg",
   "/images/panificadora05.jpeg",
+  "/images/panificadora07.png",
 ];
 
 export default function PanificadoraParaguai() {
