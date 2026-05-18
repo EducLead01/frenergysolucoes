@@ -10,6 +10,8 @@ const fotos = [
   "/images/posto02.png",
   "/images/posto03.png",
   "/images/posto04.png",
+  "/images/posto06.png",
+  "/images/posto07.png",
 ];
 
 export default function PostoSabadin() {
