@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ShieldCheck, Award, Clock, ChevronLeft, ChevronRight } from "lucide-react";
+import { ShieldCheck, Award, Clock, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
@@ -30,13 +30,20 @@ export default function Itapoa() {
                 >
                   Case de Sucesso
                 </span>
-                <p className="text-sm font-semibold text-[#FF5900] uppercase tracking-widest">Goiânia/GO</p>
+                <p className="text-sm font-semibold text-[#FF5900] uppercase tracking-widest">Usina de Investimento · Goiânia/GO</p>
                 <h1 className="text-3xl lg:text-4xl font-bold text-[#1a1a1a] leading-snug">
-                  Itapoã
+                  Usinas I e II Itapoã
                 </h1>
                 <p className="text-[#787878] text-base leading-relaxed">
-                  Sistema fotovoltaico instalado com alta geração e máxima segurança, atendendo às exigências do Corpo de Bombeiros.
+                  Projeto de investimento em usinas fotovoltaicas com geração de renda passiva mensal. Sistema de médio porte com alta eficiência, monitoramento completo e retorno previsível ao investidor.
                 </p>
+                <div className="flex items-center gap-3 bg-[#f7f7f7] rounded-2xl px-5 py-4 self-start">
+                  <TrendingUp size={20} style={{ color: "#FF5900", flexShrink: 0 }} />
+                  <div>
+                    <p className="text-xs font-bold text-[#4D4D4D] uppercase tracking-wide">Renda mensal líquida</p>
+                    <p className="text-xl font-black" style={{ color: "#FF5900" }}>R$ 8.730,00</p>
+                  </div>
+                </div>
               </div>
 
               {/* Carrossel */}
@@ -98,7 +105,7 @@ export default function Itapoa() {
             className="inline-flex items-center gap-2 text-white font-bold text-sm px-8 py-4 rounded-full transition-opacity hover:opacity-90"
             style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
           >
-            Quero economizar
+            Quero investir também
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
           </a>
         </div>
@@ -108,10 +115,10 @@ export default function Itapoa() {
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { valor: "—", unidade: "kWp", label: "Potência instalada" },
-                { valor: "—", unidade: "kWh/mês", label: "Produção média" },
-                { valor: "—", unidade: "módulos", label: "A confirmar" },
-                { valor: "—", unidade: "inversor(es)", label: "A confirmar" },
+                { valor: "84", unidade: "kWp", label: "Potência instalada" },
+                { valor: "10.752", unidade: "kWh/mês", label: "Produção média" },
+                { valor: "120", unidade: "módulos", label: "Trina 700W cada" },
+                { valor: "2", unidade: "inversores", label: "Solis 30 kW" },
               ].map((item) => (
                 <div key={item.label} className="bg-white rounded-2xl p-6 text-center shadow-sm">
                   <p className="font-black text-3xl leading-none" style={{ color: "#FF5900" }}>{item.valor}</p>
@@ -119,6 +126,12 @@ export default function Itapoa() {
                   <p className="text-sm font-semibold text-[#4D4D4D] mt-2 leading-snug">{item.label}</p>
                 </div>
               ))}
+            </div>
+
+            {/* Investimento */}
+            <div className="mt-6 bg-white rounded-2xl p-6 shadow-sm text-center">
+              <p className="text-sm font-semibold text-[#4D4D4D] uppercase tracking-wide mb-1">Investimento total (sem terreno)</p>
+              <p className="font-black text-3xl" style={{ color: "#FF5900" }}>R$ 320.000,00</p>
             </div>
           </div>
         </section>
@@ -130,18 +143,18 @@ export default function Itapoa() {
               {[
                 {
                   Icon: ShieldCheck,
-                  titulo: "Aprovado pelo Corpo de Bombeiros",
-                  texto: "O sistema possui otimizadores de potência ligados entre os módulos e os inversores, atendendo à nova norma de segurança contra incêndio exigida pelo Corpo de Bombeiros.",
+                  titulo: "O que está incluso no investimento",
+                  texto: "Cercamento completo, material solar, mão de obra de execução com britamento, projetos e homologação, monitoramento por câmeras com DVRs.",
                 },
                 {
                   Icon: Award,
-                  titulo: "Garantia de 12 anos",
-                  texto: "Equipamentos com garantia muito acima da média do mercado, assegurando um excelente pós-venda e proteção de longo prazo para o investimento.",
+                  titulo: "Garantia de 10 anos",
+                  texto: "Equipamentos com garantia muito acima da média do mercado, garantindo um prazo muito acima dos outros produtos existentes no mercado e excelente pós-venda.",
                 },
                 {
                   Icon: Clock,
-                  titulo: "Reposição em até 15 dias",
-                  texto: "Em caso de acionamento de garantia, a peça é reposta na planta em média 15 dias após a aprovação — tempo recorde no setor.",
+                  titulo: "Reposição em até 45 dias úteis",
+                  texto: "Prazo médio de reposição dos componentes de 45 dias úteis após validação da garantia — com suporte técnico dedicado durante todo o processo.",
                 },
               ].map(({ Icon, titulo, texto }) => (
                 <div key={titulo} className="flex gap-5 items-start p-6 rounded-2xl bg-[#f7f7f7]">
