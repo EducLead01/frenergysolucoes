@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ShieldCheck, Award, Clock, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { Award, Clock, TrendingUp, ListChecks, ChevronLeft, ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
@@ -102,7 +102,7 @@ export default function Itapoa() {
         <section className="py-10 bg-white">
           <div className="container mx-auto px-6 max-w-3xl">
             <div className="flex gap-5 items-start p-6 rounded-2xl bg-[#f7f7f7]">
-              <ShieldCheck size={22} className="flex-shrink-0 mt-0.5" style={{ color: "#FF5900" }} />
+              <ListChecks size={22} className="flex-shrink-0 mt-0.5" style={{ color: "#FF5900" }} />
               <div>
                 <p className="font-bold text-[#1a1a1a] text-base mb-1">O que está incluso no investimento</p>
                 <p className="text-[#787878] text-sm leading-relaxed whitespace-pre-line">{"Projeto de investimento em usinas fotovoltaicas com geração de renda passiva mensal. Sistema de médio porte com alta eficiência, monitoramento completo e retorno previsível ao investidor.\n\n✅ Cercamento\n✅ Material solar\n✅ Mão de obra de execução com britamento\n✅ Projetos e homologação\n✅ Monitoramento de câmeras com DVRs"}</p>
