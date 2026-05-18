@@ -165,18 +165,6 @@ export function ProductsSection() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="flex justify-center mt-10">
-          <a
-            href="/orcamentos"
-            className="inline-flex items-center gap-2 text-white font-bold text-sm px-8 py-4 rounded-full transition-opacity hover:opacity-90"
-            style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-          >
-            Saiba Mais
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-          </a>
-        </div>
-
       </div>
     </section>
   );
