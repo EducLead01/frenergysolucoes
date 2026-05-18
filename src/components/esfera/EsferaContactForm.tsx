@@ -103,22 +103,22 @@ export function EsferaContactForm() {
 
     // Abre WhatsApp do cliente pré-preenchido
     const msg = [
-      "Olá! Gostaria de solicitar um orçamento de energia solar.",
+      "Olá! Gostaria de solicitar um orçamento personalizado de energia solar.",
       "",
-      `👤 Nome do Cliente: *${nome}*`,
-      `📱 WhatsApp: ${whatsapp}`,
+      `Meu Nome: *${nome}*`,
+      `WhatsApp: ${whatsapp}`,
       "",
-      "➡️Dados do imóvel:",
+      "*Dados do imóvel:*",
       "",
-      `* Cliente Possui Tarifa Social: *${answers.tarifaSocial ?? "-"}*`,
+      `* Possui Tarifa Social: *${answers.tarifaSocial ?? "-"}*`,
       "",
-      `* Tipo de imóvel: *${answers.tipo ?? "-"}*`,
+      `* Tipo de imóvel: ${answers.tipo ?? "-"}`,
       "",
-      `* Estado: ${answers.estado ?? "-"}`,
+      `* Estado: *${answers.estado ?? "-"}*`,
       "",
-      `* Conta de energia está: ${answers.conta ?? "-"}`,
+      `* Conta de energia na faixa: *${answers.conta ?? "-"}*`,
       "",
-      `* Conta de energia acima de R$ 1.000: *${answers.contaMaior ?? "-"}*`,
+      `* Conta acima de R$ 1.000: *${answers.contaMaior ?? "-"}*`,
     ].join("\n");
     window.open(`https://wa.me/5562996426626?text=${encodeURIComponent(msg)}`, "_blank");
 
