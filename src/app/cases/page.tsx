@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
-import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
 import { HomeModelos } from "@/components/home/HomeModelos";
 
 export default function Cases() {
@@ -32,9 +31,6 @@ export default function Cases() {
           </a>
         </div>
 
-        <div id="contato">
-          <EsferaContactForm />
-        </div>
       </main>
       <EsferaFooter />
     </>
