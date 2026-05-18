@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const NAVY = "#091B30";
+const NAVY = "#115e59";
 
 const links = [
   {
