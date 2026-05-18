@@ -144,7 +144,7 @@ export default function Itapoa() {
                 {
                   Icon: ShieldCheck,
                   titulo: "O que está incluso no investimento",
-                  texto: "✅ Cercamento\n✅ Material solar\n✅ Mão de obra de execução com britamento\n✅ Projetos e homologação\n✅ Monitoramento de câmeras com DVRs",
+                  texto: "Projeto de investimento em usinas fotovoltaicas com geração de renda passiva mensal. Sistema de médio porte com alta eficiência, monitoramento completo e retorno previsível ao investidor.\n\n✅ Cercamento\n✅ Material solar\n✅ Mão de obra de execução com britamento\n✅ Projetos e homologação\n✅ Monitoramento de câmeras com DVRs",
                 },
                 {
                   Icon: Award,
