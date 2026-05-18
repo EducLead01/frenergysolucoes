@@ -7,7 +7,6 @@ import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
 const fotos = [
-  "/images/posto01.png",
   "/images/posto02.png",
   "/images/posto03.png",
   "/images/posto04.png",
