@@ -18,7 +18,7 @@ const condoProducts = [
     badge: "Economia",
     title: "Redução de até 95% na conta de energia",
     desc: "Sistema solar nas áreas comuns do condomínio — corredores, elevadores, bombas, iluminação externa — gera economia imediata e visível para todos os moradores.",
-    fotos: ["/images/08.png"],
+    fotos: ["/images/condominio01.png"],
   },
   {
     id: 2,
