@@ -8,6 +8,7 @@ const cases = [
   { img: "/images/Industrial.png",       href: "/cases/cliente03" },
   { img: "/images/Agro.png",             href: "/cases/cliente04" },
   { img: "/images/Investidores.net.png", href: "/cases/cliente05" },
+  { img: "/images/posto01.png",          href: "/cases/cliente06" },
 ];
 
 function useVisible() {
