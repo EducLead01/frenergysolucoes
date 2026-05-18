@@ -144,7 +144,7 @@ export default function Itapoa() {
                 {
                   Icon: ShieldCheck,
                   titulo: "O que está incluso no investimento",
-                  texto: "Cercamento completo, material solar, mão de obra de execução com britamento, projetos e homologação, monitoramento por câmeras com DVRs.",
+                  texto: "✅ Cercamento\n✅ Material solar\n✅ Mão de obra de execução com britamento\n✅ Projetos e homologação\n✅ Monitoramento de câmeras com DVRs",
                 },
                 {
                   Icon: Award,
@@ -161,7 +161,7 @@ export default function Itapoa() {
                   <Icon size={22} className="flex-shrink-0 mt-0.5" style={{ color: "#FF5900" }} />
                   <div>
                     <p className="font-bold text-[#1a1a1a] text-base mb-1">{titulo}</p>
-                    <p className="text-[#787878] text-sm leading-relaxed">{texto}</p>
+                    <p className="text-[#787878] text-sm leading-relaxed whitespace-pre-line">{texto}</p>
                   </div>
                 </div>
               ))}
