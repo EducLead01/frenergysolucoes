@@ -6,17 +6,7 @@ export default function Cases() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen" style={{ fontFamily: "'Open Sans', sans-serif", color: "#212529" }}>
-
-        {/* Hero */}
-        <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", background: "url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80') center/cover no-repeat" }}>
-          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.62)" }} />
-          <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "120px 32px 80px" }}>
-            <h1 style={{ color: "#fff", fontSize: "clamp(32px, 4.5vw, 62px)", fontWeight: 900, maxWidth: 760, lineHeight: 1.15 }}>
-              Conheça alguns projetos
-            </h1>
-          </div>
-        </section>
+      <main className="min-h-screen pt-24" style={{ fontFamily: "'Open Sans', sans-serif", color: "#212529" }}>
 
         <HomeModelos />
 
