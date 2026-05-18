@@ -56,7 +56,6 @@ export function EsferaContactForm() {
   const [answers, setAnswers] = useState<Answers>({});
   const [nome, setNome] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
-  const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
 
   const isLastQuestion = step === STEPS.length;
@@ -68,7 +67,7 @@ export function EsferaContactForm() {
   const blocked =
     !isLastQuestion && !selected
       ? true
-      : isLastQuestion && (!nome || !whatsapp || !email)
+      : isLastQuestion && (!nome || !whatsapp)
       ? true
       : false;
 
@@ -91,7 +90,6 @@ export function EsferaContactForm() {
       "",
       `👤 Nome: ${nome}`,
       `📱 WhatsApp: ${whatsapp}`,
-      `📧 E-mail: ${email}`,
       "",
       "📋 Dados do imóvel:",
       `• Tarifa Social: ${answers.tarifaSocial ?? "-"}`,
@@ -301,18 +299,6 @@ export function EsferaContactForm() {
                 />
               </div>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                <label style={{ fontSize: 13, fontWeight: 600, color: "#374151" }}>Qual o seu e-mail?</label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="seu@email.com"
-                  required
-                  style={{ border: "2px solid #e5e7eb", borderRadius: 12, padding: "12px 16px", fontSize: 14, outline: "none", transition: "border 0.2s", color: "#1a1a1a" }}
-                />
-              </div>
-
               <button
                 type="submit"
                 disabled={blocked}
@@ -333,7 +319,7 @@ export function EsferaContactForm() {
                   gap: 8,
                 }}
               >
-                Solicitar orçamento grátis
+                Solicitar orçamento personalizado
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
               </button>
 
