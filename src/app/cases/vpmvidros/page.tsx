@@ -7,8 +7,7 @@ import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
 const fotos = [
-  "/images/vpmvidros01.png",
-  // adicione mais fotos aqui
+  "/images/vpmvidros01.jpg",
 ];
 
 export default function Laminex() {
