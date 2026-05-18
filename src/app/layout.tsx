@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Frenergy Soluções",
     images: [
       {
-        url: "/bg-home.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Frenergy Soluções - Energia Solar",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Frenergy Soluções | Energia Solar",
     description:
       "Frenergy Soluções em Energia Solar. Economize até 95% na conta de luz com instalação de painéis solares para residências, comércios e indústrias.",
-    images: ["/bg-home.jpg"],
+    images: ["/og-image.png"],
   },
 };
 
