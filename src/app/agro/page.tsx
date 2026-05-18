@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
-import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
 export default function Agro() {
@@ -43,7 +42,7 @@ export default function Agro() {
               Reduza o custo operacional da sua propriedade rural com energia limpa, renovável e de alta performance.
             </p>
             <a
-              href="#contato"
+              href="/orcamentos"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -94,7 +93,7 @@ export default function Agro() {
                 <p className="text-[#787878] text-base leading-relaxed">
                   A Frenergy projeta e instala sistemas fotovoltaicos de médio e grande porte, dimensionados para a realidade da sua fazenda, com retorno de investimento comprovado e acompanhamento técnico dedicado.
                 </p>
-                <a href="#contato" className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90" style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}>
+                <a href="/orcamentos" className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90" style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}>
                   Solicitar proposta
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
@@ -141,9 +140,6 @@ export default function Agro() {
         </section>
 
         {/* Contato */}
-        <div id="contato">
-          <EsferaContactForm />
-        </div>
 
       </main>
       <EsferaFooter />

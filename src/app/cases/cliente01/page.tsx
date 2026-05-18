@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
-import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
 
 const fotos: string[] = [
   // adicione os caminhos das fotos aqui, ex: "/images/cliente01/foto1.jpg"
@@ -32,7 +31,7 @@ export default function Cliente01() {
                   Descrição do case: contexto do cliente, desafio, solução aplicada e resultado obtido com a Frenergy.
                 </p>
                 <a
-                  href="#contato"
+                  href="/orcamentos"
                   className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90"
                   style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
                 >
@@ -83,9 +82,6 @@ export default function Cliente01() {
           </div>
         </section>
 
-        <div id="contato">
-          <EsferaContactForm />
-        </div>
       </main>
       <EsferaFooter />
     </>

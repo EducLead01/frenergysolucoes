@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
-import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
 export default function Oficinas() {
@@ -19,7 +18,7 @@ export default function Oficinas() {
             <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(16px, 2vw, 20px)", maxWidth: 560, lineHeight: 1.65, marginBottom: 40 }}>
               Elevadores, compressores, solda e iluminação técnica consomem muito. Energia solar corta esse custo e protege sua margem.
             </p>
-            <a href="#contato" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(90deg, #F0416E, #FF5900)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "16px 36px", borderRadius: 999, textDecoration: "none" }}>
+            <a href="/orcamentos" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(90deg, #F0416E, #FF5900)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "16px 36px", borderRadius: 999, textDecoration: "none" }}>
               Solicitar estudo para minha oficina
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </a>
@@ -41,7 +40,7 @@ export default function Oficinas() {
                 <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] leading-snug">Menos gasto com energia, <span style={{ color: "#FF5900" }}>mais lucro</span> no final do mês</h2>
                 <p className="text-[#787878] text-base leading-relaxed">Oficinas mecânicas dependem de equipamentos de alta potência — elevadores, compressores de ar, solda, esmeril e iluminação técnica. Esse consumo representa uma parcela expressiva do custo fixo mensal.</p>
                 <p className="text-[#787878] text-base leading-relaxed">A Frenergy instala sistemas fotovoltaicos adaptados para coberturas de oficinas, com retorno do investimento comprovado em 3 a 5 anos e suporte técnico dedicado em todo o processo.</p>
-                <a href="#contato" className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90" style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}>
+                <a href="/orcamentos" className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90" style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}>
                   Solicitar proposta
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
@@ -72,7 +71,6 @@ export default function Oficinas() {
           </div>
         </section>
 
-        <div id="contato"><EsferaContactForm /></div>
       </main>
       <EsferaFooter />
     </>

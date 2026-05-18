@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
-import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
 export default function ProdutoInvestidores() {
@@ -20,7 +19,7 @@ export default function ProdutoInvestidores() {
             <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(16px, 2vw, 20px)", maxWidth: 560, lineHeight: 1.65, marginBottom: 40 }}>
               Invista em usinas solares com retorno entre 10% e 18% ao ano, renda recorrente e impacto positivo no planeta.
             </p>
-            <a href="#contato" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(90deg, #F0416E, #FF5900)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "16px 36px", borderRadius: 999, textDecoration: "none" }}>
+            <a href="/orcamentos" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(90deg, #F0416E, #FF5900)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "16px 36px", borderRadius: 999, textDecoration: "none" }}>
               Quero investir em energia solar
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </a>
@@ -42,7 +41,7 @@ export default function ProdutoInvestidores() {
                 <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] leading-snug">Seu dinheiro gerando <span style={{ color: "#FF5900" }}>energia e rentabilidade</span></h2>
                 <p className="text-[#787878] text-base leading-relaxed">Investir em usinas solares fotovoltaicas é uma das formas mais seguras e previsíveis de gerar renda passiva no Brasil. Com a Frenergy, você aplica em ativos reais, com retorno garantido por contratos de longo prazo e geração de energia mensurável.</p>
                 <p className="text-[#787878] text-base leading-relaxed">Nosso modelo conecta investidores a projetos de geração distribuída já licenciados, com engenharia validada e operação monitorada em tempo real. Você investe, a Frenergy opera, e o dinheiro cai na sua conta.</p>
-                <a href="#contato" className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90" style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}>
+                <a href="/orcamentos" className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90" style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}>
                   Quero investir
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
@@ -73,7 +72,6 @@ export default function ProdutoInvestidores() {
           </div>
         </section>
 
-        <div id="contato"><EsferaContactForm /></div>
       </main>
       <EsferaFooter />
     </>

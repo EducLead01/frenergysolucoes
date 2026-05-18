@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
-import { EsferaContactForm } from "@/components/esfera/EsferaContactForm";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
 export default function Templos() {
@@ -19,7 +18,7 @@ export default function Templos() {
             <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(16px, 2vw, 20px)", maxWidth: 560, lineHeight: 1.65, marginBottom: 40 }}>
               Iluminação, som, ar-condicionado e eventos frequentes consomem muito. Energia solar libera recursos para o que realmente importa.
             </p>
-            <a href="#contato" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(90deg, #F0416E, #FF5900)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "16px 36px", borderRadius: 999, textDecoration: "none" }}>
+            <a href="/orcamentos" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(90deg, #F0416E, #FF5900)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "16px 36px", borderRadius: 999, textDecoration: "none" }}>
               Solicitar estudo para meu templo
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </a>
@@ -41,7 +40,7 @@ export default function Templos() {
                 <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] leading-snug">O dízimo bem aplicado começa pela <span style={{ color: "#FF5900" }}>energia solar</span></h2>
                 <p className="text-[#787878] text-base leading-relaxed">Igrejas e templos realizam cultos, eventos e atividades sociais com frequência, gerando um alto consumo de energia — iluminação cênica, sistema de som, ar-condicionado e cozinha comunitária.</p>
                 <p className="text-[#787878] text-base leading-relaxed">A Frenergy instala sistemas fotovoltaicos sob medida para templos de todos os portes, liberando recursos financeiros para a missão da comunidade e reduzindo a conta de energia em até 95%.</p>
-                <a href="#contato" className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90" style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}>
+                <a href="/orcamentos" className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90" style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}>
                   Solicitar proposta
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
@@ -72,7 +71,6 @@ export default function Templos() {
           </div>
         </section>
 
-        <div id="contato"><EsferaContactForm /></div>
       </main>
       <EsferaFooter />
     </>
