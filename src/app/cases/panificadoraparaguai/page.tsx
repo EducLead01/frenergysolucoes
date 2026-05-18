@@ -28,16 +28,6 @@ export default function PanificadoraParaguai() {
                 <p className="text-[#787878] text-base leading-relaxed">
                   Empresa de Goiânia com usina instalada na zona rural da região metropolitana, operando em consumo remoto. Sistema de grande porte projetado para alta geração e máxima segurança.
                 </p>
-                <a
-                  href="/orcamentos"
-                  className="self-start inline-flex items-center gap-2 text-white font-bold text-sm px-6 py-3 rounded-full transition-opacity hover:opacity-90"
-                  style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-                >
-                  Quero um resultado igual
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
               </div>
 
               <div className="flex-1 w-full relative">
