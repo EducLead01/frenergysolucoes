@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Award, Clock, TrendingUp, ListChecks, ChevronLeft, ChevronRight } from "lucide-react";
+import { Award, Clock, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
@@ -99,14 +99,32 @@ export default function Itapoa() {
         </section>
 
         {/* O que está incluso */}
-        <section className="py-10 bg-white">
+        <section className="py-10 bg-[#F7F7F7]">
           <div className="container mx-auto px-6 max-w-3xl">
-            <div className="flex gap-5 items-start p-6 rounded-2xl bg-[#f7f7f7]">
-              <ListChecks size={22} className="flex-shrink-0 mt-0.5" style={{ color: "#FF5900" }} />
-              <div>
-                <p className="font-bold text-[#1a1a1a] text-base mb-1">O que está incluso no investimento</p>
-                <p className="text-[#787878] text-sm leading-relaxed whitespace-pre-line">{"Projeto de investimento em usinas fotovoltaicas com geração de renda passiva mensal. Sistema de médio porte com alta eficiência, monitoramento completo e retorno previsível ao investidor.\n\n✅ Cercamento\n✅ Material solar\n✅ Mão de obra de execução com britamento\n✅ Projetos e homologação\n✅ Monitoramento de câmeras com DVRs"}</p>
-              </div>
+            <h2 className="text-xl lg:text-2xl font-bold text-[#4D4D4D] text-center mb-6">
+              O que está incluso no <span style={{ color: "#FF5900" }}>investimento</span>
+            </h2>
+            <p className="text-[#787878] text-sm text-center mb-8 leading-relaxed">
+              Projeto de investimento em usinas fotovoltaicas com geração de renda passiva mensal. Sistema de médio porte com alta eficiência, monitoramento completo e retorno previsível ao investidor.
+            </p>
+            <div className="flex flex-col gap-3">
+              {[
+                "Cercamento",
+                "Material solar",
+                "Mão de obra de execução com britamento",
+                "Projetos e homologação",
+                "Monitoramento de câmeras com DVRs",
+              ].map((item) => (
+                <div key={item} className="bg-white rounded-2xl shadow-sm flex items-center justify-between px-6 py-5 gap-4">
+                  <span className="font-semibold text-[#4D4D4D] text-sm lg:text-base">{item}</span>
+                  <span
+                    className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-white text-lg font-bold"
+                    style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
+                  >
+                    ✓
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
