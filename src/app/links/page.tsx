@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
 const NAVY = "#115e59";
 
@@ -49,16 +48,6 @@ const links = [
 
 export default function Links() {
   return (
-    <>
-      {/* Cabeçalho — só logo, sem navegação */}
-      <header className="fixed inset-x-0 top-0 z-50 flex justify-center mx-6 mt-4">
-        <div className="container flex items-center justify-center rounded-lg px-5 py-3 backdrop-blur-lg bg-teal-800/90">
-          <a href="/">
-            <img src="/frenergy-logo-white.svg" alt="Frenergy Soluções" className="w-24 lg:w-32" />
-          </a>
-        </div>
-      </header>
-
     <main className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Vídeo de fundo */}
       <video
@@ -113,7 +102,5 @@ export default function Links() {
 
       </div>
     </main>
-    <EsferaFooter />
-    </>
   );
 }
