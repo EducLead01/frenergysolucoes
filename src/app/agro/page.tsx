@@ -23,8 +23,8 @@ export default function Agro() {
           {/* Fazendeiro — ancorado na base direita */}
           <div style={{ position: "absolute", bottom: 0, right: "8%", zIndex: 1, display: "flex", alignItems: "flex-end" }}>
             <Image
-              src="/images/Fazendeiro.png"
-              alt="Fazendeiro"
+              src="/images/agro02.jpg"
+              alt="Agronegócio com energia solar"
               width={340}
               height={520}
               className="h-[70vh] w-auto object-contain object-bottom"
