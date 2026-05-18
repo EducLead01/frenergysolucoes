@@ -86,6 +86,21 @@ export function EsferaContactForm() {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
+    const msg = [
+      "Olá! Gostaria de solicitar um orçamento de energia solar.",
+      "",
+      `👤 Nome: ${nome}`,
+      `📱 WhatsApp: ${whatsapp}`,
+      `📧 E-mail: ${email}`,
+      "",
+      "📋 Dados do imóvel:",
+      `• Tarifa Social: ${answers.tarifaSocial ?? "-"}`,
+      `• Tipo de imóvel: ${answers.tipo ?? "-"}`,
+      `• Estado: ${answers.estado ?? "-"}`,
+      `• Conta de energia: ${answers.conta ?? "-"}`,
+      `• Conta > R$ 1.000: ${answers.contaMaior ?? "-"}`,
+    ].join("\n");
+    window.open(`https://wa.me/5562996426626?text=${encodeURIComponent(msg)}`, "_blank");
     setSent(true);
   }
 
