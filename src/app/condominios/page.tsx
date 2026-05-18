@@ -248,13 +248,11 @@ export default function Condominios() {
             </h2>
           </div>
 
-          <div className="flex flex-col gap-20">
-            {condoProducts.map((p, i) => (
-              <div
-                key={p.id}
-                className={`flex flex-col items-center gap-12 ${i % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"}`}
-              >
-                {/* Texto */}
+          {/* Card 1 — destaque com imagem */}
+          {(() => {
+            const p = condoProducts[0];
+            return (
+              <div className="flex flex-col lg:flex-row items-center gap-12 mb-16">
                 <div className="flex-1 flex flex-col gap-4">
                   <span
                     className="inline-block self-start text-white text-xs font-bold uppercase px-3 py-1 rounded-full"
@@ -262,53 +260,68 @@ export default function Condominios() {
                   >
                     {p.badge}
                   </span>
-                  <h3 className="text-xl lg:text-2xl font-bold text-[#4D4D4D] leading-snug">{p.title}</h3>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] leading-snug">{p.title}</h3>
                   <p className="text-[#787878] text-base leading-relaxed">{p.desc}</p>
                 </div>
-
-                {/* Imagem com sombra laranja offset */}
-                {p.fotos.length > 0 && (
-                  <div className="flex-1 w-full relative">
-                    <div
-                      className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
-                      style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
-                    />
-                    <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-                      <Image src={p.fotos[carouselIdx[p.id] ?? 0]} alt={p.title} fill className="object-cover transition-opacity duration-300" />
-
-                      {p.fotos.length > 1 && (
-                        <>
-                          <button
-                            onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: Math.max(0, (s[p.id] ?? 0) - 1) }))}
-                            disabled={(carouselIdx[p.id] ?? 0) === 0}
-                            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-30"
-                            style={{ background: "rgba(0,0,0,0.45)" }}
-                          >
-                            <ChevronLeft size={20} />
-                          </button>
-                          <button
-                            onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: Math.min(p.fotos.length - 1, (s[p.id] ?? 0) + 1) }))}
-                            disabled={(carouselIdx[p.id] ?? 0) === p.fotos.length - 1}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-30"
-                            style={{ background: "rgba(0,0,0,0.45)" }}
-                          >
-                            <ChevronRight size={20} />
-                          </button>
-                          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-                            {p.fotos.map((_, i) => (
-                              <button
-                                key={i}
-                                onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: i }))}
-                                className="rounded-full transition-all duration-300"
-                                style={{ width: (carouselIdx[p.id] ?? 0) === i ? 20 : 6, height: 6, background: (carouselIdx[p.id] ?? 0) === i ? "#FF5900" : "rgba(255,255,255,0.6)" }}
-                              />
-                            ))}
-                          </div>
-                        </>
-                      )}
-                    </div>
+                <div className="flex-1 w-full relative">
+                  <div
+                    className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
+                    style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
+                  />
+                  <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+                    <Image src={p.fotos[carouselIdx[p.id] ?? 0]} alt={p.title} fill className="object-cover transition-opacity duration-300" />
+                    {p.fotos.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: Math.max(0, (s[p.id] ?? 0) - 1) }))}
+                          disabled={(carouselIdx[p.id] ?? 0) === 0}
+                          className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-30"
+                          style={{ background: "rgba(0,0,0,0.45)" }}
+                        >
+                          <ChevronLeft size={20} />
+                        </button>
+                        <button
+                          onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: Math.min(p.fotos.length - 1, (s[p.id] ?? 0) + 1) }))}
+                          disabled={(carouselIdx[p.id] ?? 0) === p.fotos.length - 1}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-30"
+                          style={{ background: "rgba(0,0,0,0.45)" }}
+                        >
+                          <ChevronRight size={20} />
+                        </button>
+                        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                          {p.fotos.map((_, i) => (
+                            <button
+                              key={i}
+                              onClick={() => setCarouselIdx(s => ({ ...s, [p.id]: i }))}
+                              className="rounded-full transition-all duration-300"
+                              style={{ width: (carouselIdx[p.id] ?? 0) === i ? 20 : 6, height: 6, background: (carouselIdx[p.id] ?? 0) === i ? "#FF5900" : "rgba(255,255,255,0.6)" }}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
                   </div>
-                )}
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* Cards 2, 3, 4 — grid horizontal */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {condoProducts.slice(1).map((p) => (
+              <div
+                key={p.id}
+                className="flex flex-col gap-3 rounded-2xl p-6"
+                style={{ background: "#f7f7f7", borderTop: "3px solid #FF5900" }}
+              >
+                <span
+                  className="inline-block self-start text-white text-xs font-bold uppercase px-3 py-1 rounded-full"
+                  style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+                >
+                  {p.badge}
+                </span>
+                <h3 className="text-base font-bold text-[#1a1a1a] leading-snug">{p.title}</h3>
+                <p className="text-[#787878] text-sm leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
