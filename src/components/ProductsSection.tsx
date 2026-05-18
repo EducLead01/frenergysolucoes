@@ -22,7 +22,7 @@ const products = [
     title: "Industrial",
     description: "Acima de 75 kWp para indústrias e grandes consumidores. Consultoria energética e engenheiro dedicado ao projeto.",
     img: "/images/Industrial.png",
-    href: "/produtos/industrial",
+    href: "/galpoes",
   },
   {
     title: "Agro",
