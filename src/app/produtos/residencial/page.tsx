@@ -14,8 +14,8 @@ export default function ProdutoResidencial() {
           <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.35)" }} />
           <div style={{ position: "absolute", bottom: 0, right: "8%", zIndex: 1, display: "flex", alignItems: "flex-end" }}>
             <Image
-              src="/images/tecnico.png"
-              alt="Técnico solar"
+              src="/images/eng.png"
+              alt="Engenheiro solar"
               width={340}
               height={520}
               className="h-[70vh] w-auto object-contain object-bottom"
