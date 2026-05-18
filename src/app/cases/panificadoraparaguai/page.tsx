@@ -1,9 +1,19 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import { ShieldCheck, Award, Clock } from "lucide-react";
+import { ShieldCheck, Award, Clock, ChevronLeft, ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
+const fotos = [
+  "/images/panificadora02.jpeg",
+  // adicione mais fotos aqui: "/images/panificadora03.jpeg"
+];
+
 export default function PanificadoraParaguai() {
+  const [idx, setIdx] = useState(0);
+
   return (
     <>
       <Navbar />
@@ -30,6 +40,7 @@ export default function PanificadoraParaguai() {
                 </p>
               </div>
 
+              {/* Carrossel */}
               <div className="flex-1 w-full relative">
                 <div
                   className="absolute inset-0 rounded-2xl translate-x-3 translate-y-3"
@@ -37,12 +48,48 @@ export default function PanificadoraParaguai() {
                 />
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                   <Image
-                    src="/images/panificadora02.jpeg"
-                    alt="Panificadora Paraguai"
+                    src={fotos[idx]}
+                    alt={`Panificadora Paraguai ${idx + 1}`}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-opacity duration-300"
                     priority
                   />
+
+                  {fotos.length > 1 && (
+                    <>
+                      <button
+                        onClick={() => setIdx(i => Math.max(0, i - 1))}
+                        disabled={idx === 0}
+                        className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-30"
+                        style={{ background: "rgba(0,0,0,0.45)" }}
+                      >
+                        <ChevronLeft size={20} />
+                      </button>
+                      <button
+                        onClick={() => setIdx(i => Math.min(fotos.length - 1, i + 1))}
+                        disabled={idx === fotos.length - 1}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white shadow-lg transition-opacity disabled:opacity-30"
+                        style={{ background: "rgba(0,0,0,0.45)" }}
+                      >
+                        <ChevronRight size={20} />
+                      </button>
+
+                      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                        {fotos.map((_, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setIdx(i)}
+                            className="rounded-full transition-all duration-300"
+                            style={{
+                              width: idx === i ? 20 : 6,
+                              height: 6,
+                              background: idx === i ? "#FF5900" : "rgba(255,255,255,0.6)",
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
 
