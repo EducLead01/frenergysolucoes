@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "Será feito alguma obra ou mudança elétrica na casa?",
-    a: "Nenhuma obra é necessária. O sistema é integrado diretamente à rede elétrica já existente do imóvel — sem quebras, sem reformas e sem qualquer alteração no projeto arquitetônico. O processo é simples, rápido e o seu dia a dia não é interrompido.",
+    a: "Nenhuma obra é necessária. As placas são instaladas geralmente no telhado com uma estrutura simples — sem quebradeira, sem sujeira e sem qualquer reforma. O sistema é integrado diretamente à rede elétrica já existente do imóvel, sem alterar nada no projeto arquitetônico. O processo é rápido e o seu dia a dia não é interrompido.",
   },
 ];
 
