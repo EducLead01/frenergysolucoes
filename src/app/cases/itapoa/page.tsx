@@ -31,7 +31,7 @@ function useCountUp(target: number, duration = 1800) {
   return { value, ref };
 }
 import Image from "next/image";
-import { Award, Clock, TrendingUp, ShieldCheck, ChevronLeft, ChevronRight, Shield, Sun, HardHat, FileCheck, Camera } from "lucide-react";
+import { Award, Clock, ShieldCheck, ChevronLeft, ChevronRight, Shield, Sun, HardHat, FileCheck, Camera } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
@@ -145,16 +145,11 @@ export default function Itapoa() {
         </div>
 
         {/* Destaque renda */}
-        <section ref={rendaRef} className="py-16" style={{ background: "linear-gradient(135deg, #091B30, #115e59)" }}>
-          <div className="container mx-auto px-6 max-w-2xl text-center flex flex-col items-center gap-4">
-            <div className="w-14 h-14 rounded-full flex items-center justify-center mb-2" style={{ background: "rgba(255,255,255,0.1)" }}>
-              <TrendingUp size={28} className="text-white" />
-            </div>
-            <p className="text-white/70 text-sm font-semibold uppercase tracking-widest">Renda mensal líquida para o investidor</p>
-            <p className="font-black leading-none" style={{ fontSize: "clamp(32px, 5vw, 56px)", color: "#FF5900" }}>
+        <section ref={rendaRef} className="py-12" style={{ background: "linear-gradient(135deg, #091B30, #115e59)" }}>
+          <div className="container mx-auto px-6 max-w-2xl text-center">
+            <p className="font-black leading-none" style={{ fontSize: "clamp(32px, 5vw, 56px)", color: "#fff" }}>
               R$ {renda.toLocaleString("pt-BR")},00
             </p>
-            <p className="text-white/50 text-sm mt-2">Investimento total de R$ 320.000,00 · sem contar o valor do terreno</p>
           </div>
         </section>
 
