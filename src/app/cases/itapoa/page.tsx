@@ -132,7 +132,7 @@ export default function Itapoa() {
         <div style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)", overflow: "hidden", padding: "10px 0", whiteSpace: "nowrap" }}>
           <style>{`
             @keyframes ticker-itapoa { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-            .ticker-itapoa { animation: ticker-itapoa 20s linear infinite; }
+            .ticker-itapoa { animation: ticker-itapoa 35s linear infinite; }
           `}</style>
           <div className="ticker-itapoa" style={{ display: "inline-flex", gap: "40px", width: "max-content" }}>
             {[...Array(8)].flatMap(() => [
