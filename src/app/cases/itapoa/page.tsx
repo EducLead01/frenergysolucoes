@@ -37,6 +37,13 @@ import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
 const fotos = [
   "/images/itapoacapa.png",
+  "/images/itapoa02.jpeg",
+  "/images/itapoa03.jpeg",
+  "/images/itapoa04.jpeg",
+  "/images/itapoa05.jpeg",
+  "/images/itapoa06.jpeg",
+  "/images/itapoa07.jpeg",
+  "/images/itapoa08.jpeg",
 ];
 
 export default function Itapoa() {
