@@ -1,6 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+
+function useCountUp(target: number, duration = 1800) {
+  const [value, setValue] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started.current) {
+        started.current = true;
+        const start = performance.now();
+        const tick = (now: number) => {
+          const pct = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - pct, 3);
+          setValue(Math.floor(eased * target));
+          if (pct < 1) requestAnimationFrame(tick);
+          else setValue(target);
+        };
+        requestAnimationFrame(tick);
+      }
+    }, { threshold: 0.5 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  return { value, ref };
+}
 import Image from "next/image";
 import { Award, Clock, TrendingUp, ShieldCheck, ChevronLeft, ChevronRight, Shield, Sun, HardHat, FileCheck, Camera } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
@@ -12,6 +41,7 @@ const fotos = [
 
 export default function Itapoa() {
   const [idx, setIdx] = useState(0);
+  const { value: renda, ref: rendaRef } = useCountUp(8730);
 
   return (
     <>
@@ -39,9 +69,11 @@ export default function Itapoa() {
                 </p>
                 <div className="flex items-center gap-3 bg-[#f7f7f7] rounded-2xl px-5 py-4 self-start">
                   <TrendingUp size={20} style={{ color: "#FF5900", flexShrink: 0 }} />
-                  <div>
+                  <div ref={rendaRef}>
                     <p className="text-xs font-bold text-[#4D4D4D] uppercase tracking-wide">Renda mensal líquida</p>
-                    <p className="text-xl font-black" style={{ color: "#FF5900" }}>R$ 8.730,00</p>
+                    <p className="text-xl font-black" style={{ color: "#FF5900" }}>
+                      R$ {renda.toLocaleString("pt-BR")},00
+                    </p>
                   </div>
                 </div>
               </div>
