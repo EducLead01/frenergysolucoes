@@ -67,7 +67,7 @@ export default function Itapoa() {
                 <p className="text-[#787878] text-base leading-relaxed">
                   Projeto de investimento em usinas fotovoltaicas com geração de renda passiva mensal. Sistema de médio porte com alta eficiência, monitoramento completo e retorno previsível ao investidor.
                 </p>
-                <div className="flex items-center gap-3 bg-[#f7f7f7] rounded-2xl px-5 py-4 self-start">
+                <div className="flex items-center gap-3 bg-[#f7f7f7] rounded-2xl px-5 py-4 self-center lg:self-start">
                   <TrendingUp size={20} style={{ color: "#FF5900", flexShrink: 0 }} />
                   <div ref={rendaRef}>
                     <p className="text-xs font-bold text-[#4D4D4D] uppercase tracking-wide">Renda mensal líquida para o investidor</p>
