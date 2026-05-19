@@ -170,12 +170,12 @@ export default function Itapoa() {
                 {
                   Icon: Award,
                   titulo: "Garantia de 10 anos",
-                  texto: "Equipamentos com garantia muito acima da média do mercado, garantindo um prazo muito acima dos outros produtos existentes no mercado e excelente pós-venda.",
+                  texto: "Garantia de 10 anos e excelente pós-venda, garantindo um prazo muito acima da média dos outros produtos existentes no mercado.",
                 },
                 {
                   Icon: Clock,
                   titulo: "Reposição em até 45 dias úteis",
-                  texto: "Prazo médio de reposição dos componentes de 45 dias úteis após validação da garantia — com suporte técnico dedicado durante todo o processo.",
+                  texto: "Média de prazo de reposição dos componentes de 45 dias úteis após validação da garantia.",
                 },
               ].map(({ Icon, titulo, texto }) => (
                 <div key={titulo} className="flex gap-5 items-start p-6 rounded-2xl bg-[#f7f7f7]">
