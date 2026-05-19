@@ -135,7 +135,7 @@ export default function Itapoa() {
               <TrendingUp size={28} className="text-white" />
             </div>
             <p className="text-white/70 text-sm font-semibold uppercase tracking-widest">Renda mensal líquida para o investidor</p>
-            <p className="font-black leading-none" style={{ fontSize: "clamp(48px, 10vw, 88px)", color: "#FF5900" }}>
+            <p className="font-black leading-none" style={{ fontSize: "clamp(32px, 5vw, 56px)", color: "#FF5900" }}>
               R$ {renda.toLocaleString("pt-BR")},00
             </p>
             <p className="text-white/50 text-sm mt-2">Investimento total de R$ 320.000,00 · sem contar o valor do terreno</p>
