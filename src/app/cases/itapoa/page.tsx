@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Award, Clock, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { Award, Clock, TrendingUp, ChevronLeft, ChevronRight, Shield, Sun, HardHat, FileCheck, Camera } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
@@ -109,20 +109,15 @@ export default function Itapoa() {
             </p>
             <div className="flex flex-col gap-3">
               {[
-                "Cercamento",
-                "Material solar",
-                "Mão de obra de execução com britamento",
-                "Projetos e homologação",
-                "Monitoramento de câmeras com DVRs",
-              ].map((item) => (
-                <div key={item} className="bg-white rounded-2xl shadow-sm flex items-center justify-between px-6 py-5 gap-4">
-                  <span className="font-semibold text-[#4D4D4D] text-sm lg:text-base">{item}</span>
-                  <span
-                    className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-white text-lg font-bold"
-                    style={{ background: "linear-gradient(135deg, #F0416E, #FF5900)" }}
-                  >
-                    ✓
-                  </span>
+                { label: "Cercamento",                            Icon: Shield    },
+                { label: "Material solar",                        Icon: Sun       },
+                { label: "Mão de obra de execução com britamento", Icon: HardHat  },
+                { label: "Projetos e homologação",                Icon: FileCheck },
+                { label: "Monitoramento de câmeras com DVRs",     Icon: Camera    },
+              ].map(({ label, Icon }) => (
+                <div key={label} className="bg-white rounded-2xl shadow-sm flex items-center gap-4 px-6 py-5">
+                  <Icon size={20} className="flex-shrink-0" style={{ color: "#FF5900" }} />
+                  <span className="font-semibold text-[#4D4D4D] text-sm lg:text-base">{label}</span>
                 </div>
               ))}
             </div>
