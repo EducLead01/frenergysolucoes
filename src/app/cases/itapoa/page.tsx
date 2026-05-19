@@ -66,7 +66,7 @@ export default function Itapoa() {
                 >
                   Case de Sucesso
                 </span>
-                <p className="text-sm font-semibold text-[#FF5900] uppercase tracking-widest">Usina de Investimento · Goiânia/GO</p>
+                <p className="text-sm font-semibold text-[#FF5900] uppercase tracking-widest">Usina de Investimento · Aparecida de Goiânia/GO</p>
                 <h1 className="text-3xl lg:text-4xl font-bold text-[#1a1a1a] leading-snug">
                   Usinas I e II Itapoã
                 </h1>
