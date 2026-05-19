@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Award, Clock, TrendingUp, ChevronLeft, ChevronRight, Shield, Sun, HardHat, FileCheck, Camera } from "lucide-react";
+import { Award, Clock, TrendingUp, ShieldCheck, ChevronLeft, ChevronRight, Shield, Sun, HardHat, FileCheck, Camera } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
@@ -167,6 +167,11 @@ export default function Itapoa() {
           <div className="container mx-auto px-6 max-w-3xl">
             <div className="flex flex-col gap-5">
               {[
+                {
+                  Icon: ShieldCheck,
+                  titulo: "Aprovado pelo Corpo de Bombeiros",
+                  texto: "O sistema possui otimizadores de potência ligados entre os módulos e os inversores, atendendo à nova norma de segurança contra incêndio exigida pelo Corpo de Bombeiros.",
+                },
                 {
                   Icon: Award,
                   titulo: "Garantia de 10 anos",
