@@ -128,6 +128,22 @@ export default function Itapoa() {
           </div>
         </section>
 
+        {/* Ticker */}
+        <div style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)", overflow: "hidden", padding: "10px 0", whiteSpace: "nowrap" }}>
+          <style>{`
+            @keyframes ticker-itapoa { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+            .ticker-itapoa { animation: ticker-itapoa 20s linear infinite; }
+          `}</style>
+          <div className="ticker-itapoa" style={{ display: "inline-flex", gap: "40px", width: "max-content" }}>
+            {[...Array(8)].flatMap(() => [
+              "RENDA MENSAL LÍQUIDA PARA O INVESTIDOR",
+              "•",
+            ]).map((t, i) => (
+              <span key={i} style={{ fontWeight: 700, fontSize: 16, color: "#fff", letterSpacing: 2 }}>{t}</span>
+            ))}
+          </div>
+        </div>
+
         {/* Destaque renda */}
         <section ref={rendaRef} className="py-16" style={{ background: "linear-gradient(135deg, #091B30, #115e59)" }}>
           <div className="container mx-auto px-6 max-w-2xl text-center flex flex-col items-center gap-4">
