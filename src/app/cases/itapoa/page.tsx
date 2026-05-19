@@ -70,7 +70,7 @@ export default function Itapoa() {
                 <div className="flex items-center gap-3 bg-[#f7f7f7] rounded-2xl px-5 py-4 self-start">
                   <TrendingUp size={20} style={{ color: "#FF5900", flexShrink: 0 }} />
                   <div ref={rendaRef}>
-                    <p className="text-xs font-bold text-[#4D4D4D] uppercase tracking-wide">Renda mensal líquida</p>
+                    <p className="text-xs font-bold text-[#4D4D4D] uppercase tracking-wide">Renda mensal líquida para o investidor</p>
                     <p className="text-xl font-black" style={{ color: "#FF5900" }}>
                       R$ {renda.toLocaleString("pt-BR")},00
                     </p>
