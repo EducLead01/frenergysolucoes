@@ -150,6 +150,7 @@ export default function Itapoa() {
             <p className="font-black leading-none" style={{ fontSize: "clamp(32px, 5vw, 56px)", color: "#fff" }}>
               R$ {renda.toLocaleString("pt-BR")},00
             </p>
+            <p className="text-white/50 text-sm font-medium uppercase tracking-widest mt-3">Renda Mensal Líquida</p>
           </div>
         </section>
 
