@@ -36,7 +36,6 @@ import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
 const fotos = [
-  "/images/itapoacapa.png",
   "/images/itapoa02.jpeg",
   "/images/itapoa03.jpeg",
   "/images/itapoa04.jpeg",
