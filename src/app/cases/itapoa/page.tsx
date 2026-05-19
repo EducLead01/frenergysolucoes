@@ -47,6 +47,7 @@ const fotos = [
 
 export default function Itapoa() {
   const [idx, setIdx] = useState(0);
+  const [openItem, setOpenItem] = useState<number | null>(null);
   const { value: renda, ref: rendaRef } = useCountUp(8730);
 
   return (
@@ -147,15 +148,50 @@ export default function Itapoa() {
             </p>
             <div className="flex flex-col gap-3">
               {[
-                { label: "Cercamento",                            Icon: Shield    },
-                { label: "Material solar",                        Icon: Sun       },
-                { label: "Mão de obra de execução com britamento", Icon: HardHat  },
-                { label: "Projetos e homologação",                Icon: FileCheck },
-                { label: "Monitoramento de câmeras com DVRs",     Icon: Camera    },
-              ].map(({ label, Icon }) => (
-                <div key={label} className="bg-white rounded-2xl shadow-sm flex items-center gap-4 px-6 py-5">
-                  <Icon size={20} className="flex-shrink-0" style={{ color: "#FF5900" }} />
-                  <span className="font-semibold text-[#4D4D4D] text-sm lg:text-base">{label}</span>
+                {
+                  label: "Cercamento",
+                  Icon: Shield,
+                  desc: "Instalação do perímetro de segurança ao redor das usinas com mourões e tela, garantindo a proteção do investimento e delimitando a área das plantas solares.",
+                },
+                {
+                  label: "Material solar",
+                  Icon: Sun,
+                  desc: "120 módulos Trina 700W, 2 inversores Solis 30kW, cabos, conectores, caixas de junção e toda a estrutura metálica de fixação dos módulos ao solo.",
+                },
+                {
+                  label: "Mão de obra de execução com britamento",
+                  Icon: HardHat,
+                  desc: "Equipe especializada em instalação fotovoltaica, incluindo o britamento e nivelamento do terreno para fixação das estruturas de suporte dos módulos, garantindo estabilidade e durabilidade.",
+                },
+                {
+                  label: "Projetos e homologação",
+                  Icon: FileCheck,
+                  desc: "Projetos elétrico e civil, ART de engenharia e homologação completa junto à concessionária de energia para conexão legal à rede.",
+                },
+                {
+                  label: "Monitoramento de câmeras com DVRs",
+                  Icon: Camera,
+                  desc: "Sistema de câmeras de segurança com DVR instalado nas usinas, permitindo o monitoramento remoto em tempo real pelo celular ou computador — protegendo o patrimônio 24h por dia.",
+                },
+              ].map(({ label, Icon, desc }, i) => (
+                <div key={label} className="bg-white rounded-2xl shadow-sm overflow-hidden">
+                  <button
+                    className="w-full flex items-center gap-4 px-6 py-5 text-left"
+                    onClick={() => setOpenItem(openItem === i ? null : i)}
+                  >
+                    <Icon size={20} className="flex-shrink-0" style={{ color: "#FF5900" }} />
+                    <span className="flex-1 font-semibold text-[#4D4D4D] text-sm lg:text-base">{label}</span>
+                    <span className="flex-shrink-0 flex flex-col gap-[5px]">
+                      <span className={`block w-5 h-0.5 bg-[#4D4D4D] transition-all duration-300 origin-center ${openItem === i ? "rotate-45 translate-y-[7px]" : ""}`} />
+                      <span className={`block w-5 h-0.5 bg-[#4D4D4D] transition-all duration-300 ${openItem === i ? "opacity-0" : ""}`} />
+                      <span className={`block w-5 h-0.5 bg-[#4D4D4D] transition-all duration-300 origin-center ${openItem === i ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+                    </span>
+                  </button>
+                  {openItem === i && (
+                    <div className="px-6 pb-5 text-[#787878] text-sm leading-relaxed border-t border-[#f0f0f0] pt-4">
+                      {desc}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
