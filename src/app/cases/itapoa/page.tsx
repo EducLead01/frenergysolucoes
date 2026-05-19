@@ -74,15 +74,6 @@ export default function Itapoa() {
                 <p className="text-[#787878] text-base leading-relaxed">
                   Projeto de investimento em usinas fotovoltaicas com geração de renda passiva mensal. Sistema de médio porte com alta eficiência, monitoramento completo e retorno previsível ao investidor.
                 </p>
-                <div className="flex items-center gap-3 bg-[#f7f7f7] rounded-2xl px-5 py-4 self-center lg:self-start">
-                  <TrendingUp size={20} style={{ color: "#FF5900", flexShrink: 0 }} />
-                  <div ref={rendaRef}>
-                    <p className="text-xs font-bold text-[#4D4D4D] uppercase tracking-wide">Renda mensal líquida para o investidor</p>
-                    <p className="text-xl font-black" style={{ color: "#FF5900" }}>
-                      R$ {renda.toLocaleString("pt-BR")},00
-                    </p>
-                  </div>
-                </div>
               </div>
 
               {/* Carrossel */}
@@ -134,6 +125,20 @@ export default function Itapoa() {
               </div>
 
             </div>
+          </div>
+        </section>
+
+        {/* Destaque renda */}
+        <section ref={rendaRef} className="py-16" style={{ background: "linear-gradient(135deg, #091B30, #115e59)" }}>
+          <div className="container mx-auto px-6 max-w-2xl text-center flex flex-col items-center gap-4">
+            <div className="w-14 h-14 rounded-full flex items-center justify-center mb-2" style={{ background: "rgba(255,255,255,0.1)" }}>
+              <TrendingUp size={28} className="text-white" />
+            </div>
+            <p className="text-white/70 text-sm font-semibold uppercase tracking-widest">Renda mensal líquida para o investidor</p>
+            <p className="font-black leading-none" style={{ fontSize: "clamp(48px, 10vw, 88px)", color: "#FF5900" }}>
+              R$ {renda.toLocaleString("pt-BR")},00
+            </p>
+            <p className="text-white/50 text-sm mt-2">Investimento total de R$ 320.000,00 · sem contar o valor do terreno</p>
           </div>
         </section>
 
