@@ -62,11 +62,11 @@ export default function LimpezaManutencao() {
             alt: "Técnico especializado em manutenção solar",
           },
           {
-            badge: "LAUDO TÉCNICO",
-            titulo: "Relatório completo com antes e depois",
-            texto: "Entregamos um laudo técnico com as medições de geração antes e depois da limpeza, comprovando em números o ganho obtido. Você vê o resultado — e tem documento para comprovar a manutenção ao fabricante.",
+            badge: "EQUIPAMENTO IDEAL",
+            titulo: "Cerdas ultrafinas e macias acopladas a cabos telescópicos com passagem de água",
+            texto: "Na Frenergy utilizamos modelos com cerdas de nylon ou microfibra acopladas a cabos telescópicos com passagem de água. Nossas Cerdas Extramacias evitam micro-riscos no vidro temperado, o que poderia danificar suas placas, acumular sujeira ou criar pontos de sombra e diminuir significativamente sua geração.",
             imagem: "/images/limpeza_04.jpg",
-            alt: "Relatório técnico de geração solar",
+            alt: "Equipamento de limpeza de placas solares",
           },
         ].map((card, i) => (
           <section key={card.titulo} className={`py-20 ${i % 2 === 0 ? "bg-white" : "bg-[#F7F7F7]"}`}>
