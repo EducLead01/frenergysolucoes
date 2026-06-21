@@ -88,7 +88,7 @@ export default function LimpezaManutencao() {
       <main style={{ fontFamily: "'Open Sans', sans-serif" }}>
 
         {/* Hero */}
-        <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", background: "url('/images/hero01.jpeg') center/cover no-repeat" }}>
+        <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", background: "url('/images/limpeza_01.jpg') center/cover no-repeat" }}>
           <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.65)" }} />
           <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "120px 32px 80px" }}>
             <p style={{ color: "#FFC10E", fontWeight: 700, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
@@ -121,7 +121,7 @@ export default function LimpezaManutencao() {
                 />
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                   <Image
-                    src="/images/hero01.jpeg"
+                    src="/images/limpeza_02.jpg"
                     alt="Limpeza de placas solares"
                     fill
                     className="object-cover"
@@ -231,6 +231,29 @@ export default function LimpezaManutencao() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Galeria */}
+        <section className="py-16 bg-[#F7F7F7]">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D]">
+                Nosso <span style={{ color: "#FF5900" }}>trabalho</span> em campo
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+              {[
+                { src: "/images/limpeza_01.jpg", alt: "Limpeza de placas solares 1" },
+                { src: "/images/limpeza_02.jpg", alt: "Limpeza de placas solares 2" },
+                { src: "/images/limpeza_03.jpg", alt: "Limpeza de placas solares 3" },
+                { src: "/images/limpeza_04.jpg", alt: "Limpeza de placas solares 4" },
+              ].map((foto) => (
+                <div key={foto.src} className="relative rounded-2xl overflow-hidden aspect-square">
+                  <Image src={foto.src} alt={foto.alt} fill className="object-cover" />
+                </div>
+              ))}
             </div>
           </div>
         </section>
