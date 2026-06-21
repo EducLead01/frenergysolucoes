@@ -49,6 +49,7 @@ export default function LimpezaManutencao() {
           },
           {
             badge: "EQUIPAMENTO IDEAL",
+            subtitulo: "Não é qualquer equipamento",
             titulo: "Cerdas ultrafinas e macias acopladas a cabos telescópicos com passagem de água",
             texto: "Na Frenergy utilizamos modelos com cerdas de nylon ou microfibra acopladas a cabos telescópicos com passagem de água. Nossas Cerdas Extramacias evitam micro-riscos no vidro temperado, o que poderia danificar suas placas, acumular sujeira ou criar pontos de sombra e diminuir significativamente sua geração.",
             imagem: "/images/limpeza_04.jpg",
@@ -92,6 +93,11 @@ export default function LimpezaManutencao() {
                   >
                     {card.badge}
                   </span>
+                  {"subtitulo" in card && (
+                    <p className="text-sm font-bold uppercase tracking-widest" style={{ color: "#FF5900" }}>
+                      {(card as typeof card & { subtitulo: string }).subtitulo}
+                    </p>
+                  )}
                   <h2 className="text-2xl lg:text-3xl font-bold text-[#4D4D4D] leading-snug">
                     {card.titulo}
                   </h2>
