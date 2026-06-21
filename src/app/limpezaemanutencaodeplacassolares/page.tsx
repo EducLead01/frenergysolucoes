@@ -48,6 +48,13 @@ export default function LimpezaManutencao() {
             alt: "Limpeza profissional de placas solares",
           },
           {
+            badge: "EQUIPAMENTO IDEAL",
+            titulo: "Cerdas ultrafinas e macias acopladas a cabos telescópicos com passagem de água",
+            texto: "Na Frenergy utilizamos modelos com cerdas de nylon ou microfibra acopladas a cabos telescópicos com passagem de água. Nossas Cerdas Extramacias evitam micro-riscos no vidro temperado, o que poderia danificar suas placas, acumular sujeira ou criar pontos de sombra e diminuir significativamente sua geração.",
+            imagem: "/images/limpeza_04.jpg",
+            alt: "Equipamento de limpeza de placas solares",
+          },
+          {
             badge: "MANUTENÇÃO PREVENTIVA",
             titulo: "Vistoria técnica antes que o problema apareça",
             texto: "Nossa equipe identifica pontos quentes, cabos danificados e conectores oxidados antes que virem falhas graves. Manutenção preventiva evita prejuízos maiores e prolonga a vida útil do sistema.",
@@ -60,13 +67,6 @@ export default function LimpezaManutencao() {
             texto: "Todos os nossos técnicos são treinados para trabalho em altura e utilizam equipamentos de proteção individuais adequados. Segurança para a sua propriedade e para a nossa equipe em campo.",
             imagem: "/images/limpeza_03.jpg",
             alt: "Técnico especializado em manutenção solar",
-          },
-          {
-            badge: "EQUIPAMENTO IDEAL",
-            titulo: "Cerdas ultrafinas e macias acopladas a cabos telescópicos com passagem de água",
-            texto: "Na Frenergy utilizamos modelos com cerdas de nylon ou microfibra acopladas a cabos telescópicos com passagem de água. Nossas Cerdas Extramacias evitam micro-riscos no vidro temperado, o que poderia danificar suas placas, acumular sujeira ou criar pontos de sombra e diminuir significativamente sua geração.",
-            imagem: "/images/limpeza_04.jpg",
-            alt: "Equipamento de limpeza de placas solares",
           },
         ].map((card, i) => (
           <section key={card.titulo} className={`py-20 ${i % 2 === 0 ? "bg-white" : "bg-[#F7F7F7]"}`}>
