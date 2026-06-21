@@ -14,6 +14,10 @@ export default function LimpezaManutencao() {
     <>
       <Navbar />
       <main style={{ fontFamily: "'Open Sans', sans-serif" }}>
+        <style>{`
+          @keyframes blink-red { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+          .blink-red { animation: blink-red 0.9s step-end infinite; color: #e00; }
+        `}</style>
 
         {/* Hero */}
         <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", background: "url('/images/limpeza_01.jpg') center/cover no-repeat" }}>
@@ -94,7 +98,7 @@ export default function LimpezaManutencao() {
                     {card.badge}
                   </span>
                   {"subtitulo" in card && (
-                    <p className="text-sm font-bold uppercase tracking-widest" style={{ color: "#FF5900" }}>
+                    <p className="blink-red text-sm font-bold uppercase tracking-widest">
                       {(card as typeof card & { subtitulo: string }).subtitulo}
                     </p>
                   )}
