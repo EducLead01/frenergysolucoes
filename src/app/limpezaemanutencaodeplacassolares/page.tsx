@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { EsferaFooter } from "@/components/esfera/EsferaFooter";
 
-const WA = "https://wa.me/5562996426626?text=Olá%2C%20vim%20da%20página%20de%20Limpeza%20e%20Manutenção%20e%20gostaria%20de%20agendar%20uma%20visita%20técnica";
+const WA = "https://wa.me/5562996426626?text=Olá%2C%20gostaria%20de%20mais%20informações%20sobre%20Limpeza%20e%20Manutenção%20de%20Placas%20Solares.";
 
 const arrowIcon = (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
