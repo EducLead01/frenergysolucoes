@@ -134,7 +134,7 @@ export default function LimpezaManutencao() {
           <div className="container mx-auto px-6 max-w-xl text-center">
             <p className="text-white font-bold text-xl mb-2">Sua usina está rendendo tudo que pode?</p>
             <p className="text-white/60 text-sm mb-8">
-              Agende uma vistoria técnica gratuita e descubra quanto você está perdendo com placas sujas.
+              Agende uma vistoria técnica e descubra quanto você está perdendo com placas sujas.
             </p>
             <a
               href={WA}
@@ -143,7 +143,7 @@ export default function LimpezaManutencao() {
               className="inline-flex items-center gap-2 text-white font-bold text-sm px-8 py-4 rounded-full transition-opacity hover:opacity-90"
               style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
             >
-              Agendar vistoria gratuita
+              Agendar vistoria técnica
               {arrowIcon}
             </a>
           </div>
