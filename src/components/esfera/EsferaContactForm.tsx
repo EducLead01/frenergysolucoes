@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Home, Building2, Warehouse, Wheat, type LucideIcon } from "lucide-react";
+import { trackLead } from "@/lib/metaPixel";
 
 const TIPO_ICONS: Record<string, LucideIcon> = {
   "Residencial": Home,
@@ -85,6 +86,8 @@ export function EsferaContactForm() {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+
+    trackLead();
 
     // Envia para Formspree (você recebe o email)
     fetch("https://formspree.io/f/mpqnznzz", {
