@@ -375,10 +375,57 @@ export function SimuladorSolar() {
             </div>
           </div>
 
-          {/* Resultado em tempo real */}
-          {temResultado && (
-            <>
-              <div className="mt-8 mb-8 rounded-2xl p-6 text-center" style={{ background: "#F7F7F7" }}>
+          {/* Dados de contato — precisa preencher pra liberar o resultado */}
+          {temResultado && !sent && (
+            <form onSubmit={submit} className="flex flex-col gap-4 pt-8 border-t border-gray-100 mt-8">
+              <p className="font-extrabold text-[#1a1a1a] text-base md:text-lg mb-1">
+                Quase lá! Informe seus dados para ver sua simulação completa.
+              </p>
+              <div className="flex flex-col gap-4 md:flex-row">
+                <input
+                  type="text"
+                  value={nome}
+                  onChange={(e) => setNome(e.target.value)}
+                  placeholder="Seu nome completo"
+                  required
+                  className="flex-1 border-2 rounded-xl px-4 py-3 text-sm outline-none"
+                  style={{ borderColor: "#e5e7eb", color: "#1a1a1a" }}
+                />
+                <input
+                  type="tel"
+                  value={whatsapp}
+                  onChange={(e) => setWhatsapp(e.target.value)}
+                  placeholder="(62) 99999-9999"
+                  required
+                  className="flex-1 border-2 rounded-xl px-4 py-3 text-sm outline-none"
+                  style={{ borderColor: "#e5e7eb", color: "#1a1a1a" }}
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={leadBloqueado}
+                className="inline-flex items-center justify-center gap-2 w-full text-white font-bold py-4 rounded-full text-base transition-opacity hover:opacity-90 disabled:opacity-50"
+                style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+              >
+                Ver minha simulação completa
+                {arrowIcon}
+              </button>
+              <p className="text-[11px] text-gray-400 text-center">
+                Em caso de áreas remotas, nossa equipe entra em contato para avaliar seu caso.
+              </p>
+            </form>
+          )}
+
+          {/* Resultado completo — só aparece depois de enviar nome e WhatsApp */}
+          {sent && (
+            <div className="pt-8 border-t border-gray-100 mt-8">
+              <div className="text-center mb-8">
+                <div className="text-4xl mb-2">✅</div>
+                <p className="font-extrabold text-lg text-[#1a1a1a] mb-1">Simulação enviada!</p>
+                <p className="text-sm text-gray-500">Abrimos o WhatsApp para você falar direto com nossa equipe. Aqui está sua simulação completa:</p>
+              </div>
+
+              <div className="mb-8 rounded-2xl p-6 text-center" style={{ background: "#F7F7F7" }}>
                 <p className="text-sm font-semibold text-[#4D4D4D] mb-1">Você pode economizar por ano até</p>
                 <p className="text-4xl md:text-5xl font-extrabold mb-1" style={{ color: "#FF5900" }}>{fmt(annual)}</p>
                 <p className="text-xs text-gray-400">≈ {fmt(monthly)} por mês · simulação baseada em 90% de economia solar</p>
@@ -407,62 +454,11 @@ export function SimuladorSolar() {
                   Parcele o investimento em até 60x com as melhores condições do mercado, aprovação rápida e sem burocracia. Praticamente trocando sua conta de luz pela parcela do sistema — e ao final, a energia é sua.
                 </p>
               </div>
-            </>
-          )}
 
-          {/* Dados de contato */}
-          {temResultado && !sent && (
-            <form onSubmit={submit} className="flex flex-col gap-4 pt-2 border-t border-gray-100 mt-2">
-              <p className="font-extrabold text-[#1a1a1a] text-base md:text-lg mt-6 mb-1">
-                Quase lá! Informe seus dados para receber a simulação completa.
+              <p className="text-[11px] text-gray-400 leading-relaxed">
+                *Importante: os valores exibidos são aproximados, calculados a partir de médias de mercado (tarifa de energia, irradiação solar e custo de equipamentos) e servem apenas como referência inicial. O valor final pode variar conforme o tipo de telhado, condições do local, consumo real e equipamentos escolhidos. Solicite uma visita técnica para um orçamento personalizado e preciso.
               </p>
-              <div className="flex flex-col gap-4 md:flex-row">
-                <input
-                  type="text"
-                  value={nome}
-                  onChange={(e) => setNome(e.target.value)}
-                  placeholder="Seu nome completo"
-                  required
-                  className="flex-1 border-2 rounded-xl px-4 py-3 text-sm outline-none"
-                  style={{ borderColor: "#e5e7eb", color: "#1a1a1a" }}
-                />
-                <input
-                  type="tel"
-                  value={whatsapp}
-                  onChange={(e) => setWhatsapp(e.target.value)}
-                  placeholder="(62) 99999-9999"
-                  required
-                  className="flex-1 border-2 rounded-xl px-4 py-3 text-sm outline-none"
-                  style={{ borderColor: "#e5e7eb", color: "#1a1a1a" }}
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={leadBloqueado}
-                className="inline-flex items-center justify-center gap-2 w-full text-white font-bold py-4 rounded-full text-base transition-opacity hover:opacity-90 disabled:opacity-50"
-                style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-              >
-                Simular e falar com um especialista
-                {arrowIcon}
-              </button>
-              <p className="text-[11px] text-gray-400 text-center">
-                Em caso de áreas remotas, nossa equipe entra em contato para avaliar seu caso.
-              </p>
-            </form>
-          )}
-
-          {sent && (
-            <div className="text-center pt-2 border-t border-gray-100 mt-2 pt-8">
-              <div className="text-5xl mb-3">✅</div>
-              <p className="font-extrabold text-lg text-[#1a1a1a] mb-1">Simulação enviada!</p>
-              <p className="text-sm text-gray-500">Abrimos o WhatsApp para você falar direto com nossa equipe.</p>
             </div>
-          )}
-
-          {temResultado && (
-            <p className="text-[11px] text-gray-400 leading-relaxed mt-8 pt-6 border-t border-gray-100">
-              *Importante: os valores exibidos são aproximados, calculados a partir de médias de mercado (tarifa de energia, irradiação solar e custo de equipamentos) e servem apenas como referência inicial. O valor final pode variar conforme o tipo de telhado, condições do local, consumo real e equipamentos escolhidos. Solicite uma visita técnica para um orçamento personalizado e preciso.
-            </p>
           )}
         </div>
       </div>
