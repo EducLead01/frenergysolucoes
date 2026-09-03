@@ -1,10 +1,18 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { Home, Building2, Wheat, BatteryCharging, LocateFixed } from "lucide-react";
+import { Home, Building2, Wheat, BatteryCharging, LocateFixed, Zap, Ruler, Wallet, Sun, Clock, ShieldCheck, TrendingUp } from "lucide-react";
 import { trackLead } from "@/lib/metaPixel";
 
 const WHATSAPP_NUMBER = "5562996426626";
+
+// Constantes usadas para estimar o dimensionamento do sistema — valores aproximados de mercado,
+// ajustar aqui se a Frenergy tiver dados mais precisos (preço/kWp real, irradiação local etc.)
+const TARIFA_MEDIA_KWH = 0.85; // R$ por kWh (média nacional aproximada)
+const GERACAO_KWH_POR_KWP_MES = 135; // kWh gerados por kWp instalado, por mês (irradiação Centro-Oeste)
+const AREA_M2_POR_KWP = 4.3; // m² de telhado por kWp instalado
+const PRECO_MIN_POR_KWP = 3200; // R$/kWp — baseado no case real Itapoã (~R$3.810/kWp), com margem
+const PRECO_MAX_POR_KWP = 3900; // R$/kWp
 
 const TIPOS: { label: string; icon: ReactNode }[] = [
   { label: "Residencial", icon: <Home size={26} /> },
@@ -176,6 +184,16 @@ export function SimuladorSolar() {
   const monthly = contaNum * 0.9;
   const annual = monthly * 12;
 
+  // Dimensionamento aproximado do sistema a partir da economia estimada
+  const producaoMensalKwh = monthly / TARIFA_MEDIA_KWH;
+  const potenciaKwp = producaoMensalKwh / GERACAO_KWH_POR_KWP_MES;
+  const areaM2 = potenciaKwp * AREA_M2_POR_KWP;
+  const valorSistemaMin = potenciaKwp * PRECO_MIN_POR_KWP;
+  const valorSistemaMax = potenciaKwp * PRECO_MAX_POR_KWP;
+  const tempoRetornoAnos = (valorSistemaMin + valorSistemaMax) / 2 / annual;
+  const tempoRetornoBaixo = Math.max(1, Math.floor(tempoRetornoAnos));
+  const tempoRetornoAlto = tempoRetornoBaixo + 1;
+
   const leadBloqueado = !nome.trim() || !whatsapp.trim();
 
   function submit(e: React.FormEvent) {
@@ -195,6 +213,10 @@ export function SimuladorSolar() {
         "Conta de luz informada": fmt(contaNum),
         "Economia mensal estimada": fmt(monthly),
         "Economia anual estimada": fmt(annual),
+        "Potência estimada (kWp)": potenciaKwp.toFixed(2),
+        "Área mínima estimada (m²)": Math.round(areaM2),
+        "Valor estimado do sistema": `${fmt(valorSistemaMin)} a ${fmt(valorSistemaMax)}`,
+        "Retorno estimado (anos)": `${tempoRetornoBaixo} a ${tempoRetornoAlto}`,
         Origem: "Simulador",
       }),
     });
@@ -211,6 +233,8 @@ export function SimuladorSolar() {
       "",
       `Economia estimada por mês: *${fmt(monthly)}*`,
       `Economia estimada por ano: *${fmt(annual)}*`,
+      `Potência estimada: *${potenciaKwp.toFixed(2)} kWp*`,
+      `Valor estimado do sistema: *${fmt(valorSistemaMin)} a ${fmt(valorSistemaMax)}*`,
     ].join("\n");
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
 
@@ -353,11 +377,37 @@ export function SimuladorSolar() {
 
           {/* Resultado em tempo real */}
           {temResultado && (
-            <div className="mt-8 mb-10 rounded-2xl p-6 text-center" style={{ background: "#F7F7F7" }}>
-              <p className="text-sm font-semibold text-[#4D4D4D] mb-1">Você pode economizar por ano até</p>
-              <p className="text-4xl md:text-5xl font-extrabold mb-1" style={{ color: "#FF5900" }}>{fmt(annual)}</p>
-              <p className="text-xs text-gray-400">≈ {fmt(monthly)} por mês · simulação baseada em 90% de economia solar</p>
-            </div>
+            <>
+              <div className="mt-8 mb-8 rounded-2xl p-6 text-center" style={{ background: "#F7F7F7" }}>
+                <p className="text-sm font-semibold text-[#4D4D4D] mb-1">Você pode economizar por ano até</p>
+                <p className="text-4xl md:text-5xl font-extrabold mb-1" style={{ color: "#FF5900" }}>{fmt(annual)}</p>
+                <p className="text-xs text-gray-400">≈ {fmt(monthly)} por mês · simulação baseada em 90% de economia solar</p>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-8 mb-10">
+                {[
+                  { icon: <Zap size={28} />, label: "Potência instalada*", valor: `${potenciaKwp.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kWp` },
+                  { icon: <Ruler size={28} />, label: "Área mínima necessária*", valor: `${Math.round(areaM2)} m²` },
+                  { icon: <Wallet size={28} />, label: "Valor aproximado do sistema com instalação*", valor: `Entre ${fmt(valorSistemaMin)} e ${fmt(valorSistemaMax)}` },
+                  { icon: <Sun size={28} />, label: "Produção mensal*", valor: `${producaoMensalKwh.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kWh/mês` },
+                  { icon: <TrendingUp size={28} />, label: "Economia anual aproximada*", valor: fmt(annual) },
+                  { icon: <Clock size={28} />, label: "Tempo aproximado de retorno do investimento*", valor: `Entre ${tempoRetornoBaixo} e ${tempoRetornoAlto} anos` },
+                ].map((item) => (
+                  <div key={item.label} className="flex flex-col items-center text-center gap-2">
+                    <div style={{ color: "#FF5900" }}>{item.icon}</div>
+                    <p className="text-xs text-gray-500 leading-snug">{item.label}</p>
+                    <p className="font-bold text-[#1a1a1a] text-sm md:text-base">{item.valor}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex gap-4 rounded-xl p-5 mb-8" style={{ background: "#FFF8E8", borderLeft: "4px solid #FFC10E" }}>
+                <ShieldCheck size={22} className="flex-shrink-0 mt-0.5" style={{ color: "#FFC10E" }} />
+                <p className="text-sm text-[#4D4D4D] leading-relaxed">
+                  Parcele o investimento em até 60x com as melhores condições do mercado, aprovação rápida e sem burocracia. Praticamente trocando sua conta de luz pela parcela do sistema — e ao final, a energia é sua.
+                </p>
+              </div>
+            </>
           )}
 
           {/* Dados de contato */}
@@ -407,6 +457,12 @@ export function SimuladorSolar() {
               <p className="font-extrabold text-lg text-[#1a1a1a] mb-1">Simulação enviada!</p>
               <p className="text-sm text-gray-500">Abrimos o WhatsApp para você falar direto com nossa equipe.</p>
             </div>
+          )}
+
+          {temResultado && (
+            <p className="text-[11px] text-gray-400 leading-relaxed mt-8 pt-6 border-t border-gray-100">
+              *Importante: os valores exibidos são aproximados, calculados a partir de médias de mercado (tarifa de energia, irradiação solar e custo de equipamentos) e servem apenas como referência inicial. O valor final pode variar conforme o tipo de telhado, condições do local, consumo real e equipamentos escolhidos. Solicite uma visita técnica para um orçamento personalizado e preciso.
+            </p>
           )}
         </div>
       </div>
