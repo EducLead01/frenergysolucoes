@@ -45,8 +45,10 @@ export function SimuladorSolar() {
   const [localizando, setLocalizando] = useState(false);
   const [erroLocalizacao, setErroLocalizacao] = useState<string | null>(null);
   const [avisoTipo, setAvisoTipo] = useState(false);
+  const [avisoConta, setAvisoConta] = useState(false);
   const municipiosFetchIniciado = useRef(false);
   const avisoTipoTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const avisoContaTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const localizacaoLiberada = !!tipo;
   const contaLiberada = localizacaoLiberada && localizacao.trim().length > 2;
@@ -57,9 +59,19 @@ export function SimuladorSolar() {
     avisoTipoTimeout.current = setTimeout(() => setAvisoTipo(false), 2800);
   }
 
+  function avisarParaPreencherEtapasAnteriores() {
+    setAvisoConta(true);
+    if (avisoContaTimeout.current) clearTimeout(avisoContaTimeout.current);
+    avisoContaTimeout.current = setTimeout(() => setAvisoConta(false), 2800);
+  }
+
   useEffect(() => {
     if (tipo) setAvisoTipo(false);
   }, [tipo]);
+
+  useEffect(() => {
+    if (contaLiberada) setAvisoConta(false);
+  }, [contaLiberada]);
 
   // Carrega a lista de municípios do IBGE (gratuito, sem chave) só quando o usuário chega nessa etapa
   useEffect(() => {
@@ -299,25 +311,44 @@ export function SimuladorSolar() {
           </div>
 
           {/* Pergunta 3 — conta de luz */}
-          <p className={`font-extrabold text-base md:text-lg mb-1 transition-colors ${contaLiberada ? "text-[#1a1a1a]" : "text-gray-300"}`}>
-            3. Quanto é o seu gasto médio mensal com conta de luz?
-          </p>
-          <p className={`text-xs mb-3 ${contaLiberada ? "text-gray-400" : "text-gray-200"}`}>*Dados fornecidos na sua conta de luz</p>
-          <div
-            className="flex items-center gap-2 border-2 rounded-xl px-4 py-3 mb-2 transition-colors"
-            style={{ borderColor: "#e5e7eb", background: contaLiberada ? "#fff" : "#f9fafb" }}
-          >
-            <span className="text-lg font-bold text-gray-400">R$</span>
-            <input
-              type="number"
-              min={0}
-              disabled={!contaLiberada}
-              value={conta}
-              onChange={(e) => setConta(e.target.value)}
-              placeholder="0"
-              className="w-full text-lg font-bold outline-none bg-transparent disabled:cursor-not-allowed"
-              style={{ color: "#1a1a1a" }}
-            />
+          <div className="relative">
+            {avisoConta && (
+              <div className="absolute z-30 left-0 -top-2 -translate-y-full bg-[#1a1a1a] text-white text-xs font-semibold rounded-lg px-4 py-2.5 shadow-lg max-w-[280px]">
+                Preencha as etapas anteriores para liberar esse campo
+                <div
+                  className="absolute left-6 top-full w-0 h-0"
+                  style={{ borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid #1a1a1a" }}
+                />
+              </div>
+            )}
+            <p className={`font-extrabold text-base md:text-lg mb-1 transition-colors ${contaLiberada ? "text-[#1a1a1a]" : "text-gray-300"}`}>
+              3. Quanto é o seu gasto médio mensal com conta de luz?
+            </p>
+            <p className={`text-xs mb-3 ${contaLiberada ? "text-gray-400" : "text-gray-200"}`}>*Dados fornecidos na sua conta de luz</p>
+            <div className="relative">
+              <div
+                className="flex items-center gap-2 border-2 rounded-xl px-4 py-3 mb-2 transition-colors"
+                style={{ borderColor: "#e5e7eb", background: contaLiberada ? "#fff" : "#f9fafb" }}
+              >
+                <span className="text-lg font-bold text-gray-400">R$</span>
+                <input
+                  type="number"
+                  min={0}
+                  disabled={!contaLiberada}
+                  value={conta}
+                  onChange={(e) => setConta(e.target.value)}
+                  placeholder="0"
+                  className="w-full text-lg font-bold outline-none bg-transparent disabled:cursor-not-allowed"
+                  style={{ color: "#1a1a1a" }}
+                />
+              </div>
+              {!contaLiberada && (
+                <div
+                  className="absolute inset-0 cursor-not-allowed"
+                  onClick={avisarParaPreencherEtapasAnteriores}
+                />
+              )}
+            </div>
           </div>
 
           {/* Resultado em tempo real */}
