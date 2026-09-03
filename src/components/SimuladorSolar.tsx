@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Home, Building2, Wheat, BatteryCharging, LocateFixed, Zap, Ruler, Wallet, Sun, Clock, ShieldCheck, TrendingUp } from "lucide-react";
 import { trackLead } from "@/lib/metaPixel";
+import { WhatsAppLink } from "@/components/WhatsAppLink";
 
 const WHATSAPP_NUMBER = "5562996426626";
 
@@ -196,6 +197,23 @@ export function SimuladorSolar() {
 
   const leadBloqueado = !nome.trim() || !whatsapp.trim();
 
+  const whatsappMsg = [
+    "Olá! Simulei minha economia no site da Frenergy e quero um orçamento.",
+    "",
+    `Meu Nome: *${nome}*`,
+    `WhatsApp: ${whatsapp}`,
+    "",
+    `Tipo de local: *${tipo}*`,
+    `Localização: *${localizacao}*`,
+    `Conta de luz informada: *${fmt(contaNum)}*`,
+    "",
+    `Economia estimada por mês: *${fmt(monthly)}*`,
+    `Economia estimada por ano: *${fmt(annual)}*`,
+    `Potência estimada: *${potenciaKwp.toFixed(2)} kWp*`,
+    `Valor estimado do sistema: *${fmt(valorSistemaMin)} a ${fmt(valorSistemaMax)}*`,
+  ].join("\n");
+  const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMsg)}`;
+
   function submit(e: React.FormEvent) {
     e.preventDefault();
     if (leadBloqueado || !temResultado) return;
@@ -220,23 +238,6 @@ export function SimuladorSolar() {
         Origem: "Simulador",
       }),
     });
-
-    const msg = [
-      "Olá! Simulei minha economia no site da Frenergy e quero um orçamento.",
-      "",
-      `Meu Nome: *${nome}*`,
-      `WhatsApp: ${whatsapp}`,
-      "",
-      `Tipo de local: *${tipo}*`,
-      `Localização: *${localizacao}*`,
-      `Conta de luz informada: *${fmt(contaNum)}*`,
-      "",
-      `Economia estimada por mês: *${fmt(monthly)}*`,
-      `Economia estimada por ano: *${fmt(annual)}*`,
-      `Potência estimada: *${potenciaKwp.toFixed(2)} kWp*`,
-      `Valor estimado do sistema: *${fmt(valorSistemaMin)} a ${fmt(valorSistemaMax)}*`,
-    ].join("\n");
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
 
     setSent(true);
   }
@@ -422,7 +423,7 @@ export function SimuladorSolar() {
               <div className="text-center mb-8">
                 <div className="text-4xl mb-2">✅</div>
                 <p className="font-extrabold text-lg text-[#1a1a1a] mb-1">Simulação enviada!</p>
-                <p className="text-sm text-gray-500">Abrimos o WhatsApp para você falar direto com nossa equipe. Aqui está sua simulação completa:</p>
+                <p className="text-sm text-gray-500">Aqui está sua simulação completa:</p>
               </div>
 
               <div className="mb-8 rounded-2xl p-6 text-center" style={{ background: "#F7F7F7" }}>
@@ -454,6 +455,15 @@ export function SimuladorSolar() {
                   Parcele o investimento em até 60x com as melhores condições do mercado, aprovação rápida e sem burocracia. Praticamente trocando sua conta de luz pela parcela do sistema — e ao final, a energia é sua.
                 </p>
               </div>
+
+              <WhatsAppLink
+                href={whatsappHref}
+                className="inline-flex items-center justify-center gap-2 w-full text-white font-bold py-4 rounded-full text-base transition-opacity hover:opacity-90 mb-8"
+                style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+              >
+                Solicitar orçamento pelo WhatsApp
+                {arrowIcon}
+              </WhatsAppLink>
 
               <p className="text-[11px] text-gray-400 leading-relaxed">
                 *Importante: os valores exibidos são aproximados, calculados a partir de médias de mercado (tarifa de energia, irradiação solar e custo de equipamentos) e servem apenas como referência inicial. O valor final pode variar conforme o tipo de telhado, condições do local, consumo real e equipamentos escolhidos. Solicite uma visita técnica para um orçamento personalizado e preciso.
