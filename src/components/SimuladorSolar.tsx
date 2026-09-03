@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
-import { Home, Building2, Wheat, BatteryCharging } from "lucide-react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { Home, Building2, Wheat, BatteryCharging, LocateFixed } from "lucide-react";
 import { trackLead } from "@/lib/metaPixel";
 
 const WHATSAPP_NUMBER = "5562996426626";
@@ -23,6 +23,15 @@ function fmt(n: number) {
   return Math.round(n).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
+type Municipio = { nome: string; uf: string };
+
+const MUNICIPIOS_CACHE_KEY = "frenergy_municipios_v1";
+let municipiosMemCache: Municipio[] | null = null;
+
+function normalizar(s: string) {
+  return s.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
+}
+
 export function SimuladorSolar() {
   const [tipo, setTipo] = useState<string | null>(null);
   const [localizacao, setLocalizacao] = useState("");
@@ -31,8 +40,112 @@ export function SimuladorSolar() {
   const [whatsapp, setWhatsapp] = useState("");
   const [sent, setSent] = useState(false);
 
+  const [municipios, setMunicipios] = useState<Municipio[] | null>(municipiosMemCache);
+  const [sugestoesAbertas, setSugestoesAbertas] = useState(false);
+  const [localizando, setLocalizando] = useState(false);
+  const [erroLocalizacao, setErroLocalizacao] = useState<string | null>(null);
+  const municipiosFetchIniciado = useRef(false);
+
   const localizacaoLiberada = !!tipo;
   const contaLiberada = localizacaoLiberada && localizacao.trim().length > 2;
+
+  // Carrega a lista de municípios do IBGE (gratuito, sem chave) só quando o usuário chega nessa etapa
+  useEffect(() => {
+    if (!localizacaoLiberada || municipiosFetchIniciado.current) return;
+    municipiosFetchIniciado.current = true;
+
+    if (municipiosMemCache) {
+      setMunicipios(municipiosMemCache);
+      return;
+    }
+
+    const cached = localStorage.getItem(MUNICIPIOS_CACHE_KEY);
+    if (cached) {
+      try {
+        const lista: Municipio[] = JSON.parse(cached);
+        municipiosMemCache = lista;
+        setMunicipios(lista);
+        return;
+      } catch {
+        // cache corrompido, cai para o fetch abaixo
+      }
+    }
+
+    fetch("https://servicodados.ibge.gov.br/api/v1/localidades/municipios?orderBy=nome")
+      .then((r) => r.json())
+      .then((data: Array<{ nome: string; microrregiao?: { mesorregiao?: { UF?: { sigla?: string } } } }>) => {
+        const lista: Municipio[] = data.map((m) => ({
+          nome: m.nome,
+          uf: m.microrregiao?.mesorregiao?.UF?.sigla ?? "",
+        }));
+        municipiosMemCache = lista;
+        setMunicipios(lista);
+        try {
+          localStorage.setItem(MUNICIPIOS_CACHE_KEY, JSON.stringify(lista));
+        } catch {
+          // localStorage indisponível/cheio, sem problema — só perde o cache
+        }
+      })
+      .catch(() => {
+        // sem internet ou API fora do ar: campo continua funcionando em texto livre
+      });
+  }, [localizacaoLiberada]);
+
+  const sugestoes = useMemo(() => {
+    const q = normalizar(localizacao.trim());
+    if (!municipios || q.length < 2) return [];
+    const iniciaCom: Municipio[] = [];
+    const contem: Municipio[] = [];
+    for (const m of municipios) {
+      const nomeNormalizado = normalizar(m.nome);
+      if (nomeNormalizado.startsWith(q)) iniciaCom.push(m);
+      else if (nomeNormalizado.includes(q)) contem.push(m);
+    }
+    return [...iniciaCom, ...contem].slice(0, 8);
+  }, [localizacao, municipios]);
+
+  function selecionarMunicipio(m: Municipio) {
+    setLocalizacao(`${m.nome}, ${m.uf}`);
+    setSugestoesAbertas(false);
+  }
+
+  function usarMinhaLocalizacao() {
+    if (!navigator.geolocation) {
+      setErroLocalizacao("Geolocalização não é suportada pelo seu navegador.");
+      return;
+    }
+    setErroLocalizacao(null);
+    setLocalizando(true);
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        try {
+          const { latitude, longitude } = pos.coords;
+          const res = await fetch(
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=pt`
+          );
+          const data = await res.json();
+          // "locality" é o nome do município; "city" às vezes vem como região metropolitana (ex.: "Região Metropolitana de São Paulo")
+          const cidade: string | undefined = data.locality || data.city;
+          const uf: string | undefined = data.principalSubdivisionCode?.replace("BR-", "");
+          if (cidade) {
+            setLocalizacao(uf ? `${cidade}, ${uf}` : cidade);
+            setSugestoesAbertas(false);
+          } else {
+            setErroLocalizacao("Não conseguimos identificar sua cidade. Digite manualmente.");
+          }
+        } catch {
+          setErroLocalizacao("Não conseguimos identificar sua cidade. Digite manualmente.");
+        } finally {
+          setLocalizando(false);
+        }
+      },
+      () => {
+        setErroLocalizacao("Não conseguimos acessar sua localização. Digite manualmente.");
+        setLocalizando(false);
+      },
+      { timeout: 10000 }
+    );
+  }
 
   const contaNum = Number(conta) || 0;
   const temResultado = contaLiberada && contaNum > 0;
@@ -109,18 +222,54 @@ export function SimuladorSolar() {
           </div>
 
           {/* Pergunta 2 — localização */}
-          <p className={`font-extrabold text-base md:text-lg mb-3 transition-colors ${localizacaoLiberada ? "text-[#1a1a1a]" : "text-gray-300"}`}>
-            2. Onde pretende realizar a instalação?
-          </p>
-          <input
-            type="text"
-            disabled={!localizacaoLiberada}
-            value={localizacao}
-            onChange={(e) => setLocalizacao(e.target.value)}
-            placeholder="Digite sua cidade e estado"
-            className="w-full border-2 rounded-xl px-4 py-3 text-base outline-none mb-10 transition-colors disabled:bg-gray-50 disabled:cursor-not-allowed"
-            style={{ borderColor: "#e5e7eb", color: "#1a1a1a" }}
-          />
+          <div className="mb-10">
+            <p className={`font-extrabold text-base md:text-lg mb-3 transition-colors ${localizacaoLiberada ? "text-[#1a1a1a]" : "text-gray-300"}`}>
+              2. Onde pretende realizar a instalação?
+            </p>
+            <div className="relative">
+              <input
+                type="text"
+                disabled={!localizacaoLiberada}
+                value={localizacao}
+                onChange={(e) => { setLocalizacao(e.target.value); setSugestoesAbertas(true); }}
+                onFocus={() => setSugestoesAbertas(true)}
+                onBlur={() => setTimeout(() => setSugestoesAbertas(false), 150)}
+                placeholder="Digite sua cidade e estado"
+                autoComplete="off"
+                className="w-full border-2 rounded-xl px-4 py-3 text-base outline-none transition-colors disabled:bg-gray-50 disabled:cursor-not-allowed"
+                style={{ borderColor: "#e5e7eb", color: "#1a1a1a" }}
+              />
+              {sugestoesAbertas && sugestoes.length > 0 && (
+                <div
+                  className="absolute z-20 left-0 right-0 top-full mt-1 bg-white border rounded-xl shadow-lg overflow-hidden"
+                  style={{ borderColor: "#e5e7eb" }}
+                >
+                  {sugestoes.map((m) => (
+                    <button
+                      key={`${m.nome}-${m.uf}`}
+                      type="button"
+                      onMouseDown={() => selecionarMunicipio(m)}
+                      className="w-full text-left px-4 py-3 text-sm hover:bg-gray-50 transition-colors border-b last:border-b-0"
+                      style={{ borderColor: "#f3f4f6", color: "#374151" }}
+                    >
+                      {m.nome}, {m.uf}, Brasil
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            <button
+              type="button"
+              onClick={usarMinhaLocalizacao}
+              disabled={!localizacaoLiberada || localizando}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold mt-3 disabled:opacity-40"
+              style={{ color: "#FF5900" }}
+            >
+              <LocateFixed size={16} />
+              {localizando ? "Localizando..." : "Usar minha localização"}
+            </button>
+            {erroLocalizacao && <p className="text-xs text-red-500 mt-2">{erroLocalizacao}</p>}
+          </div>
 
           {/* Pergunta 3 — conta de luz */}
           <p className={`font-extrabold text-base md:text-lg mb-1 transition-colors ${contaLiberada ? "text-[#1a1a1a]" : "text-gray-300"}`}>
