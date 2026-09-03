@@ -44,10 +44,22 @@ export function SimuladorSolar() {
   const [sugestoesAbertas, setSugestoesAbertas] = useState(false);
   const [localizando, setLocalizando] = useState(false);
   const [erroLocalizacao, setErroLocalizacao] = useState<string | null>(null);
+  const [avisoTipo, setAvisoTipo] = useState(false);
   const municipiosFetchIniciado = useRef(false);
+  const avisoTipoTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const localizacaoLiberada = !!tipo;
   const contaLiberada = localizacaoLiberada && localizacao.trim().length > 2;
+
+  function avisarParaEscolherTipo() {
+    setAvisoTipo(true);
+    if (avisoTipoTimeout.current) clearTimeout(avisoTipoTimeout.current);
+    avisoTipoTimeout.current = setTimeout(() => setAvisoTipo(false), 2800);
+  }
+
+  useEffect(() => {
+    if (tipo) setAvisoTipo(false);
+  }, [tipo]);
 
   // Carrega a lista de municípios do IBGE (gratuito, sem chave) só quando o usuário chega nessa etapa
   useEffect(() => {
@@ -222,7 +234,16 @@ export function SimuladorSolar() {
           </div>
 
           {/* Pergunta 2 — localização */}
-          <div className="mb-10">
+          <div className="mb-10 relative">
+            {avisoTipo && (
+              <div className="absolute z-30 left-0 -top-2 -translate-y-full bg-[#1a1a1a] text-white text-xs font-semibold rounded-lg px-4 py-2.5 shadow-lg max-w-[280px]">
+                Clique no tipo de imóvel para liberar a localização
+                <div
+                  className="absolute left-6 top-full w-0 h-0"
+                  style={{ borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid #1a1a1a" }}
+                />
+              </div>
+            )}
             <p className={`font-extrabold text-base md:text-lg mb-3 transition-colors ${localizacaoLiberada ? "text-[#1a1a1a]" : "text-gray-300"}`}>
               2. Onde pretende realizar a instalação?
             </p>
@@ -239,6 +260,12 @@ export function SimuladorSolar() {
                 className="w-full border-2 rounded-xl px-4 py-3 text-base outline-none transition-colors disabled:bg-gray-50 disabled:cursor-not-allowed"
                 style={{ borderColor: "#e5e7eb", color: "#1a1a1a" }}
               />
+              {!localizacaoLiberada && (
+                <div
+                  className="absolute inset-0 cursor-not-allowed"
+                  onClick={avisarParaEscolherTipo}
+                />
+              )}
               {sugestoesAbertas && sugestoes.length > 0 && (
                 <div
                   className="absolute z-20 left-0 right-0 top-full mt-1 bg-white border rounded-xl shadow-lg overflow-hidden"
