@@ -200,7 +200,7 @@ export function SimuladorSolar() {
 
           {/* Pergunta 1 — tipo de local */}
           <p className="font-extrabold text-[#1a1a1a] text-base md:text-lg mb-5">
-            1. Qual é o tipo do local que irá instalar o gerador?
+            1. Selecione qual é o seu perfil para liberar as próximas opções
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
             {TIPOS.map((t) => (
