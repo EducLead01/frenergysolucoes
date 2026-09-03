@@ -30,7 +30,7 @@ const navLinks = [
   { label: "INÍCIO",            href: "/" },
   { label: "SERVIÇOS",          href: "#servicos" },
   { label: "COMO FUNCIONA",     href: "#como-funciona" },
-  { label: "SIMULADOR",         href: "/simulador" },
+  { label: "SIMULADOR",         href: "/simulador-de-energia" },
   { label: "GESTÃO DE ENERGIA", href: "/gestao-de-energia" },
   { label: "CASES",             href: "/cases" },
   { label: "CONDOMÍNIOS",       href: "/condominios" },
