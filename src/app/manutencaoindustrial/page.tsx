@@ -23,16 +23,18 @@ export default function ManutencaoIndustrial() {
         `}</style>
 
         {/* Hero */}
-        <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", background: "url('/images/limpeza_01.jpg') center/cover no-repeat" }}>
-          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.65)" }} />
-          <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "120px 32px 80px" }}>
-            <p style={{ color: "#FFC10E", fontWeight: 700, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
+        <section style={{ position: "relative", height: "80vh", background: "url('/images/comercialhero.webp') center/cover no-repeat" }} />
+
+        {/* Título + CTA */}
+        <section className="pt-16 pb-4 bg-white">
+          <div className="container mx-auto px-6 max-w-3xl text-center">
+            <p style={{ color: "#FF5900", fontWeight: 700, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
               Manutenção para Indústrias, Empresas e Galpões
             </p>
-            <h1 style={{ color: "#fff", fontSize: "clamp(32px, 4.5vw, 62px)", fontWeight: 900, maxWidth: 760, lineHeight: 1.15, marginBottom: 20 }}>
+            <h1 style={{ color: "#4D4D4D", fontSize: "clamp(28px, 3.5vw, 46px)", fontWeight: 900, lineHeight: 1.15, marginBottom: 20 }}>
               Cada dia sem manutenção é energia que sua operação paga e não recebe.
             </h1>
-            <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(16px, 2vw, 20px)", maxWidth: 560, lineHeight: 1.65, marginBottom: 40 }}>
+            <p style={{ color: "#787878", fontSize: "clamp(16px, 1.5vw, 18px)", lineHeight: 1.65, marginBottom: 40 }}>
               A Frenergy faz a limpeza técnica e manutenção preventiva de usinas solares de grande porte — sem parar sua produção, com equipe certificada para trabalho em altura e ambientes industriais.
             </p>
             <WhatsAppLink
