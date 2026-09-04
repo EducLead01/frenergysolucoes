@@ -455,9 +455,9 @@ export function SimuladorSolar() {
               <WhatsAppLink
                 href={whatsappHref}
                 className="inline-flex items-center justify-center gap-2 w-full text-white font-bold py-4 rounded-full text-base transition-opacity hover:opacity-90 mb-8"
-                style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+                style={{ background: "#115e59" }}
               >
-                Solicitar orçamento pelo WhatsApp
+                Receber a simulação detalhada no WhatsApp
                 {arrowIcon}
               </WhatsAppLink>
 
