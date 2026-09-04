@@ -422,25 +422,29 @@ export function SimuladorSolar() {
           {/* Resultado completo — só aparece depois de enviar nome e WhatsApp */}
           {sent && (
             <div className="pt-8 border-t border-gray-100 mt-8">
-              <div className="mb-8 rounded-2xl p-6 text-center" style={{ background: "#F7F7F7" }}>
-                <p className="text-sm font-semibold text-[#4D4D4D] mb-1">Você pode economizar por ano até</p>
-                <p className="text-4xl md:text-5xl font-extrabold mb-1" style={{ color: "#FF5900" }}>{fmt(annual)}</p>
-                <p className="text-xs text-gray-400">≈ {fmt(monthly)} por mês · simulação baseada em 90% de economia solar</p>
+              <div className="mb-8 rounded-2xl p-6 text-center" style={{ background: "#F5EFE7" }}>
+                <p className="text-sm font-semibold mb-1" style={{ color: "#0A0F2E" }}>Você pode economizar por ano até</p>
+                <p className="text-4xl md:text-5xl font-extrabold mb-1" style={{ color: "#E8821E" }}>{fmt(annual)}</p>
+                <p className="text-xs" style={{ color: "#8a8175" }}>≈ {fmt(monthly)} por mês · simulação baseada em 90% de economia solar</p>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-8 mb-10">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
                 {[
-                  { icon: <Zap size={28} />, label: "Potência instalada*", valor: `${potenciaKwp.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kWp` },
-                  { icon: <Ruler size={28} />, label: "Área mínima necessária*", valor: `${Math.round(areaM2)} m²` },
-                  { icon: <Wallet size={28} />, label: "Valor aproximado do sistema com instalação*", valor: `Entre ${fmt(valorSistemaMin)} e ${fmt(valorSistemaMax)}` },
-                  { icon: <Sun size={28} />, label: "Produção mensal*", valor: `${producaoMensalKwh.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kWh/mês` },
-                  { icon: <TrendingUp size={28} />, label: "Economia anual aproximada*", valor: fmt(annual) },
-                  { icon: <Clock size={28} />, label: "Tempo aproximado de retorno do investimento*", valor: `Entre ${tempoRetornoBaixo} e ${tempoRetornoAlto} anos` },
+                  { icon: <Zap size={26} />, label: "Potência instalada*", valor: `${potenciaKwp.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kWp` },
+                  { icon: <Ruler size={26} />, label: "Área mínima necessária*", valor: `${Math.round(areaM2)} m²` },
+                  { icon: <Wallet size={26} />, label: "Valor aproximado do sistema com instalação*", valor: `Entre ${fmt(valorSistemaMin)} e ${fmt(valorSistemaMax)}` },
+                  { icon: <Sun size={26} />, label: "Produção mensal*", valor: `${producaoMensalKwh.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kWh/mês` },
+                  { icon: <TrendingUp size={26} />, label: "Economia anual aproximada*", valor: fmt(annual) },
+                  { icon: <Clock size={26} />, label: "Tempo aproximado de retorno do investimento*", valor: `Entre ${tempoRetornoBaixo} e ${tempoRetornoAlto} anos` },
                 ].map((item) => (
-                  <div key={item.label} className="flex flex-col items-center text-center gap-2">
-                    <div style={{ color: "#FF5900" }}>{item.icon}</div>
-                    <p className="text-xs text-gray-500 leading-snug">{item.label}</p>
-                    <p className="font-bold text-[#1a1a1a] text-sm md:text-base">{item.valor}</p>
+                  <div
+                    key={item.label}
+                    className="flex flex-col items-center text-center gap-2 rounded-2xl p-5"
+                    style={{ background: "#F5EFE7", border: "1px solid rgba(232,130,30,0.25)" }}
+                  >
+                    <div style={{ color: "#E8821E" }}>{item.icon}</div>
+                    <p className="text-xs leading-snug" style={{ color: "#8a8175" }}>{item.label}</p>
+                    <p className="font-bold text-sm md:text-base" style={{ color: "#0A0F2E" }}>{item.valor}</p>
                   </div>
                 ))}
               </div>
