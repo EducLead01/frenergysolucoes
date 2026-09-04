@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Open_Sans } from "next/font/google";
+import { Montserrat, Open_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { MetaPixel } from "@/components/MetaPixel";
@@ -14,6 +14,13 @@ const openSans = Open_Sans({
   subsets: ["latin"],
   variable: "--font-open-sans",
   display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+  weight: ["400", "600", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -58,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${montserrat.variable} ${openSans.variable} h-full antialiased`}
+      className={`${montserrat.variable} ${openSans.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-montserrat">
         <MetaPixel />
