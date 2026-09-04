@@ -422,12 +422,6 @@ export function SimuladorSolar() {
           {/* Resultado completo — só aparece depois de enviar nome e WhatsApp */}
           {sent && (
             <div className="pt-8 border-t border-gray-100 mt-8">
-              <div className="text-center mb-8">
-                <div className="text-4xl mb-2">✅</div>
-                <p className="font-extrabold text-lg text-[#1a1a1a] mb-1">Simulação enviada!</p>
-                <p className="text-sm text-gray-500">Aqui está sua simulação completa:</p>
-              </div>
-
               <div className="mb-8 rounded-2xl p-6 text-center" style={{ background: "#F7F7F7" }}>
                 <p className="text-sm font-semibold text-[#4D4D4D] mb-1">Você pode economizar por ano até</p>
                 <p className="text-4xl md:text-5xl font-extrabold mb-1" style={{ color: "#FF5900" }}>{fmt(annual)}</p>
