@@ -424,7 +424,7 @@ export function SimuladorSolar() {
             <div className="pt-8 border-t border-gray-100 mt-8">
               <div className="mb-8 rounded-2xl p-6 text-center" style={{ background: "#F5EFE7" }}>
                 <p className="text-sm font-black mb-1" style={{ color: "#0A0F2E" }}>Você pode economizar por ano até</p>
-                <p className="text-4xl md:text-5xl font-black mb-1" style={{ color: "#E8821E" }}>{fmt(annual)}</p>
+                <p className="text-4xl md:text-5xl font-black mb-1" style={{ color: "#115e59" }}>{fmt(annual)}</p>
                 <p className="text-xs" style={{ color: "#8a8175" }}>≈ {fmt(monthly)} por mês · simulação baseada em 90% de economia solar</p>
               </div>
 
@@ -442,7 +442,7 @@ export function SimuladorSolar() {
                     className="flex flex-col items-center text-center gap-2 rounded-2xl p-5"
                     style={{ background: "#fff", border: "1px solid #A98F5C" }}
                   >
-                    <div style={{ color: "#E8821E" }}>{item.icon}</div>
+                    <div style={{ color: "#115e59" }}>{item.icon}</div>
                     <p className="text-xs leading-snug" style={{ color: "#8a8175" }}>{item.label}</p>
                     <p className="font-black text-sm md:text-base" style={{ color: "#0A0F2E" }}>{item.valor}</p>
                   </div>
