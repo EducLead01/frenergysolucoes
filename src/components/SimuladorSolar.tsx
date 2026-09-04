@@ -461,7 +461,7 @@ export function SimuladorSolar() {
                 className="inline-flex items-center justify-center gap-2 w-full text-white font-bold py-4 rounded-full text-base transition-opacity hover:opacity-90 mb-8"
                 style={{ background: "#115e59" }}
               >
-                Receber a simulação detalhada no WhatsApp
+                Receber no WhatsApp
                 {arrowIcon}
               </WhatsAppLink>
 
