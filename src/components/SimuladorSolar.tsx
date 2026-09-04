@@ -259,9 +259,9 @@ export function SimuladorSolar() {
                 onClick={() => setTipo(t.label)}
                 className="flex flex-col items-center justify-center gap-2 rounded-xl px-3 py-5 text-center transition-all"
                 style={{
-                  border: tipo === t.label ? "2px solid #FF5900" : "2px solid #e5e7eb",
-                  background: tipo === t.label ? "rgba(255,89,0,0.06)" : "#fff",
-                  color: tipo === t.label ? "#FF5900" : "#6b7280",
+                  border: tipo === t.label ? "2px solid #115e59" : "2px solid #e5e7eb",
+                  background: tipo === t.label ? "rgba(17,94,89,0.06)" : "#fff",
+                  color: tipo === t.label ? "#115e59" : "#6b7280",
                 }}
               >
                 {t.icon}
@@ -408,7 +408,7 @@ export function SimuladorSolar() {
                 type="submit"
                 disabled={leadBloqueado}
                 className="inline-flex items-center justify-center gap-2 w-full text-white font-bold py-4 rounded-full text-base transition-opacity hover:opacity-90 disabled:opacity-50"
-                style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+                style={{ background: "#115e59" }}
               >
                 Ver minha simulação completa
                 {arrowIcon}
