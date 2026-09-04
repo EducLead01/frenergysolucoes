@@ -12,8 +12,8 @@ const WHATSAPP_NUMBER = "5562996426626";
 const TARIFA_MEDIA_KWH = 0.85; // R$ por kWh (média nacional aproximada)
 const GERACAO_KWH_POR_KWP_MES = 135; // kWh gerados por kWp instalado, por mês (irradiação Centro-Oeste)
 const AREA_M2_POR_KWP = 4.3; // m² de telhado por kWp instalado
-const PRECO_MIN_POR_KWP = 3200; // R$/kWp — baseado no case real Itapoã (~R$3.810/kWp), com margem
-const PRECO_MAX_POR_KWP = 3900; // R$/kWp
+const PRECO_MIN_POR_KWP = 2750; // R$/kWp — sistema de 8 kWp em telhado (dado real Frenergy)
+const PRECO_MAX_POR_KWP = 3390.47; // R$/kWp — sistema de 8 kWp instalado em solo (dado real Frenergy, mais caro por causa da estrutura)
 
 const TIPOS: { label: string; icon: ReactNode }[] = [
   { label: "Residencial", icon: <Home size={26} /> },
