@@ -387,7 +387,8 @@ export function SimuladorSolar() {
                   type="text"
                   value={nome}
                   onChange={(e) => setNome(e.target.value)}
-                  placeholder="Seu nome completo"
+                  placeholder="Nome"
+                  autoComplete="name"
                   required
                   className="flex-1 border-2 rounded-xl px-4 py-3 text-sm outline-none"
                   style={{ borderColor: "#e5e7eb", color: "#1a1a1a" }}
@@ -396,7 +397,8 @@ export function SimuladorSolar() {
                   type="tel"
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
-                  placeholder="(62) 99999-9999"
+                  placeholder="WhatsApp"
+                  autoComplete="tel"
                   required
                   className="flex-1 border-2 rounded-xl px-4 py-3 text-sm outline-none"
                   style={{ borderColor: "#e5e7eb", color: "#1a1a1a" }}
