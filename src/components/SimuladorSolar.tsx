@@ -440,7 +440,7 @@ export function SimuladorSolar() {
                   <div
                     key={item.label}
                     className="flex flex-col items-center text-center gap-2 rounded-2xl p-5"
-                    style={{ background: "#F5EFE7", border: "1px solid rgba(232,130,30,0.25)" }}
+                    style={{ background: "#fff", border: "1px solid #A98F5C" }}
                   >
                     <div style={{ color: "#E8821E" }}>{item.icon}</div>
                     <p className="text-xs leading-snug" style={{ color: "#8a8175" }}>{item.label}</p>
