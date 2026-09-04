@@ -55,9 +55,11 @@ export function SimuladorSolar() {
   const [erroLocalizacao, setErroLocalizacao] = useState<string | null>(null);
   const [avisoTipo, setAvisoTipo] = useState(false);
   const [avisoConta, setAvisoConta] = useState(false);
+  const [avisoValor, setAvisoValor] = useState(false);
   const municipiosFetchIniciado = useRef(false);
   const avisoTipoTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const avisoContaTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const avisoValorTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const localizacaoLiberada = !!tipo;
   const contaLiberada = localizacaoLiberada && localizacao.trim().length > 2;
@@ -72,6 +74,12 @@ export function SimuladorSolar() {
     setAvisoConta(true);
     if (avisoContaTimeout.current) clearTimeout(avisoContaTimeout.current);
     avisoContaTimeout.current = setTimeout(() => setAvisoConta(false), 2800);
+  }
+
+  function avisarParaColocarValor() {
+    setAvisoValor(true);
+    if (avisoValorTimeout.current) clearTimeout(avisoValorTimeout.current);
+    avisoValorTimeout.current = setTimeout(() => setAvisoValor(false), 2800);
   }
 
   useEffect(() => {
@@ -184,6 +192,10 @@ export function SimuladorSolar() {
   const temResultado = contaLiberada && contaNum > 0;
   const monthly = contaNum * 0.9;
   const annual = monthly * 12;
+
+  useEffect(() => {
+    if (contaNum > 0) setAvisoValor(false);
+  }, [contaNum]);
 
   // Dimensionamento aproximado do sistema a partir da economia estimada
   const producaoMensalKwh = monthly / TARIFA_MEDIA_KWH;
@@ -346,6 +358,15 @@ export function SimuladorSolar() {
                 />
               </div>
             )}
+            {avisoValor && (
+              <div className="absolute z-30 left-0 -top-2 -translate-y-full bg-[#1a1a1a] text-white text-xs font-semibold rounded-lg px-4 py-2.5 shadow-lg max-w-[280px]">
+                Coloque o valor da sua conta para avançar
+                <div
+                  className="absolute left-6 top-full w-0 h-0"
+                  style={{ borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid #1a1a1a" }}
+                />
+              </div>
+            )}
             <p className={`font-extrabold text-base md:text-lg mb-1 transition-colors ${contaLiberada ? "text-[#1a1a1a]" : "text-gray-300"}`}>
               3. Quanto é o seu gasto médio mensal com conta de luz?
             </p>
@@ -362,6 +383,7 @@ export function SimuladorSolar() {
                   disabled={!contaLiberada}
                   value={conta}
                   onChange={(e) => setConta(e.target.value)}
+                  onFocus={() => { if (contaNum === 0) avisarParaColocarValor(); }}
                   placeholder="0"
                   className="w-full text-lg font-bold outline-none bg-transparent disabled:cursor-not-allowed"
                   style={{ color: "#1a1a1a" }}
