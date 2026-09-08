@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import {
   ChevronDown,
   Utensils,
@@ -37,9 +38,13 @@ const navLinks = [
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled]     = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [segOpen, setSegOpen]       = useState(false);
+
+  // O CTA leva para /orcamentos, que competiria com a calculadora da própria página.
+  const ocultarCta = pathname?.replace(/\/$/, "") === "/simulador-de-energia";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -117,16 +122,18 @@ export function Navbar() {
 
         {/* CTA + hamburger */}
         <div className="flex items-center gap-4">
-          <a
-            href="/orcamentos"
-            className="hidden lg:inline-flex items-center gap-1.5 text-white font-bold uppercase text-xs lg:text-sm px-5 py-2.5 rounded-full transition-opacity hover:opacity-90"
-            style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-          >
-            QUERO ECONOMIZAR
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
+          {!ocultarCta && (
+            <a
+              href="/orcamentos"
+              className="hidden lg:inline-flex items-center gap-1.5 text-white font-bold uppercase text-xs lg:text-sm px-5 py-2.5 rounded-full transition-opacity hover:opacity-90"
+              style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+            >
+              QUERO ECONOMIZAR
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          )}
           <a
             href="/"
             className="lg:hidden text-white/70 hover:text-white transition-colors"
@@ -201,17 +208,19 @@ export function Navbar() {
               </a>
             ))}
 
-            <a
-              href="/orcamentos"
-              onClick={() => setMobileOpen(false)}
-              className="mx-6 my-4 flex items-center justify-center gap-2 text-white font-bold uppercase text-sm px-4 py-3 rounded-full transition-opacity hover:opacity-90"
-              style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
-            >
-              QUERO ECONOMIZAR
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
+            {!ocultarCta && (
+              <a
+                href="/orcamentos"
+                onClick={() => setMobileOpen(false)}
+                className="mx-6 my-4 flex items-center justify-center gap-2 text-white font-bold uppercase text-sm px-4 py-3 rounded-full transition-opacity hover:opacity-90"
+                style={{ background: "linear-gradient(90deg, #F0416E, #FF5900)" }}
+              >
+                QUERO ECONOMIZAR
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            )}
           </div>
         </div>
       )}
