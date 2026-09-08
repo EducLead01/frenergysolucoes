@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export function WhatsAppFloat() {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -10,6 +12,9 @@ export function WhatsAppFloat() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // O float leva para /orcamentos, que competiria com a própria calculadora da página.
+  if (pathname?.replace(/\/$/, "") === "/simulador-de-energia") return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
