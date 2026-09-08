@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Home, Building2, Wheat, BatteryCharging, LocateFixed, Zap, Ruler, Wallet, Sun, Clock, ShieldCheck, TrendingUp } from "lucide-react";
 import { trackLead } from "@/lib/metaPixel";
-import { WhatsAppLink } from "@/components/WhatsAppLink";
 
 const WHATSAPP_NUMBER = "5562996426626";
 
@@ -478,14 +477,17 @@ export function SimuladorSolar() {
                 </p>
               </div>
 
-              <WhatsAppLink
+              {/* <a> comum, não WhatsAppLink: o Lead dessa pessoa já foi disparado no submit acima. */}
+              <a
                 href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 w-full text-white font-bold py-4 rounded-full text-base transition-opacity hover:opacity-90 mb-8"
                 style={{ background: "#115e59" }}
               >
                 Receber no WhatsApp
                 {arrowIcon}
-              </WhatsAppLink>
+              </a>
 
               <p className="text-[11px] text-gray-400 leading-relaxed">
                 *Importante: os valores exibidos são aproximados, calculados a partir de médias de mercado (tarifa de energia, irradiação solar e custo de equipamentos) e servem apenas como referência inicial. O valor final pode variar conforme o tipo de telhado, condições do local, consumo real e equipamentos escolhidos. Solicite uma visita técnica para um orçamento personalizado e preciso.
